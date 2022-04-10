@@ -4,3 +4,6 @@
 .scrolltop-btn i{
      transform: rotate(90deg)
 }
+#ct-loadding{
+     display: none;
+}

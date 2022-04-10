@@ -1,0 +1,126 @@
+@media( min-width: 320px ) and ( max-width: 500px ){
+	.slider-banner,
+     .banner-image{
+          height: 40vh;
+     }
+     .home2-hero-slider .appoinment-form{
+          display: block!important;
+     }
+     .home2-hero-slider .appoinment-form{
+          position: unset;
+          top: 0;
+          margin-top: 30px;
+          max-width: 100%;
+     }
+     .home2-about-section .about-left .img-wrapper .es-year{
+          right: 15%;
+     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media( min-width: 500px ) and ( max-width: 768px ){
+	.slider-banner,
+     .banner-image{
+          height: 40vh;
+     }
+     .home2-hero-slider .appoinment-form{
+          display: block!important;
+     }
+     .home2-hero-slider .appoinment-form{
+          position: unset;
+          top: 0;
+          margin-top: 30px;
+          max-width: 100%;
+     }
+     .home2-about-section .about-left .img-wrapper .es-year{
+          right: 15%;
+     }
+     .home2-about-section .about-left .img-wrapper{
+          width: 100%;
+     }
+     .home2-about-section .about-left .img-wrapper img{
+          width: 100%;
+     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media( min-width: 768px ) and ( max-width: 990px ){
+	.slider-banner,
+     .banner-image{
+          height: 50vh;
+     }
+     .home2-hero-slider .appoinment-form{
+          display: block!important;
+     }
+     .home2-hero-slider .appoinment-form{
+          position: unset;
+          top: 0;
+          margin-top: 30px;
+          max-width: 100%;
+     }
+     .home2-about-section .about-left .img-wrapper .es-year{
+          right: 15%;
+     }
+     .home2-about-section .about-left .img-wrapper{
+          width: 100%;
+     }
+     .home2-about-section .about-left .img-wrapper img{
+          width: 100%;
+     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media( min-width: 990px ) and ( max-width: 1140px ){
+     .home2-hero-slider .appoinment-form{
+          display: block!important;
+          top: -695px;
+     }
+    
+}
