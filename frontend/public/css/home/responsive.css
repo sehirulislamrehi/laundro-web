@@ -21,6 +21,13 @@
      .home2-service-section .home2-service-slider .service-single-item{
           margin-bottom: 0;
      }
+
+     .book-service{
+          padding: 50px 15px;
+     }
+     .book-service .book-service-row {
+          padding: 50px 15px;
+      }
 }
 
 
@@ -59,6 +66,13 @@
      .home2-about-section .about-left .img-wrapper img{
           width: 100%;
      }
+
+     .book-service{
+          padding: 50px 15px;
+     }
+     .book-service .book-service-row {
+          padding: 50px 15px;
+      }
 }
 
 

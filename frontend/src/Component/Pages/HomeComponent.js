@@ -19,7 +19,8 @@ import Footer from "../Include/Footer";
 
 const HomeComponent = () => {
 
-
+     {/* window scroll to top */}
+     window.scrollTo(0, 0);
 
      const service_options = {
           margin: 0,
@@ -82,7 +83,6 @@ const HomeComponent = () => {
                {/* Mobile Menu */}
                <MobileMenu></MobileMenu>
                {/* Mobile Menu End */}
-
 
                {/* Hero Slider */}
                <div className="home2-hero-slider">
@@ -148,6 +148,56 @@ const HomeComponent = () => {
                     </div>
                </div>
                {/* Hero Slider End */}
+
+
+               {/* Book Service Section start */}
+               <section className="book-service">
+                    <div className="container">
+                         <div className="row book-service-row">
+
+                              {/* section title */}
+                              <div className="col-md-12 section-title">
+                                   <h4>Fill All Information Details to Consult With Us To Get Sevices From Us</h4>
+                              </div>
+
+                              {/* form part */}
+                              <div className="col-md-12 section-form">
+                                   <form action="">
+                                        <div className="row">
+
+                                             {/* name */}
+                                             <div className="col-md-5 col-12 form-group">
+                                                  <input type="text" name="" className="form-control" placeholder="Enter your name" />                                                 
+                                             </div>
+
+                                             {/* service */}
+                                             <div className="col-md-5 col-12 form-group">
+                                                  <select name="" className="form-control">
+                                                       <option>Select Service</option>
+                                                       <option>House Cleaning</option>
+                                                       <option>House Office Cleaning</option>
+                                                       <option>House Plubming Cleaning</option>
+                                                  </select>                                               
+                                             </div>
+
+                                             {/* button */}
+                                             <div className="col-md-2 col-12 form-group">
+                                                  <button className="book-now" type="submit">
+                                                       Book Now
+                                                  </button>                                              
+                                             </div>
+
+
+                                        </div>
+                                   </form>
+                              </div>
+
+                         </div>
+                    </div>
+               </section>
+               {/* Book Service Section end */}
+
+
 
                {/* About Section */}
                <section className="home2-about-section pt-100 pb-100">
