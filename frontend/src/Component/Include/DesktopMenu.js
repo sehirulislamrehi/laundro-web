@@ -76,11 +76,12 @@ const DesktopMenu = () => {
                                                             <Link to="/about">About</Link>
                                                        </li>
                                                        <li >
-                                                            <Link to="/about">Services</Link>
+                                                            <Link to="/services">Services</Link>
                                                        </li>
-                                                       <li className="has-submenu">
-                                                            <Link to="/about">Pages</Link>
-                                                            <ul>
+                                                       {/* <li className="has-submenu"> */}
+                                                       {/* <li>
+                                                            <Link to="/about">Pages</Link> */}
+                                                            {/* <ul>
                                                                  <li><Link to="/about">About</Link></li>
                                                                  <li><Link to="/about">About V2</Link></li>
                                                                  <li><Link to="/about">Faq</Link></li>
@@ -89,16 +90,10 @@ const DesktopMenu = () => {
                                                                  <li><Link to="/about">Reviews</Link></li>
                                                                  <li><Link to="/about">404 page</Link></li>
                                                                  <li><Link to="/about">Coming Soon</Link></li>
-                                                            </ul>
-                                                       </li>
+                                                            </ul> */}
+                                                       {/* </li> */}
                                                        <li>
-                                                            <Link to="/about">Portfolio</Link>
-                                                       </li>
-                                                       <li>
-                                                            <Link to="/about">Blog</Link>
-                                                       </li>
-                                                       <li>
-                                                            <Link to="/about">Contact</Link>
+                                                            <Link to="/contact">Contact</Link>
                                                        </li>
                                                   </ul>
                                              </nav>

@@ -5,7 +5,7 @@ import MobileMenu from "../Include/MobileMenu";
 import Footer from "../Include/Footer";
 
 
-const AboutComponent = () => {
+const ContactComponent = () => {
      return(
           <div className="id">
 
@@ -23,9 +23,9 @@ const AboutComponent = () => {
                     <span className="breadcrumb-object"><img src="/images/slider-object.png" alt=""></img></span>
                     <div className="container">
                          <div className="breadcrumb-content">
-                              <h1>About Us</h1>
+                              <h1>Contact Us</h1>
                               <a href="index.html">Home <i className="fas fa-angle-double-right"></i></a>
-                              <span>About Us</span>
+                              <span>Contact Us</span>
                          </div>
                     </div>
                </div>
@@ -39,4 +39,4 @@ const AboutComponent = () => {
      );
 }
 
-export default AboutComponent;
+export default ContactComponent;

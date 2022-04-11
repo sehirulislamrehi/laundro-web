@@ -14,11 +14,12 @@ const MobileMenu = () => {
                               </Link>
                          </li>
                          <li>
-                              <Link to="/about">Services</Link>
+                              <Link to="/services">Services</Link>
                          </li>
-                         <li className="has-submenu">
-                              <a href="#">Pages</a>
-                              <ul>
+                         {/* <li className="has-submenu"> */}
+                         {/* <li>
+                              <a href="#">Pages</a> */}
+                              {/* <ul>
                                    <li>
                                         <Link to="/about">
                                              About
@@ -31,10 +32,10 @@ const MobileMenu = () => {
                                    <li><Link to="/about">Reviews</Link></li>
                                    <li><Link to="/about">404 page</Link></li>
                                    <li><Link to="/about">Coming Soon</Link></li>
-                              </ul>
-                         </li>
+                              </ul> */}
+                         {/* </li> */}
                          <li>
-                              <Link to="/about">Portfolio</Link>
+                              <Link to="/contact">Contact</Link>
                          </li>
                     </ul>
                </div>
