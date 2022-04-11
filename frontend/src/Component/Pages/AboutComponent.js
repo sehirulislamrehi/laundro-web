@@ -14,10 +14,17 @@ const AboutComponent = () => {
                <DesktopMenu></DesktopMenu>
                {/* desktop menu end */}
 
-
                {/* Mobile Menu */}
                <MobileMenu></MobileMenu>
                {/* Mobile Menu End */}
+
+               <section style={{
+                    padding: "100px 0"
+               }}>
+                    <p style={{
+                             textAlign : "center"
+                         }}>Comming Soon</p>
+               </section>
 
                {/* Footer */}
                <Footer></Footer>

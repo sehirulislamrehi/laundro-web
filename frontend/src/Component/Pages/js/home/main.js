@@ -90,10 +90,10 @@ Last change:    00/00/00
 
 			MobileMenu: function (){
 
-				// $(".bixol-mobile-hamburger").on("click", function(){
-				// 	$(".bixol-mobile-menu").toggleClass("mobile-menu-active"); 
-				// 	$(this).toggleClass("active");
-				// });
+				$(".bixol-mobile-hamburger").on("click", function(){
+					$(".bixol-mobile-menu").toggleClass("mobile-menu-active"); 
+					$(this).toggleClass("active");
+				});
 
 				$(".bixol-mobile-menu ul li.has-submenu a").each(function(){
 					$(this).on("click", function(){

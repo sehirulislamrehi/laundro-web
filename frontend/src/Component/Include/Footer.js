@@ -1,11 +1,14 @@
 
+import { Link } from "react-router-dom";
+
+
 const Footer = () => {
      return(
           <div className="id">
                <footer className="bixol-footer" style={{
                     backgroundImage : `url("/images/footer-bg.jpg")`
                }}>
-                    <a href="index.html" className="bixol-footer-logo"><img src="/images/logo.png" alt="" /></a>
+                    <Link to="/" className="bixol-footer-logo"><img src="/images/logo.png" alt="" /></Link>
                     <div className="container">
                          <div className="row">
                               <div className="col-lg-3 col-md-6 col-sm-6">

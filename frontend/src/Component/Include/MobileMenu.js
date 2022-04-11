@@ -1,31 +1,40 @@
 
+import { Link } from "react-router-dom";
+
+
 const MobileMenu = () => {
      return(
           <div className="id">
                <div className="bixol-mobile-menu">
-                    <a href="index.html" className="mobile-menu-logo"><img src="/images/logo.png" alt="" /></a>
+                    <Link to="/" className="mobile-menu-logo"><img src="/images/logo.png" alt="" /></Link>
                     <ul>
                          <li>
-                              <a href="">Home</a>
+                              <Link to="/about">
+                                   About
+                              </Link>
                          </li>
                          <li>
-                              <a href="#">Services</a>
+                              <Link to="/about">Services</Link>
                          </li>
                          <li className="has-submenu">
                               <a href="#">Pages</a>
                               <ul>
-                                   <li><a href="">About</a></li>
-                                   <li><a href="">About V2</a></li>
-                                   <li><a href="">Faq</a></li>
-                                   <li><a href="">Pricing</a></li>
-                                   <li><a href="">Team</a></li>
-                                   <li><a href="">Reviews</a></li>
-                                   <li><a href="">404 page</a></li>
-                                   <li><a href="">Coming Soon</a></li>
+                                   <li>
+                                        <Link to="/about">
+                                             About
+                                        </Link>
+                                   </li>
+                                   <li><Link to="/about">About V2</Link></li>
+                                   <li><Link to="/about">Faq</Link></li>
+                                   <li><Link to="/about">Pricing</Link></li>
+                                   <li><Link to="/about">Team</Link></li>
+                                   <li><Link to="/about">Reviews</Link></li>
+                                   <li><Link to="/about">404 page</Link></li>
+                                   <li><Link to="/about">Coming Soon</Link></li>
                               </ul>
                          </li>
                          <li>
-                              <a href="">Portfolio</a>
+                              <Link to="/about">Portfolio</Link>
                          </li>
                     </ul>
                </div>

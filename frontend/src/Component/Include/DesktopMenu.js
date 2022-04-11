@@ -2,6 +2,21 @@
 import { Link } from "react-router-dom";
 
 const DesktopMenu = () => {
+
+
+     function openPopup(){
+          let bixol_mobile_menu = document.getElementsByClassName("bixol-mobile-menu")[0];
+
+          
+
+          if( bixol_mobile_menu.classList.contains("mobile-menu-active") == true ){
+               bixol_mobile_menu.classList.remove("mobile-menu-active")
+          }
+          else{
+               bixol_mobile_menu.classList.add("mobile-menu-active")
+          }
+     }
+
      return(
           <div className="id">
 
@@ -61,29 +76,29 @@ const DesktopMenu = () => {
                                                             <Link to="/about">About</Link>
                                                        </li>
                                                        <li >
-                                                            <a href="">Services</a>
+                                                            <Link to="/about">Services</Link>
                                                        </li>
                                                        <li className="has-submenu">
-                                                            <a href="">Pages</a>
+                                                            <Link to="/about">Pages</Link>
                                                             <ul>
-                                                                 <li><a href="">About</a></li>
-                                                                 <li><a href="">About V2</a></li>
-                                                                 <li><a href="">Faq</a></li>
-                                                                 <li><a href="">Pricing</a></li>
-                                                                 <li><a href="">Team</a></li>
-                                                                 <li><a href="">Reviews</a></li>
-                                                                 <li><a href="">404 page</a></li>
-                                                                 <li><a href="">Coming Soon</a></li>
+                                                                 <li><Link to="/about">About</Link></li>
+                                                                 <li><Link to="/about">About V2</Link></li>
+                                                                 <li><Link to="/about">Faq</Link></li>
+                                                                 <li><Link to="/about">Pricing</Link></li>
+                                                                 <li><Link to="/about">Team</Link></li>
+                                                                 <li><Link to="/about">Reviews</Link></li>
+                                                                 <li><Link to="/about">404 page</Link></li>
+                                                                 <li><Link to="/about">Coming Soon</Link></li>
                                                             </ul>
                                                        </li>
                                                        <li>
-                                                            <a href="">Portfolio</a>
+                                                            <Link to="/about">Portfolio</Link>
                                                        </li>
                                                        <li>
-                                                            <a href="">Blog</a>
+                                                            <Link to="/about">Blog</Link>
                                                        </li>
                                                        <li>
-                                                            <a href="">Contact</a>
+                                                            <Link to="/about">Contact</Link>
                                                        </li>
                                                   </ul>
                                              </nav>
@@ -97,7 +112,7 @@ const DesktopMenu = () => {
                                                        <button type="submit"><i className="fas fa-search"></i></button>
                                                   </form>
                                              </div>
-                                             <div className="bixol-mobile-hamburger">
+                                             <div className="bixol-mobile-hamburger" onClick={openPopup}>
                                                   <span></span>
                                                   <span></span>
                                                   <span></span>

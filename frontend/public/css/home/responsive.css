@@ -15,6 +15,12 @@
      .home2-about-section .about-left .img-wrapper .es-year{
           right: 15%;
      }
+     .home2-service-slider .owl-item .item {
+          padding: 10px;
+     }
+     .home2-service-section .home2-service-slider .service-single-item{
+          margin-bottom: 0;
+     }
 }
 
 
