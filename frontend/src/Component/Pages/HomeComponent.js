@@ -65,7 +65,7 @@ const HomeComponent = () => {
                     {/* END REVOLUTION SLIDER */}
 
                     <div className="container">
-                         <div className="appoinment-form" data-background="images/form-bg.jpg">
+                         <div className="appoinment-form" style={{}}>
                               <div className="appoinment-title">
                                    <span>24 / 7 Hours Service</span>
                                    <h4>Online Appoinment</h4>

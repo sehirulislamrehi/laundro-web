@@ -9,7 +9,7 @@ const AboutComponent = () => {
      return(
           <div className="id">
 
-               
+                         
                {/* desktop menu start */}
                <DesktopMenu></DesktopMenu>
                {/* desktop menu end */}
@@ -19,19 +19,10 @@ const AboutComponent = () => {
                <MobileMenu></MobileMenu>
                {/* Mobile Menu End */}
 
-               {/* Comming Soon */}
-               <section style={{
-                    padding: "100px 0"
-               }}>
-                    <p style={{
-                         textAlign: "center"
-                    }}>Comming Soon</p>
-               </section>
-               {/* Comming Soon End */}
-
                {/* Footer */}
                <Footer></Footer>
                {/* Footer End */}
+
           </div>
      );
 }
