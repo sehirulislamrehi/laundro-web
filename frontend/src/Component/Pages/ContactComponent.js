@@ -25,7 +25,7 @@ const ContactComponent = () => {
                {/* Mobile Menu End */}
 
                {/* Breadcrumb Area */}
-               <div className="bixol-breadcrumb" style={{ backgroundImage: `url('images/breadcrumb.jpg')` }}>
+               <div className="laundro-breadcrumb" style={{ backgroundImage: `url('images/breadcrumb.jpg')` }}>
                     <span className="breadcrumb-object"><img src="/images/slider-object.png" alt=""></img></span>
                     <div className="container">
                          <div className="breadcrumb-content">

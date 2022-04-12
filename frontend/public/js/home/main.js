@@ -10,7 +10,7 @@ Last change:    00/00/00
 
 	"use strict";
 
-	var Bixol = {
+	var laundro = {
 		init: function() {
 			this.Basic.init();  
 		},
@@ -30,8 +30,8 @@ Last change:    00/00/00
 				this.CircleProgress(); 
 				this.H4HeaderSearch();
 				this.ServicesHover(); 
-				this.BixolPopup();
-				this.BixolCounterUp(); 
+				this.laundroPopup();
+				this.laundroCounterUp(); 
 				this.GridMassonry();
 				this.CountDown();
 			},
@@ -81,21 +81,21 @@ Last change:    00/00/00
 				$(window).on("scroll", function(){
 					var ScrollBar = $(this).scrollTop();
 					if (ScrollBar > 150 ) {
-						$(".bixol-header").addClass("header-sticky"); 
+						$(".laundro-header").addClass("header-sticky"); 
 					} else {
-						$(".bixol-header").removeClass("header-sticky");
+						$(".laundro-header").removeClass("header-sticky");
 					}
 				});
 			},
 
 			MobileMenu: function (){
 
-				// $(".bixol-mobile-hamburger").on("click", function(){
-				// 	$(".bixol-mobile-menu").toggleClass("mobile-menu-active"); 
+				// $(".laundro-mobile-hamburger").on("click", function(){
+				// 	$(".laundro-mobile-menu").toggleClass("mobile-menu-active"); 
 				// 	$(this).toggleClass("active");
 				// });
 
-				$(".bixol-mobile-menu ul li.has-submenu a").each(function(){
+				$(".laundro-mobile-menu ul li.has-submenu a").each(function(){
 					$(this).on("click", function(){
 						$(this).siblings('ul').slideToggle();
 					});
@@ -104,7 +104,7 @@ Last change:    00/00/00
 
             Carousel: function (){
 
-                $(".bixol-service-slider").slick({
+                $(".laundro-service-slider").slick({
                     slidesToShow: 3,
                     autoplay: true,
                     prevArrow: '<button type="button" class="prev-arrow"><i class="fas fa-angle-left"></i></button>',
@@ -125,7 +125,7 @@ Last change:    00/00/00
 					]
 				});
 
-				$(".bixol-team-slider").slick({
+				$(".laundro-team-slider").slick({
 					slidesToShow: 4, 
 					autoplay: true,
 					dots: true,
@@ -152,7 +152,7 @@ Last change:    00/00/00
 					]
 				}); 
 
-				$(".bixol-feedback-slider").slick({
+				$(".laundro-feedback-slider").slick({
 					slidesToShow: 3, 
 					autoplay: true, 
 					dots: true,
@@ -173,7 +173,7 @@ Last change:    00/00/00
 					]
 				}); 
 
-				$(".bixol-blog-slider").slick({
+				$(".laundro-blog-slider").slick({
 					slidesToShow: 2, 
 					autoplay: true,
 					arrows: false, 
@@ -610,7 +610,7 @@ Last change:    00/00/00
 				});
 			}, 
 		
-			BixolPopup: function (){
+			laundroPopup: function (){
 				$(".video-popup").magnificPopup({
 					type: 'iframe', 
 					iframe: {
@@ -643,7 +643,7 @@ Last change:    00/00/00
 
 			},
 
-			BixolCounterUp: function (){
+			laundroCounterUp: function (){
 				if($(".odometer").length) {
 					$(".odometer").appear(); 
 					$(document.body).on("appear", ".odometer", function(e){
@@ -683,7 +683,7 @@ Last change:    00/00/00
 		}	
 	}
 	jQuery(document).ready(function (){
-		Bixol.init();
+		laundro.init();
 
 	});
 

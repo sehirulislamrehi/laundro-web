@@ -140,7 +140,7 @@ const HomeComponent = () => {
                                         </select>
                                    </div>
                                    <textarea placeholder="Type message..." rows="8"></textarea>
-                                   <button type="submit" className="bixol-primary-btn">
+                                   <button type="submit" className="laundro-primary-btn">
                                         Get a quote<span><i className="fab fa-telegram-plane"></i></span>
                                    </button>
                               </form>
@@ -251,8 +251,8 @@ const HomeComponent = () => {
                               </div>
                               <div className="col-lg-6">
                                    <div className="about-right">
-                                        <div className="bixol-title-area">
-                                             <span className="bixol-subtitle">About Cleaning Agency</span>
+                                        <div className="laundro-title-area">
+                                             <span className="laundro-subtitle">About Cleaning Agency</span>
                                              <h3>Why will you choose <span>our services?</span></h3>
                                              <p>
                                                   As a app web crawler expert, I help organizations adjust to
@@ -290,7 +290,7 @@ const HomeComponent = () => {
                                              </ul>
                                         </div>
                                         <div className="about-btn">
-                                             <Link to="/" className="bixol-primary-btn">View Details<span><i
+                                             <Link to="/" className="laundro-primary-btn">View Details<span><i
                                                             className="fas fa-plus"></i></span></Link>
                                         </div>
                                    </div>
@@ -305,8 +305,8 @@ const HomeComponent = () => {
                     <div className="container">
                          <div className="row">
                               <div className="col-lg-6 offset-lg-3">
-                                   <div className="bixol-title-area text-center">
-                                        <span className="bixol-subtitle">Featured services</span>
+                                   <div className="laundro-title-area text-center">
+                                        <span className="laundro-subtitle">Featured services</span>
                                         <h3>We provide the best services <span>for your help!</span></h3>
                                         <p>
                                              As a app web crawler expert, I help organizations adjust to the
@@ -471,8 +471,8 @@ const HomeComponent = () => {
                          <div className="pmv-top">
                               <div className="row align-items-center">
                                    <div className="col-lg-6">
-                                        <div className="bixol-title-area">
-                                             <span className="bixol-subtitle">Why Choose us?</span>
+                                        <div className="laundro-title-area">
+                                             <span className="laundro-subtitle">Why Choose us?</span>
                                              <h3>We have some features <span>so you choose.</span></h3>
                                         </div>
                                    </div>
@@ -510,7 +510,7 @@ const HomeComponent = () => {
                                                             satisfaction is our number one priority. If you’re unhappy
                                                             with our service in any way.
                                                        </p>
-                                                       <Link to="/" className="bixol-primary-btn">View terms of services</Link>
+                                                       <Link to="/" className="laundro-primary-btn">View terms of services</Link>
                                                   </div>
                                              </div>
                                              <div className="col-lg-6 order-1 order-lg-2">
@@ -531,7 +531,7 @@ const HomeComponent = () => {
                                                             satisfaction is our number one priority. If you’re unhappy
                                                             with our service in any way.
                                                        </p>
-                                                       <Link to="/" className="bixol-primary-btn">View terms of services</Link>
+                                                       <Link to="/" className="laundro-primary-btn">View terms of services</Link>
                                                   </div>
                                              </div>
                                              <div className="col-lg-6 order-1 order-lg-2">
@@ -552,7 +552,7 @@ const HomeComponent = () => {
                                                             satisfaction is our number one priority. If you’re unhappy
                                                             with our service in any way.
                                                        </p>
-                                                       <Link to="/" className="bixol-primary-btn">View terms of services</Link>
+                                                       <Link to="/" className="laundro-primary-btn">View terms of services</Link>
                                                   </div>
                                              </div>
                                              <div className="col-lg-6 order-1 order-lg-2">
@@ -692,8 +692,8 @@ const HomeComponent = () => {
                          <div className="steps-top">
                               <div className="row align-items-center">
                                    <div className="col-lg-6">
-                                        <div className="bixol-title-area">
-                                             <span className="bixol-subtitle">Steps to reach here</span>
+                                        <div className="laundro-title-area">
+                                             <span className="laundro-subtitle">Steps to reach here</span>
                                              <h3>Some easy stesps to <span>clean your asset.</span></h3>
                                         </div>
                                    </div>
@@ -759,7 +759,7 @@ const HomeComponent = () => {
                                    </div>
                               </div>
                               <div className="steps-btn">
-                                   <Link to="/" className="bixol-primary-btn">Read more to rech us</Link>
+                                   <Link to="/" className="laundro-primary-btn">Read more to rech us</Link>
                               </div>
                          </div>
                     </div>
@@ -772,8 +772,8 @@ const HomeComponent = () => {
                          <div className="row">
                               <div className="col-lg-6 offset-lg-6">
                                    <div className="faq-content">
-                                        <div className="bixol-title-area">
-                                             <span className="bixol-subtitle">FAQ</span>
+                                        <div className="laundro-title-area">
+                                             <span className="laundro-subtitle">FAQ</span>
                                              <h3>You will learn more from <span>our FAQ.</span></h3>
                                              <p>
                                                   As a app web crawler expert, I help organizations adjust to
@@ -854,8 +854,8 @@ const HomeComponent = () => {
                          <div className="srv2-feedback-top">
                               <div className="row align-items-center">
                                    <div className="col-lg-6">
-                                        <div className="bixol-title-area">
-                                             <span className="bixol-subtitle">Clients Testimonial</span>
+                                        <div className="laundro-title-area">
+                                             <span className="laundro-subtitle">Clients Testimonial</span>
                                              <h3>We are very glad to get <span>good reviews</span></h3>
                                         </div>
                                    </div>
@@ -1048,8 +1048,8 @@ const HomeComponent = () => {
                          <div className="blog-top-title">
                               <div className="row align-items-center">
                                    <div className="col-lg-6">
-                                        <div className="bixol-title-area">
-                                             <span className="bixol-subtitle">Featured Blog</span>
+                                        <div className="laundro-title-area">
+                                             <span className="laundro-subtitle">Featured Blog</span>
                                              <h3>Learn aobut our latest <span>news from blog.</span></h3>
                                         </div>
                                    </div>

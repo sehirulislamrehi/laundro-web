@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const MobileMenu = () => {
      return(
           <div className="id">
-               <div className="bixol-mobile-menu">
+               <div className="laundro-mobile-menu">
                     <Link to="/" className="mobile-menu-logo"><img src="/images/logo.png" alt="" /></Link>
                     <ul>
                          <li>

@@ -5,15 +5,15 @@ const DesktopMenu = () => {
 
 
      function openPopup(){
-          let bixol_mobile_menu = document.getElementsByClassName("bixol-mobile-menu")[0];
+          let laundro_mobile_menu = document.getElementsByClassName("laundro-mobile-menu")[0];
 
           
 
-          if( bixol_mobile_menu.classList.contains("mobile-menu-active") == true ){
-               bixol_mobile_menu.classList.remove("mobile-menu-active")
+          if( laundro_mobile_menu.classList.contains("mobile-menu-active") == true ){
+               laundro_mobile_menu.classList.remove("mobile-menu-active")
           }
           else{
-               bixol_mobile_menu.classList.add("mobile-menu-active")
+               laundro_mobile_menu.classList.add("mobile-menu-active")
           }
      }
 
@@ -35,7 +35,7 @@ const DesktopMenu = () => {
 
                
                {/* Home 2 Header  */}
-               <header className="bixol-header header-style-2">
+               <header className="laundro-header header-style-2">
                     <div className="info-bar">
                          <div className="container">
                               <div className="row">
@@ -107,7 +107,7 @@ const DesktopMenu = () => {
                                                        <button type="submit"><i className="fas fa-search"></i></button>
                                                   </form>
                                              </div>
-                                             <div className="bixol-mobile-hamburger" onClick={openPopup}>
+                                             <div className="laundro-mobile-hamburger" onClick={openPopup}>
                                                   <span></span>
                                                   <span></span>
                                                   <span></span>

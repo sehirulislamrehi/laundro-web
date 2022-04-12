@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 const Footer = () => {
      return(
           <div className="id">
-               <footer className="bixol-footer" style={{
+               <footer className="laundro-footer" style={{
                     backgroundImage : `url("/images/footer-bg.jpg")`
                }}>
-                    <Link to="/" className="bixol-footer-logo"><img src="/images/logo.png" alt="" /></Link>
+                    <Link to="/" className="laundro-footer-logo"><img src="/images/logo.png" alt="" /></Link>
                     <div className="container">
                          <div className="row">
                               <div className="col-lg-3 col-md-6 col-sm-6">
-                                   <div className="bixol-footer-widget">
+                                   <div className="laundro-footer-widget">
                                         <h4>We are <span>Laundro!</span></h4>
                                         <p>
                                              We work with a passion of taking challenges and creating new
@@ -26,10 +26,10 @@ const Footer = () => {
                                    </div>
                               </div>
                               <div className="col-lg-3 col-md-6 col-sm-6">
-                                   <div className="bixol-footer-widget">
+                                   <div className="laundro-footer-widget">
                                         <h4>Newsletter</h4>
                                         <p>Subscribe our newsletter to get our latest update & news</p>
-                                        <div className="bixol-footer-form">
+                                        <div className="laundro-footer-form">
                                              <form action="#">
                                                   <input type="email" placeholder="Your mail adress" />
                                                   <button type="submit">
@@ -37,7 +37,7 @@ const Footer = () => {
                                                   </button>
                                              </form>
                                         </div>
-                                        <div className="bixol-footer-social">
+                                        <div className="laundro-footer-social">
                                              <a href="" className="facebook"><i className="fab fa-facebook-f"></i></a>
                                              <a href="" className="twitter"><i className="fab fa-twitter"></i></a>
                                              <a href="" className="dribbble"><i className="fab fa-dribbble"></i></a>
@@ -46,9 +46,9 @@ const Footer = () => {
                                    </div>
                               </div>
                               <div className="col-lg-3 col-md-6 col-sm-6">
-                                   <div className="bixol-footer-widget">
+                                   <div className="laundro-footer-widget">
                                         <h4>Official info</h4>
-                                        <div className="bixol-footer-address">
+                                        <div className="laundro-footer-address">
                                              <ul>
                                                   <li>
                                                        <i className="fas fa-map-marker-alt"></i>
@@ -64,9 +64,9 @@ const Footer = () => {
                                    </div>
                               </div>
                               <div className="col-lg-3 col-md-6 col-sm-6">
-                                   <div className="bixol-footer-widget">
+                                   <div className="laundro-footer-widget">
                                         <h4>Instagram</h4>
-                                        <div className="bixol-insta-widget">
+                                        <div className="laundro-insta-widget">
                                              <ul>
                                                   <li>
                                                        <a href="#"><i className="fab fa-instagram"></i></a>
