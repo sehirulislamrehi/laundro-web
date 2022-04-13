@@ -290,7 +290,7 @@ const HomeComponent = () => {
                                              </ul>
                                         </div>
                                         <div className="about-btn">
-                                             <Link to="/" className="laundro-primary-btn">View Details<span><i
+                                             <Link to="/about" className="laundro-primary-btn">View Details<span><i
                                                             className="fas fa-plus"></i></span></Link>
                                         </div>
                                    </div>
@@ -332,7 +332,7 @@ const HomeComponent = () => {
                                              <img src="/images/icon-2.png" alt="" />
                                         </div>
                                         <div className="srv2-service-content">
-                                             <Link to="/">
+                                             <Link to="/service-details/Indoor Cleaning">
                                                   <h5>Indoor Cleaning</h5>
                                              </Link>
                                              <p>
@@ -345,14 +345,14 @@ const HomeComponent = () => {
                                                   <img src="/images/icon-2.png" alt="" />
                                              </div>
                                              <div className="srv2-service-content">
-                                                  <Link to="/">
+                                                  <Link to="/service-details/Indoor Cleaning">
                                                        <h5>Indoor Cleaning</h5>
                                                   </Link>
                                                   <p>
                                                        As a app web crawler expert, I help organizations adjust to
                                                        expand sigficant of internet.
                                                   </p>
-                                                  <Link to="/" className="srv2-readmore-btn">Read More <i
+                                                  <Link to="/service-details/Indoor Cleaning" className="srv2-readmore-btn">Read More <i
                                                             className="fas fa-angle-right"></i></Link>
                                              </div>
                                         </div>
@@ -365,7 +365,7 @@ const HomeComponent = () => {
                                              <img src="/images/icon-3.png" alt="" />
                                         </div>
                                         <div className="srv2-service-content">
-                                             <Link to="/">
+                                             <Link to="/service-details/Plumbing Service">
                                                   <h5>Plumbing Services</h5>
                                              </Link>
                                              <p>
@@ -378,14 +378,14 @@ const HomeComponent = () => {
                                                   <img src="/images/icon-3.png" alt="" />
                                              </div>
                                              <div className="srv2-service-content">
-                                                  <Link to="/">
+                                                  <Link to="/service-details/Plumbing Service">
                                                        <h5>Plumbing Service</h5>
                                                   </Link>
                                                   <p>
                                                        As a app web crawler expert, I help organizations adjust to
                                                        expand sigficant of internet.
                                                   </p>
-                                                  <Link to="/" className="srv2-readmore-btn">Read More <i
+                                                  <Link to="/service-details/Plumbing Service" className="srv2-readmore-btn">Read More <i
                                                             className="fas fa-angle-right"></i></Link>
                                              </div>
                                         </div>
@@ -398,7 +398,7 @@ const HomeComponent = () => {
                                              <img src="/images/icon-5.png" alt="" />
                                         </div>
                                         <div className="srv2-service-content">
-                                        <Link to="/">
+                                        <Link to="/service-details/Bathroom Cleaning">
                                                   <h5>Bathroom Cleaning</h5>
                                              </Link>
                                              <p>
@@ -411,14 +411,14 @@ const HomeComponent = () => {
                                                   <img src="/images/icon-5.png" alt="" />
                                              </div>
                                              <div className="srv2-service-content">
-                                             <Link to="/">
+                                             <Link to="/service-details/Bathroom Cleaning">
                                                        <h5>Bathroom Cleaning</h5>
                                                   </Link>
                                                   <p>
                                                        As a app web crawler expert, I help organizations adjust to
                                                        expand sigficant of internet.
                                                   </p>
-                                                  <Link to="/" className="srv2-readmore-btn">Read More <i
+                                                  <Link to="/service-details/Bathroom Cleaning" className="srv2-readmore-btn">Read More <i
                                                             className="fas fa-angle-right"></i></Link>
                                              </div>
                                         </div>
@@ -431,7 +431,7 @@ const HomeComponent = () => {
                                              <img src="/images/icon-2.png" alt="" />
                                         </div>
                                         <div className="srv2-service-content">
-                                             <Link to="/">
+                                             <Link to="/service-details/Indoor Cleaning">
                                                   <h5>Indoor Cleaning</h5>
                                              </Link>
                                              <p>
@@ -444,14 +444,14 @@ const HomeComponent = () => {
                                                   <img src="/images/icon-2.png" alt="" />
                                              </div>
                                              <div className="srv2-service-content">
-                                                  <Link to="/">
+                                                  <Link to="/service-details/Indoor Cleaning">
                                                        <h5>Indoor Cleaning</h5>
                                                   </Link>
                                                   <p>
                                                        As a app web crawler expert, I help organizations adjust to
                                                        expand sigficant of internet.
                                                   </p>
-                                                  <Link to="/" className="srv2-readmore-btn">Read More <i
+                                                  <Link to="/service-details/Indoor Cleaning" className="srv2-readmore-btn">Read More <i
                                                             className="fas fa-angle-right"></i></Link>
                                              </div>
                                         </div>
@@ -510,7 +510,7 @@ const HomeComponent = () => {
                                                             satisfaction is our number one priority. If you’re unhappy
                                                             with our service in any way.
                                                        </p>
-                                                       <Link to="/" className="laundro-primary-btn">View terms of services</Link>
+                                                       <Link to="/about" className="laundro-primary-btn">View terms of services</Link>
                                                   </div>
                                              </div>
                                              <div className="col-lg-6 order-1 order-lg-2">
@@ -531,7 +531,7 @@ const HomeComponent = () => {
                                                             satisfaction is our number one priority. If you’re unhappy
                                                             with our service in any way.
                                                        </p>
-                                                       <Link to="/" className="laundro-primary-btn">View terms of services</Link>
+                                                       <Link to="/about" className="laundro-primary-btn">View terms of services</Link>
                                                   </div>
                                              </div>
                                              <div className="col-lg-6 order-1 order-lg-2">
@@ -552,7 +552,7 @@ const HomeComponent = () => {
                                                             satisfaction is our number one priority. If you’re unhappy
                                                             with our service in any way.
                                                        </p>
-                                                       <Link to="/" className="laundro-primary-btn">View terms of services</Link>
+                                                       <Link to="/about" className="laundro-primary-btn">View terms of services</Link>
                                                   </div>
                                              </div>
                                              <div className="col-lg-6 order-1 order-lg-2">
@@ -592,7 +592,7 @@ const HomeComponent = () => {
                                              </div>
                                         </div>
                                         <div className="skills-content">
-                                        <Link to="/">
+                                        <Link to="/service-details/Home Cleaning">
                                                   <h5>Home Cleaning</h5>
                                              </Link>
                                              <p>As a app web crawler expert, I help organizations.</p>
@@ -619,7 +619,7 @@ const HomeComponent = () => {
                                              </div>
                                         </div>
                                         <div className="skills-content">
-                                             <Link to="/">
+                                             <Link to="/service-details/Office Cleaning">
                                                   <h5>Office Cleaning</h5>
                                              </Link>
                                              <p>As a app web crawler expert, I help organizations.</p>
@@ -646,7 +646,7 @@ const HomeComponent = () => {
                                              </div>
                                         </div>
                                         <div className="skills-content">
-                                             <Link to="/">
+                                             <Link to="/service-details/Plumbing Cleaning">
                                                   <h5>Plumbing Cleaning</h5>
                                              </Link>
                                              <p>As a app web crawler expert, I help organizations.</p>
@@ -673,7 +673,7 @@ const HomeComponent = () => {
                                              </div>
                                         </div>
                                         <div className="skills-content">
-                                             <Link to="/">
+                                             <Link to="/service-details/Window Cleaning">
                                                   <h5>Window Cleaning</h5>
                                              </Link>
                                              <p>As a app web crawler expert, I help organizations.</p>
@@ -759,7 +759,7 @@ const HomeComponent = () => {
                                    </div>
                               </div>
                               <div className="steps-btn">
-                                   <Link to="/" className="laundro-primary-btn">Read more to rech us</Link>
+                                   <Link to="/about" className="laundro-primary-btn">Read more to rech us</Link>
                               </div>
                          </div>
                     </div>

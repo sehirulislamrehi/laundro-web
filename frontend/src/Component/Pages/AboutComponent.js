@@ -75,7 +75,7 @@ const AboutComponent = () => {
                {/* Mobile Menu End */}
 
                {/* Breadcrumb Area */}
-               <div className="laundro-breadcrumb" style={{ backgroundImage: `url('images/breadcrumb.jpg')` }}>
+               <div className="laundro-breadcrumb" style={{ backgroundImage: `url('/images/breadcrumb.jpg')` }}>
                     <span className="breadcrumb-object"><img src="/images/slider-object.png" alt=""></img></span>
                     <div className="container">
                          <div className="breadcrumb-content">
@@ -121,7 +121,7 @@ const AboutComponent = () => {
                                              </div>
                                         </div>
                                         <div className="video-content">
-                                             <a href="services.html"><span className="title">Check how we clean</span></a>
+                                             <Link href="/"><span className="title">Check how we clean</span></Link>
                                              <p>Reference site about Lorem ipsum. giving information on its origin.</p>
                                         </div>
                                    </div>
@@ -169,7 +169,7 @@ const AboutComponent = () => {
                                              <span><i className="fas fa-user"></i></span>
                                         </div>
                                         <div className="laundro-service-content">
-                                             <a href="service-details.html"><h5>Toilet Cleaning</h5></a>
+                                             <Link to="/service-details/Toilet Cleaning"><h5>Toilet Cleaning</h5></Link>
                                              <p>As a app web crawler expert a significant of internet.</p>
                                         </div>
                                    </div>
@@ -181,7 +181,7 @@ const AboutComponent = () => {
                                              <span><i className="fas fa-user"></i></span>
                                         </div>
                                         <div className="laundro-service-content">
-                                             <a href="service-details.html"><h5>Window Cleaner</h5></a>
+                                             <Link to="/service-details/Window Cleaner"><h5>Window Cleaner</h5></Link>
                                              <p>As a app web crawler expert a significant of internet.</p>
                                         </div>
                                    </div>
@@ -193,7 +193,7 @@ const AboutComponent = () => {
                                              <span><i className="fas fa-user"></i></span>
                                         </div>
                                         <div className="laundro-service-content">
-                                             <a href="service-details.html"><h5>Kithcen Cleaning</h5></a>
+                                             <Link to="/service-details/Kitchen Cleaning"><h5>Kithcen Cleaning</h5></Link>
                                              <p>As a app web crawler expert a significant of internet.</p>
                                         </div>
                                    </div>
@@ -205,7 +205,7 @@ const AboutComponent = () => {
                                              <span><i className="flaticon-towelfas fa-user"></i></span>
                                         </div>
                                         <div className="laundro-service-content">
-                                             <a href="service-details.html"><h5>Plumbing service</h5></a>
+                                             <Link to="/service-details/Plumbing Service"><h5>Plumbing service</h5></Link>
                                              <p>As a app web crawler expert a significant of internet.</p>
                                         </div>
                                    </div>
@@ -306,7 +306,7 @@ const AboutComponent = () => {
                                              <img src="/images/team-1.jpg" alt=""></img>
                                         </div>
                                         <div className="laundro-team-content">
-                                             <a href="#"><h5>Laito French</h5></a>
+                                             <a><h5>Laito French</h5></a>
                                              <span>Head in Plumbing</span>
                                              <span className="team-social-link"><i className="fas fa-share-alt"></i></span>
                                              <div className="laundro-team-social-items">                                
@@ -325,7 +325,7 @@ const AboutComponent = () => {
                                              <img src="/images/team-2.jpg" alt=""></img>
                                         </div>
                                         <div className="laundro-team-content">
-                                             <a href="#"><h5>Laito French</h5></a>
+                                             <a><h5>Laito French</h5></a>
                                              <span>Head in Plumbing</span>
                                              <span className="team-social-link"><i className="fas fa-share-alt"></i></span>
                                              <div className="laundro-team-social-items">                                
@@ -344,7 +344,7 @@ const AboutComponent = () => {
                                              <img src="/images/team-3.jpg" alt=""></img>
                                         </div>
                                         <div className="laundro-team-content">
-                                             <a href="#"><h5>Laito French</h5></a>
+                                             <a><h5>Laito French</h5></a>
                                              <span>Head in Plumbing</span>
                                              <span className="team-social-link"><i className="fas fa-share-alt"></i></span>
                                              <div className="laundro-team-social-items">                                
@@ -363,7 +363,7 @@ const AboutComponent = () => {
                                              <img src="/images/team-4.jpg" alt=""></img>
                                         </div>
                                         <div className="laundro-team-content">
-                                             <a href="#"><h5>Laito French</h5></a>
+                                             <a><h5>Laito French</h5></a>
                                              <span>Head in Plumbing</span>
                                              <span className="team-social-link"><i className="fas fa-share-alt"></i></span>
                                              <div className="laundro-team-social-items">                                
@@ -382,7 +382,7 @@ const AboutComponent = () => {
                                              <img src="/images/team-2.jpg" alt=""></img>
                                         </div>
                                         <div className="laundro-team-content">
-                                             <a href="#"><h5>Laito French</h5></a>
+                                             <a><h5>Laito French</h5></a>
                                              <span>Head in Plumbing</span>
                                              <span className="team-social-link"><i className="fas fa-share-alt"></i></span>
                                              <div className="laundro-team-social-items">                                

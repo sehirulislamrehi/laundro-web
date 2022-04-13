@@ -1,5 +1,6 @@
 
 import { Link } from "react-router-dom";
+import { useParams } from "react-router";
 
 //import pages
 import DesktopMenu from "../Include/DesktopMenu";
@@ -7,10 +8,12 @@ import MobileMenu from "../Include/MobileMenu";
 import Footer from "../Include/Footer";
 
 
-const ContactComponent = () => {
-
+const ServiceDetailsComponent = () => {
      {/* window scroll to top */}
      window.scrollTo(0, 0);
+
+     const { slug } =  useParams();
+
 
      return(
           <div className="id">
@@ -29,9 +32,9 @@ const ContactComponent = () => {
                     <span className="breadcrumb-object"><img src="/images/slider-object.png" alt=""></img></span>
                     <div className="container">
                          <div className="breadcrumb-content">
-                              <h1>Contact Us</h1>
+                              <h1>{slug}</h1>
                               <Link to="/">Home <i className="fas fa-angle-double-right"></i></Link>
-                              <span>Contact Us</span>
+                              <span>{slug}</span>
                          </div>
                     </div>
                </div>
@@ -57,4 +60,4 @@ const ContactComponent = () => {
      );
 }
 
-export default ContactComponent;
+export default ServiceDetailsComponent;
