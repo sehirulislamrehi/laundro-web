@@ -1,0 +1,377 @@
+/************************* Get In Tauch ************************/
+
+.laundro-gta-area {
+	position: relative;
+	overflow: hidden;
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding: 100px 0;
+	background-size: 120%;
+	background-position: -400px center;
+}
+
+.laundro-gta-area .laundro-help-desk-content {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.laundro-gta-area .laundro-gt-left {
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	right: 30px;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	z-index: 10;
+}
+
+.laundro-gta-area .laundro-gt-left::before {
+	content: '';
+	position: absolute;
+	width: 170px;
+	height: 170px;
+	border-radius: 50%;
+	background-color: #e0e2e8;
+	z-index: -1;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.laundro-gta-area .laundro-gt-left .laundro-help-desk {
+	width: 140px;
+	height: 140px;
+	background-color: #ffffff;
+	border-radius: 50%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-shadow: 0px 0px 43px 0px rgba(12, 12, 12, 0.16);
+	box-shadow: 0px 0px 43px 0px rgba(12, 12, 12, 0.16);
+}
+
+.laundro-gta-area .laundro-gt-left .laundro-help-desk .desk-subtitle {
+	font-size: 12px;
+	color: #3465f8;
+}
+
+.laundro-gta-area .laundro-gt-left .laundro-help-desk .desk-title {
+	font-size: 24px;
+	color: #082680;
+	font-family: "Poppins", sans-serif;
+	font-weight: 700;
+	margin-top: -3px;
+}
+
+.laundro-gta-area .laundro-gt-left .laundro-help-desk .desk-call {
+	font-size: 36px;
+	line-height: 30px;
+	font-weight: 700;
+	color: #22d3ee;
+	margin-top: -3px;
+}
+
+.laundro-gta-area .laundro-gt-right {
+	padding-right: 60px;
+	position: relative;
+	max-width: 600px;
+}
+
+.laundro-gta-area .laundro-gt-right h4 {
+	margin-bottom: 20px;
+	color: #ffffff;
+	text-transform: initial;
+	position: relative;
+	display: inline-block;
+}
+
+.laundro-gta-area .laundro-gt-right h4::after {
+	content: '';
+	position: absolute;
+	right: -80px;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	width: 60px;
+	height: 2px;
+	background-color: #22d3ee;
+}
+
+.laundro-gta-area .laundro-gt-right form {
+	width: 100%;
+}
+
+.laundro-gta-area .laundro-gt-right form input[type="text"] {
+	width: 48%;
+	border: 0;
+	padding: 12px 20px;
+	background-color: #1a386d;
+}
+
+.laundro-gta-area .laundro-gt-right form input[type="text"]::-webkit-input-placeholder {
+	color: #c3c4e1;
+}
+
+.laundro-gta-area .laundro-gt-right form input[type="text"]:-ms-input-placeholder {
+	color: #c3c4e1;
+}
+
+.laundro-gta-area .laundro-gt-right form input[type="text"]::-ms-input-placeholder {
+	color: #c3c4e1;
+}
+
+.laundro-gta-area .laundro-gt-right form input[type="text"]::placeholder {
+	color: #c3c4e1;
+}
+
+.laundro-gta-area .laundro-gt-right form input[type="tel"] {
+	width: 48%;
+	border: 0;
+	padding: 12px 20px;
+	background-color: #1a386d;
+	font-size: 15px;
+	float: right;
+}
+
+.laundro-gta-area .laundro-gt-right form input[type="tel"]::-webkit-input-placeholder {
+	color: #c3c4e1;
+}
+
+.laundro-gta-area .laundro-gt-right form input[type="tel"]:-ms-input-placeholder {
+	color: #c3c4e1;
+}
+
+.laundro-gta-area .laundro-gt-right form input[type="tel"]::-ms-input-placeholder {
+	color: #c3c4e1;
+}
+
+.laundro-gta-area .laundro-gt-right form input[type="tel"]::placeholder {
+	color: #c3c4e1;
+}
+
+.laundro-gta-area .laundro-gt-right form .bx-form-select {
+	width: 100%;
+	margin-top: 20px;
+}
+
+.laundro-gta-area .laundro-gt-right form .bx-form-select select {
+	width: 100%;
+	padding: 12px 20px;
+	background-color: #1a386d;
+	border: 0;
+	color: #c3c4e1;
+	font-size: 15px;
+}
+
+.laundro-gta-area .laundro-gt-right form textarea {
+	width: 100%;
+	margin-top: 20px;
+	border: 0;
+	background-color: #1a386d;
+	padding: 12px 20px;
+	color: #c3c4e1;
+}
+
+.laundro-gta-area .laundro-gt-right form textarea::-webkit-input-placeholder {
+	color: #c3c4e1;
+}
+
+.laundro-gta-area .laundro-gt-right form textarea:-ms-input-placeholder {
+	color: #c3c4e1;
+}
+
+.laundro-gta-area .laundro-gt-right form textarea::-ms-input-placeholder {
+	color: #c3c4e1;
+}
+
+.laundro-gta-area .laundro-gt-right form textarea::placeholder {
+	color: #c3c4e1;
+}
+
+.laundro-gta-area .laundro-gt-right form .submit-btn {
+	margin-top: 30px;
+}
+
+@media (max-width: 1930px) {
+	.laundro-gta-area {
+		background-size: 130%;
+	}
+}
+
+@media (max-width: 1800px) {
+	.laundro-gta-area {
+		background-size: 140%;
+	}
+}
+
+@media (max-width: 1600px) {
+	.laundro-gta-area {
+		background-size: 145%;
+	}
+}
+
+@media (max-width: 1400px) {
+	.laundro-gta-area {
+		background-size: cover;
+		background-position: -800px 0;
+	}
+}
+
+@media (max-width: 991.98px) {
+	.laundro-gta-area {
+		background-size: cover;
+		background-position: right center;
+	}
+	.laundro-gta-area .laundro-gt-right {
+		padding-right: 0;
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 575.98px) {
+	.laundro-gta-area .laundro-gt-right form input[type='text'],
+	.laundro-gta-area .laundro-gt-right form input[type='tel'] {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/****************************** Case Study ***************************/
+
+.laundro-case-study .laundro-ct-left {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	background-repeat: no-repeat;
+	padding: 10px 0 40px 0;
+}
+
+.laundro-case-study .laundro-ct-left .ct-title {
+	font-family: "Poppins", sans-serif;
+	font-weight: 700;
+	font-size: 150px;
+}
+
+.laundro-case-study .laundro-ct-left .ct-title sup {
+	color: #0431b8;
+}
+
+.laundro-case-study .laundro-ct-left .ct-subtitle {
+	color: #082680;
+	font-size: 22px;
+	display: inline-block;
+	margin-top: -35px;
+}
+
+.laundro-case-study .laundro-ct-right {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	gap: 80px;
+}
+
+.laundro-case-study .laundro-ct-right .laundro-pt-item {
+	padding: 60px 35px;
+}
+
+.laundro-case-study .laundro-ct-right .laundro-pt-item img {
+	-webkit-transition: all 0.3s ease-in;
+	-o-transition: all 0.3s ease-in;
+	transition: all 0.3s ease-in;
+}
+
+.laundro-case-study .laundro-ct-right .laundro-pt-item:hover img {
+	-webkit-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+.laundro-case-study .laundro-ct-right .grid-item {
+	border-right: 1px solid #eaeaea;
+	border-bottom: 1px solid #eaeaea;
+}
+
+.laundro-case-study .laundro-ct-right .grid-item:nth-child(3) {
+	border-right: 0;
+}
+
+.laundro-case-study .laundro-ct-right .grid-item:nth-child(4),
+.laundro-case-study .laundro-ct-right .grid-item:nth-child(5),
+.laundro-case-study .laundro-ct-right .grid-item:nth-child(6) {
+	border-bottom: 0;
+}
+
+.laundro-case-study .laundro-ct-right .grid-item:nth-child(6) {
+	border-right: 0;
+}
+
+@media (max-width: 991.98px) {
+	.laundro-case-study .laundro-ct-right .laundro-pt-item {
+		text-align: center;
+	}
+	.laundro-case-study .laundro-ct-right .laundro-pt-item img {
+		max-width: 100%;
+		width: auto;
+		display: inline-block;
+	}
+	.laundro-case-study .laundro-ct-right .grid-item:nth-child(3) {
+		border-right: 1px solid #eaeaea;
+	}
+	.laundro-case-study .laundro-ct-right .grid-item:nth-child(4) {
+		border-bottom: 1px solid #eaeaea;
+	}
+}
+
+@media (max-width: 575.98px) {
+	.laundro-case-study .laundro-ct-right .grid-item {
+		border-bottom: 0 !important;
+		border-right: 0 !important;
+	}
+	.laundro-case-study .laundro-ct-right .grid-item+.grid-item {
+		border-top: 1px solid #eaeaea;
+	}
+}

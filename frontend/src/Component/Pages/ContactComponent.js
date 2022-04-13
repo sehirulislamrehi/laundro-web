@@ -37,17 +37,88 @@ const ContactComponent = () => {
                </div>
                {/* Breadcrumb End */}
 
-               {/* Breadcrumb Start */}
-               <section style={{
-                    padding: "100px"
-               }}>
-                    <h4 style={{
-                         textAlign: "center"
-                    }}>
-                         Comming Soon
-                    </h4>
+               {/* Get In Tauch */}
+               <section className="laundro-gta-area" style={{ backgroundImage: `url("/images/gt-bg.jpg")` }}>
+                    <div className="container">
+                         <div className="row align-items-center">
+                              <div className="col-lg-6 offset-lg-6">
+                                   <div className="laundro-gt-right">
+                                        <h4>Get a estimate</h4>
+                                        <form action="#">
+                                             <input type="text" name="fname" placeholder="Your name*" required></input>
+                                             <input type="tel" name="pnumber" placeholder="Phone Number..."></input>
+                                             <div className="bx-form-select">
+                                                  <select>
+                                                       <option value="plumbing">Plumbing Service</option>
+                                                       <option value="office">Office cleaning</option>
+                                                       <option value="laundry">Laundry Service</option>
+                                                       <option value="toilet">Toilet Cleaning</option>
+                                                       <option value="kichen">Kitchen cleaning</option>
+                                                  </select>
+                                             </div>
+                                             <textarea placeholder="Text..." rows="5"></textarea>
+                                             <button type="submit" className="laundro-primary-btn submit-btn">Get a Quote <span><i className="fab fa-telegram-plane"></i></span></button>
+                                        </form>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
                </section>
-               {/* Breadcrumb End */}
+               {/* Get In Tauch End */}
+
+
+               {/* Contact Info */}
+               <section class="laundro-contact-info pt-100 pb-70">
+                    <div class="container">
+                         <div class="row">
+                              <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1">
+                              <div class="laundro-title-area">
+                                   <span class="laundro-subtitle">Get in touch</span>
+                                   <h3>We want to shaare our location to find us easily.</h3>
+                              </div>
+                              </div>
+                         </div>
+                         <div class="laundro-contact-content">
+                              <div class="row justify-content-center">
+                              <div class="col-lg-4 col-md-6">
+                                   <div class="laundro-contact-column">
+                                        <div class="laundro-icon-wrapper">
+                                             <i class="flaticon flaticon-pin"></i>
+                                        </div>
+                                        <div class="column-content">
+                                             <h5>Office Address</h5>
+                                             <p>Mohakhali TB Gate, Dhaka, Bangladesh</p>
+                                        </div>
+                                   </div>
+                              </div>
+                              <div class="col-lg-4 col-md-6">
+                                   <div class="laundro-contact-column">
+                                        <div class="laundro-icon-wrapper">
+                                             <i class="flaticon flaticon-phone"></i>
+                                        </div>
+                                        <div class="column-content">
+                                             <h5>Telephone number</h5>
+                                             <p>(+880)1858361812</p>
+                                        </div>
+                                   </div>
+                              </div>
+                              <div class="col-lg-4 col-md-6">
+                                   <div class="laundro-contact-column">
+                                        <div class="laundro-icon-wrapper">
+                                             <i class="flaticon flaticon-mail"></i>
+                                        </div>
+                                        <div class="column-content">
+                                             <h5>Mail address</h5>
+                                             <p>mdsehirulislamrehi@gmail.com</p>
+                                        </div>
+                                   </div>
+                              </div>
+                              </div>
+                         </div>
+                    </div>
+               </section>
+               {/* End Contact Info */}
+
 
                {/* Footer */}
                <Footer></Footer>
