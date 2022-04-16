@@ -174,7 +174,7 @@
 	border-bottom: 1px solid #eaeaea;
 	font-family: "Poppins", sans-serif;
 	font-weight: 500;
-	color: #082680;
+	color: #006bcd;
 }
 
 .laundro-mobile-menu ul li.has-submenu {
@@ -340,7 +340,7 @@
 }
 
 .header-style-2 .desktop-menu ul li:hover a {
-	color: #082680;
+	color: #006bcd;
 }
 
 @media (max-width: 1199.98px) {
@@ -558,7 +558,7 @@
 .laundro-header .laundro-header-top .laundro-header-item .laundro-icon-wrapper i {
 	font-size: 40px;
 	display: inline-block;
-	color: #082680;
+	color: #006bcd;
 }
 
 .laundro-header .laundro-header-top .laundro-header-item .laundro-item-content {
@@ -566,7 +566,7 @@
 }
 
 .laundro-header .laundro-header-top .laundro-header-item .laundro-item-content label {
-	color: #082680;
+	color: #006bcd;
 	display: block;
 	font-size: 13px;
 }
@@ -576,7 +576,7 @@
 	font-family: "Poppins", sans-serif;
 	font-weight: 700;
 	font-size: 19px;
-	color: #082680;
+	color: #006bcd;
 	display: inline-block;
 }
 
@@ -1056,7 +1056,7 @@
 	-webkit-transform: translateY(5px);
 	-ms-transform: translateY(5px);
 	transform: translateY(5px);
-	color: #082680;
+	color: #006bcd;
 }
 
 .header-style-4 .h4-info-area .h4-info-items .h4-info-item .laundro-item-content {
@@ -1344,7 +1344,7 @@
 	width: 150px;
 	height: 50px;
 	background-color: #ffd532;
-	color: #082680;
+	color: #006bcd;
 	font-family: "Poppins", sans-serif;
 	font-weight: 600;
 	font-size: 15px;
@@ -2483,7 +2483,7 @@
 .btn.btn-primary:hover,
 .btn.btn-primary:focus {
 	background-color: #fff;
-	color: #082680;
+	color: #006bcd;
 }
 
 .btn.btn-primary-normal {
@@ -2906,7 +2906,7 @@
 .revslider-initialised .tp-leftarrow.custom:before,
 .revslider-initialised .tp-rightarrow.custom:before {
 	font-size: 19px !important;
-	color: #082680 !important;
+	color: #006bcd !important;
 	font-family: "Flaticon" !important;
 	position: absolute !important;
 	top: 50% !important;
@@ -2922,7 +2922,7 @@
 
 .revslider-initialised .tp-leftarrow.custom:hover,
 .revslider-initialised .tp-rightarrow.custom:hover {
-	background-color: #082680 !important;
+	background-color: #006bcd !important;
 }
 
 .revslider-initialised .tp-leftarrow.custom:hover:before,
@@ -2973,7 +2973,7 @@
 	height: 34px;
 	font-size: 16px;
 	font-weight: 700;
-	color: #082680;
+	color: #006bcd;
 	line-height: 34px;
 	text-align: center;
 	-webkit-border-radius: 34px;
@@ -3425,7 +3425,7 @@
 	text-align: center;
 	background-color: #fff;
 	font-size: 18px;
-	color: #082680;
+	color: #006bcd;
 	-webkit-border-radius: 100%;
 	-khtml-border-radius: 100%;
 	-moz-border-radius: 100%;
@@ -3511,7 +3511,7 @@
 	border-radius: 50px;
 	background-color: #fff;
 	display: inline-block;
-	color: #082680;
+	color: #006bcd;
 	text-align: center;
 	font-size: 15px;
 	position: relative;
@@ -4136,7 +4136,7 @@
 
 .laundro-readmore-btn {
 	padding: 10px 15px;
-	background-color: #082680;
+	background-color: #006bcd;
 	color: #ffffff;
 	font-family: "Poppins", sans-serif;
 	font-weight: 600;
@@ -4443,32 +4443,32 @@ body {
 }
 
 h1 {
-	color: #082680;
+	color: #006bcd;
 	font-size: 60px;
 }
 
 h2 {
-	color: #082680;
+	color: #006bcd;
 	font-size: 48px;
 }
 
 h3 {
-	color: #082680;
+	color: #006bcd;
 	font-size: 36px;
 }
 
 h4 {
-	color: #082680;
+	color: #006bcd;
 	font-size: 25px;
 }
 
 h5 {
-	color: #082680;
+	color: #006bcd;
 	font-size: 22px;
 }
 
 h6 {
-	color: #082680;
+	color: #006bcd;
 	font-size: 18px;
 	margin-bottom: 0;
 }
@@ -5239,7 +5239,7 @@ i {
 	text-align: center;
 	line-height: 40px;
 	border-radius: 50%;
-	color: #082680;
+	color: #006bcd;
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
 	transition: all 0.3s ease-in;
@@ -5247,7 +5247,7 @@ i {
 }
 
 .laundro-services .laundro-service-wrapper .slick-arrow:hover {
-	background-color: #082680;
+	background-color: #006bcd;
 	color: #ffffff;
 }
 
@@ -5478,7 +5478,7 @@ i {
 .laundro-about-section .laundro-about-right .laundro-about-content .video-content .title {
 	font-family: "Poppins", sans-serif;
 	font-weight: 700;
-	color: #082680;
+	color: #006bcd;
 	margin-bottom: 6px;
 	display: block;
 }
@@ -5602,7 +5602,7 @@ i {
 }
 
 .laundro-service-section .laundro-services .laundro-service-item .laundro-icon-wrapper span i {
-	background-color: #082680;
+	background-color: #006bcd;
 	height: 100%;
 	width: 100%;
 	border-radius: 50%;
@@ -5661,7 +5661,7 @@ i {
 
 .laundro-service-section .laundro-services .laundro-service-item:hover .laundro-icon-wrapper span i {
 	background-color: #ffffff;
-	color: #082680;
+	color: #006bcd;
 }
 
 .laundro-service-section .laundro-services .laundro-service-item:hover .laundro-service-content::before {
@@ -6044,7 +6044,7 @@ i {
 }
 
 .laundro-case-study .laundro-ct-left .ct-subtitle {
-	color: #082680;
+	color: #006bcd;
 	font-size: 22px;
 	display: inline-block;
 	margin-top: -35px;
@@ -6199,7 +6199,7 @@ i {
 
 .laundro-gta-area .laundro-gt-left .laundro-help-desk .desk-title {
 	font-size: 24px;
-	color: #082680;
+	color: #006bcd;
 	font-family: "Poppins", sans-serif;
 	font-weight: 700;
 	margin-top: -3px;
@@ -6403,7 +6403,7 @@ i {
 }
 
 .laundro-pricing-table .pricing-table-area .pricing-nav ul li a {
-	color: #082680;
+	color: #006bcd;
 	font-size: 18px;
 	font-weight: 700;
 	font-family: "Poppins", sans-serif;
@@ -6459,7 +6459,7 @@ i {
 
 .laundro-pricing-table .pricing-table-area .pricing-nav .offer-price {
 	background-color: #def8fc;
-	color: #082680;
+	color: #006bcd;
 	font-size: 12px;
 	padding: 6px 10px;
 	display: inline-block;
@@ -6891,7 +6891,7 @@ i {
 	background-color: #ced4e6;
 	font-weight: 500;
 	text-transform: uppercase;
-	color: #082680;
+	color: #006bcd;
 }
 
 .laundro-blog-area .laundro-blog-slider .laundro-single-blog .laundro-blog-content .laundro-blog-headline {
@@ -7224,7 +7224,7 @@ i {
 }
 
 .ab-service-section .ab-service-slider .laundro-service-item .laundro-icon-wrapper span i {
-	background-color: #082680;
+	background-color: #006bcd;
 	height: 100%;
 	width: 100%;
 	border-radius: 50%;
@@ -7283,7 +7283,7 @@ i {
 
 .ab-service-section .ab-service-slider .laundro-service-item:hover .laundro-icon-wrapper span i {
 	background-color: #ffffff;
-	color: #082680;
+	color: #006bcd;
 }
 
 .ab-service-section .ab-service-slider .laundro-service-item:hover .laundro-service-content::before {
@@ -7420,12 +7420,12 @@ i {
 }
 
 .ab-history-section .ab-history-tab .tab-control ul li a.active {
-	color: #082680;
+	color: #006bcd;
 }
 
 .ab-history-section .ab-history-tab .tab-control ul li a.active::after {
 	background-color: #22d3ee;
-	border: 2px solid #082680;
+	border: 2px solid #006bcd;
 }
 
 .ab-history-section .ab-history-tab .tab-control ul li+li {
@@ -7448,7 +7448,7 @@ i {
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
 	font-family: "Poppins", sans-serif;
-	color: #082680;
+	color: #006bcd;
 	font-weight: 700;
 }
 
@@ -7461,7 +7461,7 @@ i {
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
 	font-family: "Poppins", sans-serif;
-	color: #082680;
+	color: #006bcd;
 	font-weight: 700;
 }
 
@@ -8779,7 +8779,7 @@ i {
 .service-details .sr-sidebar .sr-btn-widget .download-btns a.btn-2 {
 	margin-top: 20px;
 	background-color: #ffffff;
-	color: #082680;
+	color: #006bcd;
 }
 
 .service-details .sr-sidebar .sr-btn-widget .download-btns a:hover {
@@ -8793,7 +8793,7 @@ i {
 
 @media (max-width: 991.98px) {
 	.service-details .sr-sidebar {
-		max-width: 300px;
+		/* max-width: 300px; */
 	}
 }
 
@@ -8904,7 +8904,7 @@ i {
 }
 
 .service-details .sr-details-content .sr-details-slider .laundro-service-item .laundro-icon-wrapper span i {
-	background-color: #082680;
+	background-color: #006bcd;
 	height: 100%;
 	width: 100%;
 	border-radius: 50%;
@@ -8963,7 +8963,7 @@ i {
 
 .service-details .sr-details-content .sr-details-slider .laundro-service-item:hover .laundro-icon-wrapper span i {
 	background-color: #ffffff;
-	color: #082680;
+	color: #006bcd;
 }
 
 .service-details .sr-details-content .sr-details-slider .laundro-service-item:hover .laundro-service-content::before {
@@ -9000,7 +9000,7 @@ i {
 	border: 0;
 	background-color: #cddae6;
 	font-size: 14px;
-	color: #082680;
+	color: #006bcd;
 	text-align: center;
 	line-height: 30px;
 	-webkit-transition: all 0.3s ease-in;
@@ -9077,7 +9077,7 @@ i {
 }
 
 .portfolio-area .portfolio-filter .controls ul li.active {
-	color: #082680;
+	color: #006bcd;
 }
 
 .portfolio-area .portfolio-filter .controls ul li.active::after {
@@ -9296,7 +9296,7 @@ i {
 }
 
 .pf-details .sr-sidebar .pd-widget .pd-widget-list ul li {
-	color: #082680;
+	color: #006bcd;
 }
 
 .pf-details .sr-sidebar .pd-widget .pd-widget-list ul li strong {
@@ -9795,12 +9795,12 @@ i {
 	font-size: 55px;
 	font-family: "Poppins", sans-serif;
 	font-weight: 700;
-	color: #082680;
+	color: #006bcd;
 }
 
 .coming-soon ul.countdown li p {
 	font-size: 24px;
-	color: #082680;
+	color: #006bcd;
 	font-weight: 500;
 }
 
@@ -9990,7 +9990,7 @@ i {
 
 .faq-section .faq-bottom .faq-wrapper .accordion-item .accordion-header a {
 	text-transform: initial;
-	color: #082680;
+	color: #006bcd;
 	font-family: "Poppins", sans-serif;
 	font-weight: 700;
 	position: relative;
@@ -10138,7 +10138,7 @@ i {
 
 .faq-contact .faq-contact-bottom .faq-form form label {
 	font-family: "Poppins", sans-serif;
-	color: #082680;
+	color: #006bcd;
 	margin-bottom: 8px;
 	font-size: 16px;
 	font-weight: 600;
@@ -10252,7 +10252,7 @@ i {
 	background-color: #ced4e6;
 	font-weight: 500;
 	text-transform: uppercase;
-	color: #082680;
+	color: #006bcd;
 }
 
 .blog-content-section .blog-posts .blog-single-post .laundro-blog-content .laundro-blog-headline {
@@ -10275,7 +10275,7 @@ i {
 	transform: translateX(-50%);
 	width: 0;
 	height: 2px;
-	background-color: #082680;
+	background-color: #006bcd;
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
 	transition: all 0.3s ease-in;
@@ -10512,26 +10512,26 @@ i {
 	border: 0;
 	background-color: #ffffff;
 	border-radius: 3px;
-	color: #082680;
+	color: #006bcd;
 	font-size: 15px;
 	font-family: "Poppins", sans-serif;
 	font-weight: 600;
 }
 
 .blog-content-section .blog-sidebar .search-sidebar form input[type="text"]::-webkit-input-placeholder {
-	color: #082680;
+	color: #006bcd;
 }
 
 .blog-content-section .blog-sidebar .search-sidebar form input[type="text"]:-ms-input-placeholder {
-	color: #082680;
+	color: #006bcd;
 }
 
 .blog-content-section .blog-sidebar .search-sidebar form input[type="text"]::-ms-input-placeholder {
-	color: #082680;
+	color: #006bcd;
 }
 
 .blog-content-section .blog-sidebar .search-sidebar form input[type="text"]::placeholder {
-	color: #082680;
+	color: #006bcd;
 }
 
 .blog-content-section .blog-sidebar .search-sidebar form button {
@@ -10674,7 +10674,7 @@ i {
 	padding: 0 10px;
 	display: inline-block;
 	background-color: #ffffff;
-	color: #082680;
+	color: #006bcd;
 	text-align: center;
 	line-height: 40px;
 	font-weight: 500;
@@ -10841,7 +10841,7 @@ i {
 	font-family: "Poppins", sans-serif;
 	font-weight: 600;
 	font-size: 15px;
-	color: #082680;
+	color: #006bcd;
 	text-transform: capitalize;
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
@@ -11161,7 +11161,7 @@ i {
 }
 
 .blog-content-section .blog-details-sidebar .category-widget .list-nav ul li a {
-	color: #082680;
+	color: #006bcd;
 }
 
 .blog-content-section .blog-details-sidebar .category-widget .list-nav ul li a::after {
@@ -11782,7 +11782,7 @@ i {
 	border-radius: 50%;
 	text-align: center;
 	line-height: 40px;
-	color: #082680;
+	color: #006bcd;
 	z-index: 10;
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
@@ -11876,7 +11876,7 @@ i {
 }
 
 .home2-pmv-section .pmv-bottom .pmv-nav ul li a.active {
-	color: #082680;
+	color: #006bcd;
 }
 
 .home2-pmv-section .pmv-bottom .pmv-nav ul li a.active::after {
@@ -12215,7 +12215,7 @@ i {
 
 .home2-faq-area .faq-content .faq-wrapper .accordion-item .accordion-header a {
 	text-transform: initial;
-	color: #082680;
+	color: #006bcd;
 	font-family: "Poppins", sans-serif;
 	font-weight: 700;
 	position: relative;
@@ -14714,7 +14714,7 @@ i {
 	font-family: "Poppins", sans-serif;
 	font-weight: 700;
 	font-size: 15px;
-	color: #082680;
+	color: #006bcd;
 	position: relative;
 	overflow: hidden;
 	vertical-align: middle;
@@ -14778,7 +14778,7 @@ i {
 .home6-service-area .home6-service-bottom .column-wrapper .services-column .item-content .icon-wrapper span {
 	width: 75px;
 	height: 75px;
-	background-color: #082680;
+	background-color: #006bcd;
 	display: -webkit-inline-box;
 	display: -ms-inline-flexbox;
 	display: inline-flex;
@@ -14842,7 +14842,7 @@ i {
 .home6-choose-us .choose-left .choose-list .item span {
 	font-family: "Poppins", sans-serif;
 	font-weight: 600;
-	color: #082680;
+	color: #006bcd;
 	text-transform: capitalize;
 }
 
@@ -14879,7 +14879,7 @@ i {
 .home6-choose-us .choose-right .video-btn a {
 	width: 70px;
 	height: 70px;
-	background-color: #082680;
+	background-color: #006bcd;
 	display: inline-block;
 	border-radius: 50%;
 	display: -webkit-inline-box;
@@ -14948,7 +14948,7 @@ i {
 	width: 260px;
 	height: 55px;
 	background-color: #ffd532;
-	color: #082680;
+	color: #006bcd;
 	font-size: 18px;
 	font-weight: 700;
 	display: inline-block;
@@ -15069,7 +15069,7 @@ i {
 }
 
 .home6-pricing-table .home6-pricing .home6-pricing-column .price-area span {
-	color: #082680;
+	color: #006bcd;
 	font-family: "Poppins", sans-serif;
 	font-weight: 500;
 }

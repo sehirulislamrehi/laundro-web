@@ -28,6 +28,9 @@
      .book-service .book-service-row {
           padding: 50px 15px;
       }
+      .header-style-2 .header-bottom .header-search form input[type='text'] {
+          width: 70%;
+     }
 }
 
 
