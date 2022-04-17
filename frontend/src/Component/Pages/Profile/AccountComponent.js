@@ -9,12 +9,10 @@ import HeaderComponent from "./Includes/HeaderComponent";
 import LeftSidebarComponent from "./Includes/LeftSidebarComponent";
 import NavbarComponent from "./Includes/NavbarComponent";
 
-
-const DashboardComponent = () => {
-
+const AccountComponent = () => {
      {/* window scroll to top */}
      window.scrollTo(0, 0);
-
+     
      return(
           <div className="id">
 
@@ -44,16 +42,11 @@ const DashboardComponent = () => {
                                    <NavbarComponent></NavbarComponent>
                                    
                                    <div className="profile-body">
-                                        <div className="row">
-
-                                             {/* image one */}
-                                             <div className="col-md-12 my-dashboard">
-                                                  <img src="/images/graph-1.png" className="img-fluid" alt="" />
-                                             </div>
-
-                                        </div>
+                                       <div className="row my-account">
+                                            
+                                       </div>
                                    </div>
-
+                                   
                               </div>
                          </div>
                     </div>
@@ -63,8 +56,8 @@ const DashboardComponent = () => {
                <Footer></Footer>
                {/* Footer End */}
 
-          </div>   
+          </div> 
      );
 }
 
-export default DashboardComponent;
+export default AccountComponent;

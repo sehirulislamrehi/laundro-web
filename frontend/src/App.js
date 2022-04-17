@@ -8,6 +8,8 @@ import ServiceDetailsComponent from "./Component/Pages/ServiceDetailsComponent";
 import LoginComponent from "./Component/Pages/Auth/LoginComponent";
 import RegisterComponent from "./Component/Pages/Auth/RegisterComponent";
 import DashboardComponent from "./Component/Pages/Profile/DashboardComponent";
+import MyOrderComponent from "./Component/Pages/Profile/MyOrderComponent";
+import AccountComponent from "./Component/Pages/Profile/AccountComponent";
 
 function App() {
   return (
@@ -53,6 +55,16 @@ function App() {
             {/* DashbaordComponent Component */}
             <Route path="/dashboard">
               <DashboardComponent></DashboardComponent>
+            </Route>
+
+            {/* my order Component */}
+            <Route path="/my-order">
+              <MyOrderComponent></MyOrderComponent>
+            </Route>
+
+            {/* account Component */}
+            <Route path="/account">
+              <AccountComponent></AccountComponent>
             </Route>
 
       </Switch>

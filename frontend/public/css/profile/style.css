@@ -119,7 +119,7 @@
      width: 300px;
      background: #fff;
      border: 1px solid #006bcd;
-     padding: 90px 30px 20px;
+     padding: 90px 20px 20px;
      font-family: "Bree Serif", serif;
      margin-left: 10px;
      z-index: 99;
@@ -241,4 +241,86 @@ button.createbtn i {
 }
 .profile{
      padding: 100px 0;
+}
+.link-send {
+     margin: 15px 0;
+}
+.link-send h4{
+     font-size: 18px;
+}
+.link-send .row{
+     margin-top: 15px;
+}
+.link-send .row .phone-number{
+     padding-left: 0;
+}
+.link-send .row .phone-number input{
+     margin: 0;
+}
+.link-send .row .form-control:focus{
+     box-shadow: none;
+     border: 1px solid black;
+}
+.link-send .row .button button{
+     width: 100%;
+     margin-top: 10px;
+     background: #22d3ee;
+     color: white;
+     border: none;
+     padding: 10px;
+}
+.profile-body{
+     padding: 15px;
+}
+.right-side{
+     width: 100%;
+}
+.right-side .nav ul li a{
+     color: black;
+}
+.order-card{
+     background: whitesmoke;
+     padding: 15px;
+     position: relative;
+     border-radius: 5px;
+     margin-bottom: 15px;
+}
+.order-card .fa-times{
+     position: absolute;
+     right: 15px;
+     top: 15px;
+     color: white;
+     cursor: pointer;
+     background: #22d3ee;
+     padding: 5px 10px;
+}
+.order-card-footer{
+     margin-top: 10px;
+}
+.order-card .left-part small{
+     color: black;
+}
+.order-card-footer .left-part ul li .fas{
+     margin-right: 5px;
+}
+.order-card-footer .left-part ul li{
+     display: inline;
+     margin-right: 15px;
+     color: black;
+}
+.order-card-footer .right-part .order-status{
+     display: block;
+     margin: 0 0 0 auto;
+     background: #006bcd;
+     color: white;
+     border: none;
+     padding: 5px 20px;
+     border-radius: 5px;
+}
+.my-dashboard img{
+     display: block;
+     margin: 0 auto;
+}
+.my-account .form-control{
+     
 }
