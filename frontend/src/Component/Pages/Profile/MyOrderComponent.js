@@ -12,8 +12,6 @@ import NavbarComponent from "./Includes/NavbarComponent";
 
 const MyOrderComponent = () => {
 
-     {/* window scroll to top */}
-     window.scrollTo(0, 0);
      
      return(
           <div className="id">

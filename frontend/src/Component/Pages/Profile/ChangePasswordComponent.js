@@ -10,12 +10,11 @@ import LeftSidebarComponent from "./Includes/LeftSidebarComponent";
 import NavbarComponent from "./Includes/NavbarComponent";
 
 
-const DashboardComponent = () => {
+const ChangePasswordComponent = () => {
 
 
      return(
           <div className="id">
-
                {/* desktop menu start */}
                <DesktopMenu></DesktopMenu>
                {/* desktop menu end */}
@@ -42,16 +41,31 @@ const DashboardComponent = () => {
                                    <NavbarComponent></NavbarComponent>
                                    
                                    <div className="profile-body">
-                                        <div className="row">
+                                       <div className="row my-account">
 
-                                             {/* image one */}
-                                             <div className="col-md-12 my-dashboard">
-                                                  <img src="/images/graph-1.png" className="img-fluid" alt="" />
+                                             <div className="col-md-12 form-group">
+                                                  <label>Old Password</label>
+                                                  <input type="password" className="form-control" name="old_password"/>
                                              </div>
 
-                                        </div>
-                                   </div>
+                                             <div className="col-md-12 form-group">
+                                                  <label>New Password</label>
+                                                  <input type="password" className="form-control" name="new_password"/>
+                                             </div>
 
+                                             <div className="col-md-12 form-group">
+                                                  <label>Confirm Password</label>
+                                                  <input type="password" className="form-control" name="password_confirmation"/>
+                                             </div>
+                                            
+                                             <div className="col-md-12 form-group">
+                                                  <button className="change-password-btn">
+                                                       Update
+                                                  </button>
+                                             </div>
+                                       </div>
+                                   </div>
+                                   
                               </div>
                          </div>
                     </div>
@@ -60,9 +74,8 @@ const DashboardComponent = () => {
                {/* Footer */}
                <Footer></Footer>
                {/* Footer End */}
-
-          </div>   
+          </div>
      );
 }
 
-export default DashboardComponent;
+export default ChangePasswordComponent;

@@ -10,6 +10,9 @@ import RegisterComponent from "./Component/Pages/Auth/RegisterComponent";
 import DashboardComponent from "./Component/Pages/Profile/DashboardComponent";
 import MyOrderComponent from "./Component/Pages/Profile/MyOrderComponent";
 import AccountComponent from "./Component/Pages/Profile/AccountComponent";
+import EditProfileComponent from "./Component/Pages/Profile/EditProfileComponent";
+import ChangePasswordComponent from "./Component/Pages/Profile/ChangePasswordComponent";
+import DeleteAccountComponent from "./Component/Pages/Profile/DeleteAccountComponent";
 
 function App() {
   return (
@@ -65,6 +68,21 @@ function App() {
             {/* account Component */}
             <Route path="/account">
               <AccountComponent></AccountComponent>
+            </Route>
+
+            {/* edit profile  */}
+            <Route path="/edit-profile">
+              <EditProfileComponent></EditProfileComponent>
+            </Route>
+
+            {/* change password  */}
+            <Route path="/change-password">
+              <ChangePasswordComponent></ChangePasswordComponent>
+            </Route>
+
+            {/* delete account  */}
+            <Route path="/delete-account">
+              <DeleteAccountComponent></DeleteAccountComponent>
             </Route>
 
       </Switch>

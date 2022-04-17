@@ -10,8 +10,6 @@ import LeftSidebarComponent from "./Includes/LeftSidebarComponent";
 import NavbarComponent from "./Includes/NavbarComponent";
 
 const AccountComponent = () => {
-     {/* window scroll to top */}
-     window.scrollTo(0, 0);
      
      return(
           <div className="id">
@@ -43,6 +41,49 @@ const AccountComponent = () => {
                                    
                                    <div className="profile-body">
                                        <div className="row my-account">
+
+                                            {/* edit */}
+                                            <div className="col-md-12 edit-column">
+                                                 <ul>
+                                                      <li>
+                                                           <Link to="/edit-profile">
+                                                                <i className="fas fa-edit"></i> 
+                                                                Edit                                                          
+                                                           </Link>
+                                                      </li>
+                                                 </ul>
+                                            </div>
+
+                                            {/* image */}
+                                            <div className="col-md-12 image-column">
+                                                 <img src="/images/rehi.png" className="img-fluid" alt="" />
+                                            </div>
+
+                                            {/* account information */}
+                                             <div className="col-md-12 account-information">
+                                                  <ul>
+                                                       <li>
+                                                            <strong>Name : </strong>
+                                                            Md Sehirul Islam Rehi
+                                                       </li>
+                                                       <li>
+                                                            <strong>Email : </strong>
+                                                            mdsehirulislamrehi@gmail.com
+                                                       </li>
+                                                       <li>
+                                                            <strong>Phone : </strong>
+                                                            01858361812
+                                                       </li>
+                                                       <li>
+                                                            <strong>Bio : </strong>
+                                                            Lorem ipsum dolor sit amet, hello how consectetur adipisicing elit. Sint consectetur provident magni yohoho consequuntur, voluptatibus ghdfff exercitationem at quis similique. Optio, amet!
+                                                       </li>
+                                                       <li>
+                                                            <strong>Address : </strong>
+                                                            Mohakhali tb gate
+                                                       </li>
+                                                  </ul>
+                                             </div>
                                             
                                        </div>
                                    </div>

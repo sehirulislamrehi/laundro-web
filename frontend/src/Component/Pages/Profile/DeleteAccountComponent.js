@@ -10,12 +10,11 @@ import LeftSidebarComponent from "./Includes/LeftSidebarComponent";
 import NavbarComponent from "./Includes/NavbarComponent";
 
 
-const DashboardComponent = () => {
+const DeleteAccountComponent = () => {
 
 
      return(
           <div className="id">
-
                {/* desktop menu start */}
                <DesktopMenu></DesktopMenu>
                {/* desktop menu end */}
@@ -42,16 +41,16 @@ const DashboardComponent = () => {
                                    <NavbarComponent></NavbarComponent>
                                    
                                    <div className="profile-body">
-                                        <div className="row">
-
-                                             {/* image one */}
-                                             <div className="col-md-12 my-dashboard">
-                                                  <img src="/images/graph-1.png" className="img-fluid" alt="" />
-                                             </div>
-
-                                        </div>
+                                       <div className="row my-account">
+                                            <p>
+                                                  When you delete your Laundro account, you won't be able to retrieve the content or information that you've shared on Laundro.
+                                            </p>
+                                            <Link to="/login" className="">
+                                                  Delete Account
+                                            </Link>
+                                       </div>
                                    </div>
-
+                                   
                               </div>
                          </div>
                     </div>
@@ -60,9 +59,8 @@ const DashboardComponent = () => {
                {/* Footer */}
                <Footer></Footer>
                {/* Footer End */}
-
-          </div>   
+          </div>
      );
 }
 
-export default DashboardComponent;
+export default DeleteAccountComponent;

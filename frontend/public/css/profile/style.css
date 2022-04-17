@@ -321,6 +321,70 @@ button.createbtn i {
      display: block;
      margin: 0 auto;
 }
-.my-account .form-control{
-     
+.my-account {
+     background: whitesmoke;
+     padding: 15px;
+     position: relative;
+}
+.my-account .edit-column ul{
+     text-align: right;
+}
+.my-account .edit-column ul li{
+     display: inline;
+     margin-left: 15px;
+}
+.my-account .edit-column ul li a{
+     background: #006bcd;
+    color: white;
+    padding: 5px 15px;
+}
+.my-account .edit-column ul li a:hover{
+     background: #22d3ee;
+}
+.my-account .edit-column ul li a .fas{
+     margin-right: 5px;
+}
+.my-account .image-column{
+     margin-bottom: 15px;
+     position: relative;
+}
+.my-account .image-column i{
+     position: absolute;
+     left: 55%;
+     transform: translateX(-50%);
+     background: #006bcd;
+     height: 20px;
+     border-radius: 100%;
+     width: 20px;
+     padding: 2px 4px;
+     color: white;
+     cursor: pointer;
+}
+
+.my-account .image-column img{
+     width: 10%;
+     display: block;
+     margin: 0 auto;
+     border-radius: 100%;
+}
+.my-account .image-column .account-information {
+     padding: 15px 0;
+}
+.my-account .account-information ul li{
+     margin-bottom: 10px;
+}
+.my-account .form-group{
+     margin-bottom: 15px;
+}
+.my-account .form-control:focus{
+     box-shadow: none;
+     border: 1px solid black;
+}
+.change-password-btn{
+     display: block;
+     margin: 0 0 0 auto;
+     background: #006bcd;
+     color: white;
+     border: none;
+     padding: 5px 20px;
 }

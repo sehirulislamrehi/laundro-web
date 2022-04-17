@@ -38,7 +38,7 @@ const NavbarComponent = (props) => {
                               </li>
                          }
 
-{
+                         {
                               (location.pathname == '/account' ) ?
                               <li className="user-post active">
                                    <Link to="/account">
@@ -51,9 +51,41 @@ const NavbarComponent = (props) => {
                                    </Link>
                               </li>
                          }
-                         <li className="user-setting"> Change Password</li>
-                         <li className="user-setting"> Delete Account</li>
-                         <li className="user-setting"> Logout</li>
+
+                         {
+                              (location.pathname == '/change-password' ) ?
+                              <li className="user-post active">
+                                   <Link to="/change-password">
+                                        Change Password
+                                   </Link>
+                              </li> :
+                              <li className="user-post">
+                                   <Link to="/change-password">
+                                        Change Password
+                                   </Link>
+                              </li>
+                         }
+                         
+
+                         {
+                              (location.pathname == '/delete-account' ) ?
+                              <li className="user-post active">
+                                   <Link to="/delete-account">
+                                        Delete Account
+                                   </Link>
+                              </li> :
+                              <li className="user-post">
+                                   <Link to="/delete-account">
+                                        Delete Account
+                                   </Link>
+                              </li>
+                         }
+
+                         <li className="user-setting"> 
+                              <Link to="/login">
+                                   Logout
+                              </Link>
+                         </li>
                     </ul>
                </div>
           </div>
