@@ -9,7 +9,7 @@ import DesktopMenu from "../../Include/DesktopMenu";
 import MobileMenu from "../../Include/MobileMenu";
 import Footer from "../../Include/Footer";
 
-const StepOneComponent = () => {
+const StepTwoComponent = () => {
 
      {/* window scroll to top */}
      window.scrollTo(0, 0);
@@ -22,6 +22,36 @@ const StepOneComponent = () => {
                e.target.nextElementSibling.style.background = "#efefef"
           }
           e.target.style.background = "#22d3ee"
+     }
+
+     //item plus
+     function itemPlus(e){
+          if( e.target.parentElement.dataset.id == 1 ){
+               e.target.previousElementSibling.innerHTML = parseInt(e.target.previousElementSibling.innerHTML) + 1
+          }
+          else{
+               e.target.parentElement.previousElementSibling.innerHTML = parseInt(e.target.parentElement.previousElementSibling.innerHTML) + 1
+          }
+     }
+
+     //item minus
+     function itemMinus(e){
+          if( e.target.parentElement.dataset.id == 1 ){
+               if( e.target.nextElementSibling.innerHTML == 1 ){
+                    alert("Minumim value is 1")
+               }
+               else{
+                    e.target.nextElementSibling.innerHTML = parseInt(e.target.nextElementSibling.innerHTML) - 1
+               }
+          }
+          else{
+               if( e.target.parentElement.nextElementSibling.innerHTML == 1 ){
+                    alert("Minumim value is 1")
+               }
+               else{
+                    e.target.parentElement.nextElementSibling.innerHTML = parseInt(e.target.parentElement.nextElementSibling.innerHTML) - 1
+               }
+          }
      }
 
      const { slug } =  useParams();     
@@ -49,7 +79,7 @@ const StepOneComponent = () => {
                                              {/* progressbar */}
                                              <ul id="progressbar">
                                                   <li className="active">Frequency</li>
-                                                  <li>Service Details</li>
+                                                  <li className="active">Service Details</li>
                                                   <li>Date & Time</li>
                                                   <li>Service Details</li>
                                              </ul>
@@ -58,41 +88,53 @@ const StepOneComponent = () => {
 
                                    <div className="row booking-card">
 
-                                        <div className="col-md-12 title mb-3">
-                                             <h4>{slug}</h4>
-                                             <p>
-                                                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
-                                             </p>
-                                             <img src="/images/booking-1.png" className="img-fluid" alt="" />
-                                        </div>
-
-                                        <div className="col-md-12 select-postal-code mb-3">
-                                             <label htmlFor="">Enter BD postal code</label>
-                                             <input type="text" className="form-control"  />
-                                        </div>
-
-                                        <div className="col-md-12 select-address mb-3">
-                                             <label htmlFor="">Select your address</label>
-                                             <select name="" className="form-control">
-                                                  <option value="8166316"> 1st Translation Co Ltd, Gresham House, 24 Holborn Viaduct, LONDON, EC1A 2BN </option>
-                                                  <option value="54142703"> Catena Media UK Ltd, Gresham House, 24 Holborn Viaduct, LONDON, EC1A 2BN </option>
-                                                  <option value="8166315"> Lisa Tse Ltd, Gresham House, 24 Holborn Viaduct, LONDON, EC1A 2BN </option>
-                                                  <option value="8166310"> Max Need Ltd, Gresham House, 24 Holborn Viaduct, LONDON, EC1A 2BN </option>
-                                                  <option value="54025645"> R D H Advisory Ltd, Gresham House, 24 Holborn Viaduct, LONDON, EC1A 2BN </option>
-                                                  <option value="53255431"> Registered Address Ltd, Gresham House, 24 Holborn Viaduct, LONDON, EC1A 2BN </option>
-                                                  <option value="-1"> Not on the list? </option>
-                                             </select>
-                                        </div>
-
-                                        <div className="col-md-12 select-order-duration mb-3">
-                                             <p>How ofter do you need this service?</p>
-                                             <ul>
-                                                  <li onClick={clickOnDuration}>One Time</li>
-                                                  <li onClick={clickOnDuration}>Regular</li>
+                                        <div className="col-md-12 how-many-hour mb-4">
+                                             <p>How many hour do you need your professional to stay?</p>
+                                             <ul data-id="1">
+                                                  <li onClick={itemMinus}>
+                                                       <i className="fas fa-minus"></i>
+                                                  </li>
+                                                  <li>
+                                                       1
+                                                  </li>
+                                                  <li onClick={itemPlus}>
+                                                       <i className="fas fa-plus"></i>
+                                                  </li>
                                              </ul>
                                         </div>
 
+                                        <div className="col-md-12 how-many-hour mb-4">
+                                             <p>How many professionals do you need?</p>
+                                             <ul data-id="1">
+                                                  <li onClick={itemMinus}>
+                                                       <i className="fas fa-minus"></i>
+                                                  </li>
+                                                  <li>
+                                                       1
+                                                  </li>
+                                                  <li onClick={itemPlus}>
+                                                       <i className="fas fa-plus"></i>
+                                                  </li>
+                                             </ul>
+                                        </div>
+
+                                        <div className="col-md-12 select-order-duration mb-4">
+                                             <p>Do you require cleaning materials?</p>
+                                             <ul>
+                                                  <li onClick={clickOnDuration}>No, Thanks</li>
+                                                  <li onClick={clickOnDuration}>Yes, Please</li>
+                                             </ul>
+                                        </div>
+
+                                        <div className="col-md-12 cleaning-instruction mb-4">
+                                             <p>Do you have any specific cleaning instructions?</p>
+                                             <textarea name="" rows="3" className="form-control"></textarea>
+                                        </div>
+
                                         <div className="col-md-12 next-step">
+                                             <Link to={`/booking-1/${slug}`} className="back">
+                                                  Back
+                                             </Link>
                                              <Link to={`/booking-2/${slug}`}>
                                                   Proceed
                                              </Link>
@@ -178,4 +220,4 @@ const StepOneComponent = () => {
      );
 }
 
-export default StepOneComponent;
+export default StepTwoComponent;

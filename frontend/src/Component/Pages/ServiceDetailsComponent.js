@@ -73,7 +73,7 @@ const ServiceDetailsComponent = () => {
                               </div>
                               <div className="col-lg-9">
                                    <div className="sr-details-content">
-                                        <Link to={`/booking/${slug}`} className="book-now-button">
+                                        <Link to={`/booking-1/${slug}`} className="book-now-button">
                                              Book Now
                                         </Link>
                                         <div className="title-txt">

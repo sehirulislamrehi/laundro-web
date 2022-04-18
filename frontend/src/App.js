@@ -14,6 +14,7 @@ import EditProfileComponent from "./Component/Pages/Profile/EditProfileComponent
 import ChangePasswordComponent from "./Component/Pages/Profile/ChangePasswordComponent";
 import DeleteAccountComponent from "./Component/Pages/Profile/DeleteAccountComponent";
 import StepOneComponent from "./Component/Pages/Booking/StepOneComponent";
+import StepTwoComponent from "./Component/Pages/Booking/StepTwoComponent";
 
 function App() {
   return (
@@ -86,9 +87,14 @@ function App() {
               <DeleteAccountComponent></DeleteAccountComponent>
             </Route>
 
-            {/* booking  */}
-            <Route path="/booking/:slug">
+            {/* booking step 1 */}
+            <Route path="/booking-1/:slug">
               <StepOneComponent></StepOneComponent>
+            </Route>
+
+            {/* booking step 2 */}
+            <Route path="/booking-2/:slug">
+              <StepTwoComponent></StepTwoComponent>
             </Route>
 
       </Switch>

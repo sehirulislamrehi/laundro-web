@@ -174,14 +174,52 @@
   color: #006bcd; 
   font-weight: bold;
 }
+.next-step {
+  text-align: right;
+}
 .next-step a{
-    background: #22d3ee;
-    padding: 10px 20px;
-    color: white;
-    display: block;
-    width: max-content;
-    margin: 0 0 0 auto;
+  background: #22d3ee;
+  padding: 10px 20px;
+  color: white;
+  width: max-content;
+  margin: 0 15px 0 auto;
+  display: inline-block;
 }
 .next-step a:hover{
   background: #006bcd;
+}
+.next-step a:nth-child(1){
+  background: #006bcd;
+}
+
+.next-step a:hover:nth-child(1){
+  background: #22d3ee;
+}
+.booking-card .how-many-hour ul li{
+  display: inline-block;
+  margin-right: 15px;
+}
+.booking-card .how-many-hour ul{
+  display: inline-block;
+  background: #006bcd;
+  padding: 5px;
+  border-radius: 30px;
+  margin-top: 10px;
+}
+
+.booking-card .how-many-hour ul li:nth-child(1){
+  background: white;
+  border-radius: 100%;
+  padding: 0 5px;
+  cursor: pointer;
+}
+.booking-card .how-many-hour ul li:nth-child(2){
+  color: white;
+}
+.booking-card .how-many-hour ul li:nth-child(3){
+  background: white;
+  border-radius: 100%;
+  padding: 0 5px;
+  margin-right: 0;
+  cursor: pointer;
 }
