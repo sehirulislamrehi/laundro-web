@@ -73,6 +73,9 @@ const ServiceDetailsComponent = () => {
                               </div>
                               <div className="col-lg-9">
                                    <div className="sr-details-content">
+                                        <Link to={`/booking/${slug}`} className="book-now-button">
+                                             Book Now
+                                        </Link>
                                         <div className="title-txt">
                                              <h3>{slug}</h3>
                                         </div>

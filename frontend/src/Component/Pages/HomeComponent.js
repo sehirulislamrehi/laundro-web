@@ -167,7 +167,10 @@ const HomeComponent = () => {
 
                                              {/* name */}
                                              <div className="col-md-5 col-12 form-group">
-                                                  <input type="text" name="" className="form-control" placeholder="Enter your name" />                                                 
+                                                  <input style={{
+                                                           height: "55px",
+                                                           marginTop: "0px"
+                                                  }} type="text" name="" className="form-control" placeholder="Enter your name" />                                                 
                                              </div>
 
                                              {/* service */}

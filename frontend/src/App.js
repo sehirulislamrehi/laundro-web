@@ -13,6 +13,7 @@ import AccountComponent from "./Component/Pages/Profile/AccountComponent";
 import EditProfileComponent from "./Component/Pages/Profile/EditProfileComponent";
 import ChangePasswordComponent from "./Component/Pages/Profile/ChangePasswordComponent";
 import DeleteAccountComponent from "./Component/Pages/Profile/DeleteAccountComponent";
+import StepOneComponent from "./Component/Pages/Booking/StepOneComponent";
 
 function App() {
   return (
@@ -83,6 +84,11 @@ function App() {
             {/* delete account  */}
             <Route path="/delete-account">
               <DeleteAccountComponent></DeleteAccountComponent>
+            </Route>
+
+            {/* booking  */}
+            <Route path="/booking/:slug">
+              <StepOneComponent></StepOneComponent>
             </Route>
 
       </Switch>

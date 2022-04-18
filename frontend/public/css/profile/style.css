@@ -376,7 +376,7 @@ button.createbtn i {
 .my-account .form-group{
      margin-bottom: 15px;
 }
-.my-account .form-control:focus{
+.form-control:focus{
      box-shadow: none;
      border: 1px solid black;
 }

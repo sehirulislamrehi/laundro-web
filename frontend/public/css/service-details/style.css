@@ -207,49 +207,7 @@
 	margin-top: 30px;
 }
 
-@media (max-width: 1930px) {
-	.laundro-gta-area {
-		background-size: 130%;
-	}
-}
 
-@media (max-width: 1800px) {
-	.laundro-gta-area {
-		background-size: 140%;
-	}
-}
-
-@media (max-width: 1600px) {
-	.laundro-gta-area {
-		background-size: 145%;
-	}
-}
-
-@media (max-width: 1400px) {
-	.laundro-gta-area {
-		background-size: cover;
-		background-position: -800px 0;
-	}
-}
-
-@media (max-width: 991.98px) {
-	.laundro-gta-area {
-		background-size: cover;
-		background-position: right center;
-	}
-	.laundro-gta-area .laundro-gt-right {
-		padding-right: 0;
-		max-width: 100%;
-	}
-}
-
-@media (max-width: 575.98px) {
-	.laundro-gta-area .laundro-gt-right form input[type='text'],
-	.laundro-gta-area .laundro-gt-right form input[type='tel'] {
-		width: 100%;
-		margin-bottom: 20px;
-	}
-}
 
 
 
@@ -348,7 +306,88 @@
 .laundro-case-study .laundro-ct-right .grid-item:nth-child(6) {
 	border-right: 0;
 }
+.book-now-button{
+	background: #006bcd;
+    color: white!important;
+    padding: 5px 15px;
+    display: block;
+    width: max-content;
+    margin: 0 0 0 auto;
+}
+.book-now-button:hover{
+	background: #4c9de7;
+}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1930px) {
+	.laundro-gta-area {
+		background-size: 130%;
+	}
+}
+
+@media (max-width: 1800px) {
+	.laundro-gta-area {
+		background-size: 140%;
+	}
+}
+
+@media (max-width: 1600px) {
+	.laundro-gta-area {
+		background-size: 145%;
+	}
+}
+
+@media (max-width: 1400px) {
+	.laundro-gta-area {
+		background-size: cover;
+		background-position: -800px 0;
+	}
+}
+
+@media (max-width: 991.98px) {
+	.laundro-gta-area {
+		background-size: cover;
+		background-position: right center;
+	}
+	.laundro-gta-area .laundro-gt-right {
+		padding-right: 0;
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 575.98px) {
+	.laundro-gta-area .laundro-gt-right form input[type='text'],
+	.laundro-gta-area .laundro-gt-right form input[type='tel'] {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+}
 @media (max-width: 991.98px) {
 	.laundro-case-study .laundro-ct-right .laundro-pt-item {
 		text-align: center;
