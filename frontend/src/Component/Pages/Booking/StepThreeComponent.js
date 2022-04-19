@@ -11,6 +11,9 @@ import Footer from "../../Include/Footer";
 
 const StepThreeComponent = () => {
 
+     {/* window scroll to top */}
+     window.scrollTo(0, 0);
+     
      function clickOnItem(e){
           let date = document.querySelectorAll(".choose-date ul li .date");
           

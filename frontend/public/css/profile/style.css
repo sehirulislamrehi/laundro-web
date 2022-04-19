@@ -388,3 +388,19 @@ button.createbtn i {
      border: none;
      padding: 5px 20px;
 }
+.booking-details .title h4{
+     text-align: center;
+}
+#progressbar{
+     text-align: center;
+}
+.profile-body.booking-details{
+     padding: 50px 0;
+}
+.booking-status .image{
+     
+}
+.booking-status .content{
+     padding: 15px;
+     text-align: justify;
+}

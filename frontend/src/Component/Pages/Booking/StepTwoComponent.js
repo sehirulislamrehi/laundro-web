@@ -11,6 +11,9 @@ import Footer from "../../Include/Footer";
 
 const StepTwoComponent = () => {
 
+     {/* window scroll to top */}
+     window.scrollTo(0, 0);
+
      function clickOnDuration(e){
           if( e.target.previousElementSibling ){
                e.target.previousElementSibling.style.background = "#efefef"

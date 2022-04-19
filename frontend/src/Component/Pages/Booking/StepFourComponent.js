@@ -11,6 +11,8 @@ import Footer from "../../Include/Footer";
 
 const StepFourComponent = () => {
 
+     {/* window scroll to top */}
+     window.scrollTo(0, 0);
 
      const { slug } =  useParams();  
      

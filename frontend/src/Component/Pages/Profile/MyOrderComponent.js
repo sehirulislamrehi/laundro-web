@@ -46,7 +46,7 @@ const MyOrderComponent = () => {
 
                                              {/* order card start */}
                                              <div className="col-md-12">
-                                                  <Link to="my-order">
+                                                  <Link to="/order-details">
                                                        <div className="order-card">
                                                             <i className="fas fa-times"></i>
                                                             <div className="row">
@@ -87,7 +87,7 @@ const MyOrderComponent = () => {
 
                                              {/* order card start */}
                                              <div className="col-md-12">
-                                                  <Link to="my-order">
+                                                  <Link to="/order-details">
                                                        <div className="order-card">
                                                             <i className="fas fa-times"></i>
                                                             <div className="row">
@@ -128,7 +128,7 @@ const MyOrderComponent = () => {
 
                                              {/* order card start */}
                                              <div className="col-md-12">
-                                                  <Link to="my-order">
+                                                  <Link to="/order-details">
                                                        <div className="order-card">
                                                             <i className="fas fa-times"></i>
                                                             <div className="row">

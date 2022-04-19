@@ -17,6 +17,7 @@ import StepOneComponent from "./Component/Pages/Booking/StepOneComponent";
 import StepTwoComponent from "./Component/Pages/Booking/StepTwoComponent";
 import StepThreeComponent from "./Component/Pages/Booking/StepThreeComponent";
 import StepFourComponent from "./Component/Pages/Booking/StepFourComponent";
+import OrderDetailsComponent from "./Component/Pages/Profile/OrderDetailsComponent";
 
 function App() {
   return (
@@ -67,6 +68,11 @@ function App() {
             {/* my order Component */}
             <Route path="/my-order">
               <MyOrderComponent></MyOrderComponent>
+            </Route>
+
+            {/* order details Component */}
+            <Route path="/order-details">
+              <OrderDetailsComponent></OrderDetailsComponent>
             </Route>
 
             {/* account Component */}
