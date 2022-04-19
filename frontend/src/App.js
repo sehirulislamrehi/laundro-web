@@ -15,6 +15,8 @@ import ChangePasswordComponent from "./Component/Pages/Profile/ChangePasswordCom
 import DeleteAccountComponent from "./Component/Pages/Profile/DeleteAccountComponent";
 import StepOneComponent from "./Component/Pages/Booking/StepOneComponent";
 import StepTwoComponent from "./Component/Pages/Booking/StepTwoComponent";
+import StepThreeComponent from "./Component/Pages/Booking/StepThreeComponent";
+import StepFourComponent from "./Component/Pages/Booking/StepFourComponent";
 
 function App() {
   return (
@@ -95,6 +97,16 @@ function App() {
             {/* booking step 2 */}
             <Route path="/booking-2/:slug">
               <StepTwoComponent></StepTwoComponent>
+            </Route>
+
+            {/* booking step 3 */}
+            <Route path="/booking-3/:slug">
+              <StepThreeComponent></StepThreeComponent>
+            </Route>
+
+            {/* booking step 4 */}
+            <Route path="/booking-4/:slug">
+              <StepFourComponent></StepFourComponent>
             </Route>
 
       </Switch>

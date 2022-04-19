@@ -223,3 +223,48 @@
   margin-right: 0;
   cursor: pointer;
 }
+.choose-date ul{
+  margin-top: 15px;
+}
+.choose-date ul li{
+  display: inline-block;
+    margin-right: 15px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+.choose-date ul li span{
+  display: block;
+  text-align: center;
+}
+.choose-date ul li span.date{
+  background: #dbfaff;
+  text-align: center;
+  padding: 5px 15px;
+}
+.choose-date ul li span.date:hover{
+  background: #22d3ee!important
+}
+.choose-time ul li{
+  display: inline-block;
+  margin-right: 15px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  background: #dbfaff;
+  padding: 5px 15px;
+}
+.choose-time ul li:hover{
+  background: #22d3ee!important
+}
+.payment-method ul li{
+  display: inline-block;
+  margin-right: 15px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  background: #dbfaff;
+  padding: 5px 15px;
+}
+.payment-method ul li:hover{
+  background: #22d3ee!important
+}

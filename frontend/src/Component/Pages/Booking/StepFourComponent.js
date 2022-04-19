@@ -9,20 +9,22 @@ import DesktopMenu from "../../Include/DesktopMenu";
 import MobileMenu from "../../Include/MobileMenu";
 import Footer from "../../Include/Footer";
 
-const StepOneComponent = () => {
+const StepFourComponent = () => {
 
 
-     function clickOnDuration(e){
-          if( e.target.previousElementSibling ){
-               e.target.previousElementSibling.style.background = "#efefef"
-          }
-          if( e.target.nextElementSibling ){
-               e.target.nextElementSibling.style.background = "#efefef"
+     const { slug } =  useParams();  
+     
+     
+     function choosePaymentMethod(e){
+          let payment_method = document.querySelectorAll(".payment-method ul li.method");
+          
+          for( let x in payment_method ){
+               if( x <= payment_method.length ){
+                    payment_method[x].style.background = "#dbfaff"
+               }
           }
           e.target.style.background = "#22d3ee"
      }
-
-     const { slug } =  useParams();     
 
      return(
           <div className="id">
@@ -47,8 +49,8 @@ const StepOneComponent = () => {
                                              {/* progressbar */}
                                              <ul id="progressbar">
                                                   <li className="active">Frequency</li>
-                                                  <li>Service Details</li>
-                                                  <li>Date & Time</li>
+                                                  <li className="active">Service Details</li>
+                                                  <li className="active">Date & Time</li>
                                                   <li>Service Details</li>
                                              </ul>
                                         </div>
@@ -56,43 +58,39 @@ const StepOneComponent = () => {
 
                                    <div className="row booking-card">
 
-                                        <div className="col-md-12 title mb-3">
-                                             <h4>{slug}</h4>
-                                             <p>
-                                                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
-                                             </p>
-                                             <img src="/images/booking-1.png" className="img-fluid" alt="" />
-                                        </div>
-
-                                        <div className="col-md-12 select-postal-code mb-3">
-                                             <label htmlFor="">Enter BD postal code</label>
-                                             <input type="text" className="form-control"  />
-                                        </div>
-
-                                        <div className="col-md-12 select-address mb-3">
-                                             <label htmlFor="">Select your address</label>
-                                             <select name="" className="form-control">
-                                                  <option value="8166316"> 1st Translation Co Ltd, Gresham House, 24 Holborn Viaduct, LONDON, EC1A 2BN </option>
-                                                  <option value="54142703"> Catena Media UK Ltd, Gresham House, 24 Holborn Viaduct, LONDON, EC1A 2BN </option>
-                                                  <option value="8166315"> Lisa Tse Ltd, Gresham House, 24 Holborn Viaduct, LONDON, EC1A 2BN </option>
-                                                  <option value="8166310"> Max Need Ltd, Gresham House, 24 Holborn Viaduct, LONDON, EC1A 2BN </option>
-                                                  <option value="54025645"> R D H Advisory Ltd, Gresham House, 24 Holborn Viaduct, LONDON, EC1A 2BN </option>
-                                                  <option value="53255431"> Registered Address Ltd, Gresham House, 24 Holborn Viaduct, LONDON, EC1A 2BN </option>
-                                                  <option value="-1"> Not on the list? </option>
-                                             </select>
-                                        </div>
-
-                                        <div className="col-md-12 select-order-duration mb-3">
-                                             <p>How ofter do you need this service?</p>
+                                        <div className="col-md-12 payment-method mb-4">
+                                             <p>Select Payment Method</p>
                                              <ul>
-                                                  <li onClick={clickOnDuration}>One Time</li>
-                                                  <li onClick={clickOnDuration}>Regular</li>
+                                                  <li className="method" onClick={choosePaymentMethod}>
+                                                       Cash On Delivery
+                                                  </li>
+                                                  <li className="method" onClick={choosePaymentMethod}>
+                                                       Online Payment
+                                                  </li>
                                              </ul>
                                         </div>
 
+                                        <div className="col-md-12 customer-information mb-2">
+                                             <label>Name</label>
+                                             <input type="text" className="form-control" />
+                                        </div>
+
+                                        <div className="col-md-12 customer-information mb-2">
+                                             <label>Phone</label>
+                                             <input type="text" className="form-control" />
+                                        </div>
+
+                                        <div className="col-md-12 customer-information mb-2">
+                                             <label>Address</label>
+                                             <input type="text" className="form-control" />
+                                        </div>
+
                                         <div className="col-md-12 next-step">
-                                             <Link to={`/booking-2/${slug}`}>
-                                                  Proceed
+                                             <Link to={`/booking-3/${slug}`} className="back">
+                                                  Back
+                                             </Link>
+                                             <Link to='/my-order'>
+                                                  Place Order
                                              </Link>
                                         </div>
 
@@ -176,4 +174,4 @@ const StepOneComponent = () => {
      );
 }
 
-export default StepOneComponent;
+export default StepFourComponent;

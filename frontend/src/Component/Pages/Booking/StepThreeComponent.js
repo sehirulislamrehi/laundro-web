@@ -9,47 +9,33 @@ import DesktopMenu from "../../Include/DesktopMenu";
 import MobileMenu from "../../Include/MobileMenu";
 import Footer from "../../Include/Footer";
 
-const StepTwoComponent = () => {
+const StepThreeComponent = () => {
 
-     function clickOnDuration(e){
-          if( e.target.previousElementSibling ){
-               e.target.previousElementSibling.style.background = "#efefef"
+     function clickOnItem(e){
+          let date = document.querySelectorAll(".choose-date ul li .date");
+          
+          for( let x in date ){
+               if( x <= date.length ){
+                    date[x].style.background = "#dbfaff"
+               }
           }
-          if( e.target.nextElementSibling ){
-               e.target.nextElementSibling.style.background = "#efefef"
-          }
+          
           e.target.style.background = "#22d3ee"
      }
 
-     //item plus
-     function itemPlus(e){
-          if( e.target.parentElement.dataset.id == 1 ){
-               e.target.previousElementSibling.innerHTML = parseInt(e.target.previousElementSibling.innerHTML) + 1
+     function chooseTime(e){
+          
+          let time = document.querySelectorAll(".choose-time ul li.time");
+          
+          for( let x in time ){
+               if( x <= time.length ){
+                    time[x].style.background = "#dbfaff"
+               }
           }
-          else{
-               e.target.parentElement.previousElementSibling.innerHTML = parseInt(e.target.parentElement.previousElementSibling.innerHTML) + 1
-          }
-     }
+          e.target.style.background = "#22d3ee"
 
-     //item minus
-     function itemMinus(e){
-          if( e.target.parentElement.dataset.id == 1 ){
-               if( e.target.nextElementSibling.innerHTML == 1 ){
-                    alert("Minumim value is 1")
-               }
-               else{
-                    e.target.nextElementSibling.innerHTML = parseInt(e.target.nextElementSibling.innerHTML) - 1
-               }
-          }
-          else{
-               if( e.target.parentElement.nextElementSibling.innerHTML == 1 ){
-                    alert("Minumim value is 1")
-               }
-               else{
-                    e.target.parentElement.nextElementSibling.innerHTML = parseInt(e.target.parentElement.nextElementSibling.innerHTML) - 1
-               }
-          }
      }
+     
 
      const { slug } =  useParams();     
 
@@ -77,7 +63,7 @@ const StepTwoComponent = () => {
                                              <ul id="progressbar">
                                                   <li className="active">Frequency</li>
                                                   <li className="active">Service Details</li>
-                                                  <li>Date & Time</li>
+                                                  <li className="active">Date & Time</li>
                                                   <li>Service Details</li>
                                              </ul>
                                         </div>
@@ -85,54 +71,93 @@ const StepTwoComponent = () => {
 
                                    <div className="row booking-card">
 
-                                        <div className="col-md-12 how-many-hour mb-4">
-                                             <p>How many hour do you need your professional to stay?</p>
-                                             <ul data-id="1">
-                                                  <li onClick={itemMinus}>
-                                                       <i className="fas fa-minus"></i>
-                                                  </li>
-                                                  <li>
-                                                       1
-                                                  </li>
-                                                  <li onClick={itemPlus}>
-                                                       <i className="fas fa-plus"></i>
-                                                  </li>
-                                             </ul>
-                                        </div>
-
-                                        <div className="col-md-12 how-many-hour mb-4">
-                                             <p>How many professionals do you need?</p>
-                                             <ul data-id="1">
-                                                  <li onClick={itemMinus}>
-                                                       <i className="fas fa-minus"></i>
-                                                  </li>
-                                                  <li>
-                                                       1
-                                                  </li>
-                                                  <li onClick={itemPlus}>
-                                                       <i className="fas fa-plus"></i>
-                                                  </li>
-                                             </ul>
-                                        </div>
-
-                                        <div className="col-md-12 select-order-duration mb-4">
-                                             <p>Do you require cleaning materials?</p>
+                                        <div className="col-md-12 choose-date mb-4">
+                                             <p>When would you like your service?</p>
                                              <ul>
-                                                  <li onClick={clickOnDuration}>No, Thanks</li>
-                                                  <li onClick={clickOnDuration}>Yes, Please</li>
+                                                  <li>
+                                                       <span>Sat</span>
+                                                       <span className="date" onClick={clickOnItem}>1</span>
+                                                  </li>
+                                                  <li>
+                                                       <span>Sun</span>
+                                                       <span className="date" onClick={clickOnItem}>2</span>
+                                                  </li>
+                                                  <li>
+                                                       <span>Mon</span>
+                                                       <span className="date" onClick={clickOnItem}>3</span>
+                                                  </li>
+                                                  <li>
+                                                       <span>Tue</span>
+                                                       <span className="date" onClick={clickOnItem}>4</span>
+                                                  </li>
+                                                  <li>
+                                                       <span>Wed</span>
+                                                       <span className="date" onClick={clickOnItem}>5</span>
+                                                  </li>
+                                                  <li>
+                                                       <span>Thu</span>
+                                                       <span className="date" onClick={clickOnItem}>6</span>
+                                                  </li>
+                                                  <li>
+                                                       <span>Fri</span>
+                                                       <span className="date" onClick={clickOnItem}>7</span>
+                                                  </li>
+                                                  <li>
+                                                       <span>Sat</span>
+                                                       <span className="date" onClick={clickOnItem}>8</span>
+                                                  </li>
+                                                  <li>
+                                                       <span>Sun</span>
+                                                       <span className="date" onClick={clickOnItem}>9</span>
+                                                  </li>
+                                                  <li>
+                                                       <span>Mon</span>
+                                                       <span className="date" onClick={clickOnItem}>10</span>
+                                                  </li>
+                                                  <li>
+                                                       <span>Tue</span>
+                                                       <span className="date" onClick={clickOnItem}>11</span>
+                                                  </li>
+                                                  <li>
+                                                       <span>Wed</span>
+                                                       <span className="date" onClick={clickOnItem}>12</span>
+                                                  </li>
+                                                  <li>
+                                                       <span>Thu</span>
+                                                       <span className="date" onClick={clickOnItem}>13</span>
+                                                  </li>
                                              </ul>
                                         </div>
 
-                                        <div className="col-md-12 cleaning-instruction mb-4">
-                                             <p>Do you have any specific cleaning instructions?</p>
-                                             <textarea name="" rows="3" className="form-control"></textarea>
+                                        <div className="col-md-12 choose-time mb-4">
+                                             <p>What time would you like to start your service?</p>
+                                             <ul>
+                                                  <li onClick={chooseTime} className="time">
+                                                       10:00 AM
+                                                  </li>
+                                                  <li onClick={chooseTime} className="time">
+                                                       10:30 AM
+                                                  </li>
+                                                  <li onClick={chooseTime} className="time">
+                                                       11:00 AM
+                                                  </li>
+                                                  <li onClick={chooseTime} className="time">
+                                                       11:30 AM
+                                                  </li>
+                                                  <li onClick={chooseTime} className="time">
+                                                       12:00 PM
+                                                  </li>
+                                                  <li onClick={chooseTime} className="time">
+                                                       12:30 PM
+                                                  </li>
+                                             </ul>
                                         </div>
 
                                         <div className="col-md-12 next-step">
-                                             <Link to={`/booking-1/${slug}`} className="back">
+                                             <Link to={`/booking-2/${slug}`} className="back">
                                                   Back
                                              </Link>
-                                             <Link to={`/booking-3/${slug}`}>
+                                             <Link to={`/booking-4/${slug}`}>
                                                   Proceed
                                              </Link>
                                         </div>
@@ -217,4 +242,4 @@ const StepTwoComponent = () => {
      );
 }
 
-export default StepTwoComponent;
+export default StepThreeComponent;
