@@ -32,7 +32,7 @@
             <label>Select Zipcode</label><span class="require-span">*</span>
                 <select name="zipcode_id" class="form-control chosen">
                     @foreach ($zipcodes as $zipcode)                        
-                        <option value="{{ $zipcode->id }}" @if( $zipcode->id == $zone->zipcode_id ) selected @endif >{{ $zipcode->code }}</option>
+                        <option value="{{ $zipcode->id }}" @if( $zipcode->id == $area->zipcode_id ) selected @endif >{{ $zipcode->code }}</option>
                     @endforeach
                 </select>
             </div>

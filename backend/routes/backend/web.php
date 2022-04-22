@@ -29,6 +29,14 @@ Route::post('/do-logout', [LogoutController::class, 'do_logout'])->name('do.logo
 Route::group(['prefix' => 'admindashboard', 'middleware' => 'auth'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
+    //area in zipcode
+    Route::get('zipcode-area', [DashboardController::class, 'zipcode_area'])->name('zipcode.area');
+
+    //zone in city
+    Route::get('city-zone', [DashboardController::class, 'city_zone'])->name('city.zone');
+
+    //area in zone
+    Route::get('zone-area', [DashboardController::class, 'zone_area'])->name('zone.area');
 
     //profile module routes start
     Route::group(['prefix' => 'profile-module'], function () {

@@ -125,7 +125,7 @@ class AreaController extends Controller
     public function add(Request $request){
         if( can('add_area') ){
             $validator = Validator::make($request->all(),[
-                'name'      => 'required|unique:locations,name',
+                'name'      => 'required',
                 'zipcode_id'      => 'required|integer',
                 'is_active' => 'required',
                 'location_id' => 'required',
@@ -160,7 +160,7 @@ class AreaController extends Controller
     //edit modal start
     public function edit($id){
         if( can("edit_areas") ){
-            $area = Location::where("id",$id)->select("id","name","location_id","type","is_active")->first();
+            $area = Location::where("id",$id)->select("id","name","location_id","type","is_active","zipcode_id")->first();
             $zipcodes = Zipcode::where("is_active", true)->select("id","code")->get();
 
             return view("backend.modules.location_module.area.modals.edit", compact("area","zipcodes"));
@@ -175,7 +175,7 @@ class AreaController extends Controller
         if( can('edit_areas') ){
 
             $validator = Validator::make($request->all(),[
-                'name'      => 'required|unique:locations,name,'. $id,
+                'name'      => 'required',
                 'zipcode_id'      => 'required|integer',
                 'is_active' => 'required',
             ]);
