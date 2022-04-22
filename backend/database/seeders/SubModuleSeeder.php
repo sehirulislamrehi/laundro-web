@@ -51,11 +51,45 @@ class SubModuleSeeder extends Seeder
             //module id 2 end
 
 
+            //module id 3 start
+            [
+                'id' => 4,
+                'name' => 'Cities',
+                'key' => 'emirates',
+                'position' => 2,
+                'route' => 'emirate.all',
+                'module_id' => 3,
+            ],
+            [
+                'id' => 5,
+                'name' => 'Areas',
+                'key' => 'areas',
+                'position' => 4,
+                'route' => 'area.all',
+                'module_id' => 3,
+            ],
+            [
+                'id' => 6,
+                'name' => 'Zones',
+                'key' => 'zones',
+                'position' => 3,
+                'route' => 'zone.all',
+                'module_id' => 3,
+            ],
+            [
+                'id' => 7,
+                'name' => 'Zip Code',
+                'key' => 'zip_code',
+                'position' => 1,
+                'route' => 'zip_code.all',
+                'module_id' => 3,
+            ],
+            //module id 3 end
             
 
         
         ]);
 
-        //last id 3
+        //last id 7
     }
 }

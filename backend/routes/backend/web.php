@@ -43,6 +43,14 @@ Route::group(['prefix' => 'admindashboard', 'middleware' => 'auth'], function ()
     });
     //user module routes end
 
+    //location module routes start
+    Route::group(['prefix' => 'location-module'], function () {
+        require_once 'location_module/zipcode.php';
+        require_once 'location_module/emirate.php';
+        require_once 'location_module/area.php';
+        require_once 'location_module/zone.php';
+    });
+    //location module routes end
 
     //settings module routes start
     Route::group(['prefix' => 'settings-module'], function () {

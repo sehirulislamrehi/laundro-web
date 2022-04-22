@@ -60,6 +60,108 @@ class PermissionSedder extends Seeder
                 'display_name' => '-- App Info',
                 'module_id' => 2,
             ],
+            [
+                'id' => 9,
+                'key' => 'location_module',
+                'display_name' => 'Location Module',
+                'module_id' => 3,
+            ],
+            [
+                'id' => 10,
+                'key' => 'emirates',
+                'display_name' => 'Emirates',
+                'module_id' => 3,
+            ],
+            [
+                'id' => 11,
+                'key' => 'add_emirates',
+                'display_name' => '-- Add Emirates',
+                'module_id' => 3,
+            ],
+            [
+                'id' => 12,
+                'key' => 'edit_emirates',
+                'display_name' => '-- Edit Emirates',
+                'module_id' => 3,
+            ],
+            [
+                'id' => 13,
+                'key' => 'view_emirates',
+                'display_name' => '-- View Emirates',
+                'module_id' => 3,
+            ],
+            [
+                'id' => 14,
+                'key' => 'areas',
+                'display_name' => 'Areas',
+                'module_id' => 3,
+            ],
+            [
+                'id' => 15,
+                'key' => 'add_areas',
+                'display_name' => '-- Add Areas',
+                'module_id' => 3,
+            ],
+            [
+                'id' => 16,
+                'key' => 'edit_areas',
+                'display_name' => '-- Edit Areas',
+                'module_id' => 3,
+            ],
+            [
+                'id' => 17,
+                'key' => 'view_areas',
+                'display_name' => '-- View Areas',
+                'module_id' => 3,
+            ],
+            [
+                'id' => 18,
+                'key' => 'zones',
+                'display_name' => 'Zones',
+                'module_id' => 3,
+            ],
+            [
+                'id' => 19,
+                'key' => 'add_zones',
+                'display_name' => '-- Add Zones',
+                'module_id' => 3,
+            ],
+            [
+                'id' => 20,
+                'key' => 'edit_zones',
+                'display_name' => '-- Edit Zones',
+                'module_id' => 3,
+            ],
+            [
+                'id' => 21,
+                'key' => 'view_zones',
+                'display_name' => '-- View Zones',
+                'module_id' => 3,
+            ],
+            [
+                'id' => 22,
+                'key' => 'zip_code',
+                'display_name' => 'Zip Code',
+                'module_id' => 3,
+            ],
+            [
+                'id' => 23,
+                'key' => 'add_zip_code',
+                'display_name' => '-- Add Zip Code',
+                'module_id' => 3,
+            ],
+            [
+                'id' => 24,
+                'key' => 'edit_zip_code',
+                'display_name' => '-- Edit Zip Code',
+                'module_id' => 3,
+            ],
+            [
+                'id' => 25,
+                'key' => 'view_zip_code',
+                'display_name' => '-- View Zip Code',
+                'module_id' => 3,
+            ],
         ]);
     }
 }

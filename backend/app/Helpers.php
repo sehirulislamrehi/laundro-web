@@ -4,6 +4,7 @@
 
 use App\Models\UserModule\SuperAdmin;
 use App\Models\UserModule\User;
+use App\Models\LocationModule\Location;
 
 function can($can){
         if( auth('web')->check() ){
@@ -19,28 +20,25 @@ function can($can){
     }
     //check user access permission function end
 
-    //find root parent of user start
-    function root($id){
-        if( auth('web')->check() ){
-            $count = 0;
-            while( $count != -1 ){
-                $user = User::find($id);
-                if( $user->parent_id == 0 ){
-                    $id = $user->id;
-                    $count = -1;
-                }else{
-                    $id = $user->parent->id;
-                    $count++;
-                }
+     //find root parent of category start
+     function parent_location($id){
+        
+        $count = 0;
+        while( $count != -1 ){
+            $location = Location::find($id);
+            if( $location->location_id == null ){
+                $id = $location->id;
+                $count = -1;
+            }else{
+                $id = $location->parent->id;
+                $count++;
             }
-            return $user = User::find($id);
         }
-        else{
-            return $user = SuperAdmin::find($id);
-        }
+        return $location = Location::find($id);
+        
        
     } 
-    //find root parent of user end 
+    //find root parent of category end
 
 
     //unauthorized text start

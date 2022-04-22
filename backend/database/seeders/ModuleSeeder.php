@@ -30,10 +30,17 @@ class ModuleSeeder extends Seeder
                 'name' => 'Setting Module',
                 'key' => 'settings',
                 'icon' => 'fas fa-cog',
-                'position' =>6,
+                'position' => 6,
                 'route' => null,
             ],
-            
+            [
+                'id' => 3,
+                'name' => 'Locations',
+                'key' => 'location_module',
+                'icon' => 'fas fa-location-arrow',
+                'position' => 2,
+                'route' => null,
+            ],
         ]);
     }
 }
