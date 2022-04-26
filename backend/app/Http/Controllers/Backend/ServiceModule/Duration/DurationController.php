@@ -126,7 +126,7 @@ class DurationController extends Controller
                         }
                     }
 
-                    if( $request->duration == 0 ){
+                    if( $request->duration <= 0 ){
                         return response()->json(['warning' => 'Invalid Duration.'], 200);
                     }
 
@@ -203,7 +203,7 @@ class DurationController extends Controller
                             }
                         }
 
-                        if( $request->duration == 0 ){
+                        if( $request->duration <= 0 ){
                             return response()->json(['warning' => 'Invalid Duration.'], 200);
                         }
 

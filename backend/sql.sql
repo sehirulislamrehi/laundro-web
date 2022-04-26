@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2022 at 11:48 PM
+-- Generation Time: Apr 26, 2022 at 03:46 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -41,6 +41,53 @@ CREATE TABLE `app_infos` (
 
 INSERT INTO `app_infos` (`id`, `logo`, `fav`, `created_at`, `updated_at`) VALUES
 (1, '16506454434A5CdEoPH7hI.png', '1650645443kqaOH4wgbLin.png', NULL, '2022-04-22 10:37:23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `coupons`
+--
+
+CREATE TABLE `coupons` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `expiry_date` date NOT NULL,
+  `type` enum('Cash','Percentage') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `amount` int(11) NOT NULL,
+  `is_active` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `coupons`
+--
+
+INSERT INTO `coupons` (`id`, `code`, `expiry_date`, `type`, `amount`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 'AAA', '2022-04-30', 'Cash', 100, 1, '2022-04-26 07:44:27', '2022-04-26 07:44:27');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `durations`
+--
+
+CREATE TABLE `durations` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `duration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` enum('Hour') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `durations`
+--
+
+INSERT INTO `durations` (`id`, `duration`, `type`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, '0.5', 'Hour', 1, '2022-04-26 07:20:04', '2022-04-26 07:20:04'),
+(2, '1', 'Hour', 1, '2022-04-26 07:20:08', '2022-04-26 07:20:44');
 
 -- --------------------------------------------------------
 
@@ -130,7 +177,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (9, '2021_04_24_161757_create_super_admins_table', 1),
 (10, '2021_08_19_102916_create_app_infos_table', 1),
 (12, '2022_02_02_130530_create_zipcodes_table', 2),
-(13, '2022_02_02_130531_create_locations_table', 2);
+(13, '2022_02_02_130531_create_locations_table', 2),
+(14, '2022_02_08_111156_create_durations_table', 3),
+(15, '2022_02_09_091043_create_coupons_table', 4);
 
 -- --------------------------------------------------------
 
@@ -155,8 +204,9 @@ CREATE TABLE `modules` (
 
 INSERT INTO `modules` (`id`, `name`, `key`, `icon`, `position`, `route`, `created_at`, `updated_at`) VALUES
 (1, 'User Module', 'user_module', 'fas fa-users', 1, NULL, NULL, NULL),
-(2, 'Setting Module', 'settings', 'fas fa-cog', 6, NULL, NULL, NULL),
-(3, 'Locations', 'location_module', 'fas fa-location-arrow', 2, NULL, NULL, NULL);
+(2, 'Setting Module', 'settings', 'fas fa-cog', 10, NULL, NULL, NULL),
+(3, 'Locations', 'location_module', 'fas fa-location-arrow', 2, NULL, NULL, NULL),
+(4, 'Services', 'service_module', 'fas fa-wrench', 3, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -214,7 +264,16 @@ INSERT INTO `permissions` (`id`, `key`, `display_name`, `module_id`, `created_at
 (22, 'zip_code', 'Zip Code', 3, NULL, NULL),
 (23, 'add_zip_code', '-- Add Zip Code', 3, NULL, NULL),
 (24, 'edit_zip_code', '-- Edit Zip Code', 3, NULL, NULL),
-(25, 'view_zip_code', '-- View Zip Code', 3, NULL, NULL);
+(25, 'view_zip_code', '-- View Zip Code', 3, NULL, NULL),
+(26, 'service_module', 'Service Module', 4, NULL, NULL),
+(27, 'duration', 'Duration', 4, NULL, NULL),
+(28, 'add_duration', '-- Add Duration', 4, NULL, NULL),
+(29, 'edit_duration', '-- Edit Duration', 4, NULL, NULL),
+(30, 'view_duration', '-- View Duration', 4, NULL, NULL),
+(31, 'coupon', 'Coupon', 4, NULL, NULL),
+(32, 'add_coupon', '-- Add Coupon', 4, NULL, NULL),
+(33, 'edit_coupon', '-- Edit Coupon', 4, NULL, NULL),
+(34, 'view_coupon', '-- View Coupon', 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -272,7 +331,9 @@ INSERT INTO `sub_modules` (`id`, `name`, `key`, `position`, `route`, `module_id`
 (4, 'Cities', 'emirates', 2, 'emirate.all', 3, NULL, NULL),
 (5, 'Areas', 'areas', 4, 'area.all', 3, NULL, NULL),
 (6, 'Zones', 'zones', 3, 'zone.all', 3, NULL, NULL),
-(7, 'Zip Code', 'zip_code', 1, 'zip_code.all', 3, NULL, NULL);
+(7, 'Zip Code', 'zip_code', 1, 'zip_code.all', 3, NULL, NULL),
+(8, 'Duration', 'duration', 2, 'duration.all', 4, NULL, NULL),
+(9, 'Coupon', 'coupon', 1, 'coupon.all', 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -358,6 +419,20 @@ INSERT INTO `zipcodes` (`id`, `code`, `is_active`, `created_at`, `updated_at`) V
 --
 ALTER TABLE `app_infos`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `coupons`
+--
+ALTER TABLE `coupons`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `coupons_code_unique` (`code`);
+
+--
+-- Indexes for table `durations`
+--
+ALTER TABLE `durations`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `durations_duration_unique` (`duration`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -460,6 +535,18 @@ ALTER TABLE `app_infos`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `coupons`
+--
+ALTER TABLE `coupons`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `durations`
+--
+ALTER TABLE `durations`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -475,13 +562,13 @@ ALTER TABLE `locations`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `modules`
 --
 ALTER TABLE `modules`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `password_resets`
@@ -493,7 +580,7 @@ ALTER TABLE `password_resets`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `permission_role`
@@ -511,7 +598,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `sub_modules`
 --
 ALTER TABLE `sub_modules`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `super_admins`

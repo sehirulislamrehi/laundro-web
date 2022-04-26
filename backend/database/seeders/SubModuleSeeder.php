@@ -92,8 +92,24 @@ class SubModuleSeeder extends Seeder
                 'id' => 8,
                 'name' => 'Duration',
                 'key' => 'duration',
-                'position' => 1,
+                'position' => 2,
                 'route' => 'duration.all',
+                'module_id' => 4,
+            ],
+            [
+                'id' => 9,
+                'name' => 'Coupon',
+                'key' => 'coupon',
+                'position' => 1,
+                'route' => 'coupon.all',
+                'module_id' => 4,
+            ],
+            [
+                'id' => 10,
+                'name' => 'Service',
+                'key' => 'service',
+                'position' => 3,
+                'route' => 'service.all',
                 'module_id' => 4,
             ],
             //module id 4 end
@@ -101,6 +117,6 @@ class SubModuleSeeder extends Seeder
         
         ]);
 
-        //last id 7
+        //last id 10
     }
 }

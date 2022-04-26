@@ -192,6 +192,54 @@ class PermissionSedder extends Seeder
                 'display_name' => '-- View Duration',
                 'module_id' => 4,
             ],
+            [
+                'id' => 31,
+                'key' => 'coupon',
+                'display_name' => 'Coupon',
+                'module_id' => 4,
+            ],
+            [
+                'id' => 32,
+                'key' => 'add_coupon',
+                'display_name' => '-- Add Coupon',
+                'module_id' => 4,
+            ],
+            [
+                'id' => 33,
+                'key' => 'edit_coupon',
+                'display_name' => '-- Edit Coupon',
+                'module_id' => 4,
+            ],
+            [
+                'id' => 34,
+                'key' => 'view_coupon',
+                'display_name' => '-- View Coupon',
+                'module_id' => 4,
+            ],
+            [
+                'id' => 35,
+                'key' => 'services',
+                'display_name' => 'Services',
+                'module_id' => 4,
+            ],
+            [
+                'id' => 36,
+                'key' => 'add_services',
+                'display_name' => '-- Add Services',
+                'module_id' => 4,
+            ],
+            [
+                'id' => 37,
+                'key' => 'edit_services',
+                'display_name' => '-- Edit Services',
+                'module_id' => 4,
+            ],
+            [
+                'id' => 38,
+                'key' => 'view_services',
+                'display_name' => '-- View Services',
+                'module_id' => 4,
+            ],
         ]);
     }
 }

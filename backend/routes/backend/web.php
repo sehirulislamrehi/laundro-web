@@ -63,6 +63,8 @@ Route::group(['prefix' => 'admindashboard', 'middleware' => 'auth'], function ()
     //service module routes start
     Route::group(['prefix' => 'service-module'], function () {
         require_once 'service_module/duration.php';
+        require_once 'service_module/coupon.php';
+        require_once 'service_module/service.php';
     });
     //service module routes end
 
