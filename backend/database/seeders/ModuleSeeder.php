@@ -24,13 +24,12 @@ class ModuleSeeder extends Seeder
                 'position' => 1,
                 'route' => null
             ],
-            
             [
                 'id' => 2,
                 'name' => 'Setting Module',
                 'key' => 'settings',
                 'icon' => 'fas fa-cog',
-                'position' => 6,
+                'position' => 10,
                 'route' => null,
             ],
             [
@@ -39,6 +38,14 @@ class ModuleSeeder extends Seeder
                 'key' => 'location_module',
                 'icon' => 'fas fa-location-arrow',
                 'position' => 2,
+                'route' => null,
+            ],
+            [
+                'id' => 4,
+                'name' => 'Services',
+                'key' => 'service_module',
+                'icon' => 'fas fa-wrench',
+                'position' => 3,
                 'route' => null,
             ],
         ]);

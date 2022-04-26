@@ -104,16 +104,37 @@
 
             <div class="row charts" style="padding-right: 15px;">
 
-                <div class="col-md-6 pr-2 mb-5" id="city-zone">
-                    <p>Zones in Cities</p>
+                <div class="col-md-6 pr-2 mb-2">
+                    <div class="card">
+                        <div class="card-header">
+                        Zones in Cities
+                        </div>
+                        <div class="card-body" id="city-zone">
+                            
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-md-6 pr-2 mb-5" id="zone-area">
-                    <p>Areas in Zone</p>
+                <div class="col-md-6 pr-2 mb-2">
+                    <div class="card">
+                        <div class="card-header">
+                            Areas in Zone
+                        </div>
+                        <div class="card-body" id="zone-area">
+                            
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-md-12 pr-2 mb-5" id="zipcode-area">
-                    <p>Areas in zipcode</p>
+                <div class="col-md-12 pr-2 mb-5">
+                    <div class="card">
+                        <div class="card-header">
+                            Areas in zipcode
+                        </div>
+                        <div class="card-body" id="zipcode-area">
+                            
+                        </div>
+                    </div>
                 </div>
 
             </div>

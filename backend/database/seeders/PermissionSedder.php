@@ -162,6 +162,36 @@ class PermissionSedder extends Seeder
                 'display_name' => '-- View Zip Code',
                 'module_id' => 3,
             ],
+            [
+                'id' => 26,
+                'key' => 'service_module',
+                'display_name' => 'Service Module',
+                'module_id' => 4,
+            ],
+            [
+                'id' => 27,
+                'key' => 'duration',
+                'display_name' => 'Duration',
+                'module_id' => 4,
+            ],
+            [
+                'id' => 28,
+                'key' => 'add_duration',
+                'display_name' => '-- Add Duration',
+                'module_id' => 4,
+            ],
+            [
+                'id' => 29,
+                'key' => 'edit_duration',
+                'display_name' => '-- Edit Duration',
+                'module_id' => 4,
+            ],
+            [
+                'id' => 30,
+                'key' => 'view_duration',
+                'display_name' => '-- View Duration',
+                'module_id' => 4,
+            ],
         ]);
     }
 }

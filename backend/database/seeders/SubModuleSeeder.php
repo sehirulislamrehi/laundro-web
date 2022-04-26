@@ -85,7 +85,18 @@ class SubModuleSeeder extends Seeder
                 'module_id' => 3,
             ],
             //module id 3 end
-            
+
+
+            //module id 4 start
+            [
+                'id' => 8,
+                'name' => 'Duration',
+                'key' => 'duration',
+                'position' => 1,
+                'route' => 'duration.all',
+                'module_id' => 4,
+            ],
+            //module id 4 end
 
         
         ]);

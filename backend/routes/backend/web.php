@@ -60,6 +60,12 @@ Route::group(['prefix' => 'admindashboard', 'middleware' => 'auth'], function ()
     });
     //location module routes end
 
+    //service module routes start
+    Route::group(['prefix' => 'service-module'], function () {
+        require_once 'service_module/duration.php';
+    });
+    //service module routes end
+
     //settings module routes start
     Route::group(['prefix' => 'settings-module'], function () {
         require_once 'settings_module/app_info.php';
