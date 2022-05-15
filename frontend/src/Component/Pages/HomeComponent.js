@@ -100,7 +100,7 @@ const HomeComponent = () => {
                               <div className="item">
                                    <div className="col-md-12">
                                         <div className="banner_image_block">
-                                             <img src="/images/bg-slider4.jpg" className="img-fluid banner-image" alt=""></img>
+                                             <img src="/images/banner/banner-1.jpg" className="img-fluid banner-image" alt=""></img>
                                              <img src="/images/slider2-bg-bottom1.png" className="banner-bottom-image" alt="" />
                                         </div>
                                    </div>
@@ -111,7 +111,7 @@ const HomeComponent = () => {
                               <div className="item">
                                    <div className="col-md-12">
                                         <div className="banner_image_block">
-                                             <img src="/images/bg-slider5.jpg" className="img-fluid banner-image" alt=""></img>
+                                             <img src="/images/banner/banner-2.jpg" className="img-fluid banner-image" alt=""></img>
                                              <img src="/images/slider2-bg-bottom1.png" className="banner-bottom-image" alt="" />
                                         </div>
                                    </div>
@@ -673,7 +673,7 @@ const HomeComponent = () => {
                {/* Steps Area End */}
 
                {/* Faq Section */}
-               <section className="home2-faq-area pt-100 pb-100" style={{ backgroundImage : `url('images/accordion-bg.jpg')` }}>
+               <section className="home2-faq-area pt-100 pb-100" style={{ backgroundImage : `url('images/banner/banner-3.jpg')` }}>
                     <div className="container">
                          <div className="row">
                               <div className="col-lg-6 offset-lg-6">

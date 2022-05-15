@@ -44,9 +44,64 @@ const DashboardComponent = () => {
                                    <div className="profile-body">
                                         <div className="row">
 
-                                             {/* image one */}
-                                             <div className="col-md-12 my-dashboard">
-                                                  <img src="/images/graph-1.png" className="img-fluid" alt="" />
+                                             {/* item start */}
+                                             <div className="col-md-4 col-6">
+                                                  <div className="dashboard-item-card" style={{
+                                                       "background" : "rgb(168 251 232)"
+                                                  }}>
+                                                       <p>Total Order</p>  
+                                                       <strong>01</strong>  
+                                                  </div>                                              
+                                             </div>
+
+                                             {/* item start */}
+                                             <div className="col-md-4 col-6">
+                                                  <div className="dashboard-item-card" style={{
+                                                       "background" : "rgb(202 206 255)"
+                                                  }}>
+                                                       <p>Today's Order</p>  
+                                                       <strong>00</strong>  
+                                                  </div>                                              
+                                             </div>
+
+                                             {/* item start */}
+                                             <div className="col-md-4 col-6">
+                                                  <div className="dashboard-item-card" style={{
+                                                       "background" : "rgb(251 255 186)"
+                                                  }}>
+                                                       <p>Pending Order</p>  
+                                                       <strong>01</strong>  
+                                                  </div>                                              
+                                             </div>
+
+                                             {/* item start */}
+                                             <div className="col-md-4 col-6">
+                                                  <div className="dashboard-item-card" style={{
+                                                       "background" : "rgb(193 255 177)"
+                                                  }}>
+                                                       <p>Confirm Order</p>  
+                                                       <strong>00</strong>  
+                                                  </div>                                              
+                                             </div>
+
+                                             {/* item start */}
+                                             <div className="col-md-4 col-6">
+                                                  <div className="dashboard-item-card" style={{
+                                                       "background" : "rgb(253 228 249)"
+                                                  }}>
+                                                       <p>Completed Order</p>  
+                                                       <strong>00</strong>  
+                                                  </div>                                              
+                                             </div>
+
+                                             {/* item start */}
+                                             <div className="col-md-4 col-6">
+                                                  <div className="dashboard-item-card" style={{
+                                                       "background" : "rgb(255 174 174)"
+                                                  }}>
+                                                       <p>Cancelled Order</p>  
+                                                       <strong>01</strong>  
+                                                  </div>                                              
                                              </div>
 
                                         </div>

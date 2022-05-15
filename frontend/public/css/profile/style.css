@@ -8,7 +8,7 @@
      display: flex;
      height: 190px;
      position: relative;
-     box-shadow: 0px 1px 10px rgb(0 0 0 / 20%);
+     /* box-shadow: 0px 1px 10px rgb(0 0 0 / 20%); */
 }
 
 .profile-img {
@@ -116,7 +116,7 @@
 .profile-side {
      width: 300px;
      background: #fff;
-     border: 1px solid #006bcd;
+     border: 1px solid #e9e9e9;
      padding: 90px 20px 20px;
      font-family: "Bree Serif", serif;
      margin-left: 10px;
@@ -208,7 +208,8 @@ button.createbtn i {
      list-style-type: none;
      height: 40px;
      background: #fff;
-     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+     /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); */
+     border-top: 1px solid #e9e9e9;
 }
 
 .nav ul li {
@@ -268,7 +269,7 @@ button.createbtn i {
      padding: 10px;
 }
 .profile-body{
-     padding: 15px;
+     padding: 15px 30px;
 }
 .right-side{
      width: 100%;
@@ -401,4 +402,10 @@ button.createbtn i {
 .booking-status .content{
      padding: 15px;
      text-align: justify;
+}
+
+.dashboard-item-card{
+	padding: 15px;
+	color: black;
+     margin-bottom: 15px;
 }

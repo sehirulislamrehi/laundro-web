@@ -45,7 +45,7 @@ const ServicesComponent = () => {
                               <div className="col-lg-4 col-md-6">
                                    <div className="laundro-single-item sr-item">
                                         <div className="laundro-icon-wrapper">
-                                             <img src="/images/icon-1.png" alt=""></img>
+                                             <img src="/images/insta-1.jpg" alt=""></img>
                                         </div>
                                         <div className="laundro-sr-content">
                                              <Link to="/service-details/Wash"><h6>Wash</h6></Link>
@@ -59,7 +59,7 @@ const ServicesComponent = () => {
                                              </div>
                                              <div className="icon-wrapper">
                                                   <div className="laundro-img">
-                                                  <img src="/images/icon-1.png" alt=""></img>
+                                                  <img src="/images/insta-1.jpg" alt=""></img>
                                                   </div>
                                                   <span className="laundro-icon-shadow"></span>
                                              </div>
@@ -74,7 +74,7 @@ const ServicesComponent = () => {
                               <div className="col-lg-4 col-md-6">
                                    <div className="laundro-single-item sr-item">
                                         <div className="laundro-icon-wrapper">
-                                             <img src="/images/icon-2.png" alt=""></img>
+                                             <img src="/images/insta-2.jpg" alt=""></img>
                                         </div>
                                         <div className="laundro-sr-content">
                                              <Link to="/service-details/Wash & Iron"><h6>Wash & Iron</h6></Link>
@@ -88,7 +88,7 @@ const ServicesComponent = () => {
                                              </div>
                                              <div className="icon-wrapper">
                                                   <div className="laundro-img">
-                                                  <img src="/images/icon-2.png" alt=""></img>
+                                                  <img src="/images/insta-2.jpg" alt=""></img>
                                                   </div>
                                                   <span className="laundro-icon-shadow"></span>
                                              </div>
@@ -103,7 +103,7 @@ const ServicesComponent = () => {
                               <div className="col-lg-4 col-md-6">
                                    <div className="laundro-single-item sr-item">
                                         <div className="laundro-icon-wrapper">
-                                             <img src="/images/icon-3.png" alt=""></img>
+                                             <img src="/images/insta-4.jpg" alt=""></img>
                                         </div>
                                         <div className="laundro-sr-content">
                                              <Link to="/service-details/Dry Cleaning"><h6>Dry Cleaning</h6></Link>
@@ -117,7 +117,7 @@ const ServicesComponent = () => {
                                              </div>
                                              <div className="icon-wrapper">
                                                   <div className="laundro-img">
-                                                  <img src="/images/icon-3.png" alt=""></img>
+                                                  <img src="/images/insta-4.jpg" alt=""></img>
                                                   </div>
                                                   <span className="laundro-icon-shadow"></span>
                                              </div>
@@ -132,7 +132,7 @@ const ServicesComponent = () => {
                               <div className="col-lg-4 col-md-6">
                                    <div className="laundro-single-item sr-item">
                                         <div className="laundro-icon-wrapper">
-                                             <img src="/images/icon-5.png" alt=""></img>
+                                             <img src="/images/insta-5.jpg" alt=""></img>
                                         </div>
                                         <div className="laundro-sr-content">
                                              <Link to="/service-details/Ironing"><h6>Ironing</h6></Link>
@@ -146,7 +146,7 @@ const ServicesComponent = () => {
                                              </div>
                                              <div className="icon-wrapper">
                                                   <div className="laundro-img">
-                                                  <img src="/images/icon-5.png" alt=""></img>
+                                                  <img src="/images/insta-5.jpg" alt=""></img>
                                                   </div>
                                                   <span className="laundro-icon-shadow"></span>
                                              </div>
@@ -161,7 +161,7 @@ const ServicesComponent = () => {
                               <div className="col-lg-4 col-md-6">
                                    <div className="laundro-single-item sr-item">
                                         <div className="laundro-icon-wrapper">
-                                             <img src="/images/icon-5.png" alt=""></img>
+                                             <img src="/images/insta-6.jpg" alt=""></img>
                                         </div>
                                         <div className="laundro-sr-content">
                                              <Link to="/service-details/Duvets & Bulky Items"></Link><h6>Duvets & Bulky Items</h6>
@@ -175,7 +175,7 @@ const ServicesComponent = () => {
                                              </div>
                                              <div className="icon-wrapper">
                                                   <div className="laundro-img">
-                                                  <img src="/images/icon-5.png" alt=""></img>
+                                                  <img src="/images/insta-6.jpg" alt=""></img>
                                                   </div>
                                                   <span className="laundro-icon-shadow"></span>
                                              </div>
