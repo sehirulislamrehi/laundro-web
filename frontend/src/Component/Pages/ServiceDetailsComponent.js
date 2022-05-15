@@ -52,12 +52,12 @@ const ServiceDetailsComponent = () => {
                                              </div>
                                              <div className="list-nav">
                                                   <ul>
-                                                       <li><Link to="/service-details/House Cleaning" className="active">House Cleaning</Link></li>
-                                                       <li><Link to="/service-details/Apartment Cleaning">Apartment Cleaning</Link></li>
-                                                       <li><Link to="/service-details/Carpet Cleaning">Carpet Cleaning</Link></li>
-                                                       <li><Link to="/service-details/Commercial Cleaning">Commercial Cleaning</Link></li>
-                                                       <li><Link to="/service-details/Window Cleaning">Window Cleaning</Link></li>
-                                                       <li><Link to="/service-details/Custain Cleaning">Custain Cleaning</Link></li>
+                                                       <li><Link to="/service-details/Wash" className="active">Wash</Link></li>
+                                                       <li><Link to="/service-details/Wash & Iron">Wash & Iron</Link></li>
+                                                       <li><Link to="/service-details/Dry Cleaning">Dry Cleaning</Link></li>
+                                                       <li><Link to="/service-details/Ironing">Ironing</Link></li>
+                                                       <li><Link to="/service-details/Duvets & Bulky Items">Duvets & Bulky Items</Link></li>
+                                                       <li><Link to="/service-details/Deals">Deals</Link></li>
                                                   </ul>
                                              </div>
                                         </div>
@@ -161,57 +161,6 @@ const ServiceDetailsComponent = () => {
                </section>
                {/* Get In Tauch End */}
 
-
-               {/* Case Study */}
-               <div className="laundro-case-study">
-                    <div className="container">
-                         <div className="row align-items-center">
-                              <div className="col-lg-6">
-                              <div className="laundro-ct-left" style={{ backgroundImage : `url("/images/map-bg.png")` }}>
-                                   <span className="ct-title">80<sup>+</sup></span>
-                                   <span className="ct-subtitle">Partners in world wide</span>
-                              </div>
-                              </div>
-                              <div className="col-lg-6">
-                              <div className="laundro-ct-right">
-                                   <div className="row">
-                                        <div className="col-md-4 col-sm-6 p-0 grid-item">
-                                             <div className="laundro-pt-item">
-                                                  <img src="/images/partner-1.png" alt=""></img>
-                                             </div>
-                                        </div>
-                                        <div className="col-md-4 col-sm-6 p-0 grid-item">
-                                             <div className="laundro-pt-item">
-                                                  <img src="/images/partner-2.png" alt=""></img>
-                                             </div>
-                                        </div>
-                                        <div className="col-md-4 col-sm-6 p-0 grid-item">
-                                             <div className="laundro-pt-item">
-                                                  <img src="/images/partner-3.png" alt=""></img>
-                                             </div>
-                                        </div>
-                                        <div className="col-md-4 col-sm-6 p-0 grid-item">
-                                             <div className="laundro-pt-item">
-                                                  <img src="/images/partner-4.png" alt=""></img>
-                                             </div>
-                                        </div>
-                                        <div className="col-md-4 col-sm-6 p-0 grid-item">
-                                             <div className="laundro-pt-item">
-                                                  <img src="/images/partner-5.png" alt=""></img>
-                                             </div>
-                                        </div>
-                                        <div className="col-md-4 col-sm-6 p-0 grid-item">
-                                             <div className="laundro-pt-item">
-                                                  <img src="/images/partner-6.png" alt=""></img>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                              </div>
-                         </div>
-                    </div>
-               </div>
-               {/* Case Study End */}
 
 
                {/* Footer */}

@@ -4,8 +4,8 @@ const LeftSidebarComponent = () => {
           <div className="id">
                <div className="left-side">
                     <div className="profile-side">
-                         <p className="mobile-no"><i className="fa fa-phone"></i> +8801858361812</p>
-                         <p className="user-mail"><i className="fa fa-envelope"></i> mdsehirulislamrehi@gmail.com</p>
+                         <p className="mobile-no"><i className="fa fa-phone"></i> +88017XXXXXXXX</p>
+                         <p className="user-mail"><i className="fa fa-envelope"></i> info@gmail.com</p>
                          <div className="user-bio">
                               <h3>Bio</h3>
                               <p className="bio">

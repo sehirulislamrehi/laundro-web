@@ -17,7 +17,7 @@ class CreateServicesTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('icon')->nullable();
-            $table->double('material_price', 10,2)->nullable();
+            $table->integer('price')->nullable();
             $table->boolean('is_active');
             $table->unsignedBigInteger('service_id')->nullable();
             $table->timestamps();

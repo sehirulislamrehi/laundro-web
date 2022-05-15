@@ -39,9 +39,7 @@
 }
 
 .profile-nav-info h3 {
-     font-variant: small-caps;
      font-size: 2rem;
-     font-family: sans-serif;
      font-weight: bold;
 }
 
@@ -240,7 +238,7 @@ button.createbtn i {
      text-align: center;
 }
 .profile{
-     padding: 100px 0;
+     padding: 50px 0;
 }
 .link-send {
      margin: 15px 0;

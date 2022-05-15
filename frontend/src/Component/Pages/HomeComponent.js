@@ -125,8 +125,7 @@ const HomeComponent = () => {
                     <div className="container">
                          <div className="appoinment-form" style={{ backgroundImage : `url('images/form-bg.jpg')` }}>
                               <div className="appoinment-title">
-                                   <span>24 / 7 Hours Service</span>
-                                   <h4>Online Appoinment</h4>
+                                   <h4>Online Booking</h4>
                               </div>
                               <form action="#">
                                    <input type="text" placeholder="Your name*" />
@@ -134,14 +133,17 @@ const HomeComponent = () => {
                                    <input type="email" placeholder="Main Address" />
                                    <div className="select-field">
                                         <select>
-                                             <option>House Cleaning</option>
-                                             <option>House Office Cleaning</option>
-                                             <option>House Plubming Cleaning</option>
+                                             <option>Wash</option>
+                                             <option>Wash & Iron</option>
+                                             <option>Dry Cleaning</option>
+                                             <option>Ironing</option>
+                                             <option>Duvets & Bulky Items</option>
+                                             <option>Deals</option>
                                         </select>
                                    </div>
                                    <textarea placeholder="Type message..." rows="8"></textarea>
                                    <button type="submit" className="laundro-primary-btn">
-                                        Get a quote<span><i className="fab fa-telegram-plane"></i></span>
+                                        Proceed<span><i className="fab fa-telegram-plane"></i></span>
                                    </button>
                               </form>
                          </div>
@@ -177,9 +179,12 @@ const HomeComponent = () => {
                                              <div className="col-md-5 col-12 form-group">
                                                   <select name="" className="form-control">
                                                        <option>Select Service</option>
-                                                       <option>House Cleaning</option>
-                                                       <option>House Office Cleaning</option>
-                                                       <option>House Plubming Cleaning</option>
+                                                       <option>Wash</option>
+                                                       <option>Wash & Iron</option>
+                                                       <option>Dry Cleaning</option>
+                                                       <option>Ironing</option>
+                                                       <option>Duvets & Bulky Items</option>
+                                                       <option>Deals</option>
                                                   </select>                                               
                                              </div>
 
@@ -199,7 +204,6 @@ const HomeComponent = () => {
                     </div>
                </section>
                {/* Book Service Section end */}
-
 
 
                {/* About Section */}
@@ -335,12 +339,12 @@ const HomeComponent = () => {
                                              <img src="/images/icon-2.png" alt="" />
                                         </div>
                                         <div className="srv2-service-content">
-                                             <Link to="/service-details/Indoor Cleaning">
-                                                  <h5>Indoor Cleaning</h5>
+                                             <Link to="/service-details/Wash">
+                                                  <h5>Wash</h5>
                                              </Link>
                                              <p>
                                                   As a app web crawler expert, I help organizations adjust to
-                                                  expand significant of internet.
+                                                  expand significant of internet.  app web crawler expert
                                              </p>
                                         </div>
                                         <div className="srv2-hover-item" style={{ backgroundImage : `url('images/01.jpg')` }}>
@@ -348,14 +352,14 @@ const HomeComponent = () => {
                                                   <img src="/images/icon-2.png" alt="" />
                                              </div>
                                              <div className="srv2-service-content">
-                                                  <Link to="/service-details/Indoor Cleaning">
-                                                       <h5>Indoor Cleaning</h5>
+                                                  <Link to="/service-details/Wash">
+                                                       <h5>Wash</h5>
                                                   </Link>
                                                   <p>
                                                        As a app web crawler expert, I help organizations adjust to
                                                        expand sigficant of internet.
                                                   </p>
-                                                  <Link to="/service-details/Indoor Cleaning" className="srv2-readmore-btn">Read More <i
+                                                  <Link to="/service-details/Wash" className="srv2-readmore-btn">Read More <i
                                                             className="fas fa-angle-right"></i></Link>
                                              </div>
                                         </div>
@@ -368,8 +372,8 @@ const HomeComponent = () => {
                                              <img src="/images/icon-3.png" alt="" />
                                         </div>
                                         <div className="srv2-service-content">
-                                             <Link to="/service-details/Plumbing Service">
-                                                  <h5>Plumbing Services</h5>
+                                             <Link to="/service-details/Wash & Iron">
+                                                  <h5>Wash & Irons</h5>
                                              </Link>
                                              <p>
                                                   As a app web crawler expert, I help organizations adjust to
@@ -381,14 +385,14 @@ const HomeComponent = () => {
                                                   <img src="/images/icon-3.png" alt="" />
                                              </div>
                                              <div className="srv2-service-content">
-                                                  <Link to="/service-details/Plumbing Service">
-                                                       <h5>Plumbing Service</h5>
+                                                  <Link to="/service-details/Wash & Iron">
+                                                       <h5>Wash & Iron</h5>
                                                   </Link>
                                                   <p>
                                                        As a app web crawler expert, I help organizations adjust to
                                                        expand sigficant of internet.
                                                   </p>
-                                                  <Link to="/service-details/Plumbing Service" className="srv2-readmore-btn">Read More <i
+                                                  <Link to="/service-details/Wash & Iron" className="srv2-readmore-btn">Read More <i
                                                             className="fas fa-angle-right"></i></Link>
                                              </div>
                                         </div>
@@ -401,8 +405,8 @@ const HomeComponent = () => {
                                              <img src="/images/icon-5.png" alt="" />
                                         </div>
                                         <div className="srv2-service-content">
-                                        <Link to="/service-details/Bathroom Cleaning">
-                                                  <h5>Bathroom Cleaning</h5>
+                                        <Link to="/service-details/Dry Cleaning">
+                                                  <h5>Dry Cleaning</h5>
                                              </Link>
                                              <p>
                                                   As a app web crawler expert, I help organizations adjust to
@@ -414,14 +418,14 @@ const HomeComponent = () => {
                                                   <img src="/images/icon-5.png" alt="" />
                                              </div>
                                              <div className="srv2-service-content">
-                                             <Link to="/service-details/Bathroom Cleaning">
-                                                       <h5>Bathroom Cleaning</h5>
+                                             <Link to="/service-details/Dry Cleaning">
+                                                       <h5>Dry Cleaning</h5>
                                                   </Link>
                                                   <p>
                                                        As a app web crawler expert, I help organizations adjust to
                                                        expand sigficant of internet.
                                                   </p>
-                                                  <Link to="/service-details/Bathroom Cleaning" className="srv2-readmore-btn">Read More <i
+                                                  <Link to="/service-details/Dry Cleaning" className="srv2-readmore-btn">Read More <i
                                                             className="fas fa-angle-right"></i></Link>
                                              </div>
                                         </div>
@@ -434,12 +438,12 @@ const HomeComponent = () => {
                                              <img src="/images/icon-2.png" alt="" />
                                         </div>
                                         <div className="srv2-service-content">
-                                             <Link to="/service-details/Indoor Cleaning">
-                                                  <h5>Indoor Cleaning</h5>
+                                             <Link to="/service-details/Wash">
+                                                  <h5>Wash</h5>
                                              </Link>
                                              <p>
                                                   As a app web crawler expert, I help organizations adjust to
-                                                  expand significant of internet.
+                                                  expand significant of internet.  app web crawler expert
                                              </p>
                                         </div>
                                         <div className="srv2-hover-item" style={{ backgroundImage : `url('images/01.jpg')` }}>
@@ -447,14 +451,14 @@ const HomeComponent = () => {
                                                   <img src="/images/icon-2.png" alt="" />
                                              </div>
                                              <div className="srv2-service-content">
-                                                  <Link to="/service-details/Indoor Cleaning">
-                                                       <h5>Indoor Cleaning</h5>
+                                                  <Link to="/service-details/Wash">
+                                                       <h5>Wash</h5>
                                                   </Link>
                                                   <p>
                                                        As a app web crawler expert, I help organizations adjust to
                                                        expand sigficant of internet.
                                                   </p>
-                                                  <Link to="/service-details/Indoor Cleaning" className="srv2-readmore-btn">Read More <i
+                                                  <Link to="/service-details/Wash" className="srv2-readmore-btn">Read More <i
                                                             className="fas fa-angle-right"></i></Link>
                                              </div>
                                         </div>
@@ -468,108 +472,7 @@ const HomeComponent = () => {
                </section>
                {/* Service Section End */}
 
-               {/* PMV Section */}
-               <section className="home2-pmv-section pt-100">
-                    <div className="container">
-                         <div className="pmv-top">
-                              <div className="row align-items-center">
-                                   <div className="col-lg-6">
-                                        <div className="laundro-title-area">
-                                             <span className="laundro-subtitle">Why Choose us?</span>
-                                             <h3>We have some features <span>so you choose.</span></h3>
-                                        </div>
-                                   </div>
-                                   <div className="col-lg-6">
-                                        <div className="bf-desc">
-                                             <p>
-                                                  As a app web crawler expert, I help organizations adjust to
-                                                  the expanding significance of internet promoting.
-                                             </p>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-                         <div className="pmv-bottom">
-                              <div className="pmv-nav">
-                                   <ul className="nav">
-                                        <li>
-                                             <a href="#philosophy" data-bs-toggle="tab" className="active">Our Philosophy</a>
-                                        </li>
-                                        <li>
-                                             <a href="#mission" data-bs-toggle="tab">Company Mission</a>
-                                        </li>
-                                        <li><a href="#vission" data-bs-toggle="tab">Our Vission</a></li>
-                                   </ul>
-                              </div>
-                              <div className="tab-content">
-                                   <div className="tab-pane fade active show" id="philosophy">
-                                        <div className="row align-items-center">
-                                             <div className="col-lg-6 order-2 order-lg-1">
-                                                  <div className="pmv-content">
-                                                       <h4>Our Two-Part satisfaction guarantee! One</h4>
-                                                       <p>
-                                                            We know that if you love our service you’re going to
-                                                            recommend us to your family and friends, so your
-                                                            satisfaction is our number one priority. If you’re unhappy
-                                                            with our service in any way.
-                                                       </p>
-                                                       <Link to="/about" className="laundro-primary-btn">View terms of services</Link>
-                                                  </div>
-                                             </div>
-                                             <div className="col-lg-6 order-1 order-lg-2">
-                                                  <div className="img-wrapper">
-                                                       <img src="/images/tab-1.jpg" alt="" />
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                                   <div className="tab-pane fade" id="mission">
-                                        <div className="row align-items-center">
-                                             <div className="col-lg-6 order-2 order-lg-1">
-                                                  <div className="pmv-content">
-                                                       <h4>Our Two-Part satisfaction guarantee! Two</h4>
-                                                       <p>
-                                                            We know that if you love our service you’re going to
-                                                            recommend us to your family and friends, so your
-                                                            satisfaction is our number one priority. If you’re unhappy
-                                                            with our service in any way.
-                                                       </p>
-                                                       <Link to="/about" className="laundro-primary-btn">View terms of services</Link>
-                                                  </div>
-                                             </div>
-                                             <div className="col-lg-6 order-1 order-lg-2">
-                                                  <div className="img-wrapper">
-                                                       <img src="/images/tab-1.jpg" alt="" />
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                                   <div className="tab-pane fade" id="vission">
-                                        <div className="row align-items-center">
-                                             <div className="col-lg-6 order-2 order-lg-1">
-                                                  <div className="pmv-content">
-                                                       <h4>Our Two-Part satisfaction guarantee! Three</h4>
-                                                       <p>
-                                                            We know that if you love our service you’re going to
-                                                            recommend us to your family and friends, so your
-                                                            satisfaction is our number one priority. If you’re unhappy
-                                                            with our service in any way.
-                                                       </p>
-                                                       <Link to="/about" className="laundro-primary-btn">View terms of services</Link>
-                                                  </div>
-                                             </div>
-                                             <div className="col-lg-6 order-1 order-lg-2">
-                                                  <div className="img-wrapper">
-                                                       <img src="/images/tab-1.jpg" alt="" />
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-                    </div>
-               </section>
-               {/* PMV Section End */}
+
 
                {/* Skills Area */}
                <section className="home2-skills-area pb-50">
@@ -595,8 +498,8 @@ const HomeComponent = () => {
                                              </div>
                                         </div>
                                         <div className="skills-content">
-                                        <Link to="/service-details/Home Cleaning">
-                                                  <h5>Home Cleaning</h5>
+                                        <Link to="/service-details/Wash">
+                                                  <h5>Wash</h5>
                                              </Link>
                                              <p>As a app web crawler expert, I help organizations.</p>
                                         </div>
@@ -622,8 +525,8 @@ const HomeComponent = () => {
                                              </div>
                                         </div>
                                         <div className="skills-content">
-                                             <Link to="/service-details/Office Cleaning">
-                                                  <h5>Office Cleaning</h5>
+                                             <Link to="/service-details/Wash & Iron">
+                                                  <h5>Wash & Iron</h5>
                                              </Link>
                                              <p>As a app web crawler expert, I help organizations.</p>
                                         </div>
@@ -649,8 +552,8 @@ const HomeComponent = () => {
                                              </div>
                                         </div>
                                         <div className="skills-content">
-                                             <Link to="/service-details/Plumbing Cleaning">
-                                                  <h5>Plumbing Cleaning</h5>
+                                             <Link to="/service-details/Dry Cleaning">
+                                                  <h5>Dry Cleaning</h5>
                                              </Link>
                                              <p>As a app web crawler expert, I help organizations.</p>
                                         </div>
@@ -676,8 +579,8 @@ const HomeComponent = () => {
                                              </div>
                                         </div>
                                         <div className="skills-content">
-                                             <Link to="/service-details/Window Cleaning">
-                                                  <h5>Window Cleaning</h5>
+                                             <Link to="/service-details/Ironing">
+                                                  <h5>Ironing</h5>
                                              </Link>
                                              <p>As a app web crawler expert, I help organizations.</p>
                                         </div>
@@ -1204,8 +1107,8 @@ const HomeComponent = () => {
                                              <div className="git-bottom">
                                                   <div className="phon-area">
                                                        <span className="git-title">Call us:</span>
-                                                       <a href="tel:+8801858361812"><span><i
-                                                                      className="fas fa-phone-alt"></i></span>+8801858361812</a>
+                                                       <a href="tel:+88017XXXXXXXX"><span><i
+                                                                      className="fas fa-phone-alt"></i></span>+88017XXXXXXXX</a>
                                                   </div>
                                                   <div className="git-txt">
                                                        or
@@ -1213,8 +1116,8 @@ const HomeComponent = () => {
                                                   </div>
                                                   <div className="mail-area">
                                                        <span className="git-title">Mail us:</span>
-                                                       <a href="mailto:mdsehirulislamrehi@gmail.com"><span><i
-                                                                      className="fas fa-envelope"></i></span>mdsehirulislamrehi@gmail.com</a>
+                                                       <a href="mailto:info@gmail.com"><span><i
+                                                                      className="fas fa-envelope"></i></span>info@gmail.com</a>
                                                   </div>
                                              </div>
                                         </div>

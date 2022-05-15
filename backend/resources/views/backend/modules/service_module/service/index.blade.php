@@ -58,6 +58,7 @@
                                         <th>ID</th>
                                         <th>Icon</th>
                                         <th>Name</th>
+                                        <th>Price ( BDT )</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -109,6 +110,10 @@
                 {
                     data: 'name',
                     name: 'name'
+                },
+                {
+                    data: 'price',
+                    name: 'price'
                 },
                 {
                     data: 'is_active',

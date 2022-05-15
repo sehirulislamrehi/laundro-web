@@ -1,11 +1,11 @@
 .user-card
 {
-	width: 350px;
+	width: 50%;
 	margin: 100px auto;
   position: relative;
 	background: #fff;
 	overflow: hidden;
-	box-shadow: black 0px 0px 6px -3px;
+	border: 1px solid #ededed;
   border-radius:         5px;
   -moz-border-radius:    5px;
   -webkit-border-radius: 5px;
@@ -53,6 +53,8 @@ input:focus
 .login-box{
 	padding: 20px 40px;
 	right: 0px;
+	width: 50%;
+	margin: 0 auto;
 }
 
 .signup-box{

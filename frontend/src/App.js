@@ -12,7 +12,6 @@ import MyOrderComponent from "./Component/Pages/Profile/MyOrderComponent";
 import AccountComponent from "./Component/Pages/Profile/AccountComponent";
 import EditProfileComponent from "./Component/Pages/Profile/EditProfileComponent";
 import ChangePasswordComponent from "./Component/Pages/Profile/ChangePasswordComponent";
-import DeleteAccountComponent from "./Component/Pages/Profile/DeleteAccountComponent";
 import StepOneComponent from "./Component/Pages/Booking/StepOneComponent";
 import StepTwoComponent from "./Component/Pages/Booking/StepTwoComponent";
 import StepThreeComponent from "./Component/Pages/Booking/StepThreeComponent";
@@ -88,11 +87,6 @@ function App() {
             {/* change password  */}
             <Route path="/change-password">
               <ChangePasswordComponent></ChangePasswordComponent>
-            </Route>
-
-            {/* delete account  */}
-            <Route path="/delete-account">
-              <DeleteAccountComponent></DeleteAccountComponent>
             </Route>
 
             {/* booking step 1 */}

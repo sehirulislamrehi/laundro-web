@@ -68,10 +68,10 @@ class ServiceController extends Controller
         if( can('services') ){
             $services = Service::orderBy('id', 'desc')
                         ->where("service_id",null)
-                        ->select("id","name","icon","is_active","service_id")
+                        ->select("id","name","icon","is_active","service_id","price")
                         ->get(); 
             return DataTables::of($services)
-            ->rawColumns(["icon","is_active",'action'])
+            ->rawColumns(["icon","is_active",'action','price'])
             ->editColumn('icon', function(Service $service){
 
                 if( $service->icon == null ){
@@ -93,6 +93,9 @@ class ServiceController extends Controller
                 } else {
                     return '<p class="badge badge-danger">Inactive</p>';
                 }
+            })
+            ->editColumn('price', function (Service $service) {
+                return $service->price ?? '-';
             })
             ->addColumn('action', function (Service $service) {
                 return '
@@ -148,10 +151,10 @@ class ServiceController extends Controller
         if( can('services') ){
             $services = Service::orderBy('id', 'desc')
                         ->where("service_id",decrypt($id))
-                        ->select("id","name","icon","material_price","is_active","service_id")
+                        ->select("id","name","icon","price","is_active","service_id")
                         ->get(); 
             return DataTables::of($services)
-            ->rawColumns(["icon","material_price","is_active", 'parent','action'])
+            ->rawColumns(["icon","price","is_active", 'parent','action'])
             ->editColumn('icon', function(Service $service){
 
                 if( $service->icon == null ){
@@ -167,9 +170,9 @@ class ServiceController extends Controller
 
                 return $service->name;
             })
-            ->editColumn('material_price', function(Service $service){
+            ->editColumn('price', function(Service $service){
 
-                return $service->material_price ?? 'N/A';
+                return $service->price ?? 'N/A';
             })
             ->editColumn('is_active', function (Service $service) {
                 if ($service->is_active == true) {
@@ -248,7 +251,7 @@ class ServiceController extends Controller
                         'icon'           => 'required|mimes:jpeg,jpg,png,bmp',
                         'is_active'      => 'required',
                         'service_id' => 'required|integer|exists:services,id',
-                        'material_price' => 'required|integer',
+                        'price' => 'required|integer',
                     ]);
                 }
                 else{
@@ -271,10 +274,10 @@ class ServiceController extends Controller
 					$service->name           = $request->name;
 
                     if( $request->price_check == true ){
-                        $service->material_price = $request->material_price;
+                        $service->price = $request->price;
                     }
                     else{
-                        $service->material_price = null;
+                        $service->price = null;
                     }
 					
 					$service->service_id     = ($request->service_id == 'null') ? null : $request->service_id;
@@ -287,10 +290,6 @@ class ServiceController extends Controller
 					$service->icon           = $img;
 
                     $service->save();
-
-
-                    // adding schedules for this service provider 
-
 
                     
                     return response()->json(['success' => 'New Service '.$service->name.' Created Successfully'], 200);
@@ -348,7 +347,7 @@ class ServiceController extends Controller
                        'name'           => 'required|unique:services,name,'. $id,
                         'is_active'      => 'required',
                         'service_id' => 'required|integer|exists:services,id',
-                        'material_price' => 'required|integer',
+                        'price' => 'required|integer',
                     ]);
                 }
                 else{
@@ -369,10 +368,10 @@ class ServiceController extends Controller
 					$service->name           = $request->name;
 
 					if( $request->price_check == true ){
-                        $service->material_price = $request->material_price;
+                        $service->price = $request->price;
                     }
                     else{
-                        $service->material_price = null;
+                        $service->price = null;
                     }
 
 					$service->service_id     = ($request->service_id == 'null') ? null : $request->service_id;

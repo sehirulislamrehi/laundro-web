@@ -87,7 +87,7 @@ const ContactComponent = () => {
                                         </div>
                                         <div class="column-content">
                                              <h5>Office Address</h5>
-                                             <p>Mohakhali TB Gate, Dhaka, Bangladesh</p>
+                                             <p>Mrs Smith 71 Cherry Court SOUTHAMPTON SO53 5PD UK</p>
                                         </div>
                                    </div>
                               </div>
@@ -98,7 +98,7 @@ const ContactComponent = () => {
                                         </div>
                                         <div class="column-content">
                                              <h5>Telephone number</h5>
-                                             <p>(+880)1858361812</p>
+                                             <p>(+880)17XXXXXXXX</p>
                                         </div>
                                    </div>
                               </div>
@@ -109,7 +109,7 @@ const ContactComponent = () => {
                                         </div>
                                         <div class="column-content">
                                              <h5>Mail address</h5>
-                                             <p>mdsehirulislamrehi@gmail.com</p>
+                                             <p>info@gmail.com</p>
                                         </div>
                                    </div>
                               </div>

@@ -36,19 +36,19 @@
                 </select>
             </div>
 
-            <!-- material_price -->
+            <!-- price -->
             <div class="col-md-12 col-12 form-group">
                 <div class="row">
                     <div class="form-check col-md-12">
-                        <input type="checkbox" class="form-check-input" id="addMeterialPrice" name="price_check" value="1">
-                        <label class="form-check-label" for="addMeterialPrice">Add Meterial Price</label>
+                        <input type="checkbox" class="form-check-input" id="addPrice" name="price_check" value="1">
+                        <label class="form-check-label" for="addPrice">Add Price</label>
                     </div>
                 </div>
 
                 <div class="row material-price">
                     <div class="col-md-12">
-                        <label for="material_price" class="text-capitalize">material price</label>
-                        <input type="number" step="0.01" class="form-control" name="material_price">
+                        <label for="price" class="text-capitalize">Price</label>
+                        <input type="number" class="form-control" name="price">
                     </div>
                 </div>
             </div>
@@ -105,7 +105,7 @@
         }
     })
 
-    $(document).on('click','#addMeterialPrice',function(){
+    $(document).on('click','#addPrice',function(){
         let $this = $(this)
 
         if( $this[0].checked == true ){

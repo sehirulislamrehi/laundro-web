@@ -64,15 +64,15 @@ const AccountComponent = () => {
                                                   <ul>
                                                        <li>
                                                             <strong>Name : </strong>
-                                                            Md Sehirul Islam Rehi
+                                                            Colson Nicholas
                                                        </li>
                                                        <li>
                                                             <strong>Email : </strong>
-                                                            mdsehirulislamrehi@gmail.com
+                                                            info@gmail.com
                                                        </li>
                                                        <li>
                                                             <strong>Phone : </strong>
-                                                            01858361812
+                                                            017XXXXXXXX
                                                        </li>
                                                        <li>
                                                             <strong>Bio : </strong>
@@ -80,7 +80,7 @@ const AccountComponent = () => {
                                                        </li>
                                                        <li>
                                                             <strong>Address : </strong>
-                                                            Mohakhali tb gate
+                                                            Mrs Smith 71 Cherry Court SOUTHAMPTON SO53 5PD UK
                                                        </li>
                                                   </ul>
                                              </div>

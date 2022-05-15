@@ -48,9 +48,9 @@ const ServicesComponent = () => {
                                              <img src="/images/icon-1.png" alt=""></img>
                                         </div>
                                         <div className="laundro-sr-content">
-                                             <Link to="/service-details/House Cleaning"><h6>House Cleaning</h6></Link>
+                                             <Link to="/service-details/Wash"><h6>Wash</h6></Link>
                                              <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                             <Link to="/service-details/House Cleaning" className="laundro-readmore-btn">Read More</Link>
+                                             <Link to="/service-details/Wash" className="laundro-readmore-btn">Read More</Link>
                                         </div>
                                         <div className="laundro-sr-hover">
                                              <div className="img-wrapper">
@@ -64,9 +64,9 @@ const ServicesComponent = () => {
                                                   <span className="laundro-icon-shadow"></span>
                                              </div>
                                              <div className="laundro-sr-content">
-                                                  <Link to="/service-details/House Cleaning"><h6>House Cleaning</h6></Link>
+                                                  <Link to="/service-details/Wash"><h6>Wash</h6></Link>
                                                   <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                                  <Link to="/service-details/House Cleaning" className="laundro-readmore-btn">Read more</Link>
+                                                  <Link to="/service-details/Wash" className="laundro-readmore-btn">Read more</Link>
                                              </div>
                                         </div>
                                    </div>
@@ -77,9 +77,9 @@ const ServicesComponent = () => {
                                              <img src="/images/icon-2.png" alt=""></img>
                                         </div>
                                         <div className="laundro-sr-content">
-                                             <Link to="/service-details/Indoor Cleaning"><h6>Indoor</h6></Link>
+                                             <Link to="/service-details/Wash & Iron"><h6>Wash & Iron</h6></Link>
                                              <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                             <Link to="/service-details/Indoor Cleaning" className="laundro-readmore-btn">Read More</Link>
+                                             <Link to="/service-details/Wash & Iron" className="laundro-readmore-btn">Read More</Link>
                                         </div>
                                         <div className="laundro-sr-hover">
                                              <div className="img-wrapper">
@@ -93,9 +93,9 @@ const ServicesComponent = () => {
                                                   <span className="laundro-icon-shadow"></span>
                                              </div>
                                              <div className="laundro-sr-content">
-                                                  <Link to="/service-details/Indoor Cleaning"><h6>Indoor Cleaning</h6></Link>
+                                                  <Link to="/service-details/Wash & Iron"><h6>Wash & Iron</h6></Link>
                                                   <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                                  <Link to="/service-details/Indoor Cleaning" className="laundro-readmore-btn">Read more</Link>
+                                                  <Link to="/service-details/Wash & Iron" className="laundro-readmore-btn">Read more</Link>
                                              </div>
                                         </div>
                                    </div>
@@ -106,9 +106,9 @@ const ServicesComponent = () => {
                                              <img src="/images/icon-3.png" alt=""></img>
                                         </div>
                                         <div className="laundro-sr-content">
-                                             <Link to="/service-details/Plumbing Services"><h6>Plumbing Services</h6></Link>
+                                             <Link to="/service-details/Dry Cleaning"><h6>Dry Cleaning</h6></Link>
                                              <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                             <Link to="/service-details/Plumbing Services" className="laundro-readmore-btn">Read More</Link>
+                                             <Link to="/service-details/Dry Cleaning" className="laundro-readmore-btn">Read More</Link>
                                         </div>
                                         <div className="laundro-sr-hover">
                                              <div className="img-wrapper">
@@ -122,9 +122,9 @@ const ServicesComponent = () => {
                                                   <span className="laundro-icon-shadow"></span>
                                              </div>
                                              <div className="laundro-sr-content">
-                                                  <Link to="/service-details/Plumbing Services"><h6>Plumbing Services</h6></Link>
+                                                  <Link to="/service-details/Dry Cleaning"><h6>Dry Cleaning</h6></Link>
                                                   <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                                  <Link to="/service-details/Plumbing Services" className="laundro-readmore-btn">Read more</Link>
+                                                  <Link to="/service-details/Dry Cleaning" className="laundro-readmore-btn">Read more</Link>
                                              </div>
                                         </div>
                                    </div>
@@ -135,9 +135,9 @@ const ServicesComponent = () => {
                                              <img src="/images/icon-5.png" alt=""></img>
                                         </div>
                                         <div className="laundro-sr-content">
-                                             <Link to="/service-details/Bathroom Cleaning"><h6>Bathroom Cleaning</h6></Link>
+                                             <Link to="/service-details/Ironing"><h6>Ironing</h6></Link>
                                              <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                             <Link to="/service-details/Bathroom Cleaning" className="laundro-readmore-btn">Read More</Link>
+                                             <Link to="/service-details/Ironing" className="laundro-readmore-btn">Read More</Link>
                                         </div>
                                         <div className="laundro-sr-hover">
                                              <div className="img-wrapper">
@@ -151,9 +151,9 @@ const ServicesComponent = () => {
                                                   <span className="laundro-icon-shadow"></span>
                                              </div>
                                              <div className="laundro-sr-content">
-                                                  <Link to="/service-details/Bathroom Cleaning"><h6>Bathroom Cleaning</h6></Link>
+                                                  <Link to="/service-details/Ironing"><h6>Ironing</h6></Link>
                                                   <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                                  <Link to="/service-details/Bathroom Cleaning" className="laundro-readmore-btn">Read more</Link>
+                                                  <Link to="/service-details/Ironing" className="laundro-readmore-btn">Read more</Link>
                                              </div>
                                         </div>
                                    </div>
@@ -164,9 +164,9 @@ const ServicesComponent = () => {
                                              <img src="/images/icon-5.png" alt=""></img>
                                         </div>
                                         <div className="laundro-sr-content">
-                                             <Link to="/service-details/Outdoor Cleaning"></Link><h6>Outdoor Cleaning</h6>
+                                             <Link to="/service-details/Duvets & Bulky Items"></Link><h6>Duvets & Bulky Items</h6>
                                              <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                             <Link to="/service-details/Outdoor Cleaning" className="laundro-readmore-btn">Read More</Link>
+                                             <Link to="/service-details/Duvets & Bulky Items" className="laundro-readmore-btn">Read More</Link>
                                         </div>
                                         <div className="laundro-sr-hover">
                                              <div className="img-wrapper">
@@ -180,9 +180,9 @@ const ServicesComponent = () => {
                                                   <span className="laundro-icon-shadow"></span>
                                              </div>
                                              <div className="laundro-sr-content">
-                                                  <Link to="/service-details/Outdoor Cleaning"><h6>Outdoor Cleaning</h6></Link>
+                                                  <Link to="/service-details/Duvets & Bulky Items"><h6>Duvets & Bulky Items</h6></Link>
                                                   <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                                  <Link to="/service-details/Outdoor Cleaning" className="laundro-readmore-btn">Read more</Link>
+                                                  <Link to="/service-details/Duvets & Bulky Items" className="laundro-readmore-btn">Read more</Link>
                                              </div>
                                         </div>
                                    </div>
@@ -193,9 +193,9 @@ const ServicesComponent = () => {
                                              <img src="/images/icon-5.png" alt=""></img>
                                         </div>
                                         <div className="laundro-sr-content">
-                                             <Link to="/service-details/House Fixing"><h6>House Fixing</h6></Link>
+                                             <Link to="/service-details/Deals"><h6>Deals</h6></Link>
                                              <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                             <Link to="/service-details/House Fixing" className="laundro-readmore-btn">Read More</Link>
+                                             <Link to="/service-details/Deals" className="laundro-readmore-btn">Read More</Link>
                                         </div>
                                         <div className="laundro-sr-hover">
                                              <div className="img-wrapper">
@@ -209,9 +209,9 @@ const ServicesComponent = () => {
                                                   <span className="laundro-icon-shadow"></span>
                                              </div>
                                              <div className="laundro-sr-content">
-                                                  <Link to="/service-details/House Fixing"><h6>House Fixing</h6></Link>
+                                                  <Link to="/service-details/Deals"><h6>Deals</h6></Link>
                                                   <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                                  <Link to="/service-details/House Fixing" className="laundro-readmore-btn">Read more</Link>
+                                                  <Link to="/service-details/Deals" className="laundro-readmore-btn">Read more</Link>
                                              </div>
                                         </div>
                                    </div>

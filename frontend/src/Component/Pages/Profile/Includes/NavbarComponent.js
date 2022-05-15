@@ -67,20 +67,6 @@ const NavbarComponent = (props) => {
                          }
                          
 
-                         {
-                              (location.pathname == '/delete-account' ) ?
-                              <li className="user-post active">
-                                   <Link to="/delete-account">
-                                        Delete Account
-                                   </Link>
-                              </li> :
-                              <li className="user-post">
-                                   <Link to="/delete-account">
-                                        Delete Account
-                                   </Link>
-                              </li>
-                         }
-
                          <li className="user-setting"> 
                               <Link to="/login">
                                    Logout

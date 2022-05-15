@@ -23,9 +23,9 @@
                               </td>
                          </tr>
                          <tr>
-                              <td>Material Price</td>
+                              <td>Price</td>
                               <td>
-                                   {{ $service->material_price  ? ( $service->material_price . ' BDT' ) : 'N/A' }} 
+                                   {{ $service->price  ? ( $service->price . ' BDT' ) : 'N/A' }} 
                               </td>
                          </tr>
                          <tr>

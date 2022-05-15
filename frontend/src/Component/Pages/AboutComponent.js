@@ -169,7 +169,7 @@ const AboutComponent = () => {
                                              <span><i className="fas fa-user"></i></span>
                                         </div>
                                         <div className="laundro-service-content">
-                                             <Link to="/service-details/Toilet Cleaning"><h5>Toilet Cleaning</h5></Link>
+                                             <Link to="/service-details/Wash"><h5>Wash</h5></Link>
                                              <p>As a app web crawler expert a significant of internet.</p>
                                         </div>
                                    </div>
@@ -181,7 +181,7 @@ const AboutComponent = () => {
                                              <span><i className="fas fa-user"></i></span>
                                         </div>
                                         <div className="laundro-service-content">
-                                             <Link to="/service-details/Window Cleaner"><h5>Window Cleaner</h5></Link>
+                                             <Link to="/service-details/Wash & Iron"><h5>Wash & Iron</h5></Link>
                                              <p>As a app web crawler expert a significant of internet.</p>
                                         </div>
                                    </div>
@@ -193,7 +193,7 @@ const AboutComponent = () => {
                                              <span><i className="fas fa-user"></i></span>
                                         </div>
                                         <div className="laundro-service-content">
-                                             <Link to="/service-details/Kitchen Cleaning"><h5>Kithcen Cleaning</h5></Link>
+                                             <Link to="/service-details/Kitchen Cleaning"><h5>Dry Cleaning</h5></Link>
                                              <p>As a app web crawler expert a significant of internet.</p>
                                         </div>
                                    </div>
@@ -205,7 +205,7 @@ const AboutComponent = () => {
                                              <span><i className="flaticon-towelfas fa-user"></i></span>
                                         </div>
                                         <div className="laundro-service-content">
-                                             <Link to="/service-details/Plumbing Service"><h5>Plumbing service</h5></Link>
+                                             <Link to="/service-details/Ironing"><h5>Ironing</h5></Link>
                                              <p>As a app web crawler expert a significant of internet.</p>
                                         </div>
                                    </div>

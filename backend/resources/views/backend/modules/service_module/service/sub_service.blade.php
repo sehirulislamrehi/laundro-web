@@ -63,7 +63,7 @@
                                         <th>ID</th>
                                         <th>Icon</th>
                                         <th>Name</th>
-                                        <th>Material Price</th>
+                                        <th>Price</th>
                                         <th>Status</th>
                                         <th>Parent</th>
                                         <th>Action</th>
@@ -118,8 +118,8 @@
                     name: 'name'
                 },
                 {
-                    data: 'material_price',
-                    name: 'material_price'
+                    data: 'price',
+                    name: 'price'
                 },
                 {
                     data: 'is_active',

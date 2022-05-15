@@ -8,7 +8,6 @@ const Footer = () => {
                <footer className="laundro-footer" style={{
                     backgroundImage : `url("/images/footer-bg.jpg")`
                }}>
-                    <Link to="/" className="laundro-footer-logo"><img src="/images/logo.png" alt="" /></Link>
                     <div className="container">
                          <div className="row">
                               <div className="col-lg-3 col-md-6 col-sm-6">
@@ -55,9 +54,9 @@ const Footer = () => {
                                                        30 Commercial Road
                                                        <br />Fratton, Australia
                                                   </li>
-                                                  <li><i className="fas fa-phone"></i>+8801858361812</li>
+                                                  <li><i className="fas fa-phone"></i>+88017XXXXXXXX</li>
                                                   <li>
-                                                       <i className="fas fa-envelope"></i>mdsehirulislamrehi@gmail.com<br />info@laundro.com
+                                                       <i className="fas fa-envelope"></i>info@gmail.com<br />info@laundro.com
                                                   </li>
                                              </ul>
                                         </div>
@@ -97,9 +96,6 @@ const Footer = () => {
                                    </div>
                               </div>
                          </div>
-                    </div>
-                    <div className="footer-copyright">
-                         <p>2022 &copy; All rights reserved by <a href="https://sehirulislamrehi.com/" target="blank">Rehi</a></p>
                     </div>
                </footer>
           </div>

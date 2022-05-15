@@ -42,9 +42,9 @@ const DesktopMenu = () => {
                                    <div className="col-lg-9 col-md-9">
                                         <div className="info-left">
                                              <span><i className="flaticon-telephone"></i><strong>Call for
-                                                       help : </strong> (+880)1858361812</span>
+                                                       help : </strong> (+880)17XXXXXXXX</span>
                                              <span><i className="flaticon-chat-box"></i><strong>Mail
-                                                       us : </strong> mdsehirulislamrehi@gmail.com</span>
+                                                       us : </strong> info@gmail.com</span>
                                         </div>
                                    </div>
                                    <div className="col-lg-3 col-md-3">
