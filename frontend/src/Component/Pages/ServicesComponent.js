@@ -83,7 +83,7 @@ const ServicesComponent = () => {
                                         </div>
                                         <div className="laundro-sr-hover">
                                              <div className="img-wrapper">
-                                                  <img src="/images/01.jpg" alt=""></img>
+                                                  <img src="/images/02.jpg" alt=""></img>
                                                   <span className="img-shadow"></span>
                                              </div>
                                              <div className="icon-wrapper">
@@ -112,7 +112,7 @@ const ServicesComponent = () => {
                                         </div>
                                         <div className="laundro-sr-hover">
                                              <div className="img-wrapper">
-                                                  <img src="/images/01.jpg" alt=""></img>
+                                                  <img src="/images/03.jpg" alt=""></img>
                                                   <span className="img-shadow"></span>
                                              </div>
                                              <div className="icon-wrapper">
@@ -141,7 +141,7 @@ const ServicesComponent = () => {
                                         </div>
                                         <div className="laundro-sr-hover">
                                              <div className="img-wrapper">
-                                                  <img src="/images/01.jpg" alt=""></img>
+                                                  <img src="/images/04.jpg" alt=""></img>
                                                   <span className="img-shadow"></span>
                                              </div>
                                              <div className="icon-wrapper">
@@ -170,7 +170,7 @@ const ServicesComponent = () => {
                                         </div>
                                         <div className="laundro-sr-hover">
                                              <div className="img-wrapper">
-                                                  <img src="/images/01.jpg" alt=""></img>
+                                                  <img src="/images/05.jpg" alt=""></img>
                                                   <span className="img-shadow"></span>
                                              </div>
                                              <div className="icon-wrapper">
@@ -199,7 +199,7 @@ const ServicesComponent = () => {
                                         </div>
                                         <div className="laundro-sr-hover">
                                              <div className="img-wrapper">
-                                                  <img src="/images/01.jpg" alt=""></img>
+                                                  <img src="/images/06.jpg" alt=""></img>
                                                   <span className="img-shadow"></span>
                                              </div>
                                              <div className="icon-wrapper">

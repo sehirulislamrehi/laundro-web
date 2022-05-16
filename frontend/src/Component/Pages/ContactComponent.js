@@ -49,11 +49,12 @@ const ContactComponent = () => {
                                              <input type="tel" name="pnumber" placeholder="Phone Number..."></input>
                                              <div className="bx-form-select">
                                                   <select>
-                                                       <option value="plumbing">Plumbing Service</option>
-                                                       <option value="office">Office cleaning</option>
-                                                       <option value="laundry">Laundry Service</option>
-                                                       <option value="toilet">Toilet Cleaning</option>
-                                                       <option value="kichen">Kitchen cleaning</option>
+                                                       <option>Wash</option>
+                                                       <option>Wash & Iron</option>
+                                                       <option>Dry Cleaning</option>
+                                                       <option>Ironing</option>
+                                                       <option>Duvets & Bulky Items</option>
+                                                       <option>Deals</option>
                                                   </select>
                                              </div>
                                              <textarea placeholder="Text..." rows="5"></textarea>
