@@ -68,10 +68,13 @@ const DesktopMenu = () => {
                                              </Link>
                                         </div>
                                    </div>
-                                   <div className="col-lg-8 desktop-menu-wrapper">
+                                   <div className="col-md-11 desktop-menu-wrapper">
                                         <div className="desktop-menu">
                                              <nav>
                                                   <ul>
+                                                       <li>
+                                                            <Link to="/">Home</Link>
+                                                       </li>
                                                        <li>
                                                             <Link to="/about">About</Link>
                                                        </li>
@@ -105,14 +108,14 @@ const DesktopMenu = () => {
                                              </nav>
                                         </div>
                                    </div>
-                                   <div className="col-lg-3 col-11">
+                                   <div className="col-11">
                                         <div className="header-right">
-                                             <div className="header-search">
+                                             {/* <div className="header-search">
                                                   <form action="#">
                                                        <input type="text" placeholder="Search" />
                                                        <button type="submit"><i className="fas fa-search"></i></button>
                                                   </form>
-                                             </div>
+                                             </div> */}
                                              <div className="laundro-mobile-hamburger" onClick={openPopup}>
                                                   <span></span>
                                                   <span></span>

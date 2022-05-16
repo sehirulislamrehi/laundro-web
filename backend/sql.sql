@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.7
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 26, 2022 at 03:46 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Host: localhost:3306
+-- Generation Time: May 16, 2022 at 11:06 PM
+-- Server version: 5.7.38-cll-lve
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `laundro`
+-- Database: `sehiruli_laundro`
 --
 
 -- --------------------------------------------------------
@@ -54,7 +55,7 @@ CREATE TABLE `coupons` (
   `expiry_date` date NOT NULL,
   `type` enum('Cash','Percentage') COLLATE utf8mb4_unicode_ci NOT NULL,
   `amount` int(11) NOT NULL,
-  `is_active` tinyint(1) NOT NULL DEFAULT 0,
+  `is_active` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -102,7 +103,7 @@ CREATE TABLE `failed_jobs` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -117,7 +118,7 @@ CREATE TABLE `locations` (
   `location_id` bigint(20) UNSIGNED DEFAULT NULL,
   `zipcode_id` bigint(20) UNSIGNED DEFAULT NULL,
   `type` enum('area','zone') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_active` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
+  `is_active` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -179,7 +180,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (12, '2022_02_02_130530_create_zipcodes_table', 2),
 (13, '2022_02_02_130531_create_locations_table', 2),
 (14, '2022_02_08_111156_create_durations_table', 3),
-(15, '2022_02_09_091043_create_coupons_table', 4);
+(15, '2022_02_09_091043_create_coupons_table', 4),
+(16, '2022_02_09_072433_create_services_table', 5),
+(17, '2022_02_09_072514_create_service_durations_table', 5);
 
 -- --------------------------------------------------------
 
@@ -273,7 +276,11 @@ INSERT INTO `permissions` (`id`, `key`, `display_name`, `module_id`, `created_at
 (31, 'coupon', 'Coupon', 4, NULL, NULL),
 (32, 'add_coupon', '-- Add Coupon', 4, NULL, NULL),
 (33, 'edit_coupon', '-- Edit Coupon', 4, NULL, NULL),
-(34, 'view_coupon', '-- View Coupon', 4, NULL, NULL);
+(34, 'view_coupon', '-- View Coupon', 4, NULL, NULL),
+(35, 'services', 'Services', 4, NULL, NULL),
+(36, 'add_services', '-- Add Services', 4, NULL, NULL),
+(37, 'edit_services', '-- Edit Services', 4, NULL, NULL),
+(38, 'view_services', '-- View Services', 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -298,10 +305,63 @@ CREATE TABLE `permission_role` (
 CREATE TABLE `roles` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `is_active` tinyint(1) NOT NULL DEFAULT 0,
+  `is_active` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `services`
+--
+
+CREATE TABLE `services` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `service_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`id`, `name`, `icon`, `price`, `is_active`, `service_id`, `created_at`, `updated_at`) VALUES
+(1, 'Wash', 'Wash1652634417NVsZYFJRHUQ0.jpg', 10, 1, NULL, '2022-04-26 15:16:39', '2022-05-15 11:08:47'),
+(2, 'Wash & Iron', 'Wash & Iron16526344453I3s1VRi1AoC.jpg', 10, 1, NULL, '2022-05-15 11:07:25', '2022-05-15 11:07:25'),
+(3, 'Dry Cleaning', 'Dry Cleaning1652634518MTzCVt5umHB2.jpg', 10, 1, NULL, '2022-05-15 11:07:36', '2022-05-15 11:08:38'),
+(4, 'Ironing', 'Ironing1652634474YO7KBMWUMb8E.jpg', 7, 1, NULL, '2022-05-15 11:07:54', '2022-05-15 11:07:54'),
+(5, 'Dulvets & Bulky Items', 'Dulvets & Bulky Items1652634494cRCldvCwBsbW.jpg', 7, 1, NULL, '2022-05-15 11:08:14', '2022-05-15 11:08:14'),
+(6, 'Deals', 'Deals1652634505ZUpidKCySYUq.jpg', 7, 1, NULL, '2022-05-15 11:08:25', '2022-05-15 11:08:25');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service_durations`
+--
+
+CREATE TABLE `service_durations` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `service_id` bigint(20) UNSIGNED NOT NULL,
+  `duration_id` bigint(20) UNSIGNED NOT NULL,
+  `price` double(10,2) NOT NULL,
+  `instructions` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `service_durations`
+--
+
+INSERT INTO `service_durations` (`id`, `service_id`, `duration_id`, `price`, `instructions`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 7.00, '1 Dress', '2022-04-26 15:18:43', '2022-04-26 15:18:43'),
+(2, 1, 1, 10.00, '2 Dress', '2022-04-26 15:18:43', '2022-04-26 15:18:43');
 
 -- --------------------------------------------------------
 
@@ -333,7 +393,8 @@ INSERT INTO `sub_modules` (`id`, `name`, `key`, `position`, `route`, `module_id`
 (6, 'Zones', 'zones', 3, 'zone.all', 3, NULL, NULL),
 (7, 'Zip Code', 'zip_code', 1, 'zip_code.all', 3, NULL, NULL),
 (8, 'Duration', 'duration', 2, 'duration.all', 4, NULL, NULL),
-(9, 'Coupon', 'coupon', 1, 'coupon.all', 4, NULL, NULL);
+(9, 'Coupon', 'coupon', 1, 'coupon.all', 4, NULL, NULL),
+(10, 'Service', 'service', 3, 'service.all', 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -359,7 +420,7 @@ CREATE TABLE `super_admins` (
 --
 
 INSERT INTO `super_admins` (`id`, `name`, `email`, `image`, `phone`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Super Admin', 'superadmin@gmail.com', NULL, '1858361812', NULL, '$2y$10$DL4GYEre.pxRW.Ie17TKdOt1Qu1Ht578RmDVL7A0yfhoxjj2d4vXi', 'XnABw3VW4YHWFLQ8wFKhj8qUxVME6UtW31RWIS1rfKpNRjbiMzveiLDWqLoh', NULL, NULL);
+(1, 'Super Admin', 'superadmin@gmail.com', NULL, '1858361812', NULL, '$2y$10$DL4GYEre.pxRW.Ie17TKdOt1Qu1Ht578RmDVL7A0yfhoxjj2d4vXi', 'SkEbzeFj6aLjRpOAmk3BkQhxvmKIbmOA4UAghQnaXXlHO422A6Bhhn8hwJ7M', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -375,7 +436,7 @@ CREATE TABLE `users` (
   `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `role_id` bigint(20) UNSIGNED NOT NULL,
-  `is_active` tinyint(1) NOT NULL DEFAULT 1,
+  `is_active` tinyint(1) NOT NULL DEFAULT '1',
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -391,7 +452,7 @@ CREATE TABLE `users` (
 CREATE TABLE `zipcodes` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `code` varchar(9) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `is_active` tinyint(1) NOT NULL DEFAULT 0,
+  `is_active` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -495,6 +556,22 @@ ALTER TABLE `roles`
   ADD UNIQUE KEY `roles_name_unique` (`name`);
 
 --
+-- Indexes for table `services`
+--
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `services_name_unique` (`name`),
+  ADD KEY `services_service_id_foreign` (`service_id`);
+
+--
+-- Indexes for table `service_durations`
+--
+ALTER TABLE `service_durations`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `service_durations_service_id_foreign` (`service_id`),
+  ADD KEY `service_durations_duration_id_foreign` (`duration_id`);
+
+--
 -- Indexes for table `sub_modules`
 --
 ALTER TABLE `sub_modules`
@@ -562,7 +639,7 @@ ALTER TABLE `locations`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `modules`
@@ -580,7 +657,7 @@ ALTER TABLE `password_resets`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `permission_role`
@@ -595,10 +672,22 @@ ALTER TABLE `roles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `services`
+--
+ALTER TABLE `services`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `service_durations`
+--
+ALTER TABLE `service_durations`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `sub_modules`
 --
 ALTER TABLE `sub_modules`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `super_admins`
@@ -641,6 +730,19 @@ ALTER TABLE `permissions`
 ALTER TABLE `permission_role`
   ADD CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `services`
+--
+ALTER TABLE `services`
+  ADD CONSTRAINT `services_service_id_foreign` FOREIGN KEY (`service_id`) REFERENCES `services` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `service_durations`
+--
+ALTER TABLE `service_durations`
+  ADD CONSTRAINT `service_durations_duration_id_foreign` FOREIGN KEY (`duration_id`) REFERENCES `durations` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `service_durations_service_id_foreign` FOREIGN KEY (`service_id`) REFERENCES `services` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `sub_modules`

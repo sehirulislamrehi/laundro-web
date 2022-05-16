@@ -9,6 +9,11 @@ const MobileMenu = () => {
                     <Link to="/" className="mobile-menu-logo"><img src="/images/logo.png" alt="" /></Link>
                     <ul>
                          <li>
+                              <Link to="/">
+                                   Home
+                              </Link>
+                         </li>
+                         <li>
                               <Link to="/about">
                                    About
                               </Link>
