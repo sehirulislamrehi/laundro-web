@@ -155,6 +155,9 @@
      .my-account .image-column i {
           left: 60%;
      }
+     .profile-body {
+          padding: 15px;
+     }
 }
 
 

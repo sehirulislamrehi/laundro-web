@@ -1,7 +1,7 @@
 @media( min-width: 320px ) and ( max-width: 500px ){
 	.slider-banner,
      .banner-image{
-          height: 40vh;
+          height: 25vh;
      }
      .home2-hero-slider .appoinment-form{
           display: block!important;
