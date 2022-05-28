@@ -110,7 +110,7 @@ const ContactComponent = () => {
                                         </div>
                                         <div class="column-content">
                                              <h5>Mail address</h5>
-                                             <p>info@gmail.com</p>
+                                             <p>info@laundro.co.uk</p>
                                         </div>
                                    </div>
                               </div>

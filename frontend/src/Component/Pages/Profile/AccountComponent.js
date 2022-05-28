@@ -68,7 +68,7 @@ const AccountComponent = () => {
                                                        </li>
                                                        <li>
                                                             <strong>Email : </strong>
-                                                            info@gmail.com
+                                                            info@laundro.co.uk
                                                        </li>
                                                        <li>
                                                             <strong>Phone : </strong>

@@ -5,7 +5,7 @@ const LeftSidebarComponent = () => {
                <div className="left-side">
                     <div className="profile-side">
                          <p className="mobile-no"><i className="fa fa-phone"></i> +88017XXXXXXXX</p>
-                         <p className="user-mail"><i className="fa fa-envelope"></i> info@gmail.com</p>
+                         <p className="user-mail"><i className="fa fa-envelope"></i> info@laundro.co.uk</p>
 
                          <div className="link-send">
                               <h4>Text me a link to the app</h4>

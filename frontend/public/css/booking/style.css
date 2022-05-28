@@ -121,7 +121,7 @@
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before,  #progressbar li.active:after{
-  background: #006bcd;
+  background: #006BCC;
   color: white;
 }
 
@@ -168,10 +168,10 @@
 }
 
 .booking-summary table tr.total-amount{
-  border-top: 1px solid #006bcd;
+  border-top: 1px solid #006BCC;
 }
 .booking-summary table tr.total-amount td{
-  color: #006bcd; 
+  color: #006BCC; 
   font-weight: bold;
 }
 .next-step {
@@ -186,10 +186,10 @@
   display: inline-block;
 }
 .next-step a:hover{
-  background: #006bcd;
+  background: #006BCC;
 }
 .next-step a:nth-child(1){
-  background: #006bcd;
+  background: #006BCC;
 }
 
 .next-step a:hover:nth-child(1){
@@ -201,7 +201,7 @@
 }
 .booking-card .how-many-hour ul{
   display: inline-block;
-  background: #006bcd;
+  background: #006BCC;
   padding: 5px;
   border-radius: 30px;
   margin-top: 10px;

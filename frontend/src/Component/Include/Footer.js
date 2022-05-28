@@ -56,7 +56,7 @@ const Footer = () => {
                                                   </li>
                                                   <li><i className="fas fa-phone"></i>+88017XXXXXXXX</li>
                                                   <li>
-                                                       <i className="fas fa-envelope"></i>info@gmail.com<br />info@laundro.com
+                                                       <i className="fas fa-envelope"></i>info@laundro.co.uk<br />info@laundro.com
                                                   </li>
                                              </ul>
                                         </div>

@@ -67,20 +67,20 @@
      cursor: pointer;
      transition: all 0.5s ease-in-out;
      outline: none;
-     background: #006bcd;
+     background: #006BCC;
 }
 
 .profile-option:hover {
      background: #fff;
-     border: 1px solid #006bcd;
+     border: 1px solid #006BCC;
 }
 
 .profile-option:hover .notification i {
-     color: #006bcd;
+     color: #006BCC;
 }
 
 .profile-option:hover span {
-     background: #006bcd;
+     background: #006BCC;
 }
 
 .profile-option .notification i {
@@ -94,8 +94,8 @@
      top: -5px;
      right: -5px;
      background: #fff;
-     color: #006bcd;
-     border: 1px solid #006bcd;
+     color: #006BCC;
+     border: 1px solid #006BCC;
      padding: 5px;
      border-radius: 50%;
      height: 20px;
@@ -130,13 +130,13 @@
 }
 
 .profile-side p i {
-     color: #006bcd;
+     color: #006BCC;
      margin-right: 10px;
 }
 
 .mobile-no i {
      transform: rotateY(180deg);
-     color: #006bcd;
+     color: #006BCC;
 }
 
 .profile-btn {
@@ -149,7 +149,7 @@ button.createbtn {
      padding: 10px;
      width: 100%;
      border-radius: 3px;
-     background: #006bcd;
+     background: #006BCC;
      color: #fff;
      font-family: "Bree Serif";
      font-size: 1rem;
@@ -310,7 +310,7 @@ button.createbtn i {
 .order-card-footer .right-part .order-status{
      display: block;
      margin: 0 0 0 auto;
-     background: #006bcd;
+     background: #006BCC;
      color: white;
      border: none;
      padding: 5px 20px;
@@ -333,7 +333,7 @@ button.createbtn i {
      margin-left: 15px;
 }
 .my-account .edit-column ul li a{
-     background: #006bcd;
+     background: #006BCC;
     color: white;
     padding: 5px 15px;
 }
@@ -351,7 +351,7 @@ button.createbtn i {
      position: absolute;
      left: 55%;
      transform: translateX(-50%);
-     background: #006bcd;
+     background: #006BCC;
      height: 20px;
      border-radius: 100%;
      width: 20px;
@@ -382,7 +382,7 @@ button.createbtn i {
 .change-password-btn{
      display: block;
      margin: 0 0 0 auto;
-     background: #006bcd;
+     background: #006BCC;
      color: white;
      border: none;
      padding: 5px 20px;

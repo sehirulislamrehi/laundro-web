@@ -30,7 +30,7 @@ input
 input:focus
 {
 	outline: none;
-	border: 1px solid #006bcd;
+	border: 1px solid #006BCC;
 	transition:         all .5s ease-in-out;
 	-o-transition:      all .5s ease-in-out;
 	-moz-transition:    all .5s ease-in-out;
@@ -66,7 +66,7 @@ input:focus
 {
 	text-align: center;
 	color: #fff;
-	background: #22d3ee;
+	background: #006BCC;
 	line-height: 30px;
 	opacity: 0.95;
   cursor: pointer
@@ -163,7 +163,7 @@ input:focus
 
 .footer a
 {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 @keyframes heart{

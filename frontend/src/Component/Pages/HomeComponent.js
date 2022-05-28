@@ -1116,8 +1116,8 @@ const HomeComponent = () => {
                                                   </div>
                                                   <div className="mail-area">
                                                        <span className="git-title">Mail us:</span>
-                                                       <a href="mailto:info@gmail.com"><span><i
-                                                                      className="fas fa-envelope"></i></span>info@gmail.com</a>
+                                                       <a href="mailto:info@laundro.co.uk"><span><i
+                                                                      className="fas fa-envelope"></i></span>info@laundro.co.uk</a>
                                                   </div>
                                              </div>
                                         </div>

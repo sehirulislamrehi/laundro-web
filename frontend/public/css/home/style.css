@@ -54,7 +54,7 @@
 	transform: translateY(-50%);
 	width: 25px;
 	height: 3px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	opacity: 0;
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
@@ -174,7 +174,7 @@
 	border-bottom: 1px solid #eaeaea;
 	font-family: "Poppins", sans-serif;
 	font-weight: 500;
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .laundro-mobile-menu ul li.has-submenu {
@@ -259,8 +259,8 @@
 	width: 12px;
 	height: 12px;
 	border-radius: 50%;
-	background-color: #006bcd;
-	border: 3px solid #006bcd;
+	background-color: #006BCC;
+	border: 3px solid #006BCC;
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
 	transition: all 0.3s ease-in;
@@ -476,7 +476,7 @@
 
 .laundro-header .laundro-info-bar {
 	padding: 6px 0;
-	background-color: #02154e;
+	background-color: #2A42B7;
 }
 
 .laundro-header .laundro-info-bar .laundro-info-left p {
@@ -558,7 +558,7 @@
 .laundro-header .laundro-header-top .laundro-header-item .laundro-icon-wrapper i {
 	font-size: 40px;
 	display: inline-block;
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .laundro-header .laundro-header-top .laundro-header-item .laundro-item-content {
@@ -566,7 +566,7 @@
 }
 
 .laundro-header .laundro-header-top .laundro-header-item .laundro-item-content label {
-	color: #006bcd;
+	color: #006BCC;
 	display: block;
 	font-size: 13px;
 }
@@ -576,7 +576,7 @@
 	font-family: "Poppins", sans-serif;
 	font-weight: 700;
 	font-size: 19px;
-	color: #006bcd;
+	color: #006BCC;
 	display: inline-block;
 }
 
@@ -612,7 +612,7 @@
 }
 
 .laundro-header .laundro-navigation .laundro-nav {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	position: relative;
 	z-index: 12;
 }
@@ -627,7 +627,7 @@
 	transform: translateX(-50%);
 	width: 95%;
 	height: 6px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	z-index: 10;
 }
 
@@ -745,7 +745,7 @@
 }
 
 .header-style-2 .info-bar {
-	background-color: #02154e;
+	background-color: #2A42B7;
 	padding: 8px 0;
 }
 .desktop-menu ul{
@@ -771,7 +771,7 @@
 }
 
 .header-style-2 .info-bar .info-left span i {
-	color: #006bcd;
+	color: #006BCC;
 	margin-right: 6px;
 }
 
@@ -796,7 +796,9 @@
 .header-style-2 .info-bar .header-social {
 	text-align: right;
 }
-
+.header-social a i{
+	color: white!important;
+}
 .header-style-2 .info-bar .header-social a {
 	color: #748bd1;
 	-webkit-transition: all 0.3s ease-in;
@@ -819,7 +821,7 @@
 }
 
 .header-style-2 .header-bottom {
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .header-style-2 .header-bottom .logo-wrapper {
@@ -984,7 +986,7 @@
 	}
 
 	.header-style-3 .header-bottom .header-right .laundro-mobile-hamburger span {
-		background-color: #006bcd;
+		background-color: #006BCC;
 	}
 }
 
@@ -1054,7 +1056,7 @@
 	-webkit-transform: translateY(5px);
 	-ms-transform: translateY(5px);
 	transform: translateY(5px);
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .header-style-4 .h4-info-area .h4-info-items .h4-info-item .laundro-item-content {
@@ -1342,7 +1344,7 @@
 	width: 150px;
 	height: 50px;
 	background-color: #ffd532;
-	color: #006bcd;
+	color: #006BCC;
 	font-family: "Poppins", sans-serif;
 	font-weight: 600;
 	font-size: 15px;
@@ -1716,7 +1718,7 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	position: relative;
-	padding: 160px 0 0px 0;
+	padding: 90px 0 0px 0;
 }
 
 .laundro-footer .laundro-footer-logo {
@@ -1745,7 +1747,7 @@
 }
 
 .laundro-footer .laundro-footer-widget h4 span {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .laundro-footer .laundro-footer-widget p {
@@ -1810,7 +1812,7 @@
 	width: 60px;
 	height: 100%;
 	border: 0;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 	font-size: 14px;
 }
@@ -1867,7 +1869,7 @@
 }
 
 .laundro-footer .laundro-footer-widget .laundro-footer-address ul li i {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .laundro-footer .laundro-footer-widget .laundro-footer-address ul li+li {
@@ -1934,7 +1936,7 @@
 }
 
 .laundro-footer .footer-copyright p a {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 
@@ -2225,7 +2227,7 @@
 }
 
 .laundro-breadcrumb .breadcrumb-content a:hover {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .laundro-breadcrumb .breadcrumb-content span {
@@ -2256,7 +2258,7 @@
 	text-align: center;
 	cursor: pointer;
 	border: none;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	z-index: 1;
 	-webkit-box-shadow: none !important;
 	-khtml-box-shadow: none !important;
@@ -2385,7 +2387,7 @@
 .btn.btn-plus:hover .icon-abs,
 .btn.btn-plus:hover .ct-align-icon-right,
 .btn.btn-plus:hover .ct-align-icon-left {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #fff;
 }
 
@@ -2404,13 +2406,13 @@
 }
 
 .btn.btn-plus-primary .icon-abs {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #fff;
 }
 
 .btn.btn-plus-primary:hover,
 .btn.btn-plus-primary:focus {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #fff;
 }
 
@@ -2481,7 +2483,7 @@
 .btn.btn-primary:hover,
 .btn.btn-primary:focus {
 	background-color: #fff;
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .btn.btn-primary-normal {
@@ -2490,7 +2492,7 @@
 
 .btn.btn-primary-normal:hover,
 .btn.btn-primary-normal:focus {
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .btn.btn-slider {
@@ -2642,7 +2644,7 @@
 }
 
 .btn.btn-animate1:after {
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .btn.btn-animate1:hover,
@@ -2740,7 +2742,7 @@
 }
 
 .ct-button-layout1 .btn.btn-plus:hover .ct-button-icon {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #fff;
 }
 
@@ -2904,7 +2906,7 @@
 .revslider-initialised .tp-leftarrow.custom:before,
 .revslider-initialised .tp-rightarrow.custom:before {
 	font-size: 19px !important;
-	color: #006bcd !important;
+	color: #006BCC !important;
 	font-family: "Flaticon" !important;
 	position: absolute !important;
 	top: 50% !important;
@@ -2920,7 +2922,7 @@
 
 .revslider-initialised .tp-leftarrow.custom:hover,
 .revslider-initialised .tp-rightarrow.custom:hover {
-	background-color: #006bcd !important;
+	background-color: #006BCC !important;
 }
 
 .revslider-initialised .tp-leftarrow.custom:hover:before,
@@ -2971,7 +2973,7 @@
 	height: 34px;
 	font-size: 16px;
 	font-weight: 700;
-	color: #006bcd;
+	color: #006BCC;
 	line-height: 34px;
 	text-align: center;
 	-webkit-border-radius: 34px;
@@ -3001,7 +3003,7 @@
 
 .revslider-initialised .laundro-bullet-number .tp-bullet.selected {
 	color: #fff;
-	background-color: #006bcd !important;
+	background-color: #006BCC !important;
 }
 
 .revslider-initialised .laundro-bullet-number .tp-bullet:nth-child(1):before {
@@ -3191,7 +3193,7 @@
 }
 
 .revslider-initialised .laundro-bullet-round-three .tp-bullet.selected {
-	background-color: #006bcd !important;
+	background-color: #006BCC !important;
 }
 
 @media screen and (max-width: 1260px) {
@@ -3375,7 +3377,7 @@
 }
 
 .revslider-initialised .nav-number span {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .ct-video-button.img-active {
@@ -3423,7 +3425,7 @@
 	text-align: center;
 	background-color: #fff;
 	font-size: 18px;
-	color: #006bcd;
+	color: #006BCC;
 	-webkit-border-radius: 100%;
 	-khtml-border-radius: 100%;
 	-moz-border-radius: 100%;
@@ -3509,7 +3511,7 @@
 	border-radius: 50px;
 	background-color: #fff;
 	display: inline-block;
-	color: #006bcd;
+	color: #006BCC;
 	text-align: center;
 	font-size: 15px;
 	position: relative;
@@ -4030,7 +4032,7 @@
 	z-index: 10;
 	width: 40px;
 	height: 40px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 	display: -webkit-inline-box;
 	display: -ms-inline-flexbox;
@@ -4060,7 +4062,7 @@
 
 .laundro-primary-btn {
 	padding: 0 8px 0 16px;
-	background-color: #006bcd;
+	background-color: #11C0EF;
 	color: #ffffff;
 	font-family: "Poppins", sans-serif;
 	font-weight: 700;
@@ -4089,7 +4091,7 @@
 
 .laundro-primary-btn span {
 	padding: 6px 10px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	display: inline-block;
 	border: none;
 	color: #ffffff;
@@ -4119,7 +4121,7 @@
 
 .laundro-primary-btn:hover {
 	color: #ffffff;
-	background-color: #073ad3e1;
+	background-color: #006BCC;
 }
 
 .laundro-primary-btn:hover span i {
@@ -4134,7 +4136,7 @@
 
 .laundro-readmore-btn {
 	padding: 10px 15px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 	font-family: "Poppins", sans-serif;
 	font-weight: 600;
@@ -4169,7 +4171,7 @@
 }
 
 .laundro-readmore-btn:hover {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 	-webkit-transform: translateY(-5px);
 	-ms-transform: translateY(-5px);
@@ -4441,32 +4443,32 @@ body {
 }
 
 h1 {
-	color: #006bcd;
+	color: #006BCC;
 	font-size: 60px;
 }
 
 h2 {
-	color: #006bcd;
+	color: #006BCC;
 	font-size: 48px;
 }
 
 h3 {
-	color: #006bcd;
+	color: #006BCC;
 	font-size: 36px;
 }
 
 h4 {
-	color: #006bcd;
+	color: #006BCC;
 	font-size: 25px;
 }
 
 h5 {
-	color: #006bcd;
+	color: #006BCC;
 	font-size: 22px;
 }
 
 h6 {
-	color: #006bcd;
+	color: #006BCC;
 	font-size: 18px;
 	margin-bottom: 0;
 }
@@ -4943,7 +4945,7 @@ i {
 	}
 
 	25% {
-		background: #006bcd;
+		background: #006BCC;
 	}
 
 	75% {
@@ -4965,7 +4967,7 @@ i {
 	}
 
 	25% {
-		background: #006bcd;
+		background: #006BCC;
 	}
 
 	75% {
@@ -5057,7 +5059,7 @@ i {
 	left: 0;
 	width: 40px;
 	height: 3px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .laundro-services .laundro-service-wrapper .laundro-single-item .laundro-sr-content p {
@@ -5166,7 +5168,7 @@ i {
 	width: 100%;
 	height: 100%;
 	border-radius: 50%;
-	background-color: #006bcd;
+	/* background-color: #006BCC; */
 	z-index: -1;
 }
 
@@ -5237,7 +5239,7 @@ i {
 	text-align: center;
 	line-height: 40px;
 	border-radius: 50%;
-	color: #006bcd;
+	color: #006BCC;
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
 	transition: all 0.3s ease-in;
@@ -5245,7 +5247,7 @@ i {
 }
 
 .laundro-services .laundro-service-wrapper .slick-arrow:hover {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 }
 
@@ -5326,7 +5328,7 @@ i {
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
-	background-color: #006bcd;
+	background-color: #006BCC;
 	width: calc(100% + 30px);
 	height: calc(100% + 20px);
 	border-radius: 50%;
@@ -5350,7 +5352,7 @@ i {
 
 .laundro-about-section .laundro-about-left .laundro-slider-wrapper .laundro-slider-content {
 	position: absolute;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 	top: -85px;
 	right: 0;
@@ -5382,14 +5384,14 @@ i {
 	height: 0;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
-	border-top: 15px solid #006bcd;
+	border-top: 15px solid #006BCC;
 	-webkit-transform: skew(-30deg);
 	-ms-transform: skew(-30deg);
 	transform: skew(-30deg);
 }
 
 .laundro-about-section .laundro-about-left .laundro-slider-wrapper .laundro-slider-content .icon-wrapper i {
-	color: #006bcd;
+	color: #006BCC;
 	font-size: 30px;
 	line-height: 0;
 	display: inline-block;
@@ -5476,7 +5478,7 @@ i {
 .laundro-about-section .laundro-about-right .laundro-about-content .video-content .title {
 	font-family: "Poppins", sans-serif;
 	font-weight: 700;
-	color: #006bcd;
+	color: #006BCC;
 	margin-bottom: 6px;
 	display: block;
 }
@@ -5595,12 +5597,12 @@ i {
 	width: 100%;
 	height: 100%;
 	border-radius: 50%;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	z-index: 2;
 }
 
 .laundro-service-section .laundro-services .laundro-service-item .laundro-icon-wrapper span i {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	height: 100%;
 	width: 100%;
 	border-radius: 50%;
@@ -5659,7 +5661,7 @@ i {
 
 .laundro-service-section .laundro-services .laundro-service-item:hover .laundro-icon-wrapper span i {
 	background-color: #ffffff;
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .laundro-service-section .laundro-services .laundro-service-item:hover .laundro-service-content::before {
@@ -5722,7 +5724,7 @@ i {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	-webkit-clip-path: polygon(0 0, 100% 9%, 100% 95%, 0% 100%);
 	clip-path: polygon(0 0, 100% 9%, 100% 95%, 0% 100%);
 	z-index: 2;
@@ -5735,7 +5737,7 @@ i {
 	left: -8px;
 	width: 100%;
 	height: 100%;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	-webkit-clip-path: polygon(0 0, 100% 9%, 100% 95%, 0% 100%);
 	clip-path: polygon(0 0, 100% 9%, 100% 95%, 0% 100%);
 	z-index: 1;
@@ -5783,7 +5785,7 @@ i {
 }
 
 .laundro-ct-section .laundro-counter-column .laundro-ct-content h3 sup {
-	color: #006bcd;
+	color: #006BCC;
 	font-weight: 700;
 	font-family: "Poppins", sans-serif;
 }
@@ -5851,7 +5853,7 @@ i {
 	height: 40px;
 	-webkit-clip-path: polygon(0 0, 100% 70%, 100% 100%, 0% 100%);
 	clip-path: polygon(0 0, 100% 70%, 100% 100%, 0% 100%);
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .laundro-team-area .laundro-team-container .laundro-team-single .laundro-img-wrapper::after {
@@ -5877,7 +5879,7 @@ i {
 	bottom: 20px;
 	width: 50px;
 	height: 50px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 	text-align: center;
 	line-height: 50px;
@@ -5914,7 +5916,7 @@ i {
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	justify-content: center;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
 	transition: all 0.3s ease-in;
@@ -5934,7 +5936,7 @@ i {
 
 .laundro-team-area .laundro-team-container .laundro-team-single:hover .laundro-team-content .team-social-link {
 	background-color: #ffffff;
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .laundro-team-area .laundro-team-container .laundro-team-single:hover .laundro-team-content .laundro-team-social-items {
@@ -5990,11 +5992,11 @@ i {
 }
 
 .laundro-team-area .laundro-team-container .slick-dots li.slick-active {
-	border: 2px solid #006bcd;
+	border: 2px solid #006BCC;
 }
 
 .laundro-team-area .laundro-team-container .slick-dots li.slick-active button {
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 @media (max-width: 575.98px) {
@@ -6038,11 +6040,11 @@ i {
 }
 
 .laundro-case-study .laundro-ct-left .ct-title sup {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .laundro-case-study .laundro-ct-left .ct-subtitle {
-	color: #006bcd;
+	color: #006BCC;
 	font-size: 22px;
 	display: inline-block;
 	margin-top: -35px;
@@ -6197,7 +6199,7 @@ i {
 
 .laundro-gta-area .laundro-gt-left .laundro-help-desk .desk-title {
 	font-size: 24px;
-	color: #006bcd;
+	color: #006BCC;
 	font-family: "Poppins", sans-serif;
 	font-weight: 700;
 	margin-top: -3px;
@@ -6207,7 +6209,7 @@ i {
 	font-size: 36px;
 	line-height: 30px;
 	font-weight: 700;
-	color: #006bcd;
+	color: #006BCC;
 	margin-top: -3px;
 }
 
@@ -6235,7 +6237,7 @@ i {
 	transform: translateY(-50%);
 	width: 60px;
 	height: 2px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .laundro-gta-area .laundro-gt-right form {
@@ -6401,7 +6403,7 @@ i {
 }
 
 .laundro-pricing-table .pricing-table-area .pricing-nav ul li a {
-	color: #006bcd;
+	color: #006BCC;
 	font-size: 18px;
 	font-weight: 700;
 	font-family: "Poppins", sans-serif;
@@ -6448,16 +6450,16 @@ i {
 }
 
 .laundro-pricing-table .pricing-table-area .pricing-nav ul li a.active::before {
-	border-color: #006bcd;
+	border-color: #006BCC;
 }
 
 .laundro-pricing-table .pricing-table-area .pricing-nav ul li a.active::after {
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .laundro-pricing-table .pricing-table-area .pricing-nav .offer-price {
 	background-color: #def8fc;
-	color: #006bcd;
+	color: #006BCC;
 	font-size: 12px;
 	padding: 6px 10px;
 	display: inline-block;
@@ -6481,7 +6483,7 @@ i {
 
 .laundro-pricing-table .pricing-table-area .pricing-content .pricing-column .pc-top .pc-top-title {
 	font-size: 14px;
-	color: #006bcd;
+	color: #006BCC;
 	font-family: "Poppins", sans-serif;
 	font-weight: 700;
 }
@@ -6525,7 +6527,7 @@ i {
 
 .laundro-pricing-table .pricing-table-area .pricing-content .pricing-column .pc-btn a {
 	padding: 10px 28px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 	font-size: 15px;
 	font-weight: 700;
@@ -6537,7 +6539,7 @@ i {
 
 .laundro-pricing-table .pricing-table-area .pricing-content .pricing-column.best-choise {
 	padding-top: 35px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .laundro-pricing-table .pricing-table-area .pricing-content .pricing-column.best-choise .pc-top h4 {
@@ -6561,7 +6563,7 @@ i {
 }
 
 .laundro-pricing-table .pricing-table-area .pricing-content .pricing-column.best-choise .pc-btn a {
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 @media (max-width: 767.98px) {
@@ -6715,15 +6717,15 @@ i {
 }
 
 .laundro-feedback .laundro-feedback-slider .feedback-column:hover .quote-icon {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .laundro-feedback .laundro-feedback-slider .feedback-column:hover .feedback-client-info .client-thumb .svg-1 {
-	fill: #006bcd;
+	fill: #006BCC;
 }
 
 .laundro-feedback .laundro-feedback-slider .feedback-column:hover .feedback-client-info .client-thumb .svg-2 {
-	fill: #006bcd;
+	fill: #006BCC;
 }
 
 .laundro-feedback .laundro-feedback-slider .slick-list {
@@ -6773,11 +6775,11 @@ i {
 }
 
 .laundro-feedback .laundro-feedback-slider .slick-dots li.slick-active {
-	border: 2px solid #006bcd;
+	border: 2px solid #006BCC;
 }
 
 .laundro-feedback .laundro-feedback-slider .slick-dots li.slick-active button {
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 @media (max-width: 767.98px) {
@@ -6855,7 +6857,7 @@ i {
 	width: 65px;
 	height: 65px;
 	border-radius: 3px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -6889,7 +6891,7 @@ i {
 	background-color: #ced4e6;
 	font-weight: 500;
 	text-transform: uppercase;
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .laundro-blog-area .laundro-blog-slider .laundro-single-blog .laundro-blog-content .laundro-blog-headline {
@@ -6904,7 +6906,7 @@ i {
 }
 
 .laundro-blog-area .laundro-blog-slider .laundro-single-blog .laundro-blog-content .laundro-blog-headline h5:hover {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .laundro-blog-area .laundro-blog-slider .laundro-single-blog .laundro-blog-content .laundro-blog-pera {
@@ -6962,11 +6964,11 @@ i {
 }
 
 .laundro-blog-area .laundro-blog-slider .slick-dots li.slick-active {
-	border: 2px solid #006bcd;
+	border: 2px solid #006BCC;
 }
 
 .laundro-blog-area .laundro-blog-slider .slick-dots li.slick-active button {
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 @media (max-width: 1199.98px) {
@@ -7031,7 +7033,7 @@ i {
 
 .laundro-contact-info .laundro-contact-content .laundro-contact-column .laundro-icon-wrapper i {
 	font-size: 40px;
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .laundro-contact-info .laundro-contact-content .laundro-contact-column .column-content {
@@ -7125,7 +7127,7 @@ i {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	-webkit-clip-path: polygon(0 0, 100% 9%, 100% 95%, 0% 100%);
 	clip-path: polygon(0 0, 100% 9%, 100% 95%, 0% 100%);
 	z-index: 2;
@@ -7138,7 +7140,7 @@ i {
 	left: -8px;
 	width: 100%;
 	height: 100%;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	-webkit-clip-path: polygon(0 0, 100% 9%, 100% 95%, 0% 100%);
 	clip-path: polygon(0 0, 100% 9%, 100% 95%, 0% 100%);
 	z-index: 1;
@@ -7217,12 +7219,12 @@ i {
 	width: 100%;
 	height: 100%;
 	border-radius: 50%;
-	background-color: #006bcd;
+	/* background-color: #006BCC; */
 	z-index: 2;
 }
 
 .ab-service-section .ab-service-slider .laundro-service-item .laundro-icon-wrapper span i {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	height: 100%;
 	width: 100%;
 	border-radius: 50%;
@@ -7281,7 +7283,7 @@ i {
 
 .ab-service-section .ab-service-slider .laundro-service-item:hover .laundro-icon-wrapper span i {
 	background-color: #ffffff;
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .ab-service-section .ab-service-slider .laundro-service-item:hover .laundro-service-content::before {
@@ -7336,8 +7338,8 @@ i {
 .ab-service-section .ab-service-slider .slick-dots li.slick-active button {
 	width: 18px;
 	height: 18px;
-	background-color: #006bcd;
-	border: 1px solid #006bcd;
+	background-color: #006BCC;
+	border: 1px solid #006BCC;
 }
 
 @media (max-width: 991.98px) {
@@ -7418,12 +7420,12 @@ i {
 }
 
 .ab-history-section .ab-history-tab .tab-control ul li a.active {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .ab-history-section .ab-history-tab .tab-control ul li a.active::after {
-	background-color: #006bcd;
-	border: 2px solid #006bcd;
+	background-color: #006BCC;
+	border: 2px solid #006BCC;
 }
 
 .ab-history-section .ab-history-tab .tab-control ul li+li {
@@ -7446,7 +7448,7 @@ i {
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
 	font-family: "Poppins", sans-serif;
-	color: #006bcd;
+	color: #006BCC;
 	font-weight: 700;
 }
 
@@ -7459,7 +7461,7 @@ i {
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
 	font-family: "Poppins", sans-serif;
-	color: #006bcd;
+	color: #006BCC;
 	font-weight: 700;
 }
 
@@ -7573,7 +7575,7 @@ i {
 .abv2-service-section .abv2-sr-slider .abv2-sr-item .icon-wrapper span {
 	width: 90px;
 	height: 90px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	border-radius: 50%;
 	font-size: 40px;
 	display: -webkit-inline-box;
@@ -7631,7 +7633,7 @@ i {
 	left: 0;
 	width: 100%;
 	height: 4px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .abv2-service-section .abv2-sr-slider .abv2-sr-item .abv2-hv-item h5 {
@@ -7645,14 +7647,14 @@ i {
 .abv2-service-section .abv2-sr-slider .abv2-sr-item .abv2-hv-item a {
 	margin-top: 20px;
 	display: inline-block;
-	color: #006bcd;
+	color: #006BCC;
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
 	transition: all 0.3s ease-in;
 }
 
 .abv2-service-section .abv2-sr-slider .abv2-sr-item .abv2-hv-item a:hover {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .abv2-service-section .abv2-sr-slider .abv2-sr-item .abv2-hv-item .hv-item-count {
@@ -7716,8 +7718,8 @@ i {
 .abv2-service-section .abv2-sr-slider .slick-dots li.slick-active button {
 	width: 15px;
 	height: 15px;
-	border: 2px solid #006bcd;
-	background-color: #006bcd;
+	border: 2px solid #006BCC;
+	background-color: #006BCC;
 }
 
 @media (max-width: 991.98px) {
@@ -7770,7 +7772,7 @@ i {
 
 .abv2-contact .abv2-contact-left .abv2-contact-item .icon-wrapper span {
 	font-size: 36px;
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .abv2-contact .abv2-contact-left .abv2-contact-item .contact-content h5 {
@@ -7888,7 +7890,7 @@ i {
 }
 
 .abv2-contact .abv2-contact-right form .submit-btn button:hover {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	-webkit-transform: translateY(0px);
 	-ms-transform: translateY(0px);
 	transform: translateY(0px);
@@ -7958,7 +7960,7 @@ i {
 
 .abv2-feedback-section .abv2-feedback-wrapper .single-item .title span {
 	font-weight: 500;
-	color: #006bcd;
+	color: #006BCC;
 	font-size: 18px;
 	display: block;
 	margin-bottom: 10px;
@@ -8114,7 +8116,7 @@ i {
 	height: 90px;
 	border-radius: 50%;
 	display: inline-block;
-	border: 2px dashed #006bcd;
+	border: 2px dashed #006BCC;
 	overflow: hidden;
 	padding: 15px;
 }
@@ -8128,7 +8130,7 @@ i {
 	content: '';
 	width: 50px;
 	height: 3px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	position: absolute;
 	bottom: -15px;
 	left: 50%;
@@ -8173,8 +8175,8 @@ i {
 }
 
 .srv2-service-section .srv2-item .srv2-hover-item .img-wrapper {
-	background-color: #006bcd;
-	border: 2px solid #006bcd;
+	background-color: #006BCC;
+	border: 2px solid #006BCC;
 }
 
 .srv2-service-section .srv2-item .srv2-hover-item .srv2-service-content h5 {
@@ -8198,21 +8200,21 @@ i {
 }
 
 .srv2-service-section .srv2-item .srv2-hover-item .srv2-service-content a.srv2-readmore-btn i {
-	color: #006bcd;
+	color: #006BCC;
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
 	transition: all 0.3s ease-in;
 }
 
 .srv2-service-section .srv2-item .srv2-hover-item .srv2-service-content a.srv2-readmore-btn:hover {
-	color: #006bcd;
+	color: #006BCC;
 	-webkit-transform: translateX(-2px);
 	-ms-transform: translateX(-2px);
 	transform: translateX(-2px);
 }
 
 .srv2-service-section .srv2-item .srv2-hover-item .srv2-service-content a.srv2-readmore-btn:hover i {
-	color: #006bcd;
+	color: #006BCC;
 	-webkit-transform: translateX(3px);
 	-ms-transform: translateX(3px);
 	transform: translateX(3px);
@@ -8295,7 +8297,7 @@ i {
 	content: '';
 	width: 0;
 	height: 5px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	border-radius: 25px 25px 0 0;
 	position: absolute;
 	top: 0;
@@ -8320,10 +8322,10 @@ i {
 	width: 80px;
 	height: 80px;
 	display: inline-block;
-	background-image: -webkit-gradient(linear, left bottom, left top, from(#006bcd), to(#ffffff));
-	background-image: -webkit-linear-gradient(bottom, #006bcd 0%, #ffffff 100%);
-	background-image: -o-linear-gradient(bottom, #006bcd 0%, #ffffff 100%);
-	background-image: linear-gradient(0deg, #006bcd 0%, #ffffff 100%);
+	background-image: -webkit-gradient(linear, left bottom, left top, from(#006BCC), to(#ffffff));
+	background-image: -webkit-linear-gradient(bottom, #006BCC 0%, #ffffff 100%);
+	background-image: -o-linear-gradient(bottom, #006BCC 0%, #ffffff 100%);
+	background-image: linear-gradient(0deg, #006BCC 0%, #ffffff 100%);
 	padding: 3px;
 	border-radius: 50%;
 }
@@ -8390,8 +8392,8 @@ i {
 }
 
 .srv2-feedback-area .srv2-feedback-wrapper .slick-dots li.slick-active button {
-	background-color: #006bcd;
-	border: 2px solid #006bcd;
+	background-color: #006BCC;
+	border: 2px solid #006BCC;
 	width: 15px;
 	height: 15px;
 }
@@ -8412,7 +8414,7 @@ i {
 	padding: 10px 35px;
 	display: inline-block;
 	text-align: center;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 	font-weight: 700;
 	font-family: "Poppins", sans-serif;
@@ -8539,7 +8541,7 @@ i {
 }
 
 .sr3-service-section .sr3-service-bottom .sr3-sr-item .sr3-hv-item a:hover {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .sr3-service-section .sr3-service-bottom .sr3-sr-item .sr3-hv-item .hv-item-count {
@@ -8653,7 +8655,7 @@ i {
 	top: 0;
 	width: 100%;
 	height: 6px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .service-details .sr-sidebar .sr-list-widget .widget-title {
@@ -8666,7 +8668,7 @@ i {
 }
 
 .service-details .sr-sidebar .sr-list-widget .list-nav ul li a {
-	color: #006bcd;
+	color: #006BCC;
 	display: block;
 	padding: 14px 16px;
 	font-weight: 600;
@@ -8692,7 +8694,7 @@ i {
 }
 
 .service-details .sr-sidebar .sr-list-widget .list-nav ul li a.active {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 }
 
@@ -8702,7 +8704,7 @@ i {
 }
 
 .service-details .sr-sidebar .sr-list-widget .list-nav ul li a:hover {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 }
 
@@ -8741,7 +8743,7 @@ i {
 }
 
 .service-details .sr-sidebar .sr-btn-widget span {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .service-details .sr-sidebar .sr-btn-widget h5 {
@@ -8755,7 +8757,7 @@ i {
 .service-details .sr-sidebar .sr-btn-widget .download-btns a {
 	width: 100%;
 	display: block;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 	font-size: 15px;
 	padding: 12px 20px;
@@ -8767,7 +8769,7 @@ i {
 }
 
 .service-details .sr-sidebar .sr-btn-widget .download-btns a span {
-	color: #006bcd;
+	color: #006BCC;
 	float: right;
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
@@ -8777,11 +8779,11 @@ i {
 .service-details .sr-sidebar .sr-btn-widget .download-btns a.btn-2 {
 	margin-top: 20px;
 	background-color: #ffffff;
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .service-details .sr-sidebar .sr-btn-widget .download-btns a:hover {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 }
 
@@ -8821,7 +8823,7 @@ i {
 	right: -115px;
 	width: 100px;
 	height: 3px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .service-details .sr-details-content .sr-details-bottom .srd-list ul li {
@@ -8833,7 +8835,7 @@ i {
 
 .service-details .sr-details-content .sr-details-bottom .srd-list ul li i {
 	margin-top: 3px;
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .service-details .sr-details-content .sr-details-bottom .srd-list ul li+li {
@@ -8897,12 +8899,12 @@ i {
 	width: 100%;
 	height: 100%;
 	border-radius: 50%;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	z-index: 2;
 }
 
 .service-details .sr-details-content .sr-details-slider .laundro-service-item .laundro-icon-wrapper span i {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	height: 100%;
 	width: 100%;
 	border-radius: 50%;
@@ -8961,7 +8963,7 @@ i {
 
 .service-details .sr-details-content .sr-details-slider .laundro-service-item:hover .laundro-icon-wrapper span i {
 	background-color: #ffffff;
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .service-details .sr-details-content .sr-details-slider .laundro-service-item:hover .laundro-service-content::before {
@@ -8998,7 +9000,7 @@ i {
 	border: 0;
 	background-color: #cddae6;
 	font-size: 14px;
-	color: #006bcd;
+	color: #006BCC;
 	text-align: center;
 	line-height: 30px;
 	-webkit-transition: all 0.3s ease-in;
@@ -9013,7 +9015,7 @@ i {
 
 .service-details .sr-details-content .sr-details-slider .slick-arrow:hover {
 	color: #ffffff;
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 @media (max-width: 991.98px) {
@@ -9075,7 +9077,7 @@ i {
 }
 
 .portfolio-area .portfolio-filter .controls ul li.active {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .portfolio-area .portfolio-filter .controls ul li.active::after {
@@ -9088,7 +9090,7 @@ i {
 	transform: translateX(-50%);
 	width: 8px;
 	height: 8px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	border-radius: 50%;
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
@@ -9151,7 +9153,7 @@ i {
 .portfolio-area .portfolio-filter .filter-items .filter-item .pf-item-content a.plus-icon {
 	width: 40px;
 	height: 40px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	display: inline-block;
 	text-align: center;
 	line-height: 40px;
@@ -9176,7 +9178,7 @@ i {
 .portfolio-area .portfolio-filter .filter-items .filter-item .pf-item-content .devider {
 	width: 80px;
 	height: 3px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	display: inline-block;
 	margin-top: 20px;
 }
@@ -9237,12 +9239,12 @@ i {
 }
 
 .portfolio-area .portfolio-filter .laundro-pagination ul li a.active {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 }
 
 .portfolio-area .portfolio-filter .laundro-pagination ul li a:hover {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 }
 
@@ -9274,7 +9276,7 @@ i {
 }
 
 .pf-details .sr-sidebar .pd-widget .title-txt {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	padding: 15px 0px;
 	color: #ffffff;
 	text-align: center;
@@ -9294,7 +9296,7 @@ i {
 }
 
 .pf-details .sr-sidebar .pd-widget .pd-widget-list ul li {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .pf-details .sr-sidebar .pd-widget .pd-widget-list ul li strong {
@@ -9310,7 +9312,7 @@ i {
 }
 
 .pf-details .sr-sidebar .pd-widget .pd-widget-list .pd-widget-bottom .value {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .pf-details .sr-sidebar .pd-widget .pd-widget-list .pd-widget-bottom .value strong {
@@ -9364,7 +9366,7 @@ i {
 	width: 20px;
 	height: 20px;
 	display: block;
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .pf-details .sr-sidebar .author-widget .dot-2 span+span {
@@ -9372,7 +9374,7 @@ i {
 }
 
 .pf-details .sr-sidebar .author-widget .dot-2 span:nth-child(1) {
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .pf-details .sr-sidebar .author-widget .dot-2 span:nth-child(2) {
@@ -9414,7 +9416,7 @@ i {
 	width: 40px;
 	height: 40px;
 	background-color: #ffffff;
-	color: #006bcd;
+	color: #006BCC;
 	display: inline-block;
 	border-radius: 50%;
 	display: -webkit-inline-box;
@@ -9500,7 +9502,7 @@ i {
 
 .contact-v2 .contact-v2-left .contact-v2-list .contact-v2-item .laundro-icon-wrapper i {
 	font-size: 36px;
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .contact-v2 .contact-v2-left .contact-v2-list .contact-v2-item .column-content h5 {
@@ -9602,7 +9604,7 @@ i {
 	height: 50px;
 	text-align: center;
 	line-height: 50px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	border: 0;
 	border-radius: 3px;
 	color: #ffffff;
@@ -9619,7 +9621,7 @@ i {
 }
 
 .contact-v2 .contact-v2-right form .submit-btn button:hover {
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .contact-v3 .contact-v2-left .contact-left-img {
@@ -9661,7 +9663,7 @@ i {
 }
 
 .contact-v3-info-content .info-content .info-item .icon-wrapper i {
-	color: #006bcd;
+	color: #006BCC;
 	font-size: 40px;
 	-webkit-transform: translateY(8px);
 	-ms-transform: translateY(8px);
@@ -9723,7 +9725,7 @@ i {
 }
 
 .not-found-area .not-found-btns a {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	display: inline-block;
 	padding: 10px 10px;
 	color: #ffffff;
@@ -9740,7 +9742,7 @@ i {
 	width: 30px;
 	height: 30px;
 	display: inline-block;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	text-align: center;
 	line-height: 30px;
 	margin-right: 8px;
@@ -9751,28 +9753,28 @@ i {
 }
 
 .not-found-area .not-found-btns .home-btn:hover {
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .not-found-area .not-found-btns .home-btn:hover span {
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .not-found-area .not-found-btns .sb-btn {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	margin-left: 25px;
 }
 
 .not-found-area .not-found-btns .sb-btn span {
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .not-found-area .not-found-btns .sb-btn:hover {
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .not-found-area .not-found-btns .sb-btn:hover span {
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .coming-soon {
@@ -9793,12 +9795,12 @@ i {
 	font-size: 55px;
 	font-family: "Poppins", sans-serif;
 	font-weight: 700;
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .coming-soon ul.countdown li p {
 	font-size: 24px;
-	color: #006bcd;
+	color: #006BCC;
 	font-weight: 500;
 }
 
@@ -9861,7 +9863,7 @@ i {
 	padding: 10px 30px;
 	border: 0;
 	border-radius: 0px 30px 30px 0;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	font-weight: 500;
 	text-transform: uppercase;
 	color: #ffffff;
@@ -9875,7 +9877,7 @@ i {
 .coming-soon .social-info a {
 	width: 40px;
 	height: 40px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	display: -webkit-inline-box;
 	display: -ms-inline-flexbox;
 	display: inline-flex;
@@ -9988,7 +9990,7 @@ i {
 
 .faq-section .faq-bottom .faq-wrapper .accordion-item .accordion-header a {
 	text-transform: initial;
-	color: #006bcd;
+	color: #006BCC;
 	font-family: "Poppins", sans-serif;
 	font-weight: 700;
 	position: relative;
@@ -10136,7 +10138,7 @@ i {
 
 .faq-contact .faq-contact-bottom .faq-form form label {
 	font-family: "Poppins", sans-serif;
-	color: #006bcd;
+	color: #006BCC;
 	margin-bottom: 8px;
 	font-size: 16px;
 	font-weight: 600;
@@ -10164,7 +10166,7 @@ i {
 }
 
 .faq-contact .faq-contact-bottom .faq-form form .submit-btn button:hover {
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 
@@ -10216,7 +10218,7 @@ i {
 	width: 65px;
 	height: 65px;
 	border-radius: 3px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -10250,7 +10252,7 @@ i {
 	background-color: #ced4e6;
 	font-weight: 500;
 	text-transform: uppercase;
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .blog-content-section .blog-posts .blog-single-post .laundro-blog-content .laundro-blog-headline {
@@ -10273,7 +10275,7 @@ i {
 	transform: translateX(-50%);
 	width: 0;
 	height: 2px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
 	transition: all 0.3s ease-in;
@@ -10309,7 +10311,7 @@ i {
 	font-size: 15px;
 	font-weight: 700;
 	border-radius: 2px;
-	color: #006bcd;
+	color: #006BCC;
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
 	transition: all 0.3s ease-in;
@@ -10317,12 +10319,12 @@ i {
 }
 
 .blog-content-section .laundro-pagination ul li a:hover {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 }
 
 .blog-content-section .laundro-pagination ul li a.active {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 }
 
@@ -10337,7 +10339,7 @@ i {
 	top: 0;
 	width: 100%;
 	height: 6px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .blog-content-section .blog-sidebar .sidebar-widget .widget-title {
@@ -10359,7 +10361,7 @@ i {
 	transform: translateY(-50%);
 	width: 40px;
 	height: 3px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .blog-content-section .blog-sidebar .sidebar-widget.no-border::after {
@@ -10409,7 +10411,7 @@ i {
 	width: 20px;
 	height: 20px;
 	display: block;
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .blog-content-section .blog-sidebar .author-widget .dot-2 span+span {
@@ -10417,7 +10419,7 @@ i {
 }
 
 .blog-content-section .blog-sidebar .author-widget .dot-2 span:nth-child(1) {
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .blog-content-section .blog-sidebar .author-widget .dot-2 span:nth-child(2) {
@@ -10459,7 +10461,7 @@ i {
 	width: 40px;
 	height: 40px;
 	background-color: #ffffff;
-	color: #006bcd;
+	color: #006BCC;
 	display: inline-block;
 	border-radius: 50%;
 	display: -webkit-inline-box;
@@ -10510,26 +10512,26 @@ i {
 	border: 0;
 	background-color: #ffffff;
 	border-radius: 3px;
-	color: #006bcd;
+	color: #006BCC;
 	font-size: 15px;
 	font-family: "Poppins", sans-serif;
 	font-weight: 600;
 }
 
 .blog-content-section .blog-sidebar .search-sidebar form input[type="text"]::-webkit-input-placeholder {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .blog-content-section .blog-sidebar .search-sidebar form input[type="text"]:-ms-input-placeholder {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .blog-content-section .blog-sidebar .search-sidebar form input[type="text"]::-ms-input-placeholder {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .blog-content-section .blog-sidebar .search-sidebar form input[type="text"]::placeholder {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .blog-content-section .blog-sidebar .search-sidebar form button {
@@ -10539,7 +10541,7 @@ i {
 	border: 0;
 	width: 50px;
 	height: 46px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 	display: -webkit-inline-box;
 	display: -ms-inline-flexbox;
@@ -10563,7 +10565,7 @@ i {
 }
 
 .blog-content-section .blog-sidebar .category-widget .list-nav ul li a {
-	color: #006bcd;
+	color: #006BCC;
 	display: block;
 	padding: 14px 16px;
 	font-weight: 600;
@@ -10589,7 +10591,7 @@ i {
 }
 
 .blog-content-section .blog-sidebar .category-widget .list-nav ul li a.active {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 }
 
@@ -10599,7 +10601,7 @@ i {
 }
 
 .blog-content-section .blog-sidebar .category-widget .list-nav ul li a:hover {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 }
 
@@ -10663,7 +10665,7 @@ i {
 }
 
 .blog-content-section .blog-sidebar .recent-post-widget .recent-post-single:hover .recent-post-content .title h6 {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .blog-content-section .blog-sidebar .tags-widget .tags-list a {
@@ -10672,7 +10674,7 @@ i {
 	padding: 0 10px;
 	display: inline-block;
 	background-color: #ffffff;
-	color: #006bcd;
+	color: #006BCC;
 	text-align: center;
 	line-height: 40px;
 	font-weight: 500;
@@ -10685,7 +10687,7 @@ i {
 }
 
 .blog-content-section .blog-sidebar .tags-widget .tags-list a:hover {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 }
 
@@ -10751,7 +10753,7 @@ i {
 
 .blog-content-section .blog-posts .blog-details-post .details-blog-meta span i {
 	margin-right: 8px;
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .blog-content-section .blog-posts .blog-details-post .blog-quote {
@@ -10839,7 +10841,7 @@ i {
 	font-family: "Poppins", sans-serif;
 	font-weight: 600;
 	font-size: 15px;
-	color: #006bcd;
+	color: #006BCC;
 	text-transform: capitalize;
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
@@ -10903,7 +10905,7 @@ i {
 	display: inline-block;
 	text-align: center;
 	line-height: 30px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
@@ -11159,7 +11161,7 @@ i {
 }
 
 .blog-content-section .blog-details-sidebar .category-widget .list-nav ul li a {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .blog-content-section .blog-details-sidebar .category-widget .list-nav ul li a::after {
@@ -11406,13 +11408,13 @@ i {
 	transform: translate(50%, -50%);
 	width: 120px;
 	height: 120px;
-	background-color: #02154e;
+	background-color: #2A42B7;
 	border-radius: 50%;
 	padding: 10px;
 }
 
 .home2-about-section .about-left .img-wrapper .es-year .year-content {
-	border: 2px dashed #006bcd;
+	border: 2px dashed #006BCC;
 	border-radius: 50%;
 	width: 100%;
 	height: 100%;
@@ -11435,7 +11437,7 @@ i {
 
 .home2-about-section .about-left .img-wrapper .es-year .year-content span.icon-wrapper {
 	font-size: 20px;
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .home2-about-section .about-left .img-wrapper .es-year .year-content span.title {
@@ -11464,7 +11466,7 @@ i {
 }
 
 .home2-about-section .about-left .about-left-content .about-counterup .icon-container span {
-	color: #006bcd;
+	color: #006BCC;
 	font-size: 40px;
 }
 
@@ -11477,7 +11479,7 @@ i {
 }
 
 .home2-about-section .about-left .about-left-content .about-counterup .counterup-content .title h4 sup {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .home2-about-section .about-left .about-left-content .about-counterup .counterup-content .subtitle span {
@@ -11565,7 +11567,7 @@ i {
 	-webkit-transform: translateY(5px);
 	-ms-transform: translateY(5px);
 	transform: translateY(5px);
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .home2-about-section .about-right .about-btn {
@@ -11618,7 +11620,7 @@ i {
 	height: 90px;
 	border-radius: 50%;
 	display: inline-block;
-	border: 2px dashed #006bcd;
+	border: 2px dashed #006BCC;
 	overflow: hidden;
 	padding: 15px;
 }
@@ -11632,7 +11634,7 @@ i {
 	content: '';
 	width: 50px;
 	height: 3px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	position: absolute;
 	bottom: -15px;
 	left: 50%;
@@ -11677,8 +11679,8 @@ i {
 }
 
 .home2-service-section .home2-service-slider .service-single-item .srv2-hover-item .img-wrapper {
-	background-color: #006bcd;
-	border: 2px solid #006bcd;
+	background-color: #006BCC;
+	border: 2px solid #006BCC;
 }
 
 .home2-service-section .home2-service-slider .service-single-item .srv2-hover-item .srv2-service-content h5 {
@@ -11702,21 +11704,21 @@ i {
 }
 
 .home2-service-section .home2-service-slider .service-single-item .srv2-hover-item .srv2-service-content a.srv2-readmore-btn i {
-	color: #006bcd;
+	color: #006BCC;
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
 	transition: all 0.3s ease-in;
 }
 
 .home2-service-section .home2-service-slider .service-single-item .srv2-hover-item .srv2-service-content a.srv2-readmore-btn:hover {
-	color: #006bcd;
+	color: #006BCC;
 	-webkit-transform: translateX(-2px);
 	-ms-transform: translateX(-2px);
 	transform: translateX(-2px);
 }
 
 .home2-service-section .home2-service-slider .service-single-item .srv2-hover-item .srv2-service-content a.srv2-readmore-btn:hover i {
-	color: #006bcd;
+	color: #006BCC;
 	-webkit-transform: translateX(3px);
 	-ms-transform: translateX(3px);
 	transform: translateX(3px);
@@ -11780,7 +11782,7 @@ i {
 	border-radius: 50%;
 	text-align: center;
 	line-height: 40px;
-	color: #006bcd;
+	color: #006BCC;
 	z-index: 10;
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
@@ -11788,7 +11790,7 @@ i {
 }
 
 .home2-service-section .home2-service-slider .slick-arrow:hover {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 }
 
@@ -11866,7 +11868,7 @@ i {
 	right: 0;
 	width: 0;
 	height: 3px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
 	transition: all 0.3s ease-in;
@@ -11874,7 +11876,7 @@ i {
 }
 
 .home2-pmv-section .pmv-bottom .pmv-nav ul li a.active {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .home2-pmv-section .pmv-bottom .pmv-nav ul li a.active::after {
@@ -11971,8 +11973,8 @@ i {
 	right: 0;
 	width: 40px;
 	height: 40px;
-	background-color: #006bcd;
-	color: #006bcd;
+	background-color: #006BCC;
+	color: #006BCC;
 	font-size: 12px;
 	font-weight: 700;
 	display: -webkit-inline-box;
@@ -11985,7 +11987,7 @@ i {
 	-ms-flex-pack: center;
 	justify-content: center;
 	border-radius: 50%;
-	border: 3px solid #006bcd;
+	border: 3px solid #006BCC;
 }
 
 .home2-skills-area .home2-skills-column .skills-progress .pie-value {
@@ -11997,7 +11999,7 @@ i {
 	-webkit-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .home2-skills-area .home2-skills-column .skills-content {
@@ -12018,7 +12020,7 @@ i {
 	transform: translateX(-50%);
 	width: 40px;
 	height: 4px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .home2-skills-area .home2-skills-column .skills-content p {
@@ -12066,7 +12068,7 @@ i {
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	justify-content: center;
-	color: #006bcd;
+	color: #006BCC;
 	line-height: 0;
 	border-radius: 50%;
 	font-size: 40px;
@@ -12084,7 +12086,7 @@ i {
 	width: 100%;
 	height: 100%;
 	border-radius: 50%;
-	background-color: #006bcd;
+	/* background-color: #006BCC; */
 	z-index: -1;
 }
 
@@ -12107,7 +12109,7 @@ i {
 	transform: translateX(-50%);
 	width: 40px;
 	height: 2px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 }
 
 .home2-steps-area .steps-bottom .steps-column .desc {
@@ -12145,7 +12147,7 @@ i {
 }
 
 .home2-steps-area .steps-bottom .steps-column:hover .icon-wrapper span {
-	background-color: #006bcd;
+	background-color: #006BCC;
 	color: #ffffff;
 }
 
@@ -12205,7 +12207,7 @@ i {
 	bottom: 0;
 	width: 5px;
 	height: 0;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
 	transition: all 0.3s ease-in;
@@ -12213,7 +12215,7 @@ i {
 
 .home2-faq-area .faq-content .faq-wrapper .accordion-item .accordion-header a {
 	text-transform: initial;
-	color: #006bcd;
+	color: #006BCC;
 	font-family: "Poppins", sans-serif;
 	font-weight: 700;
 	position: relative;
@@ -12430,7 +12432,7 @@ i {
 }
 
 .home2-blog-area .home2-blog-slider .blog-single-item .blog-content .blog-title h5:hover {
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .home2-blog-area .home2-blog-slider .blog-single-item .blog-content .readmore-btn {
@@ -12446,7 +12448,7 @@ i {
 	font-family: "Poppins", sans-serif;
 	font-weight: 700;
 	font-size: 15px;
-	color: #006bcd;
+	color: #006BCC;
 }
 
 .home2-blog-area .home2-blog-slider .blog-single-item:hover .thumb-wrapper img {
@@ -12512,8 +12514,8 @@ i {
 .home2-blog-area .home2-blog-slider .slick-dots li.slick-active button {
 	width: 16px;
 	height: 16px;
-	border: 2px solid #006bcd;
-	background-color: #006bcd;
+	border: 2px solid #006BCC;
+	background-color: #006BCC;
 }
 
 @media (max-width: 767.98px) {
@@ -12596,7 +12598,7 @@ i {
 	z-index: -2;
 	width: 3px;
 	height: 125px;
-	border-right: 3px dashed #006bcd;
+	border-right: 3px dashed #006BCC;
 }
 
 .home2-contact-area .home2-git .git-bottom .git-txt span::before {
@@ -12644,7 +12646,7 @@ i {
 }
 
 .home2-contact-area .home2-git .git-bottom a span {
-	color: #006bcd;
+	color: #006BCC;
 	margin-right: 10px;
 	-webkit-transform: translateY(3px);
 	-ms-transform: translateY(3px);
@@ -14712,7 +14714,7 @@ i {
 	font-family: "Poppins", sans-serif;
 	font-weight: 700;
 	font-size: 15px;
-	color: #006bcd;
+	color: #006BCC;
 	position: relative;
 	overflow: hidden;
 	vertical-align: middle;
@@ -14776,7 +14778,7 @@ i {
 .home6-service-area .home6-service-bottom .column-wrapper .services-column .item-content .icon-wrapper span {
 	width: 75px;
 	height: 75px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	display: -webkit-inline-box;
 	display: -ms-inline-flexbox;
 	display: inline-flex;
@@ -14840,7 +14842,7 @@ i {
 .home6-choose-us .choose-left .choose-list .item span {
 	font-family: "Poppins", sans-serif;
 	font-weight: 600;
-	color: #006bcd;
+	color: #006BCC;
 	text-transform: capitalize;
 }
 
@@ -14877,7 +14879,7 @@ i {
 .home6-choose-us .choose-right .video-btn a {
 	width: 70px;
 	height: 70px;
-	background-color: #006bcd;
+	background-color: #006BCC;
 	display: inline-block;
 	border-radius: 50%;
 	display: -webkit-inline-box;
@@ -14946,7 +14948,7 @@ i {
 	width: 260px;
 	height: 55px;
 	background-color: #ffd532;
-	color: #006bcd;
+	color: #006BCC;
 	font-size: 18px;
 	font-weight: 700;
 	display: inline-block;
@@ -15067,7 +15069,7 @@ i {
 }
 
 .home6-pricing-table .home6-pricing .home6-pricing-column .price-area span {
-	color: #006bcd;
+	color: #006BCC;
 	font-family: "Poppins", sans-serif;
 	font-weight: 500;
 }
@@ -17010,7 +17012,7 @@ i {
 }
 
 .slider-banner .owl-nav button:hover {
-	background: #006bcd !important;
+	background: #006BCC !important;
 }
 
 .owl-stage-outer.slick-slide.slick-current.slick-active {
@@ -17154,7 +17156,7 @@ i {
 .book-service .book-service-row .section-form .book-now{
 	width: 100%;
 	padding: 15px;
-	background: #006bcd;
+	background: #006BCC;
 	border: none;
 	color: white;
 	border-radius: 5px;

@@ -44,7 +44,7 @@ const DesktopMenu = () => {
                                              <span><i className="flaticon-telephone"></i><strong>Call for
                                                        help : </strong> (+880)17XXXXXXXX</span>
                                              <span><i className="flaticon-chat-box"></i><strong>Mail
-                                                       us : </strong> info@gmail.com</span>
+                                                       us : </strong> info@laundro.co.uk</span>
                                         </div>
                                    </div>
                                    <div className="col-lg-3 col-md-3">
