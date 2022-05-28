@@ -1,5 +1,7 @@
 
-import { Link } from "react-router-dom";
+
+import { Link, useHistory } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 //import pages
 import DesktopMenu from "../../Include/DesktopMenu";
@@ -10,95 +12,125 @@ import LeftSidebarComponent from "./Includes/LeftSidebarComponent";
 import NavbarComponent from "./Includes/NavbarComponent";
 
 const AccountComponent = () => {
+
+     let [check_authorized, set_authorized] = useState('unauthorized');
+
+     const history = useHistory();
+
+     //manage session
+     const manage_session_url = `${window.url}/manage-session`;
+
+     useEffect(() => {
+
+          //send request to the server for manage session
+          const options_for_manage_session_request = {
+               method: 'GET'
+          };
+          fetch(manage_session_url,options_for_manage_session_request)
+          .then( response => response.json() )
+          .then( data => {
+               if( data.status == 'error' ){
+                    history.push('/login')
+                    set_authorized('unauthorized');
+               }
+               if( data.status == 'success' ){
+                    set_authorized('authorized');
+               }
+
+          })
+
+     })
      
-     return(
-          <div className="id">
+     if( check_authorized && check_authorized == "authorized" ){
+          return(
+               <div className="id">
 
-               {/* desktop menu start */}
-               <DesktopMenu></DesktopMenu>
-               {/* desktop menu end */}
+                    {/* desktop menu start */}
+                    <DesktopMenu></DesktopMenu>
+                    {/* desktop menu end */}
 
-               {/* Mobile Menu */}
-               <MobileMenu></MobileMenu>
-               {/* Mobile Menu End */}
+                    {/* Mobile Menu */}
+                    <MobileMenu></MobileMenu>
+                    {/* Mobile Menu End */}
 
-               <section className="profile">
-                    <div className="container">
+                    <section className="profile">
+                         <div className="container">
 
-                         {/* header component */}
-                         <HeaderComponent></HeaderComponent>
+                              {/* header component */}
+                              <HeaderComponent></HeaderComponent>
 
-                         <div className="main-bd">
+                              <div className="main-bd">
 
-                              {/* left sidebar */}
-                              <LeftSidebarComponent></LeftSidebarComponent>
-                              
-                              {/* https://codepen.io/brightprogrammer/pen/mdyMOGV */}
-                              <div className="right-side">
-
-                                   {/* navbar component */}
-                                   <NavbarComponent></NavbarComponent>
+                                   {/* left sidebar */}
+                                   <LeftSidebarComponent></LeftSidebarComponent>
                                    
-                                   <div className="profile-body">
-                                       <div className="row my-account">
+                                   {/* https://codepen.io/brightprogrammer/pen/mdyMOGV */}
+                                   <div className="right-side">
 
-                                            {/* edit */}
-                                            <div className="col-md-12 edit-column">
-                                                 <ul>
-                                                      <li>
-                                                           <Link to="/edit-profile">
-                                                                <i className="fas fa-edit"></i> 
-                                                                Edit                                                          
-                                                           </Link>
-                                                      </li>
-                                                 </ul>
-                                            </div>
+                                        {/* navbar component */}
+                                        <NavbarComponent></NavbarComponent>
+                                        
+                                        <div className="profile-body">
+                                        <div className="row my-account">
 
-                                            {/* image */}
-                                            <div className="col-md-12 image-column">
-                                                 <img src="/images/rehi.png" className="img-fluid" alt="" />
-                                            </div>
-
-                                            {/* account information */}
-                                             <div className="col-md-12 account-information">
+                                             {/* edit */}
+                                             <div className="col-md-12 edit-column">
                                                   <ul>
                                                        <li>
-                                                            <strong>Name : </strong>
-                                                            Colson Nicholas
-                                                       </li>
-                                                       <li>
-                                                            <strong>Email : </strong>
-                                                            info@laundro.co.uk
-                                                       </li>
-                                                       <li>
-                                                            <strong>Phone : </strong>
-                                                            017XXXXXXXX
-                                                       </li>
-                                                       <li>
-                                                            <strong>Bio : </strong>
-                                                            Lorem ipsum dolor sit amet, hello how consectetur adipisicing elit. Sint consectetur provident magni yohoho consequuntur, voluptatibus ghdfff exercitationem at quis similique. Optio, amet!
-                                                       </li>
-                                                       <li>
-                                                            <strong>Address : </strong>
-                                                            Mrs Smith 71 Cherry Court SOUTHAMPTON SO53 5PD UK
+                                                            <Link to="/edit-profile">
+                                                                 <i className="fas fa-edit"></i> 
+                                                                 Edit                                                          
+                                                            </Link>
                                                        </li>
                                                   </ul>
                                              </div>
-                                            
-                                       </div>
+
+                                             {/* image */}
+                                             <div className="col-md-12 image-column">
+                                                  <img src="/images/rehi.png" className="img-fluid" alt="" />
+                                             </div>
+
+                                             {/* account information */}
+                                                  <div className="col-md-12 account-information">
+                                                       <ul>
+                                                            <li>
+                                                                 <strong>Name : </strong>
+                                                                 Colson Nicholas
+                                                            </li>
+                                                            <li>
+                                                                 <strong>Email : </strong>
+                                                                 info@laundro.co.uk
+                                                            </li>
+                                                            <li>
+                                                                 <strong>Phone : </strong>
+                                                                 017XXXXXXXX
+                                                            </li>
+                                                            <li>
+                                                                 <strong>Bio : </strong>
+                                                                 Lorem ipsum dolor sit amet, hello how consectetur adipisicing elit. Sint consectetur provident magni yohoho consequuntur, voluptatibus ghdfff exercitationem at quis similique. Optio, amet!
+                                                            </li>
+                                                            <li>
+                                                                 <strong>Address : </strong>
+                                                                 Mrs Smith 71 Cherry Court SOUTHAMPTON SO53 5PD UK
+                                                            </li>
+                                                       </ul>
+                                                  </div>
+                                             
+                                        </div>
+                                        </div>
+                                        
                                    </div>
-                                   
                               </div>
                          </div>
-                    </div>
-               </section>
+                    </section>
 
-               {/* Footer */}
-               <Footer></Footer>
-               {/* Footer End */}
+                    {/* Footer */}
+                    <Footer></Footer>
+                    {/* Footer End */}
 
-          </div> 
-     );
+               </div> 
+          );
+     }
 }
 
 export default AccountComponent;

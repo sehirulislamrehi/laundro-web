@@ -7,89 +7,48 @@
 @endsection
 
 @section('body-content')
-<div class="content-wrapper" style="min-height: 147px;">
-
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-left">
-                        <li class="breadcrumb-item">
-                            <a href="{{ route('dashboard') }}">
-                                Dashboard
-                            </a>
-                        </li>
-                        <li class="breadcrumb-item active">
-                            <a href="{{ route('zone.all') }}">
-                                All Zones
-                            </a>
-                        </li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+<div class="br-mainpanel">
+    <div class="br-pageheader">
+        <nav class="breadcrumb pd-0 mg-0 tx-12">
+            <a class="breadcrumb-item" href="{{ route('dashboard') }}">Dashboard</a>
+            <a class="breadcrumb-item active" href="#">All Zone</a>
+        </nav>
     </div>
-    <!-- /.content-header -->
 
-    <section class="content">
-        <div class="container-fluid">
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card card-primary card-outline table-responsive">
-                        <div class="card-header text-right">
-                            @if( can('add_zones') )
-                            <button type="button" data-content="{{ route('zone.add.modal') }}" data-target="#myModal" class="btn btn-outline-dark" data-toggle="modal">
-                                Add
-                            </button>
-                            @endif
-                        </div>
-                        
-                        <div class="card-body">
-                            <table class="table table-bordered table-striped dataTable dtr-inline zone-datatable" id="datatable">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>City</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-{{--                                 <tbody>
-                                    @forelse( $zones as $key => $zone )
-                                    <tr>
-                                        <td>{{ $loop->index + 1 }}</td>
-                                        <td>{{ $zone->name }}</td>
-                                        <td>
-                                            @if( $zone->is_active == true )
-                                            <span class="badge badge-success">Active</span>
-                                            @else
-                                            <span class="badge badge-danger">Inactive</span>
-                                            @endif
-                                        </td>
-                                        <td>
-
-                                        </td>
-                                    </tr>
-                                    @empty
-                                    <tr>
-                                        <td colspan="4" class="text-center">No data found</td>
-                                    </tr>
-                                    @endforelse
-                                </tbody> --}}
-                            </table>
-                        </div>
+    <div class="br-pagebody">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline table-responsive">
+                    <div class="card-header text-right">
+                        @if( can('add_zones') )
+                        <button type="button" data-content="{{ route('zone.add.modal') }}" data-target="#myModal" class="btn btn-outline-dark" data-toggle="modal">
+                            Add
+                        </button>
+                        @endif
                     </div>
 
+                    <div class="card-body">
+                        <table class="table table-bordered table-striped dataTable dtr-inline zone-datatable" id="datatable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>City</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
                 </div>
+
             </div>
-
         </div>
-    </section>
-
+    </div>
 </div>
+
+
+
 @endsection
 
 @section('per_page_js')
@@ -103,7 +62,7 @@
 <script src="{{  asset('backend/js/ajax_form_submit.js') }}"></script>
 
 <script>
-    $(function () {
+    $(function() {
         $('.zone-datatable').DataTable({
             processing: true,
             serverSide: true,
@@ -111,12 +70,11 @@
             order: [
                 [0, 'Desc']
             ],
-            columns: [
-                { 
+            columns: [{
                     data: 'DT_RowIndex',
                     name: 'DT_RowIndex',
                     orderable: false,
-                    searchable: false 
+                    searchable: false
                 },
                 {
                     data: 'name',
@@ -138,6 +96,5 @@
             ]
         });
     });
-    
 </script>
 @endsection

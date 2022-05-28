@@ -1,5 +1,6 @@
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 //import pages
 import DesktopMenu from "../../Include/DesktopMenu";
@@ -13,174 +14,204 @@ import NavbarComponent from "./Includes/NavbarComponent";
 const MyOrderComponent = () => {
 
      
-     return(
-          <div className="id">
+     let [check_authorized, set_authorized] = useState('unauthorized');
 
-               {/* desktop menu start */}
-               <DesktopMenu></DesktopMenu>
-               {/* desktop menu end */}
+     const history = useHistory();
 
-               {/* Mobile Menu */}
-               <MobileMenu></MobileMenu>
-               {/* Mobile Menu End */}
+     //manage session
+     const manage_session_url = `${window.url}/manage-session`;
 
-               <section className="profile">
-                    <div className="container">
+     useEffect(() => {
 
-                         {/* header component */}
-                         <HeaderComponent></HeaderComponent>
+          //send request to the server for manage session
+          const options_for_manage_session_request = {
+               method: 'GET'
+          };
+          fetch(manage_session_url,options_for_manage_session_request)
+          .then( response => response.json() )
+          .then( data => {
+               if( data.status == 'error' ){
+                    history.push('/login')
+                    set_authorized('unauthorized');
+               }
+               if( data.status == 'success' ){
+                    set_authorized('authorized');
+               }
 
-                         <div className="main-bd">
+          })
 
-                              {/* left sidebar */}
-                              <LeftSidebarComponent></LeftSidebarComponent>
-                              
-                              {/* https://codepen.io/brightprogrammer/pen/mdyMOGV */}
-                              <div className="right-side">
+     })
 
-                                   {/* navbar component */}
-                                   <NavbarComponent></NavbarComponent>
+     if( check_authorized && check_authorized == "authorized" ){
+          return(
+               <div className="id">
+
+                    {/* desktop menu start */}
+                    <DesktopMenu></DesktopMenu>
+                    {/* desktop menu end */}
+
+                    {/* Mobile Menu */}
+                    <MobileMenu></MobileMenu>
+                    {/* Mobile Menu End */}
+
+                    <section className="profile">
+                         <div className="container">
+
+                              {/* header component */}
+                              <HeaderComponent></HeaderComponent>
+
+                              <div className="main-bd">
+
+                                   {/* left sidebar */}
+                                   <LeftSidebarComponent></LeftSidebarComponent>
                                    
-                                   <div className="profile-body">
-                                        <div className="row">
+                                   {/* https://codepen.io/brightprogrammer/pen/mdyMOGV */}
+                                   <div className="right-side">
 
-                                             {/* order card start */}
-                                             <div className="col-md-12">
-                                                  <Link to="/order-details">
-                                                       <div className="order-card">
-                                                            <i className="fas fa-times"></i>
-                                                            <div className="row">
-                                                                 <div className="col-md-6">
-                                                                      <div className="left-part">
-                                                                           <p>Laundry Cleaning</p>
-                                                                           <small>With Equipment</small>
+                                        {/* navbar component */}
+                                        <NavbarComponent></NavbarComponent>
+                                        
+                                        <div className="profile-body">
+                                             <div className="row">
+
+                                                  {/* order card start */}
+                                                  <div className="col-md-12">
+                                                       <Link to="/order-details">
+                                                            <div className="order-card">
+                                                                 <i className="fas fa-times"></i>
+                                                                 <div className="row">
+                                                                      <div className="col-md-6">
+                                                                           <div className="left-part">
+                                                                                <p>Laundry Cleaning</p>
+                                                                                <small>With Equipment</small>
+                                                                           </div>
+                                                                      </div>
+                                                                 </div>
+                                                                 <div className="row order-card-footer">
+                                                                      <div className="col-md-6 col-8">
+                                                                           <div className="left-part">
+                                                                                <ul>
+                                                                                     <li>
+                                                                                          <i className="fas fa-calendar"></i>
+                                                                                          2022-04-19
+                                                                                     </li>
+                                                                                     <li>
+                                                                                          <i className="fas fa-clock"></i>
+                                                                                          09:00
+                                                                                     </li>
+                                                                                </ul>
+                                                                           </div>
+                                                                      </div>
+                                                                      <div className="col-md-6 col-4">
+                                                                           <div className="right-part">
+                                                                                <button className="order-status">
+                                                                                     Pending
+                                                                                </button>
+                                                                           </div>
                                                                       </div>
                                                                  </div>
                                                             </div>
-                                                            <div className="row order-card-footer">
-                                                                 <div className="col-md-6 col-8">
-                                                                      <div className="left-part">
-                                                                           <ul>
-                                                                                <li>
-                                                                                     <i className="fas fa-calendar"></i>
-                                                                                     2022-04-19
-                                                                                </li>
-                                                                                <li>
-                                                                                     <i className="fas fa-clock"></i>
-                                                                                     09:00
-                                                                                </li>
-                                                                           </ul>
+                                                       </Link>
+                                                  </div>
+                                                  {/* order card end */}
+
+                                                  {/* order card start */}
+                                                  <div className="col-md-12">
+                                                       <Link to="/order-details">
+                                                            <div className="order-card">
+                                                                 <i className="fas fa-times"></i>
+                                                                 <div className="row">
+                                                                      <div className="col-md-6">
+                                                                           <div className="left-part">
+                                                                                <p>Laundry Cleaning</p>
+                                                                                <small>With Equipment</small>
+                                                                           </div>
                                                                       </div>
                                                                  </div>
-                                                                 <div className="col-md-6 col-4">
-                                                                      <div className="right-part">
-                                                                           <button className="order-status">
-                                                                                Pending
-                                                                           </button>
+                                                                 <div className="row order-card-footer">
+                                                                      <div className="col-md-6 col-8">
+                                                                           <div className="left-part">
+                                                                                <ul>
+                                                                                     <li>
+                                                                                          <i className="fas fa-calendar"></i>
+                                                                                          2022-04-19
+                                                                                     </li>
+                                                                                     <li>
+                                                                                          <i className="fas fa-clock"></i>
+                                                                                          09:00
+                                                                                     </li>
+                                                                                </ul>
+                                                                           </div>
+                                                                      </div>
+                                                                      <div className="col-md-6 col-4">
+                                                                           <div className="right-part">
+                                                                                <button className="order-status">
+                                                                                     Pending
+                                                                                </button>
+                                                                           </div>
                                                                       </div>
                                                                  </div>
                                                             </div>
-                                                       </div>
-                                                  </Link>
+                                                       </Link>
+                                                  </div>
+                                                  {/* order card end */}
+
+                                                  {/* order card start */}
+                                                  <div className="col-md-12">
+                                                       <Link to="/order-details">
+                                                            <div className="order-card">
+                                                                 <i className="fas fa-times"></i>
+                                                                 <div className="row">
+                                                                      <div className="col-md-6">
+                                                                           <div className="left-part">
+                                                                                <p>Laundry Cleaning</p>
+                                                                                <small>With Equipment</small>
+                                                                           </div>
+                                                                      </div>
+                                                                 </div>
+                                                                 <div className="row order-card-footer">
+                                                                      <div className="col-md-6 col-8">
+                                                                           <div className="left-part">
+                                                                                <ul>
+                                                                                     <li>
+                                                                                          <i className="fas fa-calendar"></i>
+                                                                                          2022-04-19
+                                                                                     </li>
+                                                                                     <li>
+                                                                                          <i className="fas fa-clock"></i>
+                                                                                          09:00
+                                                                                     </li>
+                                                                                </ul>
+                                                                           </div>
+                                                                      </div>
+                                                                      <div className="col-md-6 col-4">
+                                                                           <div className="right-part">
+                                                                                <button className="order-status">
+                                                                                     Pending
+                                                                                </button>
+                                                                           </div>
+                                                                      </div>
+                                                                 </div>
+                                                            </div>
+                                                       </Link>
+                                                  </div>
+                                                  {/* order card end */}
+
                                              </div>
-                                             {/* order card end */}
-
-                                             {/* order card start */}
-                                             <div className="col-md-12">
-                                                  <Link to="/order-details">
-                                                       <div className="order-card">
-                                                            <i className="fas fa-times"></i>
-                                                            <div className="row">
-                                                                 <div className="col-md-6">
-                                                                      <div className="left-part">
-                                                                           <p>Laundry Cleaning</p>
-                                                                           <small>With Equipment</small>
-                                                                      </div>
-                                                                 </div>
-                                                            </div>
-                                                            <div className="row order-card-footer">
-                                                                 <div className="col-md-6 col-8">
-                                                                      <div className="left-part">
-                                                                           <ul>
-                                                                                <li>
-                                                                                     <i className="fas fa-calendar"></i>
-                                                                                     2022-04-19
-                                                                                </li>
-                                                                                <li>
-                                                                                     <i className="fas fa-clock"></i>
-                                                                                     09:00
-                                                                                </li>
-                                                                           </ul>
-                                                                      </div>
-                                                                 </div>
-                                                                 <div className="col-md-6 col-4">
-                                                                      <div className="right-part">
-                                                                           <button className="order-status">
-                                                                                Pending
-                                                                           </button>
-                                                                      </div>
-                                                                 </div>
-                                                            </div>
-                                                       </div>
-                                                  </Link>
-                                             </div>
-                                             {/* order card end */}
-
-                                             {/* order card start */}
-                                             <div className="col-md-12">
-                                                  <Link to="/order-details">
-                                                       <div className="order-card">
-                                                            <i className="fas fa-times"></i>
-                                                            <div className="row">
-                                                                 <div className="col-md-6">
-                                                                      <div className="left-part">
-                                                                           <p>Laundry Cleaning</p>
-                                                                           <small>With Equipment</small>
-                                                                      </div>
-                                                                 </div>
-                                                            </div>
-                                                            <div className="row order-card-footer">
-                                                                 <div className="col-md-6 col-8">
-                                                                      <div className="left-part">
-                                                                           <ul>
-                                                                                <li>
-                                                                                     <i className="fas fa-calendar"></i>
-                                                                                     2022-04-19
-                                                                                </li>
-                                                                                <li>
-                                                                                     <i className="fas fa-clock"></i>
-                                                                                     09:00
-                                                                                </li>
-                                                                           </ul>
-                                                                      </div>
-                                                                 </div>
-                                                                 <div className="col-md-6 col-4">
-                                                                      <div className="right-part">
-                                                                           <button className="order-status">
-                                                                                Pending
-                                                                           </button>
-                                                                      </div>
-                                                                 </div>
-                                                            </div>
-                                                       </div>
-                                                  </Link>
-                                             </div>
-                                             {/* order card end */}
-
                                         </div>
+                                        
                                    </div>
-                                   
                               </div>
                          </div>
-                    </div>
-               </section>
+                    </section>
 
-               {/* Footer */}
-               <Footer></Footer>
-               {/* Footer End */}
+                    {/* Footer */}
+                    <Footer></Footer>
+                    {/* Footer End */}
 
-          </div> 
-     );
+               </div> 
+          );
+     }
 }
 
 export default MyOrderComponent;

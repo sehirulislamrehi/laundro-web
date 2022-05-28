@@ -7,69 +7,48 @@
 @endsection
 
 @section('body-content')
-<div class="content-wrapper" style="min-height: 147px;">
-
-     <!-- Content Header (Page header) -->
-     <div class="content-header">
-          <div class="container-fluid">
-               <div class="row">
-                    <div class="col-sm-6">
-                         <ol class="breadcrumb float-sm-left">
-                              <li class="breadcrumb-item">
-                                   <a href="{{ route('dashboard') }}">
-                                        Dashboard
-                                   </a>
-                              </li>
-                              <li class="breadcrumb-item active">
-                                   <a href="">
-                                        All Coupon
-                                   </a>
-                              </li>
-                         </ol>
-                    </div><!-- /.col -->
-               </div><!-- /.row -->
-          </div><!-- /.container-fluid -->
+<div class="br-mainpanel">
+     <div class="br-pageheader">
+          <nav class="breadcrumb pd-0 mg-0 tx-12">
+               <a class="breadcrumb-item" href="{{ route('dashboard') }}">Dashboard</a>
+               <a class="breadcrumb-item active" href="#">All Coupon</a>
+          </nav>
      </div>
-     <!-- /.content-header -->
 
-     <section class="content">
-          <div class="container-fluid">
-
-               <div class="row">
-                    <div class="col-md-12">
-                         <div class="card card-primary card-outline table-responsive">
-                              <div class="card-header text-right">
-                                   @if( can('add_coupon') )
-                                   <button type="button" data-content="{{ route('coupon.add.modal') }}" data-target="#myModal" class="btn btn-outline-dark" data-toggle="modal">
-                                        Add
-                                   </button>
-                                   @endif
-                              </div>
-
-                              <div class="card-body">
-                                   <table class="table table-bordered table-striped dataTable dtr-inline area-datatable" id="datatable">
-                                        <thead>
-                                             <tr>
-                                                  <th>ID</th>
-                                                  <th>Code</th>
-                                                  <th>Expiry Date</th>
-                                                  <th>Type</th>
-                                                  <th>Amount</th>
-                                                  <th>Status</th>
-                                                  <th>Action</th>
-                                             </tr>
-                                        </thead>
-                                   </table>
-                              </div>
+     <div class="br-pagebody">
+          <div class="row">
+               <div class="col-md-12">
+                    <div class="card card-primary card-outline table-responsive">
+                         <div class="card-header text-right">
+                              @if( can('add_coupon') )
+                              <button type="button" data-content="{{ route('coupon.add.modal') }}" data-target="#myModal" class="btn btn-outline-dark" data-toggle="modal">
+                                   Add
+                              </button>
+                              @endif
                          </div>
 
+                         <div class="card-body">
+                              <table class="table table-bordered table-striped dataTable dtr-inline area-datatable" id="datatable">
+                                   <thead>
+                                        <tr>
+                                             <th>ID</th>
+                                             <th>Code</th>
+                                             <th>Expiry Date</th>
+                                             <th>Type</th>
+                                             <th>Amount</th>
+                                             <th>Status</th>
+                                             <th>Action</th>
+                                        </tr>
+                                   </thead>
+                              </table>
+                         </div>
                     </div>
+
                </div>
-
           </div>
-     </section>
-
+     </div>
 </div>
+
 @endsection
 
 @section('per_page_js')

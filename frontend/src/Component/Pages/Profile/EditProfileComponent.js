@@ -1,5 +1,5 @@
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 //import pages
 import DesktopMenu from "../../Include/DesktopMenu";
@@ -13,6 +13,34 @@ import { useEffect, useRef, useState } from "react";
 
 const EditProfileComponent = () => {
 
+     let [check_authorized, set_authorized] = useState('unauthorized');
+
+     const history = useHistory();
+
+     //manage session
+     const manage_session_url = `${window.url}/manage-session`;
+
+     useEffect(() => {
+
+          //send request to the server for manage session
+          const options_for_manage_session_request = {
+               method: 'GET'
+          };
+          fetch(manage_session_url,options_for_manage_session_request)
+          .then( response => response.json() )
+          .then( data => {
+               if( data.status == 'error' ){
+                    history.push('/login')
+                    set_authorized('unauthorized');
+               }
+               if( data.status == 'success' ){
+                    set_authorized('authorized');
+               }
+
+          })
+
+     })
+
      const [upload_image, set_upload_image] = useState(null)
      const preview = useRef(null);
      const filePreview = (e) => {
@@ -22,95 +50,97 @@ const EditProfileComponent = () => {
           preview.current.src = URL.createObjectURL(file)
      }
 
-     return(
-          <div className="id">
-               {/* desktop menu start */}
-               <DesktopMenu></DesktopMenu>
-               {/* desktop menu end */}
+     if( check_authorized && check_authorized == "authorized" ){
+          return(
+               <div className="id">
+                    {/* desktop menu start */}
+                    <DesktopMenu></DesktopMenu>
+                    {/* desktop menu end */}
 
-               {/* Mobile Menu */}
-               <MobileMenu></MobileMenu>
-               {/* Mobile Menu End */}
+                    {/* Mobile Menu */}
+                    <MobileMenu></MobileMenu>
+                    {/* Mobile Menu End */}
 
-               <section className="profile">
-                    <div className="container">
+                    <section className="profile">
+                         <div className="container">
 
-                         {/* header component */}
-                         <HeaderComponent></HeaderComponent>
+                              {/* header component */}
+                              <HeaderComponent></HeaderComponent>
 
-                         <div className="main-bd">
+                              <div className="main-bd">
 
-                              {/* left sidebar */}
-                              <LeftSidebarComponent></LeftSidebarComponent>
-                              
-                              {/* https://codepen.io/brightprogrammer/pen/mdyMOGV */}
-                              <div className="right-side">
-
-                                   {/* navbar component */}
-                                   <NavbarComponent></NavbarComponent>
+                                   {/* left sidebar */}
+                                   <LeftSidebarComponent></LeftSidebarComponent>
                                    
-                                   <div className="profile-body">
-                                       <div className="row my-account">
+                                   {/* https://codepen.io/brightprogrammer/pen/mdyMOGV */}
+                                   <div className="right-side">
 
-                                            {/* edit */}
-                                            <div className="col-md-12 edit-column">
-                                                 <ul>
-                                                      <li>
-                                                           <Link to="/edit-profile">
-                                                                 <i className="fas fa-check"></i> 
-                                                                Save     
-                                                           </Link>
-                                                      </li>
-                                                      <li>
-                                                           <Link to="/account">
-                                                           <i className="fas fa-times ml-2"></i>                                                  
-                                                                Cancel         
-                                                           </Link>
-                                                      </li>
-                                                 </ul>
-                                            </div>
+                                        {/* navbar component */}
+                                        <NavbarComponent></NavbarComponent>
+                                        
+                                        <div className="profile-body">
+                                        <div className="row my-account">
 
-                                            {/* image */}
-                                            <div className="col-md-12 image-column">
-                                                 <i className="fas fa-times"></i>
-                                                 <img src="/images/rehi.png" className="img-fluid" ref={preview} alt="" />
-                                                 <input type="file" className="form-control-file"  onChange={filePreview}></input>
-                                            </div>
-
-                                             <div className="col-md-4 form-group">
-                                                  <label>Name</label>
-                                                  <input type="text" className="form-control" name="name"/>
+                                             {/* edit */}
+                                             <div className="col-md-12 edit-column">
+                                                  <ul>
+                                                       <li>
+                                                            <Link to="/edit-profile">
+                                                                      <i className="fas fa-check"></i> 
+                                                                 Save     
+                                                            </Link>
+                                                       </li>
+                                                       <li>
+                                                            <Link to="/account">
+                                                            <i className="fas fa-times ml-2"></i>                                                  
+                                                                 Cancel         
+                                                            </Link>
+                                                       </li>
+                                                  </ul>
                                              </div>
 
-                                             <div className="col-md-4 form-group">
-                                                  <label>Email</label>
-                                                  <input type="email" className="form-control" name="email"/>
+                                             {/* image */}
+                                             <div className="col-md-12 image-column">
+                                                  <i className="fas fa-times"></i>
+                                                  <img src="/images/rehi.png" className="img-fluid" ref={preview} alt="" />
+                                                  <input type="file" className="form-control-file"  onChange={filePreview}></input>
                                              </div>
 
-                                             <div className="col-md-4 form-group">
-                                                  <label>Address</label>
-                                                  <input type="text" className="form-control" name="address"/>
-                                             </div>
+                                                  <div className="col-md-4 form-group">
+                                                       <label>Name</label>
+                                                       <input type="text" className="form-control" name="name"/>
+                                                  </div>
 
-                                             <div className="col-md-12 form-group">
-                                                  <label>Bio</label>
-                                                  <textarea name="bio" rows="3" className="form-control"></textarea>
-                                             </div>
-                                            
-                                            
-                                       </div>
+                                                  <div className="col-md-4 form-group">
+                                                       <label>Email</label>
+                                                       <input type="email" className="form-control" name="email"/>
+                                                  </div>
+
+                                                  <div className="col-md-4 form-group">
+                                                       <label>Address</label>
+                                                       <input type="text" className="form-control" name="address"/>
+                                                  </div>
+
+                                                  <div className="col-md-12 form-group">
+                                                       <label>Bio</label>
+                                                       <textarea name="bio" rows="3" className="form-control"></textarea>
+                                                  </div>
+                                             
+                                             
+                                        </div>
+                                        </div>
+                                        
                                    </div>
-                                   
                               </div>
                          </div>
-                    </div>
-               </section>
+                    </section>
 
-               {/* Footer */}
-               <Footer></Footer>
-               {/* Footer End */}
-          </div>
-     );
+                    {/* Footer */}
+                    <Footer></Footer>
+                    {/* Footer End */}
+               </div>
+          );
+     }
 }
 
 export default EditProfileComponent;

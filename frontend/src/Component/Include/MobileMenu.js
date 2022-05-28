@@ -45,9 +45,6 @@ const MobileMenu = () => {
                          <li >
                               <Link to="/login">Login</Link>
                          </li>
-                         <li >
-                              <Link to="/dashboard">My Dashboard</Link>
-                         </li>
                     </ul>
                </div>
           </div>
