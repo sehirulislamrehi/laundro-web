@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 import DesktopMenu from "../../Include/DesktopMenu";
 import MobileMenu from "../../Include/MobileMenu";
 import Footer from "../../Include/Footer";
+import Loading from "../../Include/Loading";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 
 const RegisterComponent = () => {
@@ -14,21 +16,62 @@ const RegisterComponent = () => {
      {/* window scroll to top */}
      window.scrollTo(0, 0);
      
+     const history = useHistory();
+     
+
+     //do register
      const [name, setName] = useState('');
      const [phone, setPhone] = useState('');
      const [password, setPassword] = useState('');
      const [password_confirmation, setPasswordConfirmation] = useState('');
      const [ errors, set_error ] = useState(null)
 
-
-     //do register
+     const registration_url = `${window.url}/auth/register`;
      function doRegister(){
-          
+          const loading = document.getElementById("loading-wraper")
+          loading.style.display = "block"
+
+          const formData = new FormData();
+
+          formData.append('name', name);
+          formData.append('phone', phone);
+          formData.append('password', password);
+          formData.append('password_confirmation', password_confirmation);
+          const options = {
+               method : 'POST',
+               body: formData
+          }
+
+          fetch(registration_url,options)
+          .then( response => response.json() )
+          .then( data => {
+               loading.style.display = "none"
+
+               if( data.status == 'error' ){
+                    const single_error = data.data
+                    const distructured_error = {...single_error}
+                    set_error(distructured_error)
+               }
+               
+               if( data.status == 'success' ){
+                    history.push('/login')
+               }
+          })
+          .catch( error => {
+               loading.style.display = "none"
+               console.log(error)
+               
+          })
+
+
      }
 
 
      return(
           <div className="id">
+
+               {/* loading */}
+               <Loading></Loading>
 
                {/* desktop menu start */}
                <DesktopMenu></DesktopMenu>
@@ -44,34 +87,74 @@ const RegisterComponent = () => {
                               <h4>Register</h4>
                          </div>
                          <form className="login-form" name="login" action="">
-                              <input type="text" name="name" className="name" placeholder="Enter your name"
-                                   onChange={
-                                        e => {
-                                             setName(e.target.value)
+                              <div className="form-group">
+                                   <input type="text" name="name" className="name" placeholder="Enter your name"
+                                        onChange={
+                                             e => {
+                                                  setName(e.target.value)
+                                             }
                                         }
+                                   />
+                                   {
+                                        errors &&
+                                        <small
+                                        className="form_error"
+                                        >
+                                            {errors.name}
+                                        </small>
                                    }
-                              />
-                              <input type="text" name="phone" className="phone" placeholder="Phone Number"
-                                   onChange={
-                                        e => {
-                                             setPhone(e.target.value)
+                              </div>
+                              <div className="form-group">
+                                   <input type="text" name="phone" className="phone" placeholder="Phone Number"
+                                        onChange={
+                                             e => {
+                                                  setPhone(e.target.value)
+                                             }
                                         }
+                                   />
+                                   {
+                                        errors &&
+                                        <small
+                                        className="form_error"
+                                        >
+                                            {errors.phone}
+                                        </small>
                                    }
-                              />
-                              <input type="password" name="password" className="password" placeholder="Password" 
-                                   onChange={
-                                        e => {
-                                             setPassword(e.target.value)
+                              </div>
+                              <div className="form-group">
+                                   <input type="password" name="password" className="password" placeholder="Password" 
+                                        onChange={
+                                             e => {
+                                                  setPassword(e.target.value)
+                                             }
                                         }
+                                   />
+                                   {
+                                        errors &&
+                                        <small
+                                        className="form_error"
+                                        >
+                                            {errors.password}
+                                        </small>
                                    }
-                              />
-                              <input type="password" name="password_confirmation" className="password" placeholder="Confirm Password"
-                                   onChange={
-                                        e => {
-                                             setPasswordConfirmation(e.target.value)
+                              </div>
+                              <div className="form-group">
+                                   <input type="password" name="password_confirmation" className="password" placeholder="Confirm Password"
+                                        onChange={
+                                             e => {
+                                                  setPasswordConfirmation(e.target.value)
+                                             }
                                         }
+                                   />
+                                   {
+                                        errors &&
+                                        <small
+                                        className="form_error"
+                                        >
+                                            {errors.password}
+                                        </small>
                                    }
-                              />
+                              </div>
                               <input type="button" name="register" value="Register" className="login" onClick={doRegister} />
                          </form>
 
