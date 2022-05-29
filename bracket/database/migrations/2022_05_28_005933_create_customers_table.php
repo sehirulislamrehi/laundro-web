@@ -25,6 +25,7 @@ class CreateCustomersTable extends Migration
             $table->string("image")->nullable();
             $table->boolean("is_active")->default(false);
             $table->boolean("is_verified")->default(false);
+            $table->string("remember_token");
 
             $table->integer("month")->comment("current month");
             $table->integer("year")->comment("current year");

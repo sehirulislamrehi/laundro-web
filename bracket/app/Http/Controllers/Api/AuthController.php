@@ -69,23 +69,26 @@ class AuthController extends Controller
                     // $response = $sms->sendToOne('971'.$request->phone, "Your verification code is : $code","First Call");
                     
                     // if( isset($response['messages'][0]['status']) ){
+                        $token = Str::random(80);
+
                         $customer = new Customer();
                         $customer->name = $request->name;
                         $customer->phone = $request->phone;
                         $customer->password = Hash::make($request->password);
                         $customer->month  = Carbon::now()->month;
                         $customer->year  = Carbon::now()->year; 
+                        $customer->remember_token  = $token; 
     
                         $customer->is_active = true;
                         $customer->is_verified = true;
     
                         if( $customer->save() ){
                             $customer = Customer::where('id',$customer->id)->first();
+
                             return response()->json([
                                 'status' => 'success',
-                                'message' => 'Registration Successfully Done',
-                                'data' => $customer
-                            ],200); 
+                                'data' => new CustomerResource($customer)
+                            ],200);
                         }
                     // }
                     // else{
@@ -259,12 +262,13 @@ class AuthController extends Controller
 
         if( $validator->fails() ){
             return response()->json([
-                'status' => 'error',
+                'status' => 'validation_error',
                 'data' => $validator->errors()
             ],200); 
         }
 
         $customer = Customer::where("phone",$request->phone)->first();
+
 
         if( $customer->is_active == false ){
             return response()->json([
@@ -304,14 +308,28 @@ class AuthController extends Controller
 
         }
         else{
-            // login
-            $credentials = request(['phone', 'password']);
 
-            if (! $token = auth()->attempt($credentials)) {
-                return response()->json(['status' => 'error', 'data' => 'Invalid Credential'], 200);
+            if( Hash::check($request->password, $customer->password) ){
+                $token = Str::random(80);
+                $customer->remember_token  = $token; 
+    
+                if( $customer->save() ){
+                    $customer = Customer::where('id',$customer->id)->first();
+    
+                    return response()->json([
+                        'status' => 'success',
+                        'data' => new CustomerResource($customer)
+                    ],200);
+                }
+            }
+            else{
+                return response()->json([
+                    'status' => 'warning',
+                    'data' => 'Invalid Password'
+                ],200);
             }
 
-            return $this->respondWithToken($token, $customer);
+            
         }
 
         
@@ -500,16 +518,22 @@ class AuthController extends Controller
 
 
     //manage_session function start
-    public function manage_session(Request $request){
+    public function manage_session(Request $request,$token){
         try{
             
-            if( auth('api')->check() ){
-                $customer = Customer::where("id", auth('api')->user()->id)->first();
+            $customer = Customer::where("remember_token", $token)->first();
 
-                return response()->json([
-                    'status' => 'success',
-                    'data' => new CustomerResource($customer)
-                ],200);
+            if( $customer ){
+                $token = Str::random(80);
+                $customer->remember_token  = $token; 
+
+                if( $customer->save() ){
+                    return response()->json([
+                        'status' => 'success',
+                        'data' => new CustomerResource($customer)
+                    ],200);
+                }
+                
             }
             else{
                 return response()->json([
@@ -560,6 +584,7 @@ class AuthController extends Controller
      */
     protected function respondWithToken($token, $customer)
     {
+
         return response()->json([
             'status' => 'success',
             'access_token' => $token,

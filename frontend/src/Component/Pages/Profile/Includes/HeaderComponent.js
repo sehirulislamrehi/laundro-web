@@ -1,16 +1,27 @@
+import { useEffect, useState } from "react";
 
-const HeaderComponent = () => {
+const HeaderComponent = (props) => {
+
+     const [user, setUser] = useState(null);
+
+     useEffect(() => {
+          setUser(props.user)
+
+     },[])
+
      return(
           <div className="id">
                <div className="profile-header">
                     <div className="profile-img">
-                         <img src="/images/rehi.png" width="200" alt="Profile Image"></img>
+                         {
+                              user ? 
+                              <img src={user.image} width="200" alt="Profile Image"></img> : ""
+                         }
                     </div>
                     <div className="profile-nav-info">
-                         <h3 className="user-name">Colson Nicholas</h3>
+                         <h3 className="user-name">{ user ? user.name : '' }</h3>
                          <div className="address">
-                         <p id="state" className="state">Mrs Smith 71 Cherry Court SOUTHAMPTON SO53 5PD </p>
-                         <span id="country" className="country">United Kingdom</span>
+                         <p id="state" className="state">{ user && user.address ? user.address : '' }</p>
                          </div>
 
                     </div>

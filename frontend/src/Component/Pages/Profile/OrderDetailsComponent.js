@@ -18,28 +18,34 @@ const OrderDetailsComponent = () => {
      const history = useHistory();
 
      //manage session
+     const [user, setUser] = useState(null);
      const manage_session_url = `${window.url}/manage-session`;
 
      useEffect(() => {
 
+
           //send request to the server for manage session
+          const token = localStorage.getItem('token')
           const options_for_manage_session_request = {
-               method: 'GET'
+               method: 'GET',
           };
-          fetch(manage_session_url,options_for_manage_session_request)
+          fetch(`${manage_session_url}/${token}`,options_for_manage_session_request)
           .then( response => response.json() )
-          .then( data => {
-               if( data.status == 'error' ){
+          .then( response => {
+               if( response.status == 'error' ){
+                    localStorage.removeItem('token')
                     history.push('/login')
                     set_authorized('unauthorized');
                }
-               if( data.status == 'success' ){
+               if( response.status == 'success' ){
+                    setUser(response.data)
+                    localStorage.setItem('token',response.data.remember_token)
                     set_authorized('authorized');
                }
 
           })
 
-     })
+     },[])
 
      if( check_authorized && check_authorized == "authorized" ){
 
@@ -58,12 +64,12 @@ const OrderDetailsComponent = () => {
                          <div className="container">
 
                               {/* header component */}
-                              <HeaderComponent></HeaderComponent>
-
+                              <HeaderComponent user={user}></HeaderComponent>
+     
                               <div className="main-bd">
-
+     
                                    {/* left sidebar */}
-                                   <LeftSidebarComponent></LeftSidebarComponent>
+                                   <LeftSidebarComponent user={user}></LeftSidebarComponent>
                                    
                                    {/* https://codepen.io/brightprogrammer/pen/mdyMOGV */}
                                    <div className="right-side">
@@ -201,6 +207,29 @@ const OrderDetailsComponent = () => {
                </div> 
           );
           
+     }
+     else{
+          return(
+               <div className="id">
+                    {/* desktop menu start */}
+                    <DesktopMenu></DesktopMenu>
+                    {/* desktop menu end */}
+
+                    {/* Mobile Menu */}
+                    <MobileMenu></MobileMenu>
+                    {/* Mobile Menu End */}
+
+                    {/* please wait section start */}
+                    <section className="please-wait">
+                         <h4 className="content">Please Wait...</h4>
+                    </section>
+                    {/* please wait section end */}
+
+                    {/* Footer */}
+                    <Footer></Footer>
+                    {/* Footer End */}
+               </div> 
+          );
      }
 }
 

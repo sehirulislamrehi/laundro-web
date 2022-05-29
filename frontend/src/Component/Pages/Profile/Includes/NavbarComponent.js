@@ -1,10 +1,23 @@
 
 
+import { useHistory } from "react-router-dom";
 import { Link, useLocation  } from "react-router-dom";
 
 const NavbarComponent = (props) => {
 
      const location = useLocation();
+     const history = useHistory();
+
+     function doLogout(){
+          const token = localStorage.getItem('token')
+
+          if( token ){
+               localStorage.removeItem('token')
+          }
+
+          history.push('/login');
+
+     }
 
      return(
           <div className="id">
@@ -67,10 +80,8 @@ const NavbarComponent = (props) => {
                          }
                          
 
-                         <li className="user-setting"> 
-                              <Link to="/login">
-                                   Logout
-                              </Link>
+                         <li className="user-setting" onClick={doLogout}> 
+                              Logout
                          </li>
                     </ul>
                </div>

@@ -21,10 +21,11 @@ class CustomerResource extends JsonResource
             'name' => $this->name,
             'image' => $this->image ? asset('images/customer/'.$this->image) : asset('images/profile/user.png'),
             'phone' => $this->phone ,
-            'email' => $this->email ,
+            'email' => $this->email,
             'address' => $this->address,
             'is_active' => $this->is_active,
-            'is_verified' => $this->is_verified
+            'is_verified' => $this->is_verified,
+            'remember_token' => $this->remember_token
         ];
     }
 }

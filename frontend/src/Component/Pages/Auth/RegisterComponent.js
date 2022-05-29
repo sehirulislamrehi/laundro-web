@@ -15,9 +15,21 @@ const RegisterComponent = () => {
 
      {/* window scroll to top */}
      window.scrollTo(0, 0);
-     
+
+
      const history = useHistory();
+
+
+     //check authentication start
+     const token = localStorage.getItem('token')
+     if( token ){
+          history.push("/dashboard");
+      }
+     //check authentication end
+
+
      
+
 
      //do register
      const [name, setName] = useState('');
@@ -54,7 +66,8 @@ const RegisterComponent = () => {
                }
                
                if( data.status == 'success' ){
-                    history.push('/login')
+                    localStorage.setItem('token',data.data.remember_token)
+                    history.push('/dashboard')
                }
           })
           .catch( error => {

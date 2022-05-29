@@ -37,4 +37,4 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 //==================== session manage ====================//
-Route::get("manage-session",[AuthController::class,"manage_session"]);
+Route::get("manage-session/{token}",[AuthController::class,"manage_session"]);
