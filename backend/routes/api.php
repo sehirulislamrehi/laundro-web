@@ -30,6 +30,7 @@ Route::group(['prefix' => 'auth'], function () {
 	Route::post('logout', [AuthController::class, 'logout']);
 	Route::post('refresh', [AuthController::class, 'refresh']);
 	Route::post('profile', [AuthController::class, 'profile']);
+	Route::post('update-profile', [AuthController::class, 'update_profile']);
 
 	//forget password
 	Route::post("reset-password",[AuthController::class,"reset_password"]);
@@ -38,3 +39,9 @@ Route::group(['prefix' => 'auth'], function () {
 
 //==================== session manage ====================//
 Route::get("manage-session/{token}",[AuthController::class,"manage_session"]);
+
+//delete user image
+Route::post('delete-image', [AuthController::class, 'delete_image']);
+
+//change password
+Route::post('change-password', [AuthController::class, 'change_password']);

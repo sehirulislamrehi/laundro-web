@@ -94,7 +94,10 @@ const AccountComponent = () => {
 
                                              {/* image */}
                                              <div className="col-md-12 image-column">
-                                                  <img src="/images/rehi.png" className="img-fluid" alt="" />
+                                                  {
+                                                       user && user.image ? 
+                                                       <img src={user.image} className="img-fluid" alt="" /> : ''
+                                                  }
                                              </div>
 
                                              {/* account information */}
@@ -102,23 +105,19 @@ const AccountComponent = () => {
                                                        <ul>
                                                             <li>
                                                                  <strong>Name : </strong>
-                                                                 Colson Nicholas
+                                                                 { user && user.name ? user.name : 'N/A' }
                                                             </li>
                                                             <li>
                                                                  <strong>Email : </strong>
-                                                                 info@laundro.co.uk
+                                                                 { user && user.email ? user.email : 'N/A' }
                                                             </li>
                                                             <li>
                                                                  <strong>Phone : </strong>
-                                                                 017XXXXXXXX
-                                                            </li>
-                                                            <li>
-                                                                 <strong>Bio : </strong>
-                                                                 Lorem ipsum dolor sit amet, hello how consectetur adipisicing elit. Sint consectetur provident magni yohoho consequuntur, voluptatibus ghdfff exercitationem at quis similique. Optio, amet!
+                                                                 { user && user.phone ? user.phone : 'N/A' }
                                                             </li>
                                                             <li>
                                                                  <strong>Address : </strong>
-                                                                 Mrs Smith 71 Cherry Court SOUTHAMPTON SO53 5PD UK
+                                                                 { user && user.address ? user.address : 'N/A' }
                                                             </li>
                                                        </ul>
                                                   </div>

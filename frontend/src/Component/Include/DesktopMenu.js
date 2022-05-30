@@ -101,7 +101,7 @@ const DesktopMenu = () => {
                                                        {
                                                             localStorage.getItem('token') ?
                                                             <li>
-                                                                 <Link to="/dashboard">Dashboard</Link>
+                                                                 <Link to="/dashboard">My Dashboard</Link>
                                                             </li> :
                                                             <li>
                                                                  <Link to="/login">Login</Link>

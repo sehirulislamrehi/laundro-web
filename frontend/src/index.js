@@ -7,7 +7,7 @@ import { createStore } from 'redux';
 import allReducer from "./reducer";
 import { Provider } from 'react-redux';
 
-// window.url = "https://study-admin.sehirulislamrehi.com/api"
+// window.url = "https://laundro-admin.sehirulislamrehi.com/api"
 window.url = "http://127.0.0.1:8000/api"
 
 // const myStore = createStore(

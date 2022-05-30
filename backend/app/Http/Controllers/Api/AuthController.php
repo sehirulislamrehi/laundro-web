@@ -27,7 +27,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login', 'me', 'register', 'logout','verify','get_code','update_profile','change_password','manage_session','resend_code','reset_password']]);
+        $this->middleware('auth:api', ['except' => ['login', 'me', 'register', 'logout','verify','get_code','update_profile','change_password','manage_session','resend_code','reset_password','delete_image','change_password']]);
     }
 
 
@@ -36,7 +36,7 @@ class AuthController extends Controller
         try{
             $validator = Validator::make($request->all(),[
                 "name"       => "required",
-                "phone"      => "required|unique:customers,phone",
+                "phone"      => "required|numeric|unique:customers,phone",
                 "password"   => "required|min:6|confirmed",
             ]);
 
@@ -402,18 +402,19 @@ class AuthController extends Controller
     //update_profile function start
     public function update_profile(Request $request){
         try{
-            $customer = Customer::find($request->customer_id);
+
+            $customer = Customer::where("remember_token",$request->token)->first();
 
             if( $customer ){
                 $validator = Validator::make($request->all(),[
                     "name" => "required",
-                    "email" => "required|unique:customers,email,".$customer->id,
+                    "email" => "required|unique:customers,email,". $customer->id,
                     "address" => "required",
                 ]);
     
                 if( $validator->fails() ){
                     return response()->json([
-                        'status' => 'error',
+                        'status' => 'validation_error',
                         'data' => $validator->errors()
                     ],200);
                 }
@@ -423,12 +424,12 @@ class AuthController extends Controller
                     $customer->address = $request->address;
 
                     // image upload 
-                    if( $request->image ){
+                    if( $request->image != 'null' ){
                         if( File::exists('images/customer/'. $customer->image) ){
                             File::delete('images/customer/'. $customer->image);
                         }
                         $image = $request->file('image');
-                        $img = Str::slug($request->name) . time().Str::random(12).'.'.$image->getClientOriginalExtension();
+                        $img = time().Str::random(5).'.'.$image->getClientOriginalExtension();
                         $location = public_path('images/customer/'.$img);
                         Image::make($image)->save($location);
                         $customer->image = $img;
@@ -445,7 +446,7 @@ class AuthController extends Controller
             }
             else{
                 return response()->json([
-                    'status' => 'error',
+                    'status' => 'warning',
                     'data' => 'Invalid customer'
                 ],200);
             }
@@ -461,10 +462,48 @@ class AuthController extends Controller
     //update_profile function end
 
 
+    //delete_image function start
+    public function delete_image(Request $request){
+        try{
+
+            $customer = Customer::where("remember_token",$request->token)->first();
+
+            if( $customer ){
+                
+                $customer->image = null;
+                if( File::exists('images/customer/'. $customer->image) ){
+                    File::delete('images/customer/'. $customer->image);
+                }
+
+                if( $customer->save() ){
+                    return response()->json([
+                        'status' => 'success',
+                        'data' => new CustomerResource($customer)
+                    ],200);
+                }
+                
+            }
+            else{
+                return response()->json([
+                    'status' => 'warning',
+                    'data' => 'Invalid customer'
+                ],200);
+            }
+            
+        }
+        catch( Exception $e ){
+            return response()->json([
+                'status' => 'error',
+                'data' => $e->getMessage()
+            ],200);
+        }
+    } 
+    //delete_image function end
+
     //change_password function start
     public function change_password(Request $request){
         try{
-            $customer = Customer::find($request->customer_id);
+            $customer = Customer::where("remember_token",$request->token)->first();
 
             if( $customer ){
                 $validator = Validator::make($request->all(),[
@@ -474,7 +513,7 @@ class AuthController extends Controller
     
                 if( $validator->fails() ){
                     return response()->json([
-                        'status' => 'error',
+                        'status' => 'validation_error',
                         'data' => $validator->errors()
                     ],200);
                 }
@@ -501,7 +540,7 @@ class AuthController extends Controller
             }
             else{
                 return response()->json([
-                    'status' => 'error',
+                    'status' => 'warning',
                     'data' => 'Invalid customer'
                 ],200);
             }
@@ -524,8 +563,8 @@ class AuthController extends Controller
             $customer = Customer::where("remember_token", $token)->first();
 
             if( $customer ){
-                $token = Str::random(80);
-                $customer->remember_token  = $token; 
+                // $token = Str::random(80);
+                // $customer->remember_token  = $token; 
 
                 if( $customer->save() ){
                     return response()->json([
@@ -551,6 +590,7 @@ class AuthController extends Controller
         }
     }
     //manage_session function end
+
 
     
 
