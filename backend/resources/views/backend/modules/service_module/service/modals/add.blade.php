@@ -64,6 +64,18 @@
                 </select>
             </div>
 
+            <!-- short description -->
+            <div class="col-md-12 form-group">
+                <label>Short Description</label>
+                <textarea name="short_description" class="form-control" rows="3"></textarea>
+            </div>
+
+            <!-- Overview -->
+            <div class="col-md-12 form-group">
+                <label>Overview</label>
+                <textarea name="service_overview" class="div_editor-1" ></textarea>
+            </div>
+
             <div class="col-md-12 form-group text-right">
                 <button type="submit" class="btn btn-outline-dark">
                     Add
@@ -79,22 +91,7 @@
 
 
 
-<link href="{{ asset('backend/css/select2/form-select2.min.css') }}" rel="stylesheet">
-<link href="{{ asset('backend/css/select2/select2-materialize.css') }}" rel="stylesheet">
-<link href="{{ asset('backend/css/select2/select2.min.css') }}" rel="stylesheet">
-
-<script src="{{ asset('backend/js/select2/form-select2.min.js') }}"></script>
-<script src="{{ asset('backend/js/select2/select2.full.min.js') }}"></script>
-
 <script>
-    $(document).ready(function domReady() {
-        $(".select2").select2({
-            dropdownAutoWidth: true,
-            width: '100%',
-            dropdownParent: $('#myModal')
-        });
-    });
-
     $(document).on('change', '#service-onchange', function() {
         let value = $("#service-onchange option:selected").val()
 
@@ -115,4 +112,12 @@
             $(".material-price").hide()
         }
     })
+</script>
+
+
+<link rel="stylesheet" href="{{ asset('backend/css/rich_text_editor/rte_theme_default.css') }}">
+<script src="{{ asset('backend/js/rich_text_editor/all_pluggins.js') }}"></script>
+<script src="{{ asset('backend/js/rich_text_editor/rte.js') }}"></script>
+<script>
+    new RichTextEditor(`.div_editor-1`);
 </script>

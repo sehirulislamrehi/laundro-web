@@ -2,7 +2,6 @@
 
 namespace App\Models\ServiceModule;
 
-use App\Models\ServiceModule\Service;
 use App\Models\ServiceModule\ServiceDuration;
 use App\Models\ServiceModule\Type;
 use App\Models\ServiceProviderModule\ServiceProvider;

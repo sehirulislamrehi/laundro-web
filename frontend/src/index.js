@@ -10,15 +10,22 @@ import { Provider } from 'react-redux';
 // window.url = "https://laundro-admin.sehirulislamrehi.com/api"
 window.url = "http://127.0.0.1:8000/api"
 
-// const myStore = createStore(
-//   allReducer,
-//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-// )
+// window.url = "https://laundro-admin.sehirulislamrehi.com/api"
+window.url = "http://127.0.0.1:8000/api"
+
+// window.image_path = "https://laundro-admin.sehirulislamrehi.com/public/"
+window.image_path = "http://127.0.0.1:8000"
+
+const myStore = createStore(
+  allReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
+// const myStore = createStore(allReducer)
+
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
-const myStore = createStore(allReducer)
 
 root.render(
     <Provider store={myStore}>

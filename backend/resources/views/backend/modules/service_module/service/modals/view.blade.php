@@ -72,6 +72,18 @@
                               <td>Last Update</td>
                               <td>{{ $service->updated_at->toDayDateTimeString() }}</td>
                          </tr>
+                         <tr>
+                              <td>Short Description</td>
+                              <td>
+                                   {{ $service->short_description }}
+                              </td>
+                         </tr>
+                         <tr>
+                              <td>Service Overview</td>
+                              <td>
+                                   {!! $service->service_overview !!}
+                              </td>
+                         </tr>
                     </tbody>
                </table>
           </div>

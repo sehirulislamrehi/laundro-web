@@ -8,6 +8,9 @@
     .material-price {
         display: none;
     }
+    .form-check {
+        padding-left: 2.25rem;
+    }
 </style>
 @endsection
 

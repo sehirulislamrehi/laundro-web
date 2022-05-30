@@ -272,6 +272,7 @@ class ServiceController extends Controller
                 try{
                     $service             = new Service();
 					$service->name           = $request->name;
+					$service->slug           = Str::slug($request->name);
 
                     if( $request->price_check == true ){
                         $service->price = $request->price;
@@ -288,6 +289,9 @@ class ServiceController extends Controller
                     $location = public_path('images/service/'.$img);
                     Image::make($image)->save($location);
 					$service->icon           = $img;
+
+					$service->short_description = $request->short_description;
+					$service->service_overview = $request->service_overview;
 
                     $service->save();
 
@@ -366,6 +370,7 @@ class ServiceController extends Controller
                 try{
                     $service = Service::find($id);
 					$service->name           = $request->name;
+					$service->slug           = Str::slug($request->name);
 
 					if( $request->price_check == true ){
                         $service->price = $request->price;
@@ -388,6 +393,9 @@ class ServiceController extends Controller
 	                    Image::make($image)->save($location);
 						$service->icon           = $img;
 					}
+
+                    $service->short_description = $request->short_description;
+					$service->service_overview = $request->service_overview;
 
                     $service->save();
                     return response()->json(['success' => $service->name . "'s Updated Successfully"], 200);

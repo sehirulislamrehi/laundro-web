@@ -12,7 +12,9 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import DesktopMenu from "../Include/DesktopMenu";
 import MobileMenu from "../Include/MobileMenu";
 import Footer from "../Include/Footer";
-
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getAllServices } from "../../action";
 
 
 
@@ -21,6 +23,9 @@ const HomeComponent = () => {
 
      {/* window scroll to top */}
      window.scrollTo(0, 0);
+
+     //INITIALIZATION
+    const dispatch = useDispatch();
 
      const service_options = {
           margin: 0,
@@ -69,7 +74,25 @@ const HomeComponent = () => {
           },
      };
           
+     useEffect(() => {
+
+          //get services
+          const get_services_url = `${window.url}/get-all-services`;
+
+          fetch(get_services_url,{
+               method : "GET"
+          })
+          .then( response => response.json() )
+          .then( response => {
+               dispatch(getAllServices(response.data))
+          })
+          .catch( response => {
+               
+          })
+
+     },[]);
      
+     const get_all_services = useSelector( state => state.getAllServices )
 
      return(
           <div className="id">
@@ -324,148 +347,56 @@ const HomeComponent = () => {
                          </div>
                          
                         
-                         <OwlCarousel className='owl-theme home2-service-slider' 
-                              loop 
-                              items="3"
-                              nav="false"
-                              dots="true"
-                              {...service_options}
-                              
-                         >
+                         {
+                              get_all_services && 
+                              <OwlCarousel className='owl-theme home2-service-slider' 
+                                   loop 
+                                   items="3"
+                                   nav="false"
+                                   dots="true"
+                                   {...service_options}
+                                   
+                              >
+                                   {
+                                        get_all_services.map( item => (
+                                             <div className="item" key={item.id} >
+                                                  <div className="service-single-item item">
+                                                       <div className="img-wrapper">
+                                                            <img src={`${window.image_path}/images/service/${item.icon}`} alt="" />
+                                                       </div>
+                                                       <div className="srv2-service-content">
+                                                       <Link to={`/service-details/${item.slug}`}>
+                                                                 <h5>{item.name}</h5>
+                                                            </Link>
+                                                            <p>
+                                                                 {item.short_description.substring(0, 100)}...
+                                                            </p>
+                                                       </div>
+                                                       <div className="srv2-hover-item" style={{ backgroundImage : `url('images/01.jpg')` }}>
+                                                            <div className="img-wrapper">
+                                                                 <img src={`${window.image_path}/images/service/${item.icon}`} alt="" />
+                                                            </div>
+                                                            <div className="srv2-service-content">
+                                                                 <Link to={`/service-details/${item.slug}`}>
+                                                                      <h5>{item.name}</h5>
+                                                                 </Link>
+                                                                 <p>
+                                                                      {item.short_description.substring(0, 100)}...
+                                                                 </p>
+                                                                 <Link to={`/service-details/${item.slug}`} className="srv2-readmore-btn">
+                                                                      Read More 
+                                                                      <i className="fas fa-angle-right"></i>
+                                                                 </Link>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        )) 
+                                   }
 
-                              <div className="item">
-                                   <div className="service-single-item item">
-                                        <div className="img-wrapper">
-                                             <img src="/images/icon-2.png" alt="" />
-                                        </div>
-                                        <div className="srv2-service-content">
-                                             <Link to="/service-details/Wash">
-                                                  <h5>Wash</h5>
-                                             </Link>
-                                             <p>
-                                                  As a app web crawler expert, I help organizations adjust to
-                                                  expand significant of internet.  app web crawler expert
-                                             </p>
-                                        </div>
-                                        <div className="srv2-hover-item" style={{ backgroundImage : `url('images/01.jpg')` }}>
-                                             <div className="img-wrapper">
-                                                  <img src="/images/icon-2.png" alt="" />
-                                             </div>
-                                             <div className="srv2-service-content">
-                                                  <Link to="/service-details/Wash">
-                                                       <h5>Wash</h5>
-                                                  </Link>
-                                                  <p>
-                                                       As a app web crawler expert, I help organizations adjust to
-                                                       expand sigficant of internet.
-                                                  </p>
-                                                  <Link to="/service-details/Wash" className="srv2-readmore-btn">Read More <i
-                                                            className="fas fa-angle-right"></i></Link>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div className="item">
-                                   <div className="service-single-item">
-                                        <div className="img-wrapper">
-                                             <img src="/images/icon-3.png" alt="" />
-                                        </div>
-                                        <div className="srv2-service-content">
-                                             <Link to="/service-details/Wash & Iron">
-                                                  <h5>Wash & Irons</h5>
-                                             </Link>
-                                             <p>
-                                                  As a app web crawler expert, I help organizations adjust to
-                                                  expand significant of internet.
-                                             </p>
-                                        </div>
-                                        <div className="srv2-hover-item" style={{ backgroundImage : `url('images/01.jpg')` }}>
-                                             <div className="img-wrapper">
-                                                  <img src="/images/icon-3.png" alt="" />
-                                             </div>
-                                             <div className="srv2-service-content">
-                                                  <Link to="/service-details/Wash & Iron">
-                                                       <h5>Wash & Iron</h5>
-                                                  </Link>
-                                                  <p>
-                                                       As a app web crawler expert, I help organizations adjust to
-                                                       expand sigficant of internet.
-                                                  </p>
-                                                  <Link to="/service-details/Wash & Iron" className="srv2-readmore-btn">Read More <i
-                                                            className="fas fa-angle-right"></i></Link>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                              
-                              <div className="item">
-                                   <div className="service-single-item">
-                                        <div className="img-wrapper">
-                                             <img src="/images/icon-5.png" alt="" />
-                                        </div>
-                                        <div className="srv2-service-content">
-                                        <Link to="/service-details/Dry Cleaning">
-                                                  <h5>Dry Cleaning</h5>
-                                             </Link>
-                                             <p>
-                                                  As a app web crawler expert, I help organizations adjust to
-                                                  expand significant of internet.
-                                             </p>
-                                        </div>
-                                        <div className="srv2-hover-item" style={{ backgroundImage : `url('images/01.jpg')` }} >
-                                             <div className="img-wrapper">
-                                                  <img src="/images/icon-5.png" alt="" />
-                                             </div>
-                                             <div className="srv2-service-content">
-                                             <Link to="/service-details/Dry Cleaning">
-                                                       <h5>Dry Cleaning</h5>
-                                                  </Link>
-                                                  <p>
-                                                       As a app web crawler expert, I help organizations adjust to
-                                                       expand sigficant of internet.
-                                                  </p>
-                                                  <Link to="/service-details/Dry Cleaning" className="srv2-readmore-btn">Read More <i
-                                                            className="fas fa-angle-right"></i></Link>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div className="item">
-                                   <div className="service-single-item item">
-                                        <div className="img-wrapper">
-                                             <img src="/images/icon-2.png" alt="" />
-                                        </div>
-                                        <div className="srv2-service-content">
-                                             <Link to="/service-details/Wash">
-                                                  <h5>Wash</h5>
-                                             </Link>
-                                             <p>
-                                                  As a app web crawler expert, I help organizations adjust to
-                                                  expand significant of internet.  app web crawler expert
-                                             </p>
-                                        </div>
-                                        <div className="srv2-hover-item" style={{ backgroundImage : `url('images/01.jpg')` }}>
-                                             <div className="img-wrapper">
-                                                  <img src="/images/icon-2.png" alt="" />
-                                             </div>
-                                             <div className="srv2-service-content">
-                                                  <Link to="/service-details/Wash">
-                                                       <h5>Wash</h5>
-                                                  </Link>
-                                                  <p>
-                                                       As a app web crawler expert, I help organizations adjust to
-                                                       expand sigficant of internet.
-                                                  </p>
-                                                  <Link to="/service-details/Wash" className="srv2-readmore-btn">Read More <i
-                                                            className="fas fa-angle-right"></i></Link>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-
-                         </OwlCarousel>
+                              </OwlCarousel>
+                         }
+                         
 
                          
                     </div>
@@ -479,113 +410,38 @@ const HomeComponent = () => {
                     <div className="container">
                          <div className="row">
 
-                              <div className="col-lg-3 col-md-4 col-sm-6">
-                                   <div className="home2-skills-column">
-                                        <div className="circle-wrap">
-                                             <div className="circle">
-                                                  <div className="mask full">
-                                                  <div className="fill" style={{ transform: "rotate(100deg)" }} >
-                                                       
+                              {
+                                   get_all_services && get_all_services.slice(0,4).map( (item, key) => (
+                                        
+                                        <div className="col-lg-3 col-md-4 col-sm-6">
+                                             <div className="home2-skills-column">
+                                                  <div className="circle-wrap">
+                                                       <div className="circle">
+                                                            <div className="mask full">
+                                                                 <div className="fill" style={{ transform: "rotate(100deg)" }} >
+                                                                      
+                                                                 </div>
+                                                            </div>
+                                                            <div className="mask half">
+                                                                 <div className="fill" style={{ transform: "rotate(100deg)" }} ></div>
+                                                            </div>
+                                                            <div className="inside-circle">
+                                                                 <img src={`${window.image_path}/images/service/${item.icon}`}  alt="" />   
+                                                            </div>
+                                                       </div>
                                                   </div>
-                                                  </div>
-                                                  <div className="mask half">
-                                                  <div className="fill" style={{ transform: "rotate(100deg)" }} >
-                                                  </div>
-                                                  </div>
-                                                  <div className="inside-circle">
-                                                       <img src="/images/home-cleaning.png"  alt="" />   
-                                                  </div>
-                                             </div>
-                                        </div>
-                                        <div className="skills-content">
-                                        <Link to="/service-details/Wash">
-                                                  <h5>Wash</h5>
-                                             </Link>
-                                             <p>As a app web crawler expert, I help organizations.</p>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div className="col-lg-3 col-md-4 col-sm-6">
-                                   <div className="home2-skills-column">
-                                        <div className="circle-wrap">
-                                             <div className="circle">
-                                                  <div className="mask full">
-                                                  <div className="fill" style={{ transform: "rotate(100deg)" }} >
-                                                       
-                                                  </div>
-                                                  </div>
-                                                  <div className="mask half">
-                                                  <div className="fill" style={{ transform: "rotate(100deg)" }} >
-                                                  </div>
-                                                  </div>
-                                                  <div className="inside-circle">
-                                                       <img src="/images/office-cleaning.png"  alt="" />   
+                                                  <div className="skills-content">
+                                                  <Link to="/service-details/Wash">
+                                                            <h5>{item.name}</h5>
+                                                       </Link>
+                                                       <p>As a app web crawler expert, I help organizations.</p>
                                                   </div>
                                              </div>
                                         </div>
-                                        <div className="skills-content">
-                                             <Link to="/service-details/Wash & Iron">
-                                                  <h5>Wash & Iron</h5>
-                                             </Link>
-                                             <p>As a app web crawler expert, I help organizations.</p>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div className="col-lg-3 col-md-4 col-sm-6">
-                                   <div className="home2-skills-column">
-                                        <div className="circle-wrap">
-                                             <div className="circle">
-                                                  <div className="mask full">
-                                                  <div className="fill" style={{ transform: "rotate(100deg)" }} >
-                                                       
-                                                  </div>
-                                                  </div>
-                                                  <div className="mask half">
-                                                  <div className="fill" style={{ transform: "rotate(100deg)" }} >
-                                                  </div>
-                                                  </div>
-                                                  <div className="inside-circle">
-                                                       <img src="/images/plumbing-service.png"  alt="" />   
-                                                  </div>
-                                             </div>
-                                        </div>
-                                        <div className="skills-content">
-                                             <Link to="/service-details/Dry Cleaning">
-                                                  <h5>Dry Cleaning</h5>
-                                             </Link>
-                                             <p>As a app web crawler expert, I help organizations.</p>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div className="col-lg-3 col-md-4 col-sm-6">
-                                   <div className="home2-skills-column">
-                                        <div className="circle-wrap">
-                                             <div className="circle">
-                                                  <div className="mask full">
-                                                  <div className="fill" style={{ transform: "rotate(100deg)" }} >
-                                                       
-                                                  </div>
-                                                  </div>
-                                                  <div className="mask half">
-                                                  <div className="fill" style={{ transform: "rotate(100deg)" }} >
-                                                  </div>
-                                                  </div>
-                                                  <div className="inside-circle">
-                                                       <img src="/images/window.png"  alt="" />   
-                                                  </div>
-                                             </div>
-                                        </div>
-                                        <div className="skills-content">
-                                             <Link to="/service-details/Ironing">
-                                                  <h5>Ironing</h5>
-                                             </Link>
-                                             <p>As a app web crawler expert, I help organizations.</p>
-                                        </div>
-                                   </div>
-                              </div>
+                                        
+                                   ))
+                              }
+                              
 
                          </div>
                     </div>

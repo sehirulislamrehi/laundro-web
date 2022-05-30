@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\ServiceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -45,3 +46,7 @@ Route::post('delete-image', [AuthController::class, 'delete_image']);
 
 //change password
 Route::post('change-password', [AuthController::class, 'change_password']);
+
+
+//get all service
+Route::get("get-all-services/",[ServiceController::class,"get_all_service"]);

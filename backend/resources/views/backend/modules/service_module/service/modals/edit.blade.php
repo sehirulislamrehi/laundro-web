@@ -63,6 +63,18 @@
                 </select>
             </div>
 
+            <!-- short description -->
+            <div class="col-md-12 form-group">
+                <label>Short Description</label>
+                <textarea name="short_description" class="form-control" rows="3">{{ $service->short_description }}</textarea>
+            </div>
+
+            <!-- Overview -->
+            <div class="col-md-12 form-group">
+                <label>Overview</label>
+                <textarea name="service_overview" class="div_editor-1" >{{ $service->service_overview }}</textarea>
+            </div>
+
             <div class="col-md-12 form-group text-right">
                 <button type="submit" class="btn btn-outline-dark">
                     Update
@@ -111,4 +123,13 @@
             $(".material-price").hide()
         }
     })
+</script>
+
+
+
+<link rel="stylesheet" href="{{ asset('backend/css/rich_text_editor/rte_theme_default.css') }}">
+<script src="{{ asset('backend/js/rich_text_editor/all_pluggins.js') }}"></script>
+<script src="{{ asset('backend/js/rich_text_editor/rte.js') }}"></script>
+<script>
+    new RichTextEditor(`.div_editor-1`);
 </script>
