@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\LocationController;
 use App\Http\Controllers\Api\ServiceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -51,3 +52,6 @@ Route::post('change-password', [AuthController::class, 'change_password']);
 //get all service
 Route::get("get-all-services/",[ServiceController::class,"get_all_service"]);
 Route::get("service-details/{slug}",[ServiceController::class,"service_details"]);
+
+//postal code wise area
+Route::post("postal-code-area",[LocationController::class,"postal_code_area"]);

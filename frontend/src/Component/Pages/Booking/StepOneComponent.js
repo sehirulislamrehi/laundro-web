@@ -8,174 +8,267 @@ import { useParams } from "react-router";
 import DesktopMenu from "../../Include/DesktopMenu";
 import MobileMenu from "../../Include/MobileMenu";
 import Footer from "../../Include/Footer";
+import { useEffect, useRef, useState } from "react";
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllArea } from "../../../action";
 
 const StepOneComponent = () => {
 
      {/* window scroll to top */}
      window.scrollTo(0, 0);
 
+     let [check_authorized, set_authorized] = useState('unauthorized');
+     const history = useHistory();
+     const { slug } =  useParams(); 
+
+     //INITIALIZATION
+     const dispatch = useDispatch();
+
+     //manage session
+     const [user, setUser] = useState(null);
+     const manage_session_url = `${window.url}/manage-session`;
+
+     const [service, setService] = useState(null);
+
+     useEffect(() => {
+
+
+          //send request to the server for manage session
+          const token = localStorage.getItem('token')
+          const options_for_manage_session_request = {
+               method: 'GET',
+          };
+          fetch(`${manage_session_url}/${token}`,options_for_manage_session_request)
+          .then( response => response.json() )
+          .then( response => {
+               if( response.status == 'error' ){
+                    localStorage.removeItem('token')
+                    set_authorized('unauthorized');
+                    history.push({
+                         pathname: '/login',
+                    });
+               }
+               if( response.status == 'success' ){
+                    setUser(response.data)
+                    localStorage.setItem('token',response.data.remember_token)
+                    set_authorized('authorized');
+               }
+
+          })
+
+
+          //service details
+          const service_details_url = `${window.url}/service-details/${slug}`;
+
+          fetch(service_details_url,{
+               method : "GET"
+          })
+          .then( response => response.json() )
+          .then( response => {
+               if( response.status == "success" ){
+                    setService(response.data)
+               }
+               if( response.status == "warning" ){
+                    
+               }
+               if( response.status == "error" ){
+                    
+               }
+          })
+          .catch( response => {
+               
+          })
+
+     },[])
+
      function clickOnDuration(e){
-          if( e.target.previousElementSibling ){
-               e.target.previousElementSibling.style.background = "#efefef"
+          
+          let select_address_type = document.querySelectorAll(".select-order-duration ul li");
+
+          for( let x in select_address_type ){
+               if( x < select_address_type.length ){
+                    select_address_type[x].style.background = "#efefef"
+               }
           }
-          if( e.target.nextElementSibling ){
-               e.target.nextElementSibling.style.background = "#efefef"
-          }
+
           e.target.style.background = "#22d3ee"
      }
 
-     const { slug } =  useParams();     
+     const selectAddress = useRef(null)
+     function postalCodeChange(e){
+          const formData = new FormData();
+          const value = e.target.value
+          const url = `${window.url}/postal-code-area`;
+          const address_select = document.getElementById("address-select");
 
-     return(
-          <div className="id">
+          formData.append('code',value)
+          fetch(url,{    
+               method : "POST",
+               body : formData
+          })
+          .then( response => response.json() )
+          .then( response => {
 
-               {/* desktop menu start */}
-               <DesktopMenu></DesktopMenu>
-               {/* desktop menu end */}
+               if( response.status == "success" ){
+                    selectAddress.current.innerHTML = ''
+                    dispatch(getAllArea(response.data))
+               }
+               if( response.status == "warning" ){
+                    selectAddress.current.innerHTML = response.data
 
-               {/* Mobile Menu */}
-               <MobileMenu></MobileMenu>
-               {/* Mobile Menu End */}
+                    const length = address_select.options.length
+                    for( let x = 0 ; x <= length ; x++ ){
+                         address_select.options[0].remove()
+                    }
+                    
+               }
+          })
+          .catch( response => {
+               
+          })
+          
+     }
 
-               <section className="booking-section" style={{
-                    padding: "10px 0 100px 0px"
-               }} id="msform">
-                    <div className="container">
-                         <div className="row">
-                              <div className="col-md-8">
+     const address = useSelector( state => state.getAllArea )
 
-                                   <div className="row">
-                                        <div className="col-md-12">
-                                             {/* progressbar */}
-                                             <ul id="progressbar">
-                                                  <li className="active">Frequency</li>
-                                                  <li>Service Details</li>
-                                                  <li>Date & Time</li>
-                                                  <li>Service Details</li>
-                                             </ul>
+     if( address ){
+          let address_select = document.getElementById("address-select")
+          for( let i = 0 ; i < address.length ; i++ ){
+               
+               var str = `<option id='${address[i].id}'>${address[i].name}</option>`
+               var div = document.createElement('div');
+               div.innerHTML = str;
+
+               while ( div.children.length > 0 ) {
+                    address_select.append(div.children[0]);
+               }
+               
+          }
+     }
+
+
+     if( check_authorized && check_authorized == "authorized" ){
+          return(
+               <div className="id">
+     
+                    {/* desktop menu start */}
+                    <DesktopMenu></DesktopMenu>
+                    {/* desktop menu end */}
+     
+                    {/* Mobile Menu */}
+                    <MobileMenu></MobileMenu>
+                    {/* Mobile Menu End */}
+     
+                    <section className="booking-section" style={{
+                         padding: "10px 0 100px 0px"
+                    }} id="msform">
+                         <div className="container">
+                              <div className="row">
+                                   <div className="col-md-8">
+     
+                                        <div className="row">
+                                             <div className="col-md-12">
+                                                  {/* progressbar */}
+                                                  <ul id="progressbar">
+                                                       <li className="active">Frequency</li>
+                                                       <li>Service Details</li>
+                                                       <li>Date & Time</li>
+                                                       <li>Service Details</li>
+                                                  </ul>
+                                             </div>
                                         </div>
+     
+                                        <div className="row booking-card">
+     
+                                             <div className="col-md-12 title mb-3">
+                                                  <h4>{service && service.name}</h4>
+                                                  <p>
+                                                       {service && service.short_description}
+                                                  </p>
+                                             </div>
+     
+                                             <div className="col-md-12 select-postal-code mb-3">
+                                                  <label htmlFor="">Enter BD postal code</label>
+                                                  <input type="text" className="form-control" onChange={postalCodeChange} />
+                                             </div>
+     
+                                             <div className="col-md-12 select-address mb-3">
+                                                  <label htmlFor="">Select your address</label>
+                                                  <select name="" className="form-control" id="address-select">
+                                                       
+                                                  </select>
+                                                  <span ref={selectAddress} style={{ color: "red" }}></span>
+                                             </div>
+     
+                                             <div className="col-md-12 select-order-duration mb-3">
+                                                  <p>Choose address type</p>
+                                                  <ul>
+                                                       <li onClick={clickOnDuration} data-id="home"> <i className="fas fa-home"></i> Home</li>
+                                                       <li onClick={clickOnDuration} data-id="office"> <i className="fas fa-briefcase"></i> Office</li>
+                                                       <li onClick={clickOnDuration} data-id="hotel"> <i className="fas fa-hotel"></i> Hotel</li>
+                                                  </ul>
+                                             </div>
+     
+                                             <div className="col-md-12 next-step">
+                                                  <Link to={`/booking-2/${slug}`}>
+                                                       Proceed
+                                                  </Link>
+                                             </div>
+     
+                                        </div>
+                                        
                                    </div>
+     
+                                   <div className="col-md-4 ">
+                                        <div className="booking-summary">
+                                             <h4>Booking Summary</h4>
+                                             <table>
+                                                  <tbody>
+                                                       <tr>
+                                                            <td>Service</td>
+                                                            <td>{service && service.name}</td>
+                                                       </tr>
+                                                  </tbody>
+                                             </table>
 
-                                   <div className="row booking-card">
 
-                                        <div className="col-md-12 title mb-3">
-                                             <h4>{slug}</h4>
-                                             <p>
-                                                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
-                                             </p>
-                                             <img src="/images/booking-1.png" className="img-fluid" alt="" />
                                         </div>
-
-                                        <div className="col-md-12 select-postal-code mb-3">
-                                             <label htmlFor="">Enter BD postal code</label>
-                                             <input type="text" className="form-control"  />
-                                        </div>
-
-                                        <div className="col-md-12 select-address mb-3">
-                                             <label htmlFor="">Select your address</label>
-                                             <select name="" className="form-control">
-                                                  <option value="8166316"> 1st Translation Co Ltd, Gresham House, 24 Holborn Viaduct, LONDON, EC1A 2BN </option>
-                                                  <option value="54142703"> Catena Media UK Ltd, Gresham House, 24 Holborn Viaduct, LONDON, EC1A 2BN </option>
-                                                  <option value="8166315"> Lisa Tse Ltd, Gresham House, 24 Holborn Viaduct, LONDON, EC1A 2BN </option>
-                                                  <option value="8166310"> Max Need Ltd, Gresham House, 24 Holborn Viaduct, LONDON, EC1A 2BN </option>
-                                                  <option value="54025645"> R D H Advisory Ltd, Gresham House, 24 Holborn Viaduct, LONDON, EC1A 2BN </option>
-                                                  <option value="53255431"> Registered Address Ltd, Gresham House, 24 Holborn Viaduct, LONDON, EC1A 2BN </option>
-                                                  <option value="-1"> Not on the list? </option>
-                                             </select>
-                                        </div>
-
-                                        <div className="col-md-12 select-order-duration mb-3">
-                                             <p>How ofter do you need this service?</p>
-                                             <ul>
-                                                  <li onClick={clickOnDuration}>One Time</li>
-                                                  <li onClick={clickOnDuration}>Regular</li>
-                                             </ul>
-                                        </div>
-
-                                        <div className="col-md-12 next-step">
-                                             <Link to={`/booking-2/${slug}`}>
-                                                  Proceed
-                                             </Link>
-                                        </div>
-
-                                   </div>
-                                   
-                              </div>
-
-                              <div className="col-md-4 ">
-                                   <div className="booking-summary">
-                                        <h4>Booking Summary</h4>
-                                        <table>
-                                             <tbody>
-                                                  <tr>
-                                                       <td>Service Type</td>
-                                                       <td>{slug}</td>
-                                                  </tr>
-                                                  <tr>
-                                                       <td>Material</td>
-                                                       <td>Yes</td>
-                                                  </tr>
-                                                  <tr>
-                                                       <td>Duration</td>
-                                                       <td>2 Hour</td>
-                                                  </tr>
-                                                  <tr>
-                                                       <td>Number of maids</td>
-                                                       <td>1</td>
-                                                  </tr>
-                                             </tbody>
-                                        </table>
-
-                                        <h4 className="mt-3">Date & Times</h4>
-                                        <table>
-                                             <tbody>
-                                                  <tr>
-                                                       <td>Sunday, October 14, 2022</td>
-                                                  </tr>
-                                                  <tr>
-                                                       <td>10:00 AM</td>
-                                                  </tr>
-                                             </tbody>
-                                        </table>
-
-                                        <h4 className="mt-3">Address</h4>
-                                        <table>
-                                             <tbody>
-                                                  <tr>
-                                                       <td>Mohakhali TB Gate, Dhaka - Bangladesh</td>
-                                                  </tr>
-                                             </tbody>
-                                        </table>
-
-                                        <h4 className="mt-3">Price Details</h4>
-                                        <table>
-                                             <tbody>
-                                                  <tr>
-                                                       <td>Service Cose</td>
-                                                       <td>100 BDT</td>
-                                                  </tr>
-                                                  <tr>
-                                                       <td>VAT</td>
-                                                       <td>10 BDT</td>
-                                                  </tr>
-                                                  <tr className="total-amount">
-                                                       <td>Total</td>
-                                                       <td>110 BDT</td>
-                                                  </tr>
-                                             </tbody>
-                                        </table>
                                    </div>
                               </div>
                          </div>
-                    </div>
-               </section>
+                    </section>
+     
+                    {/* Footer */}
+                    <Footer></Footer>
+                    {/* Footer End */}
+     
+               </div>
+          );
+     }
+     else{
+          return(
+               <div className="id">
+                    {/* desktop menu start */}
+                    <DesktopMenu></DesktopMenu>
+                    {/* desktop menu end */}
 
-               {/* Footer */}
-               <Footer></Footer>
-               {/* Footer End */}
+                    {/* Mobile Menu */}
+                    <MobileMenu></MobileMenu>
+                    {/* Mobile Menu End */}
 
-          </div>
-     );
+                    {/* please wait section start */}
+                    <section className="please-wait">
+                         <h4 className="content">Please Wait...</h4>
+                    </section>
+                    {/* please wait section end */}
+
+                    {/* Footer */}
+                    <Footer></Footer>
+                    {/* Footer End */}
+               </div> 
+          );
+     }
 }
 
 export default StepOneComponent;

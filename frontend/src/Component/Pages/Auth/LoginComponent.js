@@ -13,9 +13,10 @@ import { useEffect, useState } from "react";
 
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import { useParams } from "react-router-dom";
 const MySwal = withReactContent(Swal)
 
-const LoginComponent = () => {
+const LoginComponent = (state) => {
 
      {/* window scroll to top */}
      window.scrollTo(0, 0);
@@ -29,7 +30,6 @@ const LoginComponent = () => {
       }
      //check authentication end
 
-     
 
      
      //login functionality start

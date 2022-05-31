@@ -73,7 +73,7 @@ const ServicesComponent = () => {
 
                                    {
                                         get_all_services && get_all_services.map( item => (
-                                        <div className="col-lg-4 col-md-6">
+                                        <div className="col-lg-4 col-md-6" key={item.id}>
                                              <div className="laundro-single-item sr-item">
                                                   <div className="laundro-icon-wrapper">
                                                        <img src={`${window.image_path}/images/service/${item.icon}`} alt=""></img>
