@@ -13,9 +13,9 @@ import DesktopMenu from "../Include/DesktopMenu";
 import MobileMenu from "../Include/MobileMenu";
 import Footer from "../Include/Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getAllServices } from "../../action";
-
+import Select from 'react-select'
 
 
 
@@ -25,7 +25,7 @@ const HomeComponent = () => {
      window.scrollTo(0, 0);
 
      //INITIALIZATION
-    const dispatch = useDispatch();
+     const dispatch = useDispatch();
 
      const service_options = {
           margin: 0,
@@ -74,16 +74,22 @@ const HomeComponent = () => {
           },
      };
           
+     const service_name = [];
+     const service_slug = [];
+
      useEffect(() => {
 
           //get services
           const get_services_url = `${window.url}/get-all-services`;
-
+          
           fetch(get_services_url,{
                method : "GET"
           })
           .then( response => response.json() )
           .then( response => {
+
+               
+
                dispatch(getAllServices(response.data))
           })
           .catch( response => {
@@ -93,6 +99,15 @@ const HomeComponent = () => {
      },[]);
      
      const get_all_services = useSelector( state => state.getAllServices )
+
+     for( let i = 0; i < get_all_services.length ; i++ ){
+          const getallData={
+            value : `${get_all_services[i].slug}`,
+            label : `${get_all_services[i].name}`,
+          }
+          service_name.push(getallData)
+     }
+     
 
      return(
           <div className="id">
@@ -156,12 +171,11 @@ const HomeComponent = () => {
                                    <input type="email" placeholder="Main Address" />
                                    <div className="select-field">
                                         <select>
-                                             <option>Wash</option>
-                                             <option>Wash & Iron</option>
-                                             <option>Dry Cleaning</option>
-                                             <option>Ironing</option>
-                                             <option>Duvets & Bulky Items</option>
-                                             <option>Deals</option>
+                                             {
+                                                  service_name && service_name.map( item => (
+                                                       <option value={item.value}>{item.label}</option>
+                                                  ))
+                                             }
                                         </select>
                                    </div>
                                    <textarea placeholder="Type message..." rows="8"></textarea>
@@ -199,16 +213,10 @@ const HomeComponent = () => {
                                              </div>
 
                                              {/* service */}
-                                             <div className="col-md-5 col-12 form-group">
-                                                  <select name="" className="form-control">
-                                                       <option>Select Service</option>
-                                                       <option>Wash</option>
-                                                       <option>Wash & Iron</option>
-                                                       <option>Dry Cleaning</option>
-                                                       <option>Ironing</option>
-                                                       <option>Duvets & Bulky Items</option>
-                                                       <option>Deals</option>
-                                                  </select>                                               
+                                             <div className="col-md-5 col-12 form-group"> 
+                                                  <Select 
+                                                       options={service_name}
+                                                  />                                             
                                              </div>
 
                                              {/* button */}
@@ -431,10 +439,10 @@ const HomeComponent = () => {
                                                        </div>
                                                   </div>
                                                   <div className="skills-content">
-                                                  <Link to="/service-details/Wash">
+                                                  <Link to={`/service-details/${item.slug}`}>
                                                             <h5>{item.name}</h5>
                                                        </Link>
-                                                       <p>As a app web crawler expert, I help organizations.</p>
+                                                       <p>{item.short_description.substring(0, 50)}...</p>
                                                   </div>
                                              </div>
                                         </div>

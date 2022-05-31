@@ -6,11 +6,39 @@ import DesktopMenu from "../Include/DesktopMenu";
 import MobileMenu from "../Include/MobileMenu";
 import Footer from "../Include/Footer";
 
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getAllServices } from "../../action";
+
 
 const ServicesComponent = () => {
 
      {/* window scroll to top */}
      window.scrollTo(0, 0);
+
+     //INITIALIZATION
+     const dispatch = useDispatch();
+
+
+     useEffect(() => {
+
+          //get services
+          const get_services_url = `${window.url}/get-all-services`;
+
+          fetch(get_services_url,{
+               method : "GET"
+          })
+          .then( response => response.json() )
+          .then( response => {
+               dispatch(getAllServices(response.data))
+          })
+          .catch( response => {
+               
+          })
+
+     },[]);
+     
+     const get_all_services = useSelector( state => state.getAllServices )
 
      return(
           <div className="id">
@@ -42,180 +70,42 @@ const ServicesComponent = () => {
                     <div className="container">
                          <div className="laundro-service-wrapper">
                               <div className="row">
-                              <div className="col-lg-4 col-md-6">
-                                   <div className="laundro-single-item sr-item">
-                                        <div className="laundro-icon-wrapper">
-                                             <img src="/images/insta-1.jpg" alt=""></img>
-                                        </div>
-                                        <div className="laundro-sr-content">
-                                             <Link to="/service-details/Wash"><h6>Wash</h6></Link>
-                                             <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                             <Link to="/service-details/Wash" className="laundro-readmore-btn">Read More</Link>
-                                        </div>
-                                        <div className="laundro-sr-hover">
-                                             <div className="img-wrapper">
-                                                  <img src="/images/01.jpg" alt=""></img>
-                                                  <span className="img-shadow"></span>
-                                             </div>
-                                             <div className="icon-wrapper">
-                                                  <div className="laundro-img">
-                                                  <img src="/images/insta-1.jpg" alt=""></img>
+
+                                   {
+                                        get_all_services && get_all_services.map( item => (
+                                        <div className="col-lg-4 col-md-6">
+                                             <div className="laundro-single-item sr-item">
+                                                  <div className="laundro-icon-wrapper">
+                                                       <img src={`${window.image_path}/images/service/${item.icon}`} alt=""></img>
                                                   </div>
-                                                  <span className="laundro-icon-shadow"></span>
-                                             </div>
-                                             <div className="laundro-sr-content">
-                                                  <Link to="/service-details/Wash"><h6>Wash</h6></Link>
-                                                  <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                                  <Link to="/service-details/Wash" className="laundro-readmore-btn">Read more</Link>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                              <div className="col-lg-4 col-md-6">
-                                   <div className="laundro-single-item sr-item">
-                                        <div className="laundro-icon-wrapper">
-                                             <img src="/images/insta-2.jpg" alt=""></img>
-                                        </div>
-                                        <div className="laundro-sr-content">
-                                             <Link to="/service-details/Wash & Iron"><h6>Wash & Iron</h6></Link>
-                                             <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                             <Link to="/service-details/Wash & Iron" className="laundro-readmore-btn">Read More</Link>
-                                        </div>
-                                        <div className="laundro-sr-hover">
-                                             <div className="img-wrapper">
-                                                  <img src="/images/02.jpg" alt=""></img>
-                                                  <span className="img-shadow"></span>
-                                             </div>
-                                             <div className="icon-wrapper">
-                                                  <div className="laundro-img">
-                                                  <img src="/images/insta-2.jpg" alt=""></img>
+                                                  <div className="laundro-sr-content">
+                                                       <Link to={`/service-details/${item.slug}`}><h6>{item.name}</h6></Link>
+                                                       <p>{item.short_description.substring(0, 100)}...</p>
+                                                       <Link to={`/service-details/${item.slug}`} className="laundro-readmore-btn">Read More</Link>
                                                   </div>
-                                                  <span className="laundro-icon-shadow"></span>
-                                             </div>
-                                             <div className="laundro-sr-content">
-                                                  <Link to="/service-details/Wash & Iron"><h6>Wash & Iron</h6></Link>
-                                                  <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                                  <Link to="/service-details/Wash & Iron" className="laundro-readmore-btn">Read more</Link>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                              <div className="col-lg-4 col-md-6">
-                                   <div className="laundro-single-item sr-item">
-                                        <div className="laundro-icon-wrapper">
-                                             <img src="/images/insta-4.jpg" alt=""></img>
-                                        </div>
-                                        <div className="laundro-sr-content">
-                                             <Link to="/service-details/Dry Cleaning"><h6>Dry Cleaning</h6></Link>
-                                             <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                             <Link to="/service-details/Dry Cleaning" className="laundro-readmore-btn">Read More</Link>
-                                        </div>
-                                        <div className="laundro-sr-hover">
-                                             <div className="img-wrapper">
-                                                  <img src="/images/03.jpg" alt=""></img>
-                                                  <span className="img-shadow"></span>
-                                             </div>
-                                             <div className="icon-wrapper">
-                                                  <div className="laundro-img">
-                                                  <img src="/images/insta-4.jpg" alt=""></img>
+                                                  <div className="laundro-sr-hover">
+                                                       <div className="img-wrapper">
+                                                            <img src="/images/01.jpg" alt=""></img>
+                                                            <span className="img-shadow"></span>
+                                                       </div>
+                                                       <div className="icon-wrapper">
+                                                            <div className="laundro-img">
+                                                            <img src={`${window.image_path}/images/service/${item.icon}`} alt=""></img>
+                                                            </div>
+                                                            <span className="laundro-icon-shadow"></span>
+                                                       </div>
+                                                       <div className="laundro-sr-content">
+                                                            <Link to={`/service-details/${item.slug}`}><h6>{item.name}</h6></Link>
+                                                            <p>{item.short_description.substring(0, 100)}...</p>
+                                                            <Link to={`/service-details/${item.slug}`} className="laundro-readmore-btn">Read more</Link>
+                                                       </div>
                                                   </div>
-                                                  <span className="laundro-icon-shadow"></span>
-                                             </div>
-                                             <div className="laundro-sr-content">
-                                                  <Link to="/service-details/Dry Cleaning"><h6>Dry Cleaning</h6></Link>
-                                                  <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                                  <Link to="/service-details/Dry Cleaning" className="laundro-readmore-btn">Read more</Link>
                                              </div>
                                         </div>
-                                   </div>
-                              </div>
-                              <div className="col-lg-4 col-md-6">
-                                   <div className="laundro-single-item sr-item">
-                                        <div className="laundro-icon-wrapper">
-                                             <img src="/images/insta-5.jpg" alt=""></img>
-                                        </div>
-                                        <div className="laundro-sr-content">
-                                             <Link to="/service-details/Ironing"><h6>Ironing</h6></Link>
-                                             <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                             <Link to="/service-details/Ironing" className="laundro-readmore-btn">Read More</Link>
-                                        </div>
-                                        <div className="laundro-sr-hover">
-                                             <div className="img-wrapper">
-                                                  <img src="/images/04.jpg" alt=""></img>
-                                                  <span className="img-shadow"></span>
-                                             </div>
-                                             <div className="icon-wrapper">
-                                                  <div className="laundro-img">
-                                                  <img src="/images/insta-5.jpg" alt=""></img>
-                                                  </div>
-                                                  <span className="laundro-icon-shadow"></span>
-                                             </div>
-                                             <div className="laundro-sr-content">
-                                                  <Link to="/service-details/Ironing"><h6>Ironing</h6></Link>
-                                                  <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                                  <Link to="/service-details/Ironing" className="laundro-readmore-btn">Read more</Link>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                              <div className="col-lg-4 col-md-6">
-                                   <div className="laundro-single-item sr-item">
-                                        <div className="laundro-icon-wrapper">
-                                             <img src="/images/insta-6.jpg" alt=""></img>
-                                        </div>
-                                        <div className="laundro-sr-content">
-                                             <Link to="/service-details/Duvets & Bulky Items"></Link><h6>Duvets & Bulky Items</h6>
-                                             <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                             <Link to="/service-details/Duvets & Bulky Items" className="laundro-readmore-btn">Read More</Link>
-                                        </div>
-                                        <div className="laundro-sr-hover">
-                                             <div className="img-wrapper">
-                                                  <img src="/images/05.jpg" alt=""></img>
-                                                  <span className="img-shadow"></span>
-                                             </div>
-                                             <div className="icon-wrapper">
-                                                  <div className="laundro-img">
-                                                  <img src="/images/insta-6.jpg" alt=""></img>
-                                                  </div>
-                                                  <span className="laundro-icon-shadow"></span>
-                                             </div>
-                                             <div className="laundro-sr-content">
-                                                  <Link to="/service-details/Duvets & Bulky Items"><h6>Duvets & Bulky Items</h6></Link>
-                                                  <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                                  <Link to="/service-details/Duvets & Bulky Items" className="laundro-readmore-btn">Read more</Link>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                              <div className="col-lg-4 col-md-6">
-                                   <div className="laundro-single-item sr-item">
-                                        <div className="laundro-icon-wrapper">
-                                             <img src="/images/icon-5.png" alt=""></img>
-                                        </div>
-                                        <div className="laundro-sr-content">
-                                             <Link to="/service-details/Deals"><h6>Deals</h6></Link>
-                                             <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                             <Link to="/service-details/Deals" className="laundro-readmore-btn">Read More</Link>
-                                        </div>
-                                        <div className="laundro-sr-hover">
-                                             <div className="img-wrapper">
-                                                  <img src="/images/06.jpg" alt=""></img>
-                                                  <span className="img-shadow"></span>
-                                             </div>
-                                             <div className="icon-wrapper">
-                                                  <div className="laundro-img">
-                                                  <img src="/images/icon-5.png" alt=""></img>
-                                                  </div>
-                                                  <span className="laundro-icon-shadow"></span>
-                                             </div>
-                                             <div className="laundro-sr-content">
-                                                  <Link to="/service-details/Deals"><h6>Deals</h6></Link>
-                                                  <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                                  <Link to="/service-details/Deals" className="laundro-readmore-btn">Read more</Link>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
+                                        ))
+                                   }
+                                   
+                              
                               </div>
                          </div>
                     </div>

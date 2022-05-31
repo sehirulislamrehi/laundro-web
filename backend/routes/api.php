@@ -50,3 +50,4 @@ Route::post('change-password', [AuthController::class, 'change_password']);
 
 //get all service
 Route::get("get-all-services/",[ServiceController::class,"get_all_service"]);
+Route::get("service-details/{slug}",[ServiceController::class,"service_details"]);

@@ -10,10 +10,7 @@ import { Provider } from 'react-redux';
 // window.url = "https://laundro-admin.sehirulislamrehi.com/api"
 window.url = "http://127.0.0.1:8000/api"
 
-// window.url = "https://laundro-admin.sehirulislamrehi.com/api"
-window.url = "http://127.0.0.1:8000/api"
-
-// window.image_path = "https://laundro-admin.sehirulislamrehi.com/public/"
+// window.image_path = "https://laundro-admin.sehirulislamrehi.com"
 window.image_path = "http://127.0.0.1:8000"
 
 const myStore = createStore(

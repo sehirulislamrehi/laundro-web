@@ -15,6 +15,9 @@ class Service extends Model
     public function parent(){
     	return $this->belongsTo(Service::class, 'service_id', 'id');
     }
+    public function children(){
+    	return $this->hasMany(Service::class, 'service_id', 'id');
+    }
     public function duration(){
     	return $this->belongsTo(Duration::class, 'duration_id', 'id');
     }
@@ -24,7 +27,6 @@ class Service extends Model
     public function service_durations(){
     	return $this->hasMany(ServiceDuration::class);
     }
-
 
     public function service_providers(){
         return $this->belongsToMany(ServiceProvider::class, 'service_provider_services', 'service_id', 'service_provider_id');

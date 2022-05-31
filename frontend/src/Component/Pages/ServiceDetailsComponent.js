@@ -6,14 +6,41 @@ import { useParams } from "react-router";
 import DesktopMenu from "../Include/DesktopMenu";
 import MobileMenu from "../Include/MobileMenu";
 import Footer from "../Include/Footer";
-
+import { useEffect, useState } from "react";
+import DOMPurify from "dompurify";
 
 const ServiceDetailsComponent = () => {
      {/* window scroll to top */}
      window.scrollTo(0, 0);
 
      const { slug } =  useParams();
+     const [service, setService] = useState(null);
 
+     useEffect( () => {
+
+          //service details
+          const service_details_url = `${window.url}/service-details/${slug}`;
+
+          fetch(service_details_url,{
+               method : "GET"
+          })
+          .then( response => response.json() )
+          .then( response => {
+               if( response.status == "success" ){
+                    setService(response.data)
+               }
+               if( response.status == "warning" ){
+                    
+               }
+               if( response.status == "error" ){
+                    
+               }
+          })
+          .catch( response => {
+               
+          })
+
+     },[]);
 
      return(
           <div className="id">
@@ -27,20 +54,21 @@ const ServiceDetailsComponent = () => {
                <MobileMenu></MobileMenu>
                {/* Mobile Menu End */}
 
+               
                {/* Breadcrumb Area */}
                <div className="laundro-breadcrumb" style={{ backgroundImage: `url('/images/breadcrumb.jpg')` }}>
                     <span className="breadcrumb-object"><img src="/images/slider-object.png" alt=""></img></span>
                     <div className="container">
                          <div className="breadcrumb-content">
-                              <h1>{slug}</h1>
+                              <h1>{service && service.name}</h1>
                               <Link to="/">Home <i className="fas fa-angle-double-right"></i></Link>
-                              <span>{slug}</span>
+                              <span>{service && service.name}</span>
                          </div>
                     </div>
                </div>
                {/* Breadcrumb End */}
 
-              {/* service details */}
+               {/* service details */}
                <section className="service-details pt-100 pb-100">
                     <div className="container">
                          <div className="row">
@@ -48,16 +76,17 @@ const ServiceDetailsComponent = () => {
                                    <div className="sr-sidebar">
                                         <div className="sidebar-widget sr-list-widget">
                                              <div className="widget-title">
-                                                  <h5>{slug}</h5>
+                                                  <h5>{service && service.name}</h5>
                                              </div>
                                              <div className="list-nav">
                                                   <ul>
-                                                       <li><Link to="/service-details/Wash" className="active">Wash</Link></li>
-                                                       <li><Link to="/service-details/Wash & Iron">Wash & Iron</Link></li>
-                                                       <li><Link to="/service-details/Dry Cleaning">Dry Cleaning</Link></li>
-                                                       <li><Link to="/service-details/Ironing">Ironing</Link></li>
-                                                       <li><Link to="/service-details/Duvets & Bulky Items">Duvets & Bulky Items</Link></li>
-                                                       <li><Link to="/service-details/Deals">Deals</Link></li>
+                                                       {
+                                                            service && service.children.map( item => (
+                                                                 <li>
+                                                                      <Link to={`/service-details/${item.slug}`} className="active">{item.name}</Link>
+                                                                 </li>
+                                                            ))
+                                                       }
                                                   </ul>
                                              </div>
                                         </div>
@@ -77,43 +106,23 @@ const ServiceDetailsComponent = () => {
                                              Book Now
                                         </Link>
                                         <div className="title-txt">
-                                             <h3>{slug}</h3>
+                                             <h3>{service && service.name}</h3>
                                         </div>
                                         <div className="pera-text mt-20">
-                                             <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet
-                                                  promoting.  or lipsum as it is sometimes known, is dummy text used in laying out print, grap or web
-                                                  designs. USA champions professionalism in the cleaning industry by providing top-quality cleaning and related services that meet and exceed the expectations of today’s demanding corporate, office and ware
-                                                  house clients…courteously, responsively.
-                                                  </p>
-                                        </div>
-                                        <div className="pera-txt mt-20">
-                                             <p>USA champions professionalism in the cleaning industry by providing top-quality cleaning and related services that meet and exceed the expectations of today’s demanding corporate, office, industrial and warehouse clients…courteously, responsively, responsibly, dependably, economically and on-time.
-                                                  We provide janitorial.</p>
-                                        </div>
-                                        <div className="pera-txt mt-20">
-                                             <p>A neatly maintained building is an important asset to every organization. It reflects who you are and influences how your customers perceive you.</p>
+                                             <p>
+                                                  {service && service.short_description}
+                                             </p>
                                         </div>
 
                                         <div className="sr-details-bottom mt-40">
                                              <div className="row">
                                                   <div className="col-lg-6">
                                                        <div className="sr-details-left">
-                                                       <div className="title-txt">
-                                                            <h4>Service Overview</h4>
-                                                       </div>
-                                                       <div className="pera-txt mt-20">
-                                                            <p>A neatly maintained building is an important asset to every organization. It reflects who you are and influences how your customers perceive you to complete depending on the size.</p>
-                                                       </div>
-                                                       <div className="pera-txt mt-20">
-                                                            <p>Condition of your home. We work in teams of 2-4 or more. A team leader or the owner.</p>
-                                                       </div>
-                                                       <div className="srd-list mt-20">
-                                                            <ul>
-                                                                 <li><i className="fas fa-check"></i><p>The housekeepers we hired are professionals who take pride in doing excellent work and in exceeding expectations.</p></li>
-                                                                 <li><i className="fas fa-check"></i><p>We carefully screen all of our cleaners, so you can rest assured that your home would receive the absolute highest quality of service providing.</p></li>
-                                                                 <li><i className="fas fa-check"></i><p>Your time is precious, and we understand that cleaning is really just one more item on your to-do list.</p></li>
-                                                            </ul>
-                                                       </div>
+                                                            <div className="title-txt">
+                                                                 <h4>Service Overview</h4>
+                                                            </div>
+                                                            <div className="pera-txt mt-20" dangerouslySetInnerHTML={{ __html: service && DOMPurify.sanitize(service.service_overview) }}>
+                                                            </div>
                                                        </div>
                                                   </div>
                                                   <div className="col-lg-6">
@@ -129,10 +138,10 @@ const ServiceDetailsComponent = () => {
                          </div>
                     </div>
                </section>
-              {/* Service Details End */}
+               {/* Service Details End */}
 
 
-              {/* Get In Tauch */}
+               {/* Get In Tauch */}
                <section className="laundro-gta-area" style={{ backgroundImage: `url("/images/gt-bg.jpg")` }}>
                     <div className="container">
                          <div className="row align-items-center">
@@ -159,7 +168,9 @@ const ServiceDetailsComponent = () => {
                          </div>
                     </div>
                </section>
-               {/* Get In Tauch End */}
+               {/* Get In Tauch End */} 
+               
+               
 
 
 
