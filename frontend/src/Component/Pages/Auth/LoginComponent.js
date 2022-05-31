@@ -9,11 +9,11 @@ import Footer from "../../Include/Footer";
 import Loading from "../../Include/Loading";
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-import { useParams } from "react-router-dom";
 const MySwal = withReactContent(Swal)
 
 const LoginComponent = (state) => {

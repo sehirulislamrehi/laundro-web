@@ -13,10 +13,14 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllArea } from "../../../action";
 
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+const MySwal = withReactContent(Swal)
+
 const StepOneComponent = () => {
 
      {/* window scroll to top */}
-     window.scrollTo(0, 0);
+     // window.scrollTo(0, 0);
 
      let [check_authorized, set_authorized] = useState('unauthorized');
      const history = useHistory();
@@ -89,19 +93,23 @@ const StepOneComponent = () => {
           for( let x in select_address_type ){
                if( x < select_address_type.length ){
                     select_address_type[x].style.background = "#efefef"
+                    select_address_type[x].classList.remove("selected")
                }
           }
 
+          e.target.classList.add("selected")
           e.target.style.background = "#22d3ee"
      }
 
      const selectAddress = useRef(null)
+     const [postal_code, set_postal_code] = useState(null)
+
      function postalCodeChange(e){
           const formData = new FormData();
           const value = e.target.value
           const url = `${window.url}/postal-code-area`;
           const address_select = document.getElementById("address-select");
-
+          set_postal_code(value)
           formData.append('code',value)
           fetch(url,{    
                method : "POST",
@@ -113,6 +121,19 @@ const StepOneComponent = () => {
                if( response.status == "success" ){
                     selectAddress.current.innerHTML = ''
                     dispatch(getAllArea(response.data))
+
+                    let address_select = document.getElementById("address-select")
+                    for( let i = 0 ; i < response.data.length ; i++ ){
+                         
+                         var str = `<option data-id='${response.data[i].id}'>${response.data[i].name}</option>`
+                         var div = document.createElement('div');
+                         div.innerHTML = str;
+
+                         while ( div.children.length > 0 ) {
+                              address_select.append(div.children[0]);
+                         }
+                         
+                    }
                }
                if( response.status == "warning" ){
                     selectAddress.current.innerHTML = response.data
@@ -132,19 +153,33 @@ const StepOneComponent = () => {
 
      const address = useSelector( state => state.getAllArea )
 
-     if( address ){
-          let address_select = document.getElementById("address-select")
-          for( let i = 0 ; i < address.length ; i++ ){
-               
-               var str = `<option id='${address[i].id}'>${address[i].name}</option>`
-               var div = document.createElement('div');
-               div.innerHTML = str;
 
-               while ( div.children.length > 0 ) {
-                    address_select.append(div.children[0]);
+     //next step start
+     const nextStep = (e) => {
+          if( postal_code ){
+               let address_select = document.getElementById("address-select")
+               if( address_select.options[address_select.selectedIndex] ){
+                    let address_id = address_select.options[address_select.selectedIndex].dataset.id
+                    let select_address_type = document.querySelector(".select-order-duration ul li.selected")
+                    if( select_address_type ){
+                         let address_type = select_address_type.dataset.id
+                         console.log("success")
+                    }
+                    else{
+                         MySwal.fire({
+                              title : "",
+                              text : "Please choose your address type",
+                         })
+                    }
                }
-               
           }
+          else{
+               MySwal.fire({
+                    title : "",
+                    text : "Invalid Postal Code",
+               })
+          }
+          
      }
 
 
@@ -211,9 +246,9 @@ const StepOneComponent = () => {
                                              </div>
      
                                              <div className="col-md-12 next-step">
-                                                  <Link to={`/booking-2/${slug}`}>
+                                                  <button onClick={nextStep}>
                                                        Proceed
-                                                  </Link>
+                                                  </button>
                                              </div>
      
                                         </div>

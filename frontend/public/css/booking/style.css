@@ -177,22 +177,23 @@
 .next-step {
   text-align: right;
 }
-.next-step a{
+.next-step button{
   background: #22d3ee;
   padding: 10px 20px;
   color: white;
   width: max-content;
   margin: 0 15px 0 auto;
   display: inline-block;
+  border: none;
 }
-.next-step a:hover{
+.next-step button:hover{
   background: #006BCC;
 }
-.next-step a:nth-child(1){
+.next-step button:nth-child(1){
   background: #006BCC;
 }
 
-.next-step a:hover:nth-child(1){
+.next-step button:hover:nth-child(1){
   background: #22d3ee;
 }
 .booking-card .how-many-hour ul li{
