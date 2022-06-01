@@ -10,6 +10,9 @@ import MobileMenu from "../../Include/MobileMenu";
 import Footer from "../../Include/Footer";
 import { PageIndicator } from "./Includes/PageIndicator";
 import { useEffect, useState } from "react";
+import { getAllServices } from "../../../action";
+import { useDispatch, useSelector } from "react-redux";
+import { AllService } from "./Includes/AllService";
 
 const StepThreeComponent = () => {
 
@@ -20,7 +23,6 @@ const StepThreeComponent = () => {
      const [postal_code, set_postal_code] = useState(null)
      const [address, set_address] = useState(null)
      const [address_type, set_address_type] = useState(null)
-     const { slug } =  useParams();     
 
      const [day_delivery,set_day_delivery] = useState(null);
      const [time_delivery,set_time_delivery] = useState(null);
@@ -28,7 +30,10 @@ const StepThreeComponent = () => {
      const [day_collection,set_day_collection] = useState(null);
      const [time_collection,set_time_collection] = useState(null);
      const [driver_instructions_collection,set_driver_instructions_collection] = useState(null);
+     const [services_data, set_services_data] = useState(null);
      
+     const dispatch = useDispatch();
+
      useEffect( () => {
 
           let step_one_data = JSON.parse(localStorage.getItem("step_one_data"));
@@ -48,7 +53,11 @@ const StepThreeComponent = () => {
                set_driver_instructions_collection(step_two_data.instructions_for_collection)  
           }
 
+
      },[])
+
+
+    
 
      return(
           <div className="id">
@@ -78,18 +87,16 @@ const StepThreeComponent = () => {
                                    <div className="row booking-card">
 
                                         <div className="col-md-12 choose-date mb-4">
-                                             <p>When would you like your service?</p>
+                                             <p>What services do you need?</p>
                                         </div>
 
-                                        <div className="col-md-12 choose-time mb-4">
-                                             <p>What time would you like to start your service?</p>
-                                        </div>
+                                        <AllService></AllService>
 
                                         <div className="col-md-12 next-step">
-                                             <Link to={`/booking-2/${slug}`} className="back">
+                                             <Link to={`/booking-2`} className="back">
                                                   Back
                                              </Link>
-                                             <Link to={`/booking-4/${slug}`}>
+                                             <Link>
                                                   Proceed
                                              </Link>
                                         </div>
@@ -100,15 +107,6 @@ const StepThreeComponent = () => {
 
                               <div className="col-md-4 ">
                                    <div className="booking-summary">
-                                   <h4>Booking Summary</h4>
-                                        <table>
-                                             <tbody>
-                                                  <tr>
-                                                       <td>Service</td>
-                                                       <td>{slug}</td>
-                                                  </tr>
-                                             </tbody>
-                                        </table>
 
                                         <h4 className="mt-3">Address</h4>
                                         <table>

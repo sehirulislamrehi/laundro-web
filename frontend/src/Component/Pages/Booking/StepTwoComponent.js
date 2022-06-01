@@ -17,7 +17,6 @@ const StepTwoComponent = () => {
      {/* window scroll to top */}
      // window.scrollTo(0, 0);
 
-     const { slug } =  useParams();  
      const history = useHistory(); 
      const get_date_time_url = `${window.url}/date-and-time`;
      const [postal_code, set_postal_code] = useState(null)
@@ -197,7 +196,7 @@ const StepTwoComponent = () => {
                     others_instruction : others_instruction,
                }; 
                localStorage.setItem('step_two_data',JSON.stringify(step_two_data))
-               history.push(`/booking-3/${slug}`)
+               history.push(`/booking-3`)
           }
      }
      
@@ -308,7 +307,7 @@ const StepTwoComponent = () => {
                                         </div>
 
                                         <div className="col-md-12 next-step">
-                                             <Link to={`/booking-1/${slug}`} className="back">
+                                             <Link to={`/booking-1`} className="back">
                                                   Back
                                              </Link>
                                              <button onClick={nextStep}>
@@ -322,15 +321,6 @@ const StepTwoComponent = () => {
 
                               <div className="col-md-4 ">
                                    <div className="booking-summary">
-                                        <h4>Booking Summary</h4>
-                                        <table>
-                                             <tbody>
-                                                  <tr>
-                                                       <td>Service</td>
-                                                       <td>{slug}</td>
-                                                  </tr>
-                                             </tbody>
-                                        </table>
 
                                         <h4 className="mt-3">Address</h4>
                                         <table>

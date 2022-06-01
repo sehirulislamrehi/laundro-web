@@ -26,13 +26,13 @@
 
 
             <!-- select parent -->
-            <div class="col-md-12 col-12 form-group">
+            <div class="col-md-12 col-12 form-group" style="none">
                 <label class="text-capitalize">select parent</label>
                 <select name="service_id" class="form-control" id="service-onchange">
                     <option selected value="null">No parent service</option>
-                    @foreach ( $services as $service)
+                    {{-- @foreach ( $services as $service)
                     <option value="{{ $service->id }}">{{ $service->name }}</option>
-                    @endforeach
+                    @endforeach --}}
                 </select>
             </div>
 

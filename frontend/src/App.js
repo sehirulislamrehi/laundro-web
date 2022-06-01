@@ -90,22 +90,22 @@ function App() {
             </Route>
 
             {/* booking step 1 */}
-            <Route path="/booking-1/:slug">
+            <Route path="/booking-1">
               <StepOneComponent></StepOneComponent>
             </Route>
 
             {/* booking step 2 */}
-            <Route path="/booking-2/:slug">
+            <Route path="/booking-2">
               <StepTwoComponent></StepTwoComponent>
             </Route>
 
             {/* booking step 3 */}
-            <Route path="/booking-3/:slug">
+            <Route path="/booking-3">
               <StepThreeComponent></StepThreeComponent>
             </Route>
 
             {/* booking step 4 */}
-            <Route path="/booking-4/:slug">
+            <Route path="/booking-4">
               <StepFourComponent></StepFourComponent>
             </Route>
 

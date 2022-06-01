@@ -17,7 +17,7 @@ class CreateServiceDurationsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('service_id');
             $table->unsignedBigInteger('duration_id');
-            $table->double('price', 10,2);
+            $table->integer('price');
             $table->string("instructions")->nullable();
             $table->timestamps();
 

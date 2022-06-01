@@ -25,7 +25,6 @@ const StepOneComponent = () => {
 
      let [check_authorized, set_authorized] = useState('unauthorized');
      const history = useHistory();
-     const { slug } =  useParams(); 
 
      //INITIALIZATION
      const dispatch = useDispatch();
@@ -34,7 +33,6 @@ const StepOneComponent = () => {
      const [user, setUser] = useState(null);
      const manage_session_url = `${window.url}/manage-session`;
 
-     const [service, setService] = useState(null);
      const postal_code_field = useRef(null);
      const [postal_code, set_postal_code] = useState('')
      const selectAddress = useRef(null)
@@ -65,29 +63,6 @@ const StepOneComponent = () => {
                     set_authorized('authorized');
                }
 
-          })
-
-
-          //service details
-          const service_details_url = `${window.url}/service-details/${slug}`;
-
-          fetch(service_details_url,{
-               method : "GET"
-          })
-          .then( response => response.json() )
-          .then( response => {
-               if( response.status == "success" ){
-                    setService(response.data)
-               }
-               if( response.status == "warning" ){
-                    
-               }
-               if( response.status == "error" ){
-                    
-               }
-          })
-          .catch( response => {
-               
           })
 
 
@@ -253,7 +228,7 @@ const StepOneComponent = () => {
                                    address_in_details : address_in_details,
                               }; 
                               localStorage.setItem('step_one_data',JSON.stringify(step_one_data))
-                              history.push(`/booking-2/${slug}`)
+                              history.push(`/booking-2`)
                          }
                          else{
                               MySwal.fire({
@@ -299,7 +274,7 @@ const StepOneComponent = () => {
                     }} id="msform">
                          <div className="container">
                               <div className="row">
-                                   <div className="col-md-8">
+                                   <div className="col-md-12">
      
                                         <div className="row">
                                              <div className="col-md-12">
@@ -309,13 +284,7 @@ const StepOneComponent = () => {
                                         </div>
      
                                         <div className="row booking-card">
-     
-                                             <div className="col-md-12 title mb-3">
-                                                  <h4>{service && service.name}</h4>
-                                                  <p>
-                                                       {service && service.short_description}
-                                                  </p>
-                                             </div>
+
      
                                              <div className="col-md-12 select-postal-code mb-3">
                                                   <label htmlFor="">Enter BD postal code</label>
@@ -358,22 +327,6 @@ const StepOneComponent = () => {
      
                                         </div>
                                         
-                                   </div>
-     
-                                   <div className="col-md-4 ">
-                                        <div className="booking-summary">
-                                             <h4>Booking Summary</h4>
-                                             <table>
-                                                  <tbody>
-                                                       <tr>
-                                                            <td>Service</td>
-                                                            <td>{service && service.name}</td>
-                                                       </tr>
-                                                  </tbody>
-                                             </table>
-
-
-                                        </div>
                                    </div>
                               </div>
                          </div>

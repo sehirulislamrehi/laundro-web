@@ -32,7 +32,7 @@ class ServiceController extends Controller
     //service_details function start
     public function service_details($slug){
         try{
-            $service = Service::where("slug",$slug)->with("children")->first();
+            $service = Service::where("slug",$slug)->with("service_durations")->first();
 
             if( $service ){
                 return response()->json([

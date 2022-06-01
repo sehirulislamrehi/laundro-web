@@ -12,3 +12,19 @@ export const getAllArea = (res) => {
           response : res
      }  
 }
+
+
+export const AddService = (res) => {
+     return{
+          type : "AddService",
+          response : res
+     }  
+}
+
+
+export const RemoveService = (res) => {
+     return{
+          type : "RemoveService",
+          response : res
+     }  
+}

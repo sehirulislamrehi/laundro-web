@@ -107,6 +107,9 @@ const DesktopMenu = () => {
                                                                  <Link to="/login">Login</Link>
                                                             </li>
                                                        }
+                                                       <li>
+                                                            <Link to="/booking-1">Book Now</Link>
+                                                       </li>
                                                        
                                                   </ul>
                                              </nav>
