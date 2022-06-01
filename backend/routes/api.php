@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\LocationController;
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ServiceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -55,3 +56,6 @@ Route::get("service-details/{slug}",[ServiceController::class,"service_details"]
 
 //postal code wise area
 Route::post("postal-code-area",[LocationController::class,"postal_code_area"]);
+
+//get date and time for order place
+Route::get("date-and-time",[OrderController::class,"date_and_time"]);

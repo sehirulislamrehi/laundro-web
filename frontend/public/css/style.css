@@ -188,3 +188,9 @@
 #react-select-2-listbox{
      z-index: 999999!important;
 }
+
+select,
+.form-control{
+     font-family: "Rubik", sans-serif!important;
+     font-size: 15px!important;
+}

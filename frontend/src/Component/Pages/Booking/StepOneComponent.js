@@ -15,6 +15,7 @@ import { getAllArea } from "../../../action";
 
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import { PageIndicator } from "./Includes/PageIndicator";
 const MySwal = withReactContent(Swal)
 
 const StepOneComponent = () => {
@@ -34,6 +35,11 @@ const StepOneComponent = () => {
      const manage_session_url = `${window.url}/manage-session`;
 
      const [service, setService] = useState(null);
+     const postal_code_field = useRef(null);
+     const [postal_code, set_postal_code] = useState('')
+     const selectAddress = useRef(null)
+     const [address_in_details, set_address_in_details] = useState(null);
+     const address_details_field = useRef(null)
 
      useEffect(() => {
 
@@ -84,6 +90,84 @@ const StepOneComponent = () => {
                
           })
 
+
+          //if setp one data exists
+          let data = JSON.parse(localStorage.getItem("step_one_data"))
+          if( data ){
+
+               //postal code set
+               set_postal_code(data.postal_code)
+
+               setTimeout(function(){
+                    //address set
+                    const url = `${window.url}/postal-code-area`;
+                    const address_select = document.getElementById("address-select");
+                    const formData = new FormData()
+                    formData.append('code',data.postal_code)
+                    fetch(url,{    
+                         method : "POST",
+                         body : formData
+                    })
+                    .then( response => response.json() )
+                    .then( response => {
+                         if( response.status == "success" ){
+                              selectAddress.current.innerHTML = ''
+                              dispatch(getAllArea(response.data))
+          
+                              let address_select = document.getElementById("address-select")
+                              for( let i = 0 ; i < response.data.length ; i++ ){
+                                   
+                                   if( response.data[i].id == data.address_id ){
+                                        var str = `<option data-id='${response.data[i].id}' selected>${response.data[i].name}</option>`
+                                   }
+                                   else{
+                                        var str = `<option data-id='${response.data[i].id}'>${response.data[i].name}</option>`
+                                   }
+
+                                   var div = document.createElement('div');
+                                   div.innerHTML = str;
+          
+                                   while ( div.children.length > 0 ) {
+                                        address_select.append(div.children[0]);
+                                   }
+                                   
+                              }
+                         }
+                         if( response.status == "warning" ){
+                              selectAddress.current.innerHTML = response.data
+          
+                              const length = address_select.options.length
+                              for( let x = 0 ; x <= length ; x++ ){
+                                   address_select.options[0].remove()
+                              }
+                              
+                         }
+                    })
+                    .catch( response => {
+                         
+                    })
+
+                    //address type set
+                    let select_address_type = document.querySelectorAll(".select-order-duration ul li");
+                    for( let x in select_address_type ){
+                         if( x < select_address_type.length ){
+                              if( select_address_type[x].dataset.id == data.address_type ){
+                                   select_address_type[x].classList.add("selected")
+                                   select_address_type[x].style.background = "#22d3ee"
+                              }
+                              else{
+                                   select_address_type[x].classList.remove("selected")
+                                   select_address_type[x].style.background = "#efefef"
+                              }
+                         }
+                    }
+                    
+               },1000)
+               
+               //address in details set
+               set_address_in_details(data.address_in_details)
+          }
+
      },[])
 
      function clickOnDuration(e){
@@ -101,8 +185,6 @@ const StepOneComponent = () => {
           e.target.style.background = "#22d3ee"
      }
 
-     const selectAddress = useRef(null)
-     const [postal_code, set_postal_code] = useState(null)
 
      function postalCodeChange(e){
           const formData = new FormData();
@@ -162,8 +244,23 @@ const StepOneComponent = () => {
                     let address_id = address_select.options[address_select.selectedIndex].dataset.id
                     let select_address_type = document.querySelector(".select-order-duration ul li.selected")
                     if( select_address_type ){
-                         let address_type = select_address_type.dataset.id
-                         console.log("success")
+                         if( address_in_details ){
+                              let address_type = select_address_type.dataset.id
+                              let step_one_data = {
+                                   postal_code : postal_code,
+                                   address_id : address_id,
+                                   address_type : address_type,
+                                   address_in_details : address_in_details,
+                              }; 
+                              localStorage.setItem('step_one_data',JSON.stringify(step_one_data))
+                              history.push(`/booking-2/${slug}`)
+                         }
+                         else{
+                              MySwal.fire({
+                                   title : "",
+                                   text : "Please type to details address",
+                              })
+                         }
                     }
                     else{
                          MySwal.fire({
@@ -181,6 +278,8 @@ const StepOneComponent = () => {
           }
           
      }
+
+     
 
 
      if( check_authorized && check_authorized == "authorized" ){
@@ -205,12 +304,7 @@ const StepOneComponent = () => {
                                         <div className="row">
                                              <div className="col-md-12">
                                                   {/* progressbar */}
-                                                  <ul id="progressbar">
-                                                       <li className="active">Frequency</li>
-                                                       <li>Service Details</li>
-                                                       <li>Date & Time</li>
-                                                       <li>Service Details</li>
-                                                  </ul>
+                                                  <PageIndicator></PageIndicator>
                                              </div>
                                         </div>
      
@@ -225,7 +319,7 @@ const StepOneComponent = () => {
      
                                              <div className="col-md-12 select-postal-code mb-3">
                                                   <label htmlFor="">Enter BD postal code</label>
-                                                  <input type="text" className="form-control" onChange={postalCodeChange} />
+                                                  <input type="text" className="form-control" onChange={postalCodeChange} value={postal_code} />
                                              </div>
      
                                              <div className="col-md-12 select-address mb-3">
@@ -235,13 +329,24 @@ const StepOneComponent = () => {
                                                   </select>
                                                   <span ref={selectAddress} style={{ color: "red" }}></span>
                                              </div>
+
+                                             <div className="col-md-12 select-postal-code mb-3">
+                                                  <label htmlFor="">Address in details</label>
+                                                  <input type="text" className="form-control"
+                                                       ref={address_details_field}
+                                                       onChange={
+                                                            e => set_address_in_details(e.target.value)
+                                                       }
+                                                       value={address_in_details}
+                                                  />
+                                             </div>
      
                                              <div className="col-md-12 select-order-duration mb-3">
                                                   <p>Choose address type</p>
                                                   <ul>
-                                                       <li onClick={clickOnDuration} data-id="home"> <i className="fas fa-home"></i> Home</li>
-                                                       <li onClick={clickOnDuration} data-id="office"> <i className="fas fa-briefcase"></i> Office</li>
-                                                       <li onClick={clickOnDuration} data-id="hotel"> <i className="fas fa-hotel"></i> Hotel</li>
+                                                       <li onClick={clickOnDuration} data-id="Home"> <i className="fas fa-home"></i> Home</li>
+                                                       <li onClick={clickOnDuration} data-id="Office"> <i className="fas fa-briefcase"></i> Office</li>
+                                                       <li onClick={clickOnDuration} data-id="Hotel"> <i className="fas fa-hotel"></i> Hotel</li>
                                                   </ul>
                                              </div>
      

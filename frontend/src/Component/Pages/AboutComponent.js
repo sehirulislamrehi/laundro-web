@@ -9,6 +9,9 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import DesktopMenu from "../Include/DesktopMenu";
 import MobileMenu from "../Include/MobileMenu";
 import Footer from "../Include/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { getAllServices } from "../../action";
 
 
 const AboutComponent = () => {
@@ -61,6 +64,30 @@ const AboutComponent = () => {
                }
           },
      };
+
+     //INITIALIZATION
+     const dispatch = useDispatch();
+
+
+     useEffect(() => {
+
+          //get services
+          const get_services_url = `${window.url}/get-all-services`;
+
+          fetch(get_services_url,{
+               method : "GET"
+          })
+          .then( response => response.json() )
+          .then( response => {
+               dispatch(getAllServices(response.data))
+          })
+          .catch( response => {
+               
+          })
+
+     },[]);
+     
+     const get_all_services = useSelector( state => state.getAllServices )
 
      return(
           <div className="id">
@@ -154,64 +181,36 @@ const AboutComponent = () => {
                               </div>
                          </div>
 
-                         <OwlCarousel className='owl-theme ab-service-slider' 
-                              loop 
-                              items="3"
-                              nav="false"
-                              dots="true"
-                              {...service_options}
-                              
-                         >
+                         {
+                              get_all_services && 
+                              <OwlCarousel className='owl-theme ab-service-slider' 
+                                   loop 
+                                   items="3"
+                                   nav="false"
+                                   dots="true"
+                                   {...service_options}
+                                   
+                              >
 
-                              <div className="item">
-                                   <div className="laundro-service-item">
-                                        <div className="laundro-icon-wrapper">
-                                             <span><i className="fas fa-broom"></i></span>
+                                   {
+                                        get_all_services.map( item => (
+                                        <div className="item">
+                                             <div className="laundro-service-item">
+                                                  <div className="laundro-icon-wrapper">
+                                                       <span><i className="fas fa-broom"></i></span>
+                                                  </div>
+                                                  <div className="laundro-service-content">
+                                                       <Link to={`/service-details/${item.slug}`}><h5>{item.name}</h5></Link>
+                                                       <p>{item.short_description.substring(0, 100)}...</p>
+                                                  </div>
+                                             </div>
                                         </div>
-                                        <div className="laundro-service-content">
-                                             <Link to="/service-details/Wash"><h5>Wash</h5></Link>
-                                             <p>As a app web crawler expert a significant of internet.</p>
-                                        </div>
-                                   </div>
-                              </div>
+                                        ))
+                                   }
 
-                              <div className="item">
-                                   <div className="laundro-service-item">
-                                        <div className="laundro-icon-wrapper">
-                                             <span><i className="fas fa-broom"></i></span>
-                                        </div>
-                                        <div className="laundro-service-content">
-                                             <Link to="/service-details/Wash & Iron"><h5>Wash & Iron</h5></Link>
-                                             <p>As a app web crawler expert a significant of internet.</p>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div className="item">
-                                   <div className="laundro-service-item">
-                                        <div className="laundro-icon-wrapper">
-                                             <span><i className="fas fa-broom"></i></span>
-                                        </div>
-                                        <div className="laundro-service-content">
-                                             <Link to="/service-details/Kitchen Cleaning"><h5>Dry Cleaning</h5></Link>
-                                             <p>As a app web crawler expert a significant of internet.</p>
-                                        </div>
-                                   </div>
-                              </div>
-                              
-                              <div className="item">
-                                   <div className="laundro-service-item">
-                                        <div className="laundro-icon-wrapper">
-                                             <span><i className="fas fa-broom"></i></span>
-                                        </div>
-                                        <div className="laundro-service-content">
-                                             <Link to="/service-details/Ironing"><h5>Ironing</h5></Link>
-                                             <p>As a app web crawler expert a significant of internet.</p>
-                                        </div>
-                                   </div>
-                              </div>
-
-                         </OwlCarousel>
+                              </OwlCarousel>
+                         }
+                         
                          
                     </div>
                </section>

@@ -8,6 +8,7 @@ import { useParams } from "react-router";
 import DesktopMenu from "../../Include/DesktopMenu";
 import MobileMenu from "../../Include/MobileMenu";
 import Footer from "../../Include/Footer";
+import { PageIndicator } from "./Includes/PageIndicator";
 
 const StepFourComponent = () => {
 
@@ -49,12 +50,7 @@ const StepFourComponent = () => {
                                    <div className="row">
                                         <div className="col-md-12">
                                              {/* progressbar */}
-                                             <ul id="progressbar">
-                                                  <li className="active">Frequency</li>
-                                                  <li className="active">Service Details</li>
-                                                  <li className="active">Date & Time</li>
-                                                  <li>Service Details</li>
-                                             </ul>
+                                             <PageIndicator></PageIndicator>
                                         </div>
                                    </div>
 
