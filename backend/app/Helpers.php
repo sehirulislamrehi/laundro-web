@@ -50,7 +50,7 @@ function can($can){
 
     //mail from start
     function mail_from(){
-        return "info@emicon.tech";
+        return "rehi.zamanit@gmail.com";
     }
     //mail from end
 

@@ -343,13 +343,42 @@
   top: 50%;
   transform: translate(-50%,-50%);
   padding: 50px 25px 15px 25px;
+  
+}
+.service-instruction .instruction-box.scroll{
+  overflow: scroll;
+  overflow-x: hidden;
 }
 .service-instruction .instruction-box .item{
     padding: 15px;
-    border: 1px solid #e1e1e1;
     cursor: pointer;
     text-align: center;
     margin-bottom: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px 0 rgb(0 0 0 / 10%);
+}
+.service-instruction .instruction-box .item:hover{
+  background: #f7f7f7;
+}
+.service-instruction .instruction-box .item img{
+  width: 30%;
+  display: block;
+  margin: 0 auto;
+}
+.service-instruction .instruction-box .item button{
+  border: none;
+  background: #006bcc;
+  color: white;
+  margin-top: 5px;
+  width: 100%;
+  padding: 5px;
+  border-radius: 6px;
+}
+.service-instruction .instruction-box .item button:hover{
+  background: #22d3ee;
+}
+.service-instruction .instruction-box .item p{
+  margin: 3px 0;
 }
 .service-instruction .fas{
     position: absolute;

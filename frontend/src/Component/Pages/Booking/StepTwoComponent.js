@@ -17,6 +17,10 @@ const StepTwoComponent = () => {
      {/* window scroll to top */}
      // window.scrollTo(0, 0);
 
+     let [check_authorized, set_authorized] = useState('unauthorized');
+     const manage_session_url = `${window.url}/manage-session`;
+     const [user, setUser] = useState(null);
+
      const history = useHistory(); 
      const get_date_time_url = `${window.url}/date-and-time`;
      const [postal_code, set_postal_code] = useState(null)
@@ -25,6 +29,28 @@ const StepTwoComponent = () => {
      const [others_instruction, set_others_instruction] = useState(null)
 
      useEffect( () => {
+
+          //send request to the server for manage session
+          const token = localStorage.getItem('token')
+          const options_for_manage_session_request = {
+               method: 'GET',
+          };
+          fetch(`${manage_session_url}/${token}`,options_for_manage_session_request)
+          .then( response => response.json() )
+          .then( response => {
+               if( response.status == 'error' ){
+                    localStorage.removeItem('token')
+                    set_authorized('unauthorized');
+                    history.push({
+                         pathname: '/login',
+                    });
+               }
+               if( response.status == 'success' ){
+                    setUser(response.data)
+                    localStorage.setItem('token',response.data.remember_token)
+                    set_authorized('authorized');
+               }
+          })
 
           //Get Date and Time
           fetch(get_date_time_url,{
@@ -159,6 +185,9 @@ const StepTwoComponent = () => {
                set_address(step_one_data.address_in_details)              
                set_address_type(step_one_data.address_type)              
           }
+          else{
+               history.push("booking-1")
+          }
 
      },[]);
 
@@ -201,154 +230,179 @@ const StepTwoComponent = () => {
      }
      
 
-     return(
-          <div className="id">
+     if( check_authorized && check_authorized == "authorized" ){
+          return(
+               <div className="id">
 
-               {/* desktop menu start */}
-               <DesktopMenu></DesktopMenu>
-               {/* desktop menu end */}
+                    {/* desktop menu start */}
+                    <DesktopMenu></DesktopMenu>
+                    {/* desktop menu end */}
 
-               {/* Mobile Menu */}
-               <MobileMenu></MobileMenu>
-               {/* Mobile Menu End */}
+                    {/* Mobile Menu */}
+                    <MobileMenu></MobileMenu>
+                    {/* Mobile Menu End */}
 
-               <section className="booking-section" style={{
-                    padding: "10px 0 100px 0px"
-               }} id="msform">
-                    <div className="container">
-                         <div className="row">
-                              <div className="col-md-8">
+                    <section className="booking-section" style={{
+                         padding: "10px 0 100px 0px"
+                    }} id="msform">
+                         <div className="container">
+                              <div className="row">
+                                   <div className="col-md-8">
 
-                                   <div className="row">
-                                        <div className="col-md-12">
-                                             {/* progressbar */}
-                                             <PageIndicator></PageIndicator>
+                                        <div className="row">
+                                             <div className="col-md-12">
+                                                  {/* progressbar */}
+                                                  <PageIndicator></PageIndicator>
+                                             </div>
                                         </div>
+
+                                        <div className="row booking-card">
+
+                                             {/* collection time */}
+                                             <div className="col-md-12 select-order-duration mb-4">
+                                                  <h6>Collection Time</h6>
+                                             </div>
+                                             <div className="col-md-12 select-order-duration mb-4">
+                                                  <div className="row">
+                                                  
+                                                       {/* select day */}
+                                                       <div className="col-md-6">
+                                                            <p>Select Day</p>
+                                                            <select name="" className="form-control" id="select_day_for_collection">
+                                                                 
+                                                            </select>
+                                                       </div>
+
+                                                       {/* select Time */}
+                                                       <div className="col-md-6">
+                                                            <p>Select Time</p>
+                                                            <select name="" className="form-control" id="select_time_for_collection">
+                                                                 
+                                                            </select>
+                                                       </div>
+
+                                                       {/* Driver Instruction */}
+                                                       <div className="col-md-12 mt-3">
+                                                            <p>Driver Instructions</p>
+                                                            <select name="" className="form-control" id="driver_instructions_for_collection">
+                                                                 
+                                                            </select>
+                                                       </div>
+                                                  
+                                                  </div>                                             
+                                             </div>
+
+
+                                             {/* delivery time */}
+                                             <hr />
+                                             <div className="col-md-12 select-order-duration mb-4">
+                                                  <h6>Delivery Time</h6>
+                                             </div>
+                                             <div className="col-md-12 select-order-duration mb-4">
+                                                  <div className="row">
+                                                  
+                                                       {/* select day */}
+                                                       <div className="col-md-6">
+                                                            <p>Select Day</p>
+                                                            <select name="" className="form-control" id="select_day_for_delivery">
+                                                                 
+                                                            </select>
+                                                       </div>
+
+                                                       {/* select Time */}
+                                                       <div className="col-md-6">
+                                                            <p>Select Time</p>
+                                                            <select name="" className="form-control" id="select_time_for_delivery">
+                                                                 
+                                                            </select>
+                                                       </div>
+
+                                                       {/* Driver Instruction */}
+                                                       <div className="col-md-12 mt-3">
+                                                            <p>Driver Instructions</p>
+                                                            <select name="" className="form-control" id="driver_instructions_for_delivery">
+                                                                 
+                                                            </select>
+                                                       </div>
+                                                  
+                                                  </div>                                             
+                                             </div>
+
+                                             <div className="col-md-12 cleaning-instruction mb-4">
+                                                  <p>Do you have any specific cleaning instructions?</p>
+                                                  <textarea name="" rows="3" className="form-control"
+                                                       onChange={ e => set_others_instruction(e.target.value) }
+                                                       id="other-instructions"
+                                                  >{others_instruction && others_instruction}</textarea>
+                                             </div>
+
+                                             <div className="col-md-12 next-step">
+                                                  <Link to={`/booking-1`} className="back">
+                                                       Back
+                                                  </Link>
+                                                  <button onClick={nextStep}>
+                                                       Proceed
+                                                  </button>
+                                             </div>
+
+                                        </div>
+                                        
                                    </div>
 
-                                   <div className="row booking-card">
+                                   <div className="col-md-4 ">
+                                        <div className="booking-summary">
 
-                                        {/* collection time */}
-                                        <div className="col-md-12 select-order-duration mb-4">
-                                             <h6>Collection Time</h6>
+                                             <h4 className="mt-3">Address</h4>
+                                             <table>
+                                                  <tbody>
+                                                       <tr>
+                                                            <td>Postal Code : <span>{postal_code && postal_code}</span> </td>
+                                                       </tr>
+                                                       <tr>
+                                                            <td>Address : {address && address}</td>
+                                                       </tr>
+                                                       <tr>
+                                                            <td>Address Type : {address_type && address_type}</td>
+                                                       </tr>
+                                                  </tbody>
+                                             </table>
+
                                         </div>
-                                        <div className="col-md-12 select-order-duration mb-4">
-                                             <div className="row">
-                                             
-                                                  {/* select day */}
-                                                  <div className="col-md-6">
-                                                       <p>Select Day</p>
-                                                       <select name="" className="form-control" id="select_day_for_collection">
-                                                            
-                                                       </select>
-                                                  </div>
-
-                                                  {/* select Time */}
-                                                  <div className="col-md-6">
-                                                       <p>Select Time</p>
-                                                       <select name="" className="form-control" id="select_time_for_collection">
-                                                            
-                                                       </select>
-                                                  </div>
-
-                                                  {/* Driver Instruction */}
-                                                  <div className="col-md-12 mt-3">
-                                                       <p>Driver Instructions</p>
-                                                       <select name="" className="form-control" id="driver_instructions_for_collection">
-                                                            
-                                                       </select>
-                                                  </div>
-                                             
-                                             </div>                                             
-                                        </div>
-
-
-                                        {/* delivery time */}
-                                        <hr />
-                                        <div className="col-md-12 select-order-duration mb-4">
-                                             <h6>Delivery Time</h6>
-                                        </div>
-                                        <div className="col-md-12 select-order-duration mb-4">
-                                             <div className="row">
-                                             
-                                                  {/* select day */}
-                                                  <div className="col-md-6">
-                                                       <p>Select Day</p>
-                                                       <select name="" className="form-control" id="select_day_for_delivery">
-                                                            
-                                                       </select>
-                                                  </div>
-
-                                                  {/* select Time */}
-                                                  <div className="col-md-6">
-                                                       <p>Select Time</p>
-                                                       <select name="" className="form-control" id="select_time_for_delivery">
-                                                            
-                                                       </select>
-                                                  </div>
-
-                                                  {/* Driver Instruction */}
-                                                  <div className="col-md-12 mt-3">
-                                                       <p>Driver Instructions</p>
-                                                       <select name="" className="form-control" id="driver_instructions_for_delivery">
-                                                            
-                                                       </select>
-                                                  </div>
-                                             
-                                             </div>                                             
-                                        </div>
-
-                                        <div className="col-md-12 cleaning-instruction mb-4">
-                                             <p>Do you have any specific cleaning instructions?</p>
-                                             <textarea name="" rows="3" className="form-control"
-                                                  onChange={ e => set_others_instruction(e.target.value) }
-                                                  id="other-instructions"
-                                             >{others_instruction && others_instruction}</textarea>
-                                        </div>
-
-                                        <div className="col-md-12 next-step">
-                                             <Link to={`/booking-1`} className="back">
-                                                  Back
-                                             </Link>
-                                             <button onClick={nextStep}>
-                                                  Proceed
-                                             </button>
-                                        </div>
-
-                                   </div>
-                                   
-                              </div>
-
-                              <div className="col-md-4 ">
-                                   <div className="booking-summary">
-
-                                        <h4 className="mt-3">Address</h4>
-                                        <table>
-                                             <tbody>
-                                                  <tr>
-                                                       <td>Postal Code : <span>{postal_code && postal_code}</span> </td>
-                                                  </tr>
-                                                  <tr>
-                                                       <td>Address : {address && address}</td>
-                                                  </tr>
-                                                  <tr>
-                                                       <td>Address Type : {address_type && address_type}</td>
-                                                  </tr>
-                                             </tbody>
-                                        </table>
-
                                    </div>
                               </div>
                          </div>
-                    </div>
-               </section>
+                    </section>
 
-               {/* Footer */}
-               <Footer></Footer>
-               {/* Footer End */}
+                    {/* Footer */}
+                    <Footer></Footer>
+                    {/* Footer End */}
 
-          </div>
-     );
+               </div>
+          );
+     }
+     else{
+          return(
+               <div className="id">
+                    {/* desktop menu start */}
+                    <DesktopMenu></DesktopMenu>
+                    {/* desktop menu end */}
+
+                    {/* Mobile Menu */}
+                    <MobileMenu></MobileMenu>
+                    {/* Mobile Menu End */}
+
+                    {/* please wait section start */}
+                    <section className="please-wait">
+                         <h4 className="content">Please Wait...</h4>
+                    </section>
+                    {/* please wait section end */}
+
+                    {/* Footer */}
+                    <Footer></Footer>
+                    {/* Footer End */}
+               </div> 
+          );
+     }
 }
 
 export default StepTwoComponent;

@@ -80,13 +80,7 @@ const ServiceDetailsComponent = () => {
                                              </div>
                                              <div className="list-nav">
                                                   <ul>
-                                                       {
-                                                            service && service.children.map( item => (
-                                                                 <li>
-                                                                      <Link to={`/service-details/${item.slug}`} className="active">{item.name}</Link>
-                                                                 </li>
-                                                            ))
-                                                       }
+                                                       
                                                   </ul>
                                              </div>
                                         </div>
@@ -118,7 +112,7 @@ const ServiceDetailsComponent = () => {
                                                             <div className="title-txt">
                                                                  <h4>Service Overview</h4>
                                                             </div>
-                                                            <div className="pera-txt mt-20" dangerouslySetInnerHTML={{ __html: service && DOMPurify.sanitize(service.service_overview) }}>
+                                                                 <div className="pera-txt mt-20" dangerouslySetInnerHTML={{ __html: service && DOMPurify.sanitize(service.service_overview) }}>
                                                             </div>
                                                        </div>
                                                   </div>
@@ -127,6 +121,33 @@ const ServiceDetailsComponent = () => {
                                                        <img src="/images/srd-img.png" alt=""></img>
                                                        </div>
                                                   </div>
+                                             </div>
+                                             <div className="row pricing">
+
+                                                  <div className="col-md-12 title">
+                                                       <h4>Pricing</h4>
+                                                  </div>
+                                                                           
+                                                  {
+                                                       service && 
+                                                       ( service.service_durations.length > 0 ) ?
+                                                       service.service_durations.map( item => (
+                                                       <div className="col-md-3 col-6">
+                                                            <div className="item">
+                                                                 <img src={`${window.image_path}/images/service/${service.icon}`} alt=""></img>
+                                                                 <p>{item.instructions}</p>                              
+                                                                 <p>{item.price} BDT</p> 
+                                                            </div>  
+                                                       </div>
+                                                       )) :
+                                                       <div className="col-md-12">
+                                                            <div className="item">
+                                                                 <p>No pricing found</p>
+                                                            </div>
+                                                       </div>
+                                                  }
+                                                  
+
                                              </div>
                                         </div>
                                         

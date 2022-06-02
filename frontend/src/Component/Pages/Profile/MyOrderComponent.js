@@ -22,6 +22,8 @@ const MyOrderComponent = () => {
      const [user, setUser] = useState(null);
      const manage_session_url = `${window.url}/manage-session`;
 
+     const [order, set_order] = useState(null);
+
      useEffect(() => {
 
 
@@ -43,7 +45,18 @@ const MyOrderComponent = () => {
                     localStorage.setItem('token',response.data.remember_token)
                     set_authorized('authorized');
                }
+          })
 
+          //get order data
+          const get_order_data_url = `${window.url}/get-order`;
+          fetch(`${get_order_data_url}/${token}`,{
+               method : "GET"
+          })
+          .then( response => response.json() )
+          .then( response => {
+               if( response.status == "success" ){
+                    set_order(response.data)
+               }
           })
 
      },[])
@@ -81,127 +94,67 @@ const MyOrderComponent = () => {
                                              <div className="row">
 
                                                   {/* order card start */}
-                                                  <div className="col-md-12">
-                                                       <Link to="/order-details">
-                                                            <div className="order-card">
-                                                                 <i className="fas fa-times"></i>
-                                                                 <div className="row">
-                                                                      <div className="col-md-6">
-                                                                           <div className="left-part">
-                                                                                <p>Laundry Cleaning</p>
-                                                                                <small>With Equipment</small>
+                                                  {
+                                                       order && order ? order.map( item => (
+                                                            <div className="col-md-12" key={item.id}>
+                                                                 <Link to="/order-details">
+                                                                      <div className="order-card">
+                                                                           <i className="fas fa-times"></i>
+                                                                           <div className="row">
+                                                                                <div className="col-md-8">
+                                                                                     <div className="left-part">
+                                                                                          <p>
+                                                                                               <strong>Order No : </strong>
+                                                                                               {item.order_no}
+                                                                                          </p>
+                                                                                          <p>
+                                                                                               <strong>Collection Date : </strong>
+                                                                                               {JSON.parse(item.timing).day_for_collection},
+                                                                                               ( {JSON.parse(item.timing).time_for_collection} )
+                                                                                          </p>
+                                                                                          <p>
+                                                                                               <strong>Delivery Date : </strong>
+                                                                                               {JSON.parse(item.timing).day_for_delivery},
+                                                                                               ( {JSON.parse(item.timing).time_for_delivery} )
+                                                                                          </p>
+                                                                                     </div>
+                                                                                </div>
+                                                                           </div>
+                                                                           <div className="row order-card-footer">
+                                                                                <div className="col-md-6 col-8">
+                                                                                     <div className="left-part">
+                                                                                          {/* <ul>
+                                                                                               <li>
+                                                                                                    <i className="fas fa-calendar"></i>
+                                                                                                    2022-04-19
+                                                                                               </li>
+                                                                                               <li>
+                                                                                                    <i className="fas fa-clock"></i>
+                                                                                                    09:00
+                                                                                               </li>
+                                                                                          </ul> */}
+                                                                                     </div>
+                                                                                </div>
+                                                                                <div className="col-md-6 col-4">
+                                                                                     <div className="right-part">
+                                                                                          <button className="order-status">
+                                                                                               {item.order_status}
+                                                                                          </button>
+                                                                                     </div>
+                                                                                </div>
                                                                            </div>
                                                                       </div>
-                                                                 </div>
-                                                                 <div className="row order-card-footer">
-                                                                      <div className="col-md-6 col-8">
-                                                                           <div className="left-part">
-                                                                                <ul>
-                                                                                     <li>
-                                                                                          <i className="fas fa-calendar"></i>
-                                                                                          2022-04-19
-                                                                                     </li>
-                                                                                     <li>
-                                                                                          <i className="fas fa-clock"></i>
-                                                                                          09:00
-                                                                                     </li>
-                                                                                </ul>
-                                                                           </div>
-                                                                      </div>
-                                                                      <div className="col-md-6 col-4">
-                                                                           <div className="right-part">
-                                                                                <button className="order-status">
-                                                                                     Pending
-                                                                                </button>
-                                                                           </div>
-                                                                      </div>
-                                                                 </div>
+                                                                 </Link>
                                                             </div>
-                                                       </Link>
-                                                  </div>
+                                                            
+                                                       )) :
+                                                       <div className="col-md-12">
+                                                            <p className="text-center">No Order Found</p>
+                                                       </div>
+                                                  }
+                                                  
                                                   {/* order card end */}
 
-                                                  {/* order card start */}
-                                                  <div className="col-md-12">
-                                                       <Link to="/order-details">
-                                                            <div className="order-card">
-                                                                 <i className="fas fa-times"></i>
-                                                                 <div className="row">
-                                                                      <div className="col-md-6">
-                                                                           <div className="left-part">
-                                                                                <p>Laundry Cleaning</p>
-                                                                                <small>With Equipment</small>
-                                                                           </div>
-                                                                      </div>
-                                                                 </div>
-                                                                 <div className="row order-card-footer">
-                                                                      <div className="col-md-6 col-8">
-                                                                           <div className="left-part">
-                                                                                <ul>
-                                                                                     <li>
-                                                                                          <i className="fas fa-calendar"></i>
-                                                                                          2022-04-19
-                                                                                     </li>
-                                                                                     <li>
-                                                                                          <i className="fas fa-clock"></i>
-                                                                                          09:00
-                                                                                     </li>
-                                                                                </ul>
-                                                                           </div>
-                                                                      </div>
-                                                                      <div className="col-md-6 col-4">
-                                                                           <div className="right-part">
-                                                                                <button className="order-status">
-                                                                                     Pending
-                                                                                </button>
-                                                                           </div>
-                                                                      </div>
-                                                                 </div>
-                                                            </div>
-                                                       </Link>
-                                                  </div>
-                                                  {/* order card end */}
-
-                                                  {/* order card start */}
-                                                  <div className="col-md-12">
-                                                       <Link to="/order-details">
-                                                            <div className="order-card">
-                                                                 <i className="fas fa-times"></i>
-                                                                 <div className="row">
-                                                                      <div className="col-md-6">
-                                                                           <div className="left-part">
-                                                                                <p>Laundry Cleaning</p>
-                                                                                <small>With Equipment</small>
-                                                                           </div>
-                                                                      </div>
-                                                                 </div>
-                                                                 <div className="row order-card-footer">
-                                                                      <div className="col-md-6 col-8">
-                                                                           <div className="left-part">
-                                                                                <ul>
-                                                                                     <li>
-                                                                                          <i className="fas fa-calendar"></i>
-                                                                                          2022-04-19
-                                                                                     </li>
-                                                                                     <li>
-                                                                                          <i className="fas fa-clock"></i>
-                                                                                          09:00
-                                                                                     </li>
-                                                                                </ul>
-                                                                           </div>
-                                                                      </div>
-                                                                      <div className="col-md-6 col-4">
-                                                                           <div className="right-part">
-                                                                                <button className="order-status">
-                                                                                     Pending
-                                                                                </button>
-                                                                           </div>
-                                                                      </div>
-                                                                 </div>
-                                                            </div>
-                                                       </Link>
-                                                  </div>
-                                                  {/* order card end */}
 
                                              </div>
                                         </div>

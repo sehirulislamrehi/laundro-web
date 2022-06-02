@@ -203,23 +203,29 @@ export const AllService = () => {
                }
 
                {/* service instructions */}
-               <div className="col-md-12 service-instruction">
-                    <div className="instruction-box">
-                         <i className="fas fa-times" onClick={closePopup}></i>
-                         <div className="row">
 
-                              {
-                                   service_instructions && service_instructions.service_durations.map( item => (
-                                        <div className="col-md-3 col-6"
-                                             onClick={addInstruction}
-                                             data-id={item.id}
-                                             data-instructions={item.instructions}
-                                             data-price={item.price}
-                                             data-service_id={service_instructions.id}
-                                             data-service_name={service_instructions.name}
-                                             data-service_slug={service_instructions.slug}
-                                        >
-                                             <div className="item"
+               {
+                    service_instructions && ( service_instructions.service_durations.length > 4 ) ? 
+                    <div className="col-md-12 service-instruction scroll">
+                         <div className="instruction-box">
+                              <i className="fas fa-times" onClick={closePopup}></i>
+
+                              <div className="row mb-3">
+                                   <h6>
+                                        Please select your preference for 
+                                        <span style={{marginLeft: "5px"}}>
+                                        {
+                                             service_instructions && service_instructions.name 
+                                        }
+                                        </span>
+                                   </h6>
+                              </div>
+
+                              <div className="row">
+
+                                   {
+                                        service_instructions && service_instructions.service_durations.map( item => (
+                                             <div className="col-md-3 col-6"
                                                   onClick={addInstruction}
                                                   data-id={item.id}
                                                   data-instructions={item.instructions}
@@ -228,34 +234,83 @@ export const AllService = () => {
                                                   data-service_name={service_instructions.name}
                                                   data-service_slug={service_instructions.slug}
                                              >
-                                                  <p 
-                                                       onClick={addInstruction}
-                                                       data-id={item.id}
-                                                       data-instructions={item.instructions}
-                                                       data-price={item.price}
-                                                       data-service_id={service_instructions.id}
-                                                       data-service_name={service_instructions.name}
-                                                       data-service_slug={service_instructions.slug}
-                                                  >{item.instructions}</p>                              
-                                                  <p 
-                                                       onClick={addInstruction}
-                                                       data-id={item.id}
-                                                       data-instructions={item.instructions}
-                                                       data-price={item.price}
-                                                       data-service_id={service_instructions.id}
-                                                       data-service_name={service_instructions.name}
-                                                       data-service_slug={service_instructions.slug}
-                                                  >{item.price} BDT</p> 
-                                             </div>                             
-                                        </div>
-                                   ))
-                              }
-                              
+                                                  <div className="item">
+                                                       <img src={`${window.image_path}/images/service/${service_instructions.icon}`} alt=""></img>
+                                                       <p>{item.instructions}</p>                              
+                                                       <p>{item.price} BDT</p> 
+                                                       <button
+                                                            onClick={addInstruction}
+                                                            data-id={item.id}
+                                                            data-instructions={item.instructions}
+                                                            data-price={item.price}
+                                                            data-service_id={service_instructions.id}
+                                                            data-service_name={service_instructions.name}
+                                                            data-service_slug={service_instructions.slug}
+                                                       >
+                                                            Select
+                                                       </button>
+                                                  </div>                             
+                                             </div>
+                                        ))
+                                   }
+
+                                   
+                                   
 
 
+                              </div>
+                         </div>
+                    </div> :
+                    <div className="col-md-12 service-instruction">
+                         <div className="instruction-box">
+                              <i className="fas fa-times" onClick={closePopup}></i>
+
+                              <div className="row mb-3">
+                                   <h6>
+                                        Please select your preference for 
+                                        <span style={{marginLeft: "5px"}}>
+                                        {
+                                             service_instructions && service_instructions.name 
+                                        }
+                                        </span>
+                                   </h6>
+                              </div>
+
+                              <div className="row">
+
+                                   {
+                                        service_instructions && service_instructions.service_durations.map( item => (
+                                             <div className="col-md-3 col-6">
+                                                  <div className="item">
+                                                       <img src={`${window.image_path}/images/service/${service_instructions.icon}`} alt=""></img>
+                                                       <p>{item.instructions}</p>                              
+                                                       <p>{item.price} BDT</p> 
+                                                       <button
+                                                            onClick={addInstruction}
+                                                            data-id={item.id}
+                                                            data-instructions={item.instructions}
+                                                            data-price={item.price}
+                                                            data-service_id={service_instructions.id}
+                                                            data-service_name={service_instructions.name}
+                                                            data-service_slug={service_instructions.slug}
+                                                       >
+                                                            Select
+                                                       </button>
+                                                  </div>                             
+                                             </div>
+                                        ))
+                                   }
+
+                                   
+                                   
+
+
+                              </div>
                          </div>
                     </div>
-               </div>
+                    
+               }
+               
 
           </div>
      );

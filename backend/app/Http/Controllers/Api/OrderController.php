@@ -3,9 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\CustomerModule\Customer;
+use App\Models\LocationModule\Location;
+use App\Models\OrderModule\Order;
+use App\Models\OrderModule\OrderServices;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -101,4 +106,122 @@ class OrderController extends Controller
         }
     } 
     //date_and_time function end
+
+
+    //place_order function start
+    public function place_order(Request $request){
+        try{
+            $customer = Customer::where("remember_token", $request->token)->first();
+
+            if( $customer ){
+                $step_one_data = json_decode($request->step_one_data);
+                $step_two_data = json_decode($request->step_two_data);
+                $services = json_decode($request->services);
+                $contact_data = json_decode($request->contact_data);
+                
+                $location = Location::where("id", $step_one_data->address_id)->first();
+
+
+                $order = new Order();
+
+                $order->order_no = "L-" . rand(00000000,99999999);
+                $order->customer_id = $customer->id;
+                $order->name = $contact_data->name;
+                $order->email = $contact_data->email;
+                $order->phone = $contact_data->phone;
+                $order->postal_code = $step_one_data->postal_code;
+                $order->location = $location->name;
+                $order->address_details = $step_one_data->address_in_details;
+                $order->address_type = $step_one_data->address_type;
+                $order->timing = json_encode($step_two_data);
+                $order->total = 0;
+                $order->order_status = "Pending";
+                $order->payment_status = "Pending";
+                $order->payment_method = "Cash";
+
+                
+                if( $order->save() ){
+
+                    $total = 0;
+                    foreach( $services as $service ){
+                        $order_service = new OrderServices();
+
+                        $order_service->order_id = $order->id;
+                        $order_service->service_id = $service->id;
+                        $order_service->service_duration_id = $service->instructions_id;
+                        $order_service->price = $service->price;
+                        $order_service->instruction = $service->instruction;
+                        $order_service->save();
+
+                        $total += $service->price;
+                    }
+
+                    $order->total = $total;
+
+                    if( $order->save() ){
+                        $email = mail_from();
+                        Mail::send('emails.order_place', ['order' => $order], function ($message) use ($order,$email) {
+                            $message->from($email);
+                            $message->to($order->email);
+                            $message->subject("New Order Created. ( ". $order->order_no ." )");
+                        });
+
+                        return response()->json([
+                            'status' => 'success',
+                            'data' => 'New Order Created'
+                        ],200);
+                    }
+                   
+
+                }
+                
+
+            }
+            else{
+                return response()->json([
+                    'status' => 'error',
+                    'data' => 'No Customer Found'
+                ],200);
+            }
+            
+        }
+        catch( Exception $e ){
+            return response()->json([
+                'status' => 'error',
+                'data' => $e->getMessage()
+            ],200);
+        }
+    } 
+    //place_order function end
+
+
+    //get_order function start
+    public function get_order(Request $request,$token){
+        try{
+            $customer = Customer::where("remember_token",$token)->first();
+
+            if( $customer ){
+                $order = Order::where("customer_id", $customer->id)->with("order_service")->select("id","order_no","timing","order_status","address_details")->orderBy("id","desc")->get();
+
+                return response()->json([
+                    'status' => 'success',
+                    'data' => $order
+                ],200);
+            }
+            else{
+                return response()->json([
+                    'status' => 'warning',
+                    'data' => 'No customer found'
+                ],200);
+            }
+
+        }
+        catch( Exception $e ){
+            return response()->json([
+                'status' => 'error',
+                'data' => $e->getMessage()
+            ],200);
+        }
+    } 
+    //get_order function end
 }

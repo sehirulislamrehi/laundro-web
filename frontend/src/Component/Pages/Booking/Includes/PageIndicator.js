@@ -32,9 +32,9 @@ export const PageIndicator = (props) => {
                     {
                          ( pathname == `/booking-4` ) 
                          ?
-                         <li className="active">Service Details</li> 
+                         <li className="active">Contact</li> 
                          :
-                         <li>Service Details</li>
+                         <li>Contact</li>
                     }
                </ul>
           </div>

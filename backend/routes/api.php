@@ -59,3 +59,10 @@ Route::post("postal-code-area",[LocationController::class,"postal_code_area"]);
 
 //get date and time for order place
 Route::get("date-and-time",[OrderController::class,"date_and_time"]);
+
+//place order
+Route::post("place-order",[OrderController::class,"place_order"]);
+
+
+//get order
+Route::get("get-order/{token}",[OrderController::class,"get_order"]);
