@@ -68,6 +68,12 @@ Route::group(['prefix' => 'admindashboard', 'middleware' => 'auth'], function ()
     });
     //service module routes end
 
+    //order module routes start
+    Route::group(['prefix' => 'order-module'], function () {
+        require_once 'order_module/all_order.php';
+    });
+    //order module routes end
+
     //settings module routes start
     Route::group(['prefix' => 'settings-module'], function () {
         require_once 'settings_module/app_info.php';

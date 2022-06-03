@@ -132,3 +132,8 @@ div.dataTables_wrapper div.dataTables_processing {
 .chosen-container .chosen-results{
     text-align: left!important;
 }
+
+td,th{
+    border: 1px solid #d9d9d9;
+    padding: 6px;
+}

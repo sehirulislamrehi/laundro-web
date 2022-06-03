@@ -48,6 +48,14 @@ class ModuleSeeder extends Seeder
                 'position' => 3,
                 'route' => null,
             ],
+            [
+                'id' => 5,
+                'name' => 'Order Module',
+                'key' => 'order_module',
+                'icon' => 'fas fa-cart-arrow-down',
+                'position' => 4,
+                'route' => null,
+            ],
         ]);
     }
 }

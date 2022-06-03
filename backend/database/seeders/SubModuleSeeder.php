@@ -114,9 +114,20 @@ class SubModuleSeeder extends Seeder
             ],
             //module id 4 end
 
+            //module id 5 start
+            [
+                'id' => 11,
+                'name' => 'All Order',
+                'key' => 'all_order',
+                'position' => 1,
+                'route' => 'order.all',
+                'module_id' => 5,
+            ]
+            //module id 5 end
+
         
         ]);
 
-        //last id 10
+        //last id 11
     }
 }

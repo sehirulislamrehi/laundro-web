@@ -7,36 +7,112 @@ export const PageIndicator = (props) => {
 
      return(
           <div className="id">
-               <ul id="progressbar">
+               
                     {
-                         ( pathname == `/booking-1` ) 
-                         ?
-                         <li className="active">Frequency</li> 
-                         :
-                         <li>Frequency</li>
+                         pathname && ( pathname == "/booking-1" ) ?
+                         <ul className="step-bar">
+                              <li className="step-bar__item step-bar__item_active">
+                                   <a >
+                                        Address
+                                   </a>
+                              </li>
+                              <li className="step-bar__item">
+                                   <a >
+                                        Collection
+                                   </a>
+                              </li>
+                              <li className="step-bar__item">
+                                   <a >
+                                        Services
+                                   </a>
+                              </li>
+                              <li className="step-bar__item">
+                                   <a >
+                                        Contact
+                                   </a>
+                              </li> 
+                         </ul>: ""
                     }
+
                     {
-                         ( pathname == `/booking-2` ) 
-                         ?
-                         <li className="active">Date & Time</li>
-                         :
-                         <li>Date & Time</li>
+                         pathname && ( pathname == "/booking-2" ) ?
+                         <ul className="step-bar">
+                              <li className="step-bar__item step-bar__item_active">
+                                   <a >
+                                        Address
+                                   </a>
+                              </li>
+                              <li className="step-bar__item step-bar__item_active">
+                                   <a >
+                                        Collection
+                                   </a>
+                              </li>
+                              <li className="step-bar__item">
+                                   <a >
+                                        Services
+                                   </a>
+                              </li>
+                              <li className="step-bar__item">
+                                   <a >
+                                        Contact
+                                   </a>
+                              </li> 
+                         </ul>: ""
                     }
+
                     {
-                         ( pathname == `/booking-3` ) 
-                         ?
-                         <li className="active">Select Service</li> 
-                         :
-                         <li>Select Service</li>
+                         pathname && ( pathname == "/booking-3" ) ?
+                         <ul className="step-bar">
+                              <li className="step-bar__item step-bar__item_active">
+                                   <a >
+                                        Address
+                                   </a>
+                              </li>
+                              <li className="step-bar__item step-bar__item_active">
+                                   <a >
+                                        Collection
+                                   </a>
+                              </li>
+                              <li className="step-bar__item step-bar__item_active">
+                                   <a >
+                                        Services
+                                   </a>
+                              </li>
+                              <li className="step-bar__item">
+                                   <a >
+                                        Contact
+                                   </a>
+                              </li> 
+                         </ul>: ""
                     }
+
                     {
-                         ( pathname == `/booking-4` ) 
-                         ?
-                         <li className="active">Contact</li> 
-                         :
-                         <li>Contact</li>
+                         pathname && ( pathname == "/booking-4" ) ?
+                         <ul className="step-bar">
+                              <li className="step-bar__item step-bar__item_active">
+                                   <a >
+                                        Address
+                                   </a>
+                              </li>
+                              <li className="step-bar__item step-bar__item_active">
+                                   <a >
+                                        Collection
+                                   </a>
+                              </li>
+                              <li className="step-bar__item step-bar__item_active">
+                                   <a >
+                                        Services
+                                   </a>
+                              </li>
+                              <li className="step-bar__item step-bar__item_active">
+                                   <a >
+                                        Contact
+                                   </a>
+                              </li> 
+                         </ul>: ""
                     }
-               </ul>
+                    
+               
           </div>
      );
 }

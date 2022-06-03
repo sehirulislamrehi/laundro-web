@@ -209,7 +209,7 @@ const HomeComponent = () => {
                     </div>
                     {/* END REVOLUTION SLIDER */}
 
-                    <div className="container">
+                    {/* <div className="container">
                          <div className="appoinment-form" style={{ backgroundImage : `url('images/form-bg.jpg')` }}>
                               <div className="appoinment-title">
                                    <h4>Online Booking</h4>
@@ -236,7 +236,7 @@ const HomeComponent = () => {
                                    </button>
                               </form>
                          </div>
-                    </div>
+                    </div> */}
                </div>
                {/* Hero Slider End */}
 

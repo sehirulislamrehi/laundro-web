@@ -240,6 +240,30 @@ class PermissionSedder extends Seeder
                 'display_name' => '-- View Services',
                 'module_id' => 4,
             ],
+            [
+                'id' => 39,
+                'key' => 'order_module',
+                'display_name' => 'Order Module',
+                'module_id' => 5,
+            ],
+            [
+                'id' => 40,
+                'key' => 'all_order',
+                'display_name' => 'All Order',
+                'module_id' => 5,
+            ],
+            [
+                'id' => 41,
+                'key' => 'view_order_details',
+                'display_name' => '-- View Order Details',
+                'module_id' => 5,
+            ],
+            [
+                'id' => 42,
+                'key' => 'edit_order',
+                'display_name' => '-- Edit Order',
+                'module_id' => 5,
+            ],
         ]);
     }
 }

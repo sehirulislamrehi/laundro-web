@@ -227,6 +227,10 @@ const OrderDetailsComponent = () => {
                                                                                                <td colSpan={2}>{order && JSON.parse(order.timing).instructions_for_delivery}</td>
                                                                                           </tr>
                                                                                           <tr>
+                                                                                               <th colSpan={2}>Other Instructions</th>
+                                                                                               <td colSpan={2}>{order && JSON.parse(order.timing).others_instruction}</td>
+                                                                                          </tr>
+                                                                                          <tr>
                                                                                                <th rowSpan={order && order.services.length} style={{ verticalAlign: "middle", textAlign : "center" }}>Services</th>
                                                                                                {
                                                                                                     order && order.services.map( (value,key) => (
