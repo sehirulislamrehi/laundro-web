@@ -9,6 +9,7 @@ import Footer from "../../Include/Footer";
 import HeaderComponent from "./Includes/HeaderComponent";
 import LeftSidebarComponent from "./Includes/LeftSidebarComponent";
 import NavbarComponent from "./Includes/NavbarComponent";
+import { useParams } from "react-router-dom";
 
 
 const OrderDetailsComponent = () => {
@@ -16,6 +17,8 @@ const OrderDetailsComponent = () => {
      let [check_authorized, set_authorized] = useState('unauthorized');
 
      const history = useHistory();
+     const {order_no} = useParams();
+     const [order, set_order] = useState(null)
 
      //manage session
      const [user, setUser] = useState(null);
@@ -42,7 +45,20 @@ const OrderDetailsComponent = () => {
                     localStorage.setItem('token',response.data.remember_token)
                     set_authorized('authorized');
                }
+          })
 
+          //order details
+          const order_details_url = `${window.url}/order-details/${order_no}`;
+          const formData = new FormData();
+          formData.append("token",token)
+
+          fetch(order_details_url, {
+               method : "POST",
+               body : formData
+          })
+          .then( response => response.json() )
+          .then( response => {
+               set_order(response.data)
           })
 
      },[])
@@ -82,7 +98,7 @@ const OrderDetailsComponent = () => {
                                              <div className="row">
 
 
-                                                  <div className="col-md-8">
+                                                  <div className="col-md-12">
                                                        <div className="row">
 
                                                             <div className="col-md-12 title">
@@ -103,17 +119,36 @@ const OrderDetailsComponent = () => {
                                                                  <div className="row booking-status">
 
                                                                       <div className="col-md-12">
-                                                                           <div className="image">
-                                                                                <img src="/images/booking-1.png" className="img-fluid" alt="" />
-                                                                           </div>
-                                                                      </div>
-
-                                                                      <div className="col-md-12">
                                                                            <div className="content">
-                                                                                <h4>Booking Confirmed</h4>
-                                                                                <p>
-                                                                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
-                                                                                </p>
+                                                                                <table class="table table-bordered">
+                                                                                     <tbody>
+                                                                                          <tr>
+                                                                                               <th colSpan={4} style={{textAlign: "center"}}>Order information</th>
+                                                                                          </tr>
+                                                                                          <tr>
+                                                                                               <th>Order No</th>
+                                                                                               <td>{order && order.order_no}</td>
+                                                                                               <th>Order Status</th>
+                                                                                               <td>{order && order.order_status}</td>
+                                                                                          </tr>
+                                                                                          <tr>
+                                                                                               <th>Payment Status</th>
+                                                                                               <td>{order && order.payment_status}</td>
+                                                                                               <th>Payment Method</th>
+                                                                                               <td>{order && order.payment_method}</td>
+                                                                                          </tr>
+                                                                                          <tr>
+                                                                                               <th>Day for collection</th>
+                                                                                               <td>{order && JSON.parse(order.timing).day_for_collection}</td>
+                                                                                               <th>Day for collection</th>
+                                                                                               <td>{order && JSON.parse(order.timing).time_for_collection}</td>
+                                                                                          </tr>
+                                                                                          <tr>
+                                                                                               <th colSpan={}>Instruction for collection</th>
+                                                                                               <td colSpan={}>{order && JSON.parse(order.timing).time_for_collection}</td>
+                                                                                          </tr>
+                                                                                     </tbody>
+                                                                                </table>
                                                                            </div>
                                                                       </div>
 
@@ -122,73 +157,6 @@ const OrderDetailsComponent = () => {
 
                                                        </div>
                                                   </div>   
-
-                                                  {/* booking summary start */}
-                                                  <div className="col-md-4 ">
-                                                       <div className="booking-summary">
-                                                            <h4>Booking Summary</h4>
-                                                            <table>
-                                                                 <tbody>
-                                                                      <tr>
-                                                                           <td>Service Type</td>
-                                                                           <td>Laundry Cleaning</td>
-                                                                      </tr>
-                                                                      <tr>
-                                                                           <td>Material</td>
-                                                                           <td>Yes</td>
-                                                                      </tr>
-                                                                      <tr>
-                                                                           <td>Duration</td>
-                                                                           <td>2 Hour</td>
-                                                                      </tr>
-                                                                      <tr>
-                                                                           <td>Number of maids</td>
-                                                                           <td>1</td>
-                                                                      </tr>
-                                                                 </tbody>
-                                                            </table>
-
-                                                            <h4 className="mt-3">Date & Times</h4>
-                                                            <table>
-                                                                 <tbody>
-                                                                      <tr>
-                                                                           <td>Sunday, October 14, 2022</td>
-                                                                      </tr>
-                                                                      <tr>
-                                                                           <td>10:00 AM</td>
-                                                                      </tr>
-                                                                 </tbody>
-                                                            </table>
-
-                                                            <h4 className="mt-3">Address</h4>
-                                                            <table>
-                                                                 <tbody>
-                                                                      <tr>
-                                                                           <td>Mohakhali TB Gate, Dhaka - Bangladesh</td>
-                                                                      </tr>
-                                                                 </tbody>
-                                                            </table>
-
-                                                            <h4 className="mt-3">Price Details</h4>
-                                                            <table>
-                                                                 <tbody>
-                                                                      <tr>
-                                                                           <td>Service Cose</td>
-                                                                           <td>100 BDT</td>
-                                                                      </tr>
-                                                                      <tr>
-                                                                           <td>VAT</td>
-                                                                           <td>10 BDT</td>
-                                                                      </tr>
-                                                                      <tr className="total-amount">
-                                                                           <td>Total</td>
-                                                                           <td>110 BDT</td>
-                                                                      </tr>
-                                                                 </tbody>
-                                                            </table>
-                                                       </div>
-                                                  </div>                   
-                                                  {/* booking summary end */}
 
                                              </div>
 

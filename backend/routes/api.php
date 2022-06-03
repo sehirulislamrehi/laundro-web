@@ -66,3 +66,7 @@ Route::post("place-order",[OrderController::class,"place_order"]);
 
 //get order
 Route::get("get-order/{token}",[OrderController::class,"get_order"]);
+
+
+//order details
+Route::post("order-details/{order_no}",[OrderController::class,"order_details"]);

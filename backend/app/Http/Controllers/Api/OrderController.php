@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\OrderModule\OrderResource;
 use App\Models\CustomerModule\Customer;
 use App\Models\LocationModule\Location;
 use App\Models\OrderModule\Order;
@@ -224,4 +225,42 @@ class OrderController extends Controller
         }
     } 
     //get_order function end
+
+
+    //order_details function start
+    public function order_details(Request $request, $order_no){
+        try{
+            $customer = Customer::where("remember_token", $request->token)->first();
+
+            if( $customer ){
+                $order = Order::where("customer_id", $customer->id)->where("order_no", $order_no)->first();
+
+                if( $order ){
+                    return response()->json([
+                        'status' => 'success',
+                        'data' => new OrderResource($order)
+                    ],200);
+                }
+                else{
+                    return response()->json([
+                        'status' => 'warning',
+                        'data' => 'No order found'
+                    ],200);
+                }
+            }
+            else{
+                return response()->json([
+                    'status' => 'warning',
+                    'data' => 'No customer found'
+                ],200);
+            }
+        }
+        catch( Exception $e ){
+            return response()->json([
+                'status' => 'error',
+                'data' => $e->getMessage()
+            ],200);
+        }
+    }
+    //order_details function end
 }

@@ -97,7 +97,7 @@ const MyOrderComponent = () => {
                                                   {
                                                        order && order ? order.map( item => (
                                                             <div className="col-md-12" key={item.id}>
-                                                                 <Link to="/order-details">
+                                                                 <Link to={`/order-details/${item.order_no}`}>
                                                                       <div className="order-card">
                                                                            <i className="fas fa-times"></i>
                                                                            <div className="row">

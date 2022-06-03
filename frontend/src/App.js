@@ -70,7 +70,7 @@ function App() {
             </Route>
 
             {/* order details Component */}
-            <Route path="/order-details">
+            <Route path="/order-details/:order_no">
               <OrderDetailsComponent></OrderDetailsComponent>
             </Route>
 
