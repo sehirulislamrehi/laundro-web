@@ -91,7 +91,8 @@ const StepTwoComponent = () => {
                     for( let i = 0 ; i < response.data.select_time.length ; i++ ){
                          set_time(response.data.select_time)
 
-                         if( current.getHours() <= response.data.select_time[i].time.split("-")[1].split(":")[0] ){
+                         let last = data.day_for_collection.charAt(data.day_for_collection.length - 1)
+                         if( data && last != current.getDate() ){
                               if( data && data.time_for_collection == response.data.select_time[i].time ){
                                    var str = `<option data-id='${response.data.select_time[i].time}' selected>${response.data.select_time[i].time}</option>`;
                               }
@@ -105,6 +106,23 @@ const StepTwoComponent = () => {
                                    select_time_for_collection.append(div.children[0]);
                               }
                          }
+                         else{
+                              if( current.getHours() <= response.data.select_time[i].time.split("-")[1].split(":")[0] ){
+                                   if( data && data.time_for_collection == response.data.select_time[i].time ){
+                                        var str = `<option data-id='${response.data.select_time[i].time}' selected>${response.data.select_time[i].time}</option>`;
+                                   }
+                                   else{
+                                        var str = `<option data-id='${response.data.select_time[i].time}'>${response.data.select_time[i].time}</option>`;
+                                   }
+          
+                                   var div = document.createElement('div');
+                                   div.innerHTML = str;
+                                   while ( div.children.length > 0 ) {
+                                        select_time_for_collection.append(div.children[0]);
+                                   }
+                              }
+                         }
+                         
 
                          
                     }
@@ -131,11 +149,13 @@ const StepTwoComponent = () => {
 
                     //select_day_for_delivery
                     let select_day_for_delivery = document.getElementById("select_day_for_delivery")
+                    var check = true;
                     for( let i = 0 ; i < response.data.select_day_for_delivery.length ; i++ ){
-
+                         let prev_index = 0;
                          set_delivery_day(response.data.select_day_for_delivery)
 
                          if( data && data.day_for_delivery == response.data.select_day_for_delivery[i].day ){
+                              prev_index = i;
                               var str = `<option data-id='${response.data.select_day_for_delivery[i].day}' selected>${response.data.select_day_for_delivery[i].day}</option>`;
                          }
                          else{
@@ -144,9 +164,16 @@ const StepTwoComponent = () => {
 
                          var div = document.createElement('div');
                          div.innerHTML = str;
+
                          while ( div.children.length > 0 ) {
                               select_day_for_delivery.append(div.children[0]);
                          }
+
+                         if( check == true && prev_index != 0 ){
+                              select_day_for_delivery[prev_index - 1].remove()
+                              check = false;
+                         }
+
                     }
                     //select_time_for_delivery
                     let select_time_for_delivery = document.getElementById("select_time_for_delivery")
