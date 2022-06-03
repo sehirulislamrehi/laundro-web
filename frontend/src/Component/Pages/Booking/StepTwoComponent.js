@@ -34,6 +34,8 @@ const StepTwoComponent = () => {
      const [time, set_time] = useState(null)
      const [delivery_day, set_delivery_day] = useState(null)
      var current = new Date();
+     var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+     var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
      useEffect( () => {
 
@@ -91,24 +93,27 @@ const StepTwoComponent = () => {
                     for( let i = 0 ; i < response.data.select_time.length ; i++ ){
                          set_time(response.data.select_time)
 
-                         let last = data.day_for_collection.charAt(data.day_for_collection.length - 1)
-                         if( data && last != current.getDate() ){
-                              if( data && data.time_for_collection == response.data.select_time[i].time ){
-                                   var str = `<option data-id='${response.data.select_time[i].time}' selected>${response.data.select_time[i].time}</option>`;
+                         if( data ){
+                              let today = days[current.getDay()] +', '+ months[ current.getMonth() ] +' '+  current.getDate();
+
+                              if( today == data.day_for_collection ){
+                                   if( ( current.getHours() + 2 ) <= response.data.select_time[i].time.split("-")[1].split(":")[0] ){
+                                        if( data.time_for_collection == response.data.select_time[i].time ){
+                                             var str = `<option data-id='${response.data.select_time[i].time}' selected>${response.data.select_time[i].time}</option>`;
+                                        }
+                                        else{
+                                             var str = `<option data-id='${response.data.select_time[i].time}'>${response.data.select_time[i].time}</option>`;
+                                        }
+               
+                                        var div = document.createElement('div');
+                                        div.innerHTML = str;
+                                        while ( div.children.length > 0 ) {
+                                             select_time_for_collection.append(div.children[0]);
+                                        }
+                                   }
                               }
                               else{
-                                   var str = `<option data-id='${response.data.select_time[i].time}'>${response.data.select_time[i].time}</option>`;
-                              }
-     
-                              var div = document.createElement('div');
-                              div.innerHTML = str;
-                              while ( div.children.length > 0 ) {
-                                   select_time_for_collection.append(div.children[0]);
-                              }
-                         }
-                         else{
-                              if( current.getHours() <= response.data.select_time[i].time.split("-")[1].split(":")[0] ){
-                                   if( data && data.time_for_collection == response.data.select_time[i].time ){
+                                   if( data.time_for_collection == response.data.select_time[i].time ){
                                         var str = `<option data-id='${response.data.select_time[i].time}' selected>${response.data.select_time[i].time}</option>`;
                                    }
                                    else{
@@ -121,11 +126,24 @@ const StepTwoComponent = () => {
                                         select_time_for_collection.append(div.children[0]);
                                    }
                               }
+
+                              
+                         }
+                         else{
+                              if( ( current.getHours() + 2 ) <= response.data.select_time[i].time.split("-")[1].split(":")[0] ){
+                                   
+                                   var str = `<option data-id='${response.data.select_time[i].time}'>${response.data.select_time[i].time}</option>`;
+                                   var div = document.createElement('div');
+                                   div.innerHTML = str;
+                                   while ( div.children.length > 0 ) {
+                                        select_time_for_collection.append(div.children[0]);
+                                   }
+                              }
                          }
                          
-
-                         
                     }
+                    
+                    
                     //driver_instructions_for_collection
                     let driver_instructions_for_collection = document.getElementById("driver_instructions_for_collection")
                     for( let i = 0 ; i < response.data.driver_instructions_for_collection.length ; i++ ){
@@ -149,30 +167,38 @@ const StepTwoComponent = () => {
 
                     //select_day_for_delivery
                     let select_day_for_delivery = document.getElementById("select_day_for_delivery")
-                    var check = true;
+                    let check = true;
                     for( let i = 0 ; i < response.data.select_day_for_delivery.length ; i++ ){
-                         let prev_index = 0;
                          set_delivery_day(response.data.select_day_for_delivery)
 
-                         if( data && data.day_for_delivery == response.data.select_day_for_delivery[i].day ){
-                              prev_index = i;
-                              var str = `<option data-id='${response.data.select_day_for_delivery[i].day}' selected>${response.data.select_day_for_delivery[i].day}</option>`;
+                         if( data ){
+                              if( data.day_for_collection == response.data.select_day_for_collection[i].day ){
+                                   check = false;
+                              }
+                              if( data.day_for_delivery == response.data.select_day_for_delivery[i].day ){
+                                   var str = `<option data-id='${response.data.select_day_for_delivery[i].day}' selected>${response.data.select_day_for_delivery[i].day}</option>`;
+                              }
+                              else{
+                                   if( check == true ){
+                                        var str = `<option data-id='${response.data.select_day_for_delivery[i].day}' disabled>${response.data.select_day_for_delivery[i].day}</option>`;
+                                   }
+                                   else{
+                                        var str = `<option data-id='${response.data.select_day_for_delivery[i].day}'>${response.data.select_day_for_delivery[i].day}</option>`;
+                                   }
+                              }
                          }
                          else{
                               var str = `<option data-id='${response.data.select_day_for_delivery[i].day}'>${response.data.select_day_for_delivery[i].day}</option>`;
                          }
+                         
 
                          var div = document.createElement('div');
                          div.innerHTML = str;
-
                          while ( div.children.length > 0 ) {
                               select_day_for_delivery.append(div.children[0]);
                          }
 
-                         if( check == true && prev_index != 0 ){
-                              select_day_for_delivery[prev_index - 1].remove()
-                              check = false;
-                         }
+                         
 
                     }
                     //select_time_for_delivery
@@ -261,7 +287,7 @@ const StepTwoComponent = () => {
           else{
                for( let i = 0 ; i < times.length ; i++ ){
                     
-                    if( current.getHours() <= times[i].time.split("-")[1].split(":")[0] ){
+                    if( ( current.getHours() + 2 ) <= times[i].time.split("-")[1].split(":")[0] ){
                          var str = `<option data-id='${times[i].time}'>${times[i].time}</option>`;
                          var div = document.createElement('div');
                          div.innerHTML = str;
