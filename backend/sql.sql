@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2022 at 06:38 PM
+-- Generation Time: Jun 03, 2022 at 02:03 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -95,7 +95,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `name`, `phone`, `email`, `password`, `address`, `point`, `image`, `is_active`, `is_verified`, `month`, `year`, `remember_token`, `created_at`, `updated_at`) VALUES
-(11, 'Md Sehirul Islam Rehi', '01858361812', 'mdsehirulislamrehi@gmail.com', '$2y$10$OCgVmoFjU3vxQkZF84Xw7.fMmZWyLyN.ci6g5.fO.xmCbL4ByG/ay', 'Dhaka', NULL, NULL, 1, 1, 5, 2022, 'pHILJfS1mfUfYVCBaUIVgUCdV7mf3q8BlgtSzMirJO09dxjUD69zFlRtqmvWUz9MFAg4VVpey5l6sxxO', '2022-05-29 05:08:26', '2022-05-30 00:05:32'),
+(11, 'Md Sehirul Islam Rehi', '01858361812', 'mdsehirulislamrehi@gmail.com', '$2y$10$OCgVmoFjU3vxQkZF84Xw7.fMmZWyLyN.ci6g5.fO.xmCbL4ByG/ay', 'Dhaka', NULL, NULL, 1, 1, 5, 2022, 'Ty2qqJmpuLrBEeN0dd0RozgEcZTbP60jB6zW8RRs99N3CMzG8Tc2b5ruf1tDfAZXgqUPVwt2EQrg4ELz', '2022-05-29 05:08:26', '2022-05-31 01:58:21'),
 (14, 'Hasan Masrur', '01858361813', 'hasan@gmail.com', '$2y$10$iMfpfyusIGdLkUwL.f9iw.ENTW1BHpYSzR.3Ph.ugOoDIvZT41ebq', 'Dhaka', NULL, NULL, 1, 1, 5, 2022, 'phNPd2anFh3rQo3mx3Zltn5dCGADVodT6SDQIs52njWsUKl7mE1CSMGzbTYCCBXI9rJYgvL19UoiiKxo', '2022-05-29 18:40:31', '2022-05-29 18:47:16');
 
 -- --------------------------------------------------------
@@ -214,7 +214,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (15, '2022_02_09_091043_create_coupons_table', 4),
 (16, '2022_02_09_072433_create_services_table', 5),
 (17, '2022_02_09_072514_create_service_durations_table', 5),
-(18, '2022_05_28_005933_create_customers_table', 6);
+(18, '2022_05_28_005933_create_customers_table', 6),
+(25, '2022_06_02_103400_create_orders_table', 7),
+(26, '2022_06_02_103721_create_order_services_table', 7);
 
 -- --------------------------------------------------------
 
@@ -241,7 +243,51 @@ INSERT INTO `modules` (`id`, `name`, `key`, `icon`, `position`, `route`, `create
 (1, 'User Module', 'user_module', 'fas fa-users', 1, NULL, NULL, NULL),
 (2, 'Setting Module', 'settings', 'fas fa-cog', 10, NULL, NULL, NULL),
 (3, 'Locations', 'location_module', 'fas fa-location-arrow', 2, NULL, NULL, NULL),
-(4, 'Services', 'service_module', 'fas fa-wrench', 3, NULL, NULL, NULL);
+(4, 'Services', 'service_module', 'fas fa-wrench', 3, NULL, NULL, NULL),
+(5, 'Order Module', 'order_module', 'fas fa-cart-arrow-down', 4, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `order_no` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `postal_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `location` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address_details` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `timing` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `total` int(11) NOT NULL,
+  `order_status` enum('Pending','Confirmed','Assigned','OnProcess','Delivered','Cancelled') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payment_status` enum('Pending','Success','Cancelled') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payment_method` enum('Cash','Online') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_services`
+--
+
+CREATE TABLE `order_services` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `order_id` bigint(20) UNSIGNED NOT NULL,
+  `service_id` bigint(20) UNSIGNED NOT NULL,
+  `service_duration_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `price` int(11) NOT NULL,
+  `instruction` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -312,7 +358,11 @@ INSERT INTO `permissions` (`id`, `key`, `display_name`, `module_id`, `created_at
 (35, 'services', 'Services', 4, NULL, NULL),
 (36, 'add_services', '-- Add Services', 4, NULL, NULL),
 (37, 'edit_services', '-- Edit Services', 4, NULL, NULL),
-(38, 'view_services', '-- View Services', 4, NULL, NULL);
+(38, 'view_services', '-- View Services', 4, NULL, NULL),
+(39, 'order_module', 'Order Module', 5, NULL, NULL),
+(40, 'all_order', 'All Order', 5, NULL, NULL),
+(41, 'view_order_details', '-- View Order Details', 5, NULL, NULL),
+(42, 'edit_order', '-- Edit Order', 5, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -368,7 +418,7 @@ CREATE TABLE `services` (
 
 INSERT INTO `services` (`id`, `name`, `slug`, `short_description`, `service_overview`, `icon`, `price`, `is_active`, `service_id`, `created_at`, `updated_at`) VALUES
 (1, 'Wash', 'wash', 'As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting. or lipsum as it is sometimes known, is dummy text used in laying out print, grap or web designs. USA champions professionalism in the cleaning industry by providing top-quality cleaning and related services that meet and exceed the expectations of today’s demanding corporate, office and ware house clients…courteously, responsively.\r\n\r\nUSA champions professionalism in the cleaning industry by providing top-quality cleaning and related services that meet and exceed the expectations of today’s demanding corporate, office, industrial and warehouse clients…courteously, responsively, responsibly, dependably, economically and on-time. We provide janitorial.\r\n\r\nA neatly maintained building is an important asset to every organization. It reflects who you are and influences how your customers perceive you.', '<p><div class=\"pera-txt mt-20\" style=\" margin-top: 20px; color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; background-color: rgb(255, 255, 255)\"><p style=\" color: rgb(58, 66, 104)\">A neatly maintained building is an important asset to every organization. It reflects who you are and influences how your customers perceive you to complete depending on the size.</p></div><div class=\"pera-txt mt-20\" style=\" margin-top: 20px; color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; background-color: rgb(255, 255, 255)\"><p style=\" color: rgb(58, 66, 104)\">Condition of your home. We work in teams of 2-4 or more. A team leader or the owner.</p></div></p>\r\n<li style=\"background-color: rgb(255, 255, 255); color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; display: inline !important; gap: 10px;\"><i class=\"fas fa-check\" style=\"display: inline-block; -webkit-font-smoothing: antialiased; font-variant-numeric: normal; font-variant-east-asian: normal; text-rendering: auto; line-height: 1; font-family: &quot;Font Awesome 5 Free&quot;; font-weight: 900; margin-top: 3px; color: rgb(0, 107, 204);\"></i><p>The housekeepers we hired are professionals who take pride in doing excellent work and in exceeding expectations.</p></li>\r\n<div class=\"srd-list mt-20\" style=\" margin-top: 20px; color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; background-color: rgb(255, 255, 255)\"></div><li style=\"display: flex; gap: 10px; margin-top: 20px;\"></li><li style=\"gap: 10px; margin-top: 20px; display: inline !important;\"><i class=\"fas fa-check\" style=\"display: inline-block; -webkit-font-smoothing: antialiased; font-variant-numeric: normal; font-variant-east-asian: normal; text-rendering: auto; line-height: 1; font-family: &quot;Font Awesome 5 Free&quot;; font-weight: 900; margin-top: 3px; color: rgb(0, 107, 204);\"></i><p>We carefully screen all of our cleaners, so you can rest assured that your home would receive the absolute highest quality of service providing.</p></li><li style=\"display: flex; gap: 10px; margin-top: 20px;\"></li><i class=\"fas fa-check\" style=\"display: inline-block; -webkit-font-smoothing: antialiased; font-variant-numeric: normal; font-variant-east-asian: normal; text-rendering: auto; line-height: 1; font-family: &quot;Font Awesome 5 Free&quot;; font-weight: 900; margin-top: 3px; color: rgb(0, 107, 204);\"></i><p><ul><li>Your time is precious, and we understand that cleaning is really just one more item on your to-do list.</li></ul></p>', 'Wash1652634417NVsZYFJRHUQ0.jpg', 10, 1, NULL, '2022-04-26 15:16:39', '2022-05-30 03:28:18'),
-(2, 'Wash & Iron', 'wash-iron', 'As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting. or lipsum as it is sometimes known, is dummy text used in laying out print, grap or web designs. USA champions professionalism in the cleaning industry by providing top-quality cleaning and related services that meet and exceed the expectations of today’s demanding corporate, office and ware house clients…courteously, responsively.\r\n\r\nUSA champions professionalism in the cleaning industry by providing top-quality cleaning and related services that meet and exceed the expectations of today’s demanding corporate, office, industrial and warehouse clients…courteously, responsively, responsibly, dependably, economically and on-time. We provide janitorial.\r\n\r\nA neatly maintained building is an important asset to every organization. It reflects who you are and influences how your customers perceive you.', '<p><div class=\"pera-txt mt-20\" style=\" margin-top: 20px; color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; background-color: rgb(255, 255, 255)\"><p style=\" color: rgb(58, 66, 104)\">A neatly maintained building is an important asset to every organization. It reflects who you are and influences how your customers perceive you to complete depending on the size.</p></div><div class=\"pera-txt mt-20\" style=\" margin-top: 20px; color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; background-color: rgb(255, 255, 255)\"><p style=\" color: rgb(58, 66, 104)\">Condition of your home. We work in teams of 2-4 or more. A team leader or the owner.</p></div></p>\r\n<li style=\"background-color: rgb(255, 255, 255); color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; display: inline !important; gap: 10px;\"><i class=\"fas fa-check\" style=\"display: inline-block; -webkit-font-smoothing: antialiased; font-variant-numeric: normal; font-variant-east-asian: normal; text-rendering: auto; line-height: 1; font-family: &quot;Font Awesome 5 Free&quot;; font-weight: 900; margin-top: 3px; color: rgb(0, 107, 204);\"></i><p>The housekeepers we hired are professionals who take pride in doing excellent work and in exceeding expectations.</p></li>\r\n<div class=\"srd-list mt-20\" style=\" margin-top: 20px; color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; background-color: rgb(255, 255, 255)\"></div><li style=\"display: flex; gap: 10px; margin-top: 20px;\"></li><li style=\"gap: 10px; margin-top: 20px; display: inline !important;\"><i class=\"fas fa-check\" style=\"display: inline-block; -webkit-font-smoothing: antialiased; font-variant-numeric: normal; font-variant-east-asian: normal; text-rendering: auto; line-height: 1; font-family: &quot;Font Awesome 5 Free&quot;; font-weight: 900; margin-top: 3px; color: rgb(0, 107, 204);\"></i><p>We carefully screen all of our cleaners, so you can rest assured that your home would receive the absolute highest quality of service providing.</p></li><li style=\"display: flex; gap: 10px; margin-top: 20px;\"></li><i class=\"fas fa-check\" style=\"display: inline-block; -webkit-font-smoothing: antialiased; font-variant-numeric: normal; font-variant-east-asian: normal; text-rendering: auto; line-height: 1; font-family: &quot;Font Awesome 5 Free&quot;; font-weight: 900; margin-top: 3px; color: rgb(0, 107, 204);\"></i><p><ul><li>Your time is precious, and we understand that cleaning is really just one more item on your to-do list.</li></ul></p>', 'Wash & Iron16526344453I3s1VRi1AoC.jpg', 10, 1, NULL, '2022-05-15 11:07:25', '2022-05-30 03:28:12'),
+(2, 'Wash & Iron', 'wash-iron', 'As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting. or lipsum as it is sometimes known, is dummy text used in laying out print, grap or web designs. USA champions professionalism in the cleaning industry by providing top-quality cleaning and related services that meet and exceed the expectations of today’s demanding corporate, office and ware house clients…courteously, responsively.\r\n\r\nUSA champions professionalism in the cleaning industry by providing top-quality cleaning and related services that meet and exceed the expectations of today’s demanding corporate, office, industrial and warehouse clients…courteously, responsively, responsibly, dependably, economically and on-time. We provide janitorial.\r\n\r\nA neatly maintained building is an important asset to every organization. It reflects who you are and influences how your customers perceive you.', '<p><div class=\"pera-txt mt-20\" style=\" margin-top: 20px; color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; background-color: rgb(255, 255, 255)\"><p style=\" color: rgb(58, 66, 104)\">A neatly maintained building is an important asset to every organization. It reflects who you are and influences how your customers perceive you to complete depending on the size.</p></div><div class=\"pera-txt mt-20\" style=\" margin-top: 20px; color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; background-color: rgb(255, 255, 255)\"><p style=\" color: rgb(58, 66, 104)\">Condition of your home. We work in teams of 2-4 or more. A team leader or the owner.</p></div></p>\r\n<li style=\"background-color: rgb(255, 255, 255); color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; display: inline !important; gap: 10px;\"><i class=\"fas fa-check\" style=\"display: inline-block; -webkit-font-smoothing: antialiased; font-variant-numeric: normal; font-variant-east-asian: normal; text-rendering: auto; line-height: 1; font-family: &quot;Font Awesome 5 Free&quot;; font-weight: 900; margin-top: 3px; color: rgb(0, 107, 204);\"></i><p>The housekeepers we hired are professionals who take pride in doing excellent work and in exceeding expectations.</p></li>\r\n<div class=\"srd-list mt-20\" style=\" margin-top: 20px; color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; background-color: rgb(255, 255, 255)\"></div><li style=\"display: flex; gap: 10px; margin-top: 20px;\"></li><li style=\"gap: 10px; margin-top: 20px; display: inline !important;\"><i class=\"fas fa-check\" style=\"display: inline-block; -webkit-font-smoothing: antialiased; font-variant-numeric: normal; font-variant-east-asian: normal; text-rendering: auto; line-height: 1; font-family: &quot;Font Awesome 5 Free&quot;; font-weight: 900; margin-top: 3px; color: rgb(0, 107, 204);\"></i><p>We carefully screen all of our cleaners, so you can rest assured that your home would receive the absolute highest quality of service providing.</p></li><li style=\"display: flex; gap: 10px; margin-top: 20px;\"></li><i class=\"fas fa-check\" style=\"display: inline-block; -webkit-font-smoothing: antialiased; font-variant-numeric: normal; font-variant-east-asian: normal; text-rendering: auto; line-height: 1; font-family: &quot;Font Awesome 5 Free&quot;; font-weight: 900; margin-top: 3px; color: rgb(0, 107, 204);\"></i><p><ul><li>Your time is precious, and we understand that cleaning is really just one more item on your to-do list.</li></ul></p>', 'Wash & Iron16526344453I3s1VRi1AoC.jpg', NULL, 1, NULL, '2022-05-15 11:07:25', '2022-06-01 11:27:46'),
 (3, 'Dry Cleaning', 'dry-cleaning', 'As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting. or lipsum as it is sometimes known, is dummy text used in laying out print, grap or web designs. USA champions professionalism in the cleaning industry by providing top-quality cleaning and related services that meet and exceed the expectations of today’s demanding corporate, office and ware house clients…courteously, responsively.\r\n\r\nUSA champions professionalism in the cleaning industry by providing top-quality cleaning and related services that meet and exceed the expectations of today’s demanding corporate, office, industrial and warehouse clients…courteously, responsively, responsibly, dependably, economically and on-time. We provide janitorial.\r\n\r\nA neatly maintained building is an important asset to every organization. It reflects who you are and influences how your customers perceive you.', '<p><div class=\"pera-txt mt-20\" style=\" margin-top: 20px; color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; background-color: rgb(255, 255, 255)\"><p style=\" color: rgb(58, 66, 104)\">A neatly maintained building is an important asset to every organization. It reflects who you are and influences how your customers perceive you to complete depending on the size.</p></div><div class=\"pera-txt mt-20\" style=\" margin-top: 20px; color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; background-color: rgb(255, 255, 255)\"><p style=\" color: rgb(58, 66, 104)\">Condition of your home. We work in teams of 2-4 or more. A team leader or the owner.</p></div></p>\r\n<li style=\"background-color: rgb(255, 255, 255); color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; display: inline !important; gap: 10px;\"><i class=\"fas fa-check\" style=\"display: inline-block; -webkit-font-smoothing: antialiased; font-variant-numeric: normal; font-variant-east-asian: normal; text-rendering: auto; line-height: 1; font-family: &quot;Font Awesome 5 Free&quot;; font-weight: 900; margin-top: 3px; color: rgb(0, 107, 204);\"></i><p>The housekeepers we hired are professionals who take pride in doing excellent work and in exceeding expectations.</p></li>\r\n<div class=\"srd-list mt-20\" style=\" margin-top: 20px; color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; background-color: rgb(255, 255, 255)\"></div><li style=\"display: flex; gap: 10px; margin-top: 20px;\"></li><li style=\"gap: 10px; margin-top: 20px; display: inline !important;\"><i class=\"fas fa-check\" style=\"display: inline-block; -webkit-font-smoothing: antialiased; font-variant-numeric: normal; font-variant-east-asian: normal; text-rendering: auto; line-height: 1; font-family: &quot;Font Awesome 5 Free&quot;; font-weight: 900; margin-top: 3px; color: rgb(0, 107, 204);\"></i><p>We carefully screen all of our cleaners, so you can rest assured that your home would receive the absolute highest quality of service providing.</p></li><li style=\"display: flex; gap: 10px; margin-top: 20px;\"></li><i class=\"fas fa-check\" style=\"display: inline-block; -webkit-font-smoothing: antialiased; font-variant-numeric: normal; font-variant-east-asian: normal; text-rendering: auto; line-height: 1; font-family: &quot;Font Awesome 5 Free&quot;; font-weight: 900; margin-top: 3px; color: rgb(0, 107, 204);\"></i><p><ul><li>Your time is precious, and we understand that cleaning is really just one more item on your to-do list.</li></ul></p>', 'Dry Cleaning1652634518MTzCVt5umHB2.jpg', 10, 1, NULL, '2022-05-15 11:07:36', '2022-05-30 03:28:05'),
 (4, 'Ironing', 'ironing', 'As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting. or lipsum as it is sometimes known, is dummy text used in laying out print, grap or web designs. USA champions professionalism in the cleaning industry by providing top-quality cleaning and related services that meet and exceed the expectations of today’s demanding corporate, office and ware house clients…courteously, responsively.\r\n\r\nUSA champions professionalism in the cleaning industry by providing top-quality cleaning and related services that meet and exceed the expectations of today’s demanding corporate, office, industrial and warehouse clients…courteously, responsively, responsibly, dependably, economically and on-time. We provide janitorial.\r\n\r\nA neatly maintained building is an important asset to every organization. It reflects who you are and influences how your customers perceive you.', '<p><div class=\"pera-txt mt-20\" style=\" margin-top: 20px; color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; background-color: rgb(255, 255, 255)\"><p style=\" color: rgb(58, 66, 104)\">A neatly maintained building is an important asset to every organization. It reflects who you are and influences how your customers perceive you to complete depending on the size.</p></div><div class=\"pera-txt mt-20\" style=\" margin-top: 20px; color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; background-color: rgb(255, 255, 255)\"><p style=\" color: rgb(58, 66, 104)\">Condition of your home. We work in teams of 2-4 or more. A team leader or the owner.</p></div></p>\r\n<li style=\"background-color: rgb(255, 255, 255); color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; display: inline !important; gap: 10px;\"><i class=\"fas fa-check\" style=\"display: inline-block; -webkit-font-smoothing: antialiased; font-variant-numeric: normal; font-variant-east-asian: normal; text-rendering: auto; line-height: 1; font-family: &quot;Font Awesome 5 Free&quot;; font-weight: 900; margin-top: 3px; color: rgb(0, 107, 204);\"></i><p>The housekeepers we hired are professionals who take pride in doing excellent work and in exceeding expectations.</p></li>\r\n<div class=\"srd-list mt-20\" style=\" margin-top: 20px; color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; background-color: rgb(255, 255, 255)\"></div><li style=\"display: flex; gap: 10px; margin-top: 20px;\"></li><li style=\"gap: 10px; margin-top: 20px; display: inline !important;\"><i class=\"fas fa-check\" style=\"display: inline-block; -webkit-font-smoothing: antialiased; font-variant-numeric: normal; font-variant-east-asian: normal; text-rendering: auto; line-height: 1; font-family: &quot;Font Awesome 5 Free&quot;; font-weight: 900; margin-top: 3px; color: rgb(0, 107, 204);\"></i><p>We carefully screen all of our cleaners, so you can rest assured that your home would receive the absolute highest quality of service providing.</p></li><li style=\"display: flex; gap: 10px; margin-top: 20px;\"></li><i class=\"fas fa-check\" style=\"display: inline-block; -webkit-font-smoothing: antialiased; font-variant-numeric: normal; font-variant-east-asian: normal; text-rendering: auto; line-height: 1; font-family: &quot;Font Awesome 5 Free&quot;; font-weight: 900; margin-top: 3px; color: rgb(0, 107, 204);\"></i><p><ul><li>Your time is precious, and we understand that cleaning is really just one more item on your to-do list.</li></ul></p>', 'Ironing1652634474YO7KBMWUMb8E.jpg', 7, 1, NULL, '2022-05-15 11:07:54', '2022-05-30 03:27:59'),
 (5, 'Dulvets & Bulky Items', 'dulvets-bulky-items', 'As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting. or lipsum as it is sometimes known, is dummy text used in laying out print, grap or web designs. USA champions professionalism in the cleaning industry by providing top-quality cleaning and related services that meet and exceed the expectations of today’s demanding corporate, office and ware house clients…courteously, responsively.\r\n\r\nUSA champions professionalism in the cleaning industry by providing top-quality cleaning and related services that meet and exceed the expectations of today’s demanding corporate, office, industrial and warehouse clients…courteously, responsively, responsibly, dependably, economically and on-time. We provide janitorial.\r\n\r\nA neatly maintained building is an important asset to every organization. It reflects who you are and influences how your customers perceive you.', '<p><div class=\"pera-txt mt-20\" style=\" margin-top: 20px; color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; background-color: rgb(255, 255, 255)\"><p style=\" color: rgb(58, 66, 104)\">A neatly maintained building is an important asset to every organization. It reflects who you are and influences how your customers perceive you to complete depending on the size.</p></div><div class=\"pera-txt mt-20\" style=\" margin-top: 20px; color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; background-color: rgb(255, 255, 255)\"><p style=\" color: rgb(58, 66, 104)\">Condition of your home. We work in teams of 2-4 or more. A team leader or the owner.</p></div></p>\r\n<li style=\"background-color: rgb(255, 255, 255); color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; display: inline !important; gap: 10px;\"><i class=\"fas fa-check\" style=\"display: inline-block; -webkit-font-smoothing: antialiased; font-variant-numeric: normal; font-variant-east-asian: normal; text-rendering: auto; line-height: 1; font-family: &quot;Font Awesome 5 Free&quot;; font-weight: 900; margin-top: 3px; color: rgb(0, 107, 204);\"></i><p>The housekeepers we hired are professionals who take pride in doing excellent work and in exceeding expectations.</p></li>\r\n<div class=\"srd-list mt-20\" style=\" margin-top: 20px; color: rgb(58, 66, 104); font-family: Rubik, sans-serif; font-size: 16px; background-color: rgb(255, 255, 255)\"></div><li style=\"display: flex; gap: 10px; margin-top: 20px;\"></li><li style=\"gap: 10px; margin-top: 20px; display: inline !important;\"><i class=\"fas fa-check\" style=\"display: inline-block; -webkit-font-smoothing: antialiased; font-variant-numeric: normal; font-variant-east-asian: normal; text-rendering: auto; line-height: 1; font-family: &quot;Font Awesome 5 Free&quot;; font-weight: 900; margin-top: 3px; color: rgb(0, 107, 204);\"></i><p>We carefully screen all of our cleaners, so you can rest assured that your home would receive the absolute highest quality of service providing.</p></li><li style=\"display: flex; gap: 10px; margin-top: 20px;\"></li><i class=\"fas fa-check\" style=\"display: inline-block; -webkit-font-smoothing: antialiased; font-variant-numeric: normal; font-variant-east-asian: normal; text-rendering: auto; line-height: 1; font-family: &quot;Font Awesome 5 Free&quot;; font-weight: 900; margin-top: 3px; color: rgb(0, 107, 204);\"></i><p><ul><li>Your time is precious, and we understand that cleaning is really just one more item on your to-do list.</li></ul></p>', 'Dulvets & Bulky Items1652634494cRCldvCwBsbW.jpg', 7, 1, NULL, '2022-05-15 11:08:14', '2022-05-30 03:27:54'),
@@ -384,7 +434,7 @@ CREATE TABLE `service_durations` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `service_id` bigint(20) UNSIGNED NOT NULL,
   `duration_id` bigint(20) UNSIGNED NOT NULL,
-  `price` double(10,2) NOT NULL,
+  `price` int(11) NOT NULL,
   `instructions` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -395,8 +445,9 @@ CREATE TABLE `service_durations` (
 --
 
 INSERT INTO `service_durations` (`id`, `service_id`, `duration_id`, `price`, `instructions`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 7.00, '1 Dress', '2022-04-26 15:18:43', '2022-04-26 15:18:43'),
-(2, 1, 1, 10.00, '2 Dress', '2022-04-26 15:18:43', '2022-04-26 15:18:43');
+(1, 1, 1, 8, '1 Dress', '2022-04-26 15:18:43', '2022-04-26 15:18:43'),
+(2, 1, 1, 10, '2 Dress', '2022-04-26 15:18:43', '2022-04-26 15:18:43'),
+(3, 2, 2, 10, '5 Dress', '2022-06-01 11:28:12', '2022-06-01 11:28:12');
 
 -- --------------------------------------------------------
 
@@ -429,7 +480,8 @@ INSERT INTO `sub_modules` (`id`, `name`, `key`, `position`, `route`, `module_id`
 (7, 'Zip Code', 'zip_code', 1, 'zip_code.all', 3, NULL, NULL),
 (8, 'Duration', 'duration', 2, 'duration.all', 4, NULL, NULL),
 (9, 'Coupon', 'coupon', 1, 'coupon.all', 4, NULL, NULL),
-(10, 'Service', 'service', 3, 'service.all', 4, NULL, NULL);
+(10, 'Service', 'service', 3, 'service.all', 4, NULL, NULL),
+(11, 'All Order', 'all_order', 1, 'order.all', 5, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -568,6 +620,23 @@ ALTER TABLE `modules`
   ADD UNIQUE KEY `modules_position_unique` (`position`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `orders_order_no_unique` (`order_no`),
+  ADD KEY `orders_customer_id_foreign` (`customer_id`);
+
+--
+-- Indexes for table `order_services`
+--
+ALTER TABLE `order_services`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `order_services_order_id_foreign` (`order_id`),
+  ADD KEY `order_services_service_id_foreign` (`service_id`),
+  ADD KEY `order_services_service_duration_id_foreign` (`service_duration_id`);
+
+--
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
@@ -687,13 +756,25 @@ ALTER TABLE `locations`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `modules`
 --
 ALTER TABLE `modules`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `order_services`
+--
+ALTER TABLE `order_services`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `password_resets`
@@ -705,7 +786,7 @@ ALTER TABLE `password_resets`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `permission_role`
@@ -729,13 +810,13 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `service_durations`
 --
 ALTER TABLE `service_durations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sub_modules`
 --
 ALTER TABLE `sub_modules`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `super_admins`
@@ -765,6 +846,20 @@ ALTER TABLE `zipcodes`
 ALTER TABLE `locations`
   ADD CONSTRAINT `locations_location_id_foreign` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `locations_zipcode_id_foreign` FOREIGN KEY (`zipcode_id`) REFERENCES `zipcodes` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_customer_id_foreign` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `order_services`
+--
+ALTER TABLE `order_services`
+  ADD CONSTRAINT `order_services_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `order_services_service_duration_id_foreign` FOREIGN KEY (`service_duration_id`) REFERENCES `service_durations` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `order_services_service_id_foreign` FOREIGN KEY (`service_id`) REFERENCES `services` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `permissions`

@@ -7,17 +7,17 @@ import { createStore } from 'redux';
 import allReducer from "./reducer";
 import { Provider } from 'react-redux';
 
-// window.url = "https://laundro-admin.sehirulislamrehi.com/api"
-window.url = "http://127.0.0.1:8000/api"
+window.url = "https://laundro-admin.sehirulislamrehi.com/api"
+window.image_path = "https://laundro-admin.sehirulislamrehi.com"
+const myStore = createStore(allReducer)
 
-// window.image_path = "https://laundro-admin.sehirulislamrehi.com"
-window.image_path = "http://127.0.0.1:8000"
 
-const myStore = createStore(
-  allReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
-// const myStore = createStore(allReducer)
+// window.url = "http://127.0.0.1:8000/api"
+// window.image_path = "http://127.0.0.1:8000"
+// const myStore = createStore(
+//   allReducer,
+//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// )
 
 
 const rootElement = document.getElementById('root');

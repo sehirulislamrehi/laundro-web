@@ -48,28 +48,34 @@ const StepFourComponent = () => {
 
           //send request to the server for manage session
           const token = localStorage.getItem('token')
-          const options_for_manage_session_request = {
-               method: 'GET',
-          };
-          fetch(`${manage_session_url}/${token}`,options_for_manage_session_request)
-          .then( response => response.json() )
-          .then( response => {
-               if( response.status == 'error' ){
-                    localStorage.removeItem('token')
-                    set_authorized('unauthorized');
-                    history.push({
-                         pathname: '/login',
-                    });
-               }
-               if( response.status == 'success' ){
-                    setUser(response.data)
-                    set_name(response.data.name)
-                    set_phone(response.data.phone)
-                    set_email(response.data.email)
-                    localStorage.setItem('token',response.data.remember_token)
-                    set_authorized('authorized');
-               }
-          })
+          if( token ){
+               const options_for_manage_session_request = {
+                    method: 'GET',
+               };
+               fetch(`${manage_session_url}/${token}`,options_for_manage_session_request)
+               .then( response => response.json() )
+               .then( response => {
+                    if( response.status == 'error' ){
+                         localStorage.removeItem('token')
+                         set_authorized('unauthorized');
+                         history.push({
+                              pathname: '/login',
+                         });
+                    }
+                    if( response.status == 'success' ){
+                         setUser(response.data)
+                         set_name(response.data.name)
+                         set_email(response.data.email)
+                         set_phone(response.data.phone)
+                         localStorage.setItem('token',response.data.remember_token)
+                         set_authorized('authorized');
+                    }
+     
+               })
+          }
+          else{
+               history.push("/login")
+          }
 
           let step_one_data = JSON.parse(localStorage.getItem("step_one_data"));
           if( step_one_data ){
