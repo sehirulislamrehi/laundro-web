@@ -107,22 +107,91 @@ const OrderDetailsComponent = () => {
 
                                                             <div className="col-md-12 mt-4">
                                                                  {/* progressbar */}
-                                                                 <ul id="progressbar">
-                                                                      <li className="active">Confirmed</li>
-                                                                      <li className="active">Assigned</li>
-                                                                      <li className="active">In Process</li>
-                                                                      <li>Completed</li>
-                                                                 </ul>
+                                                                 
+                                                                      {
+                                                                           order && ( order.order_status == "Pending" ) ? 
+                                                                           <ul id="progressbar">
+                                                                                <li className="active">Pending</li>
+                                                                                <li>Confirmed</li>
+                                                                                <li>Assigned</li>
+                                                                                <li>OnProcess</li> 
+                                                                                <li>Delivered</li> 
+                                                                                <li>Cancelled</li> 
+                                                                           </ul>
+                                                                           : ""
+                                                                      }
+                                                                      {
+                                                                           order && ( order.order_status == "Confirmed" ) ? 
+                                                                           <ul id="progressbar">
+                                                                                <li className="active">Pending</li>
+                                                                                <li className="active">Confirmed</li>
+                                                                                <li>Assigned</li>
+                                                                                <li>OnProcess</li> 
+                                                                                <li>Delivered</li> 
+                                                                                <li>Cancelled</li> 
+                                                                           </ul>
+                                                                           : ""
+                                                                      }
+                                                                      {
+                                                                           order && ( order.order_status == "Assigned" ) ? 
+                                                                           <ul id="progressbar">
+                                                                                <li className="active">Pending</li>
+                                                                                <li className="active">Confirmed</li>
+                                                                                <li className="active">Assigned</li>
+                                                                                <li>OnProcess</li> 
+                                                                                <li>Delivered</li> 
+                                                                                <li>Cancelled</li> 
+                                                                           </ul>
+                                                                           : ""
+                                                                      }
+                                                                      {
+                                                                           order && ( order.order_status == "OnProcess" ) ? 
+                                                                           <ul id="progressbar">
+                                                                                <li className="active">Pending</li>
+                                                                                <li className="active">Confirmed</li>
+                                                                                <li className="active">Assigned</li>
+                                                                                <li className="active">OnProcess</li> 
+                                                                                <li>Delivered</li> 
+                                                                                <li>Cancelled</li> 
+                                                                           </ul>
+                                                                           : ""
+                                                                      }
+                                                                      {
+                                                                           order && ( order.order_status == "Delivered" ) ? 
+                                                                           <ul id="progressbar">
+                                                                                <li className="active">Pending</li>
+                                                                                <li className="active">Confirmed</li>
+                                                                                <li className="active">Assigned</li>
+                                                                                <li className="active">OnProcess</li> 
+                                                                                <li className="active">Delivered</li> 
+                                                                                <li>Cancelled</li> 
+                                                                           </ul>
+                                                                           : ""
+                                                                      }
+                                                                      {
+                                                                           order && ( order.order_status == "Cancelled" ) ? 
+                                                                           <ul id="progressbar">
+                                                                                <li className="active">Pending</li>
+                                                                                <li className="active">Confirmed</li>
+                                                                                <li className="active">Assigned</li>
+                                                                                <li className="active">OnProcess</li> 
+                                                                                <li className="active">Delivered</li> 
+                                                                                <li className="active">Cancelled</li> 
+                                                                           </ul>
+                                                                           : ""
+                                                                      }
+                                                                      
+                                                                 
                                                             </div>
 
                                                             <div className="col-md-12">
                                                                  <div className="row booking-status">
 
                                                                       <div className="col-md-12">
-                                                                           <div className="content">
-                                                                                <table class="table table-bordered">
+                                                                           <div className="content table-responsive">
+                                                                                <table className="table table-bordered">
                                                                                      <tbody>
-                                                                                          <tr>
+                                                                                          <tr style={{border:"1px solid #006bcc"}}>
                                                                                                <th colSpan={4} style={{textAlign: "center"}}>Order information</th>
                                                                                           </tr>
                                                                                           <tr>
@@ -140,13 +209,87 @@ const OrderDetailsComponent = () => {
                                                                                           <tr>
                                                                                                <th>Day for collection</th>
                                                                                                <td>{order && JSON.parse(order.timing).day_for_collection}</td>
-                                                                                               <th>Day for collection</th>
+                                                                                               <th>Time for collection</th>
                                                                                                <td>{order && JSON.parse(order.timing).time_for_collection}</td>
                                                                                           </tr>
                                                                                           <tr>
-                                                                                               <th colSpan={}>Instruction for collection</th>
-                                                                                               <td colSpan={}>{order && JSON.parse(order.timing).time_for_collection}</td>
+                                                                                               <th colSpan={2}>Instruction for collection</th>
+                                                                                               <td colSpan={2}>{order && JSON.parse(order.timing).instructions_for_collection}</td>
                                                                                           </tr>
+                                                                                          <tr>
+                                                                                               <th>Day for Delivery</th>
+                                                                                               <td>{order && JSON.parse(order.timing).day_for_delivery}</td>
+                                                                                               <th>Time for Delivery</th>
+                                                                                               <td>{order && JSON.parse(order.timing).time_for_delivery}</td>
+                                                                                          </tr>
+                                                                                          <tr>
+                                                                                               <th colSpan={2}>Instruction for Delivery</th>
+                                                                                               <td colSpan={2}>{order && JSON.parse(order.timing).instructions_for_delivery}</td>
+                                                                                          </tr>
+                                                                                          <tr>
+                                                                                               <th rowSpan={order && order.services.length} style={{ verticalAlign: "middle", textAlign : "center" }}>Services</th>
+                                                                                               {
+                                                                                                    order && order.services.map( (value,key) => (
+                                                                                                         (
+                                                                                                              ( key == 0 ) ?  
+                                                                                                              <td colSpan={3}
+                                                                                                              >
+                                                                                                                   <strong style={{marginRight: "5px"}}>{ value.service.name }</strong>
+                                                                                                                   ( { value.instruction ? value.instruction : 'No instructions' } )
+                                                                                                                   ( { value.price } BDT )
+                                                                                                              </td> : ""
+                                                                                                         )
+                                                                                                         
+                                                                                                    ))
+                                                                                               }
+                                                                                          </tr>
+                                                                                          {
+                                                                                               order && order.services.map( (value,key) => (
+                                                                                                    (
+                                                                                                         ( key != 0 ) ? 
+                                                                                                         <tr>
+                                                                                                              <td colSpan={3}>
+                                                                                                                   <strong style={{marginRight: "5px"}}>{ value.service.name }</strong>
+                                                                                                                   ( { value.instruction ? value.instruction : 'No instructions' } )
+                                                                                                                   ( { value.price } BDT )
+                                                                                                              </td>
+                                                                                                         </tr> : ""
+                                                                                                    )
+                                                                                               ))
+                                                                                          }
+                                                                                          <tr>
+                                                                                               <th colSpan={2}>Order Total</th>
+                                                                                               <td colSpan={2}>{order && order.total} BDT</td>
+                                                                                          </tr>
+
+
+                                                                                          {/* customer information */}
+                                                                                          <tr>
+                                                                                               <th colSpan={4} style={{textAlign: "center", border: "1px solid #006bcc" }}>Customer information</th>
+                                                                                          </tr>
+                                                                                          <tr>
+                                                                                               <th>Name</th>
+                                                                                               <td>{order && order.customer_name}</td>
+                                                                                               <th>Email</th>
+                                                                                               <td>{order && order.customer_email}</td>
+                                                                                          </tr>
+                                                                                          <tr>
+                                                                                               <th>Phone</th>
+                                                                                               <td>{order && order.customer_phone}</td>
+                                                                                               <th>Postal Code</th>
+                                                                                               <td>{order && order.postal_code}</td>
+                                                                                          </tr>
+                                                                                          <tr>
+                                                                                               <th>Area</th>
+                                                                                               <td>{order && order.location}</td>
+                                                                                               <th>Address Type</th>
+                                                                                               <td>{order && order.address_type}</td>
+                                                                                          </tr>
+                                                                                          <tr>
+                                                                                               <th colSpan={2}>Address Details</th>
+                                                                                               <td colSpan={2}>{order && order.address_details}</td>
+                                                                                          </tr>
+
                                                                                      </tbody>
                                                                                 </table>
                                                                            </div>

@@ -15,14 +15,17 @@ import Footer from "../Include/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getAllServices } from "../../action";
-import Select from 'react-select'
 
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+import { useHistory } from "react-router-dom";
+const MySwal = withReactContent(Swal)
 
 
 const HomeComponent = () => {
 
      {/* window scroll to top */}
-     window.scrollTo(0, 0);
+     // window.scrollTo(0, 0);
 
      //INITIALIZATION
      const dispatch = useDispatch();
@@ -76,6 +79,8 @@ const HomeComponent = () => {
           
      const service_name = [];
      const service_slug = [];
+     const [code, set_code] = useState(null)
+     const [service, set_service] = useState(null)
 
      useEffect(() => {
 
@@ -100,13 +105,57 @@ const HomeComponent = () => {
      
      const get_all_services = useSelector( state => state.getAllServices )
 
-     for( let i = 0; i < get_all_services.length ; i++ ){
-          const getallData={
-            value : `${get_all_services[i].slug}`,
-            label : `${get_all_services[i].name}`,
+     const history = useHistory()
+
+     const bookNow = () => {
+          if( !code ){
+               MySwal.fire({
+                    title : "",
+                    text : "Enter a postal code",
+               })
           }
-          service_name.push(getallData)
+          if( !service ){
+               MySwal.fire({
+                    title : "",
+                    text : "Select a service",
+               })
+          }
+          else{
+               get_all_services.map( item => {
+                    if( item.slug == service ){
+                         let services_data = [];
+                         let serviceSample = {
+                              id : "",
+                              name : "",
+                              slug : "",
+                              instruction : "",
+                              instructions_id : "",
+                              price : ""
+                         }
+                         serviceSample.id = item.id
+                         serviceSample.name = item.name
+                         serviceSample.slug = item.slug
+                         serviceSample.price = item.price
+                         serviceSample.instruction = null 
+                         serviceSample.instructions_id = null 
+                         services_data.push(serviceSample);
+                         localStorage.setItem("services", JSON.stringify(services_data));
+
+                         let step_one_data = {
+                              postal_code : code,
+                              address_id : null,
+                              address_in_details : null,
+                              address_type : null,
+                         }
+                         localStorage.setItem("step_one_data", JSON.stringify(step_one_data));
+
+                         history.push("/booking-1")
+
+                    }
+               })
+          }
      }
+
      
 
      return(
@@ -170,13 +219,16 @@ const HomeComponent = () => {
                                    <input type="tel" placeholder="Mobile number*" />
                                    <input type="email" placeholder="Main Address" />
                                    <div className="select-field">
-                                        <select>
+                                        <select className="form-control"
+                                        >
                                              {
-                                                  service_name && service_name.map( item => (
-                                                       <option value={item.value}>{item.label}</option>
+                                                  get_all_services && get_all_services.map( item => (
+                                                       (
+                                                            (item.service_durations.length == 0) ? <option value="">{item.name}</option> : ""
+                                                       )
                                                   ))
                                              }
-                                        </select>
+                                        </select> 
                                    </div>
                                    <textarea placeholder="Type message..." rows="8"></textarea>
                                    <button type="submit" className="laundro-primary-btn">
@@ -209,19 +261,30 @@ const HomeComponent = () => {
                                                   <input style={{
                                                            height: "55px",
                                                            marginTop: "0px"
-                                                  }} type="text" name="" className="form-control" placeholder="Enter your name" />                                                 
+                                                  }} type="text" className="form-control" placeholder="Enter your postal code"
+                                                       onChange={ e => set_code(e.target.value)}
+                                                   />                                                 
                                              </div>
 
                                              {/* service */}
                                              <div className="col-md-5 col-12 form-group"> 
-                                                  <Select 
-                                                       options={service_name}
-                                                  />                                             
+                                                  <select className="form-control"
+                                                       onChange={ e => set_service(e.target.value) }
+                                                  >
+                                                       <option selected disabled>Select Service</option>
+                                                       {
+                                                            get_all_services && get_all_services.map( item => (
+                                                                 (
+                                                                      (item.service_durations.length == 0) ? <option value={item.slug}>{item.name}</option> : ""
+                                                                 )
+                                                            ))
+                                                       }
+                                                  </select>                                        
                                              </div>
 
                                              {/* button */}
                                              <div className="col-md-2 col-12 form-group">
-                                                  <button className="book-now" type="submit">
+                                                  <button className="book-now" type="button" onClick={bookNow}>
                                                        Book Now
                                                   </button>                                              
                                              </div>

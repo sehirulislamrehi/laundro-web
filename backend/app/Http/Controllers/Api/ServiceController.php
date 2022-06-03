@@ -12,7 +12,7 @@ class ServiceController extends Controller
     //get_all_service function start
     public function get_all_service(){
         try{
-            $services = Service::where("is_active", true)->select("slug","name","icon","short_description")->orderBy("id","desc")->get();
+            $services = Service::where("is_active", true)->select("slug","name","icon","short_description","id","price")->orderBy("id","desc")->with("service_durations")->get();
 
             return response()->json([
                 'status' => 'success',

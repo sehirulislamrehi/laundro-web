@@ -4,4 +4,8 @@
      .service-instruction .instruction-box{
           width: 90%
      }
+     #progressbar li {
+          font-size: 9px;
+          width: 15%;
+      }
 }
