@@ -105,78 +105,222 @@ const OrderDetailsComponent = () => {
                                                                  <h4>Booking Details</h4>
                                                             </div>
 
-                                                            <div className="col-md-12 mt-4">
+                                                            <div className="col-md-12 mt-4 order-details-step">
                                                                  {/* progressbar */}
                                                                  
                                                                       {
                                                                            order && ( order.order_status == "Pending" ) ? 
-                                                                           <ul id="progressbar">
-                                                                                <li className="active">Pending</li>
-                                                                                <li>Confirmed</li>
-                                                                                <li>Assigned</li>
-                                                                                <li>OnProcess</li> 
-                                                                                <li>Delivered</li> 
-                                                                                <li>Cancelled</li> 
+                                                                           <ul className="step-bar">
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     Pending
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item ">
+                                                                                     <a >
+                                                                                     Confirmed
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item ">
+                                                                                     <a >
+                                                                                     Assigned
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item ">
+                                                                                     <a >
+                                                                                     OnProcess
+                                                                                     </a>
+                                                                                </li> 
+                                                                                <li className="step-bar__item ">
+                                                                                     <a >
+                                                                                     Delivered
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item ">
+                                                                                     <a >
+                                                                                     Cancelled
+                                                                                     </a>
+                                                                                </li> 
                                                                            </ul>
                                                                            : ""
                                                                       }
                                                                       {
                                                                            order && ( order.order_status == "Confirmed" ) ? 
-                                                                           <ul id="progressbar">
-                                                                                <li className="active">Pending</li>
-                                                                                <li className="active">Confirmed</li>
-                                                                                <li>Assigned</li>
-                                                                                <li>OnProcess</li> 
-                                                                                <li>Delivered</li> 
-                                                                                <li>Cancelled</li> 
+                                                                           <ul className="step-bar">
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     Pending
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     Confirmed
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item ">
+                                                                                     <a >
+                                                                                     Assigned
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item ">
+                                                                                     <a >
+                                                                                     OnProcess
+                                                                                     </a>
+                                                                                </li> 
+                                                                                <li className="step-bar__item ">
+                                                                                     <a >
+                                                                                     Delivered
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item ">
+                                                                                     <a >
+                                                                                     Cancelled
+                                                                                     </a>
+                                                                                </li> 
                                                                            </ul>
                                                                            : ""
                                                                       }
                                                                       {
                                                                            order && ( order.order_status == "Assigned" ) ? 
-                                                                           <ul id="progressbar">
-                                                                                <li className="active">Pending</li>
-                                                                                <li className="active">Confirmed</li>
-                                                                                <li className="active">Assigned</li>
-                                                                                <li>OnProcess</li> 
-                                                                                <li>Delivered</li> 
-                                                                                <li>Cancelled</li> 
+                                                                           <ul className="step-bar">
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     Pending
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     Confirmed
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     Assigned
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item ">
+                                                                                     <a >
+                                                                                     OnProcess
+                                                                                     </a>
+                                                                                </li> 
+                                                                                <li className="step-bar__item ">
+                                                                                     <a >
+                                                                                     Delivered
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item ">
+                                                                                     <a >
+                                                                                     Cancelled
+                                                                                     </a>
+                                                                                </li> 
                                                                            </ul>
                                                                            : ""
                                                                       }
                                                                       {
                                                                            order && ( order.order_status == "OnProcess" ) ? 
-                                                                           <ul id="progressbar">
-                                                                                <li className="active">Pending</li>
-                                                                                <li className="active">Confirmed</li>
-                                                                                <li className="active">Assigned</li>
-                                                                                <li className="active">OnProcess</li> 
-                                                                                <li>Delivered</li> 
-                                                                                <li>Cancelled</li> 
+                                                                           <ul className="step-bar">
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     Pending
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     Confirmed
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     Assigned
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     OnProcess
+                                                                                     </a>
+                                                                                </li> 
+                                                                                <li className="step-bar__item ">
+                                                                                     <a >
+                                                                                     Delivered
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item ">
+                                                                                     <a >
+                                                                                     Cancelled
+                                                                                     </a>
+                                                                                </li> 
                                                                            </ul>
                                                                            : ""
                                                                       }
                                                                       {
                                                                            order && ( order.order_status == "Delivered" ) ? 
-                                                                           <ul id="progressbar">
-                                                                                <li className="active">Pending</li>
-                                                                                <li className="active">Confirmed</li>
-                                                                                <li className="active">Assigned</li>
-                                                                                <li className="active">OnProcess</li> 
-                                                                                <li className="active">Delivered</li> 
-                                                                                <li>Cancelled</li> 
+                                                                           <ul className="step-bar">
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     Pending
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     Confirmed
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     Assigned
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     OnProcess
+                                                                                     </a>
+                                                                                </li> 
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     Delivered
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item ">
+                                                                                     <a >
+                                                                                     Cancelled
+                                                                                     </a>
+                                                                                </li> 
                                                                            </ul>
                                                                            : ""
                                                                       }
                                                                       {
                                                                            order && ( order.order_status == "Cancelled" ) ? 
-                                                                           <ul id="progressbar">
-                                                                                <li className="active">Pending</li>
-                                                                                <li className="active">Confirmed</li>
-                                                                                <li className="active">Assigned</li>
-                                                                                <li className="active">OnProcess</li> 
-                                                                                <li className="active">Delivered</li> 
-                                                                                <li className="active">Cancelled</li> 
+                                                                           <ul className="step-bar">
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     Pending
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     Confirmed
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     Assigned
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     OnProcess
+                                                                                     </a>
+                                                                                </li> 
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     Delivered
+                                                                                     </a>
+                                                                                </li>
+                                                                                <li className="step-bar__item step-bar__item_active">
+                                                                                     <a >
+                                                                                     Cancelled
+                                                                                     </a>
+                                                                                </li> 
                                                                            </ul>
                                                                            : ""
                                                                       }

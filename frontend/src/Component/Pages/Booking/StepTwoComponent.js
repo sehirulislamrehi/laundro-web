@@ -27,6 +27,8 @@ const StepTwoComponent = () => {
      const [address, set_address] = useState(null)
      const [address_type, set_address_type] = useState(null)
      const [others_instruction, set_others_instruction] = useState(null)
+     const [time, set_time] = useState(null)
+     var current = new Date();
 
      useEffect( () => {
 
@@ -59,7 +61,6 @@ const StepTwoComponent = () => {
           .then( response => response.json() )
           .then( response => {
                if( response.status == "success" ){
-
                     let data = JSON.parse(localStorage.getItem("step_two_data"))
 
                     //select_day_for_collection
@@ -67,10 +68,10 @@ const StepTwoComponent = () => {
                     for( let i = 0 ; i < response.data.select_day_for_collection.length ; i++ ){
 
                          if( data && data.day_for_collection == response.data.select_day_for_collection[i].day ){
-                              var str = `<option data-id='${response.data.select_day_for_collection[i].day}' selected>${response.data.select_day_for_collection[i].day}</option>`;
+                              var str = `<option data-id='${response.data.select_day_for_collection[i].day}' data-date='${response.data.select_day_for_collection[i].date}' selected>${response.data.select_day_for_collection[i].day}</option>`;
                          }
                          else{
-                              var str = `<option data-id='${response.data.select_day_for_collection[i].day}'>${response.data.select_day_for_collection[i].day}</option>`;
+                              var str = `<option data-id='${response.data.select_day_for_collection[i].day}' data-date='${response.data.select_day_for_collection[i].date}'>${response.data.select_day_for_collection[i].day}</option>`;
                          }
                          var div = document.createElement('div');
                          div.innerHTML = str;
@@ -83,19 +84,24 @@ const StepTwoComponent = () => {
                     //select_time_for_collection
                     let select_time_for_collection = document.getElementById("select_time_for_collection")
                     for( let i = 0 ; i < response.data.select_time.length ; i++ ){
+                         set_time(response.data.select_time)
 
-                         if( data && data.time_for_collection == response.data.select_time[i].time ){
-                              var str = `<option data-id='${response.data.select_time[i].time}' selected>${response.data.select_time[i].time}</option>`;
-                         }
-                         else{
-                              var str = `<option data-id='${response.data.select_time[i].time}'>${response.data.select_time[i].time}</option>`;
+                         if( current.getHours() <= response.data.select_time[i].time.split("-")[1].split(":")[0] ){
+                              if( data && data.time_for_collection == response.data.select_time[i].time ){
+                                   var str = `<option data-id='${response.data.select_time[i].time}' selected>${response.data.select_time[i].time}</option>`;
+                              }
+                              else{
+                                   var str = `<option data-id='${response.data.select_time[i].time}'>${response.data.select_time[i].time}</option>`;
+                              }
+     
+                              var div = document.createElement('div');
+                              div.innerHTML = str;
+                              while ( div.children.length > 0 ) {
+                                   select_time_for_collection.append(div.children[0]);
+                              }
                          }
 
-                         var div = document.createElement('div');
-                         div.innerHTML = str;
-                         while ( div.children.length > 0 ) {
-                              select_time_for_collection.append(div.children[0]);
-                         }
+                         
                     }
                     //driver_instructions_for_collection
                     let driver_instructions_for_collection = document.getElementById("driver_instructions_for_collection")
@@ -191,6 +197,47 @@ const StepTwoComponent = () => {
 
      },[]);
 
+     const collectionDayChange = (e) => {
+          let times = time;
+          let select_day_for_collection = document.getElementById("select_day_for_collection")
+          let date = select_day_for_collection.options[select_day_for_collection.selectedIndex].dataset.date
+          let select_time_for_collection = document.getElementById("select_time_for_collection")
+
+          
+          let len = select_time_for_collection.length
+          for( let k = 0 ; k < len ; k++ ){
+               select_time_for_collection[0].remove()
+          }
+
+          if( date != current.getDate() ){
+               for( let i = 0 ; i < times.length ; i++ ){
+                    
+                    var str = `<option data-id='${times[i].time}'>${times[i].time}</option>`;
+                    var div = document.createElement('div');
+                    div.innerHTML = str;
+                    while ( div.children.length > 0 ) {
+                         select_time_for_collection.append(div.children[0]);
+                    }
+                    
+               }
+          }
+          else{
+               for( let i = 0 ; i < times.length ; i++ ){
+                    
+                    if( current.getHours() <= times[i].time.split("-")[1].split(":")[0] ){
+                         var str = `<option data-id='${times[i].time}'>${times[i].time}</option>`;
+                         var div = document.createElement('div');
+                         div.innerHTML = str;
+                         while ( div.children.length > 0 ) {
+                              select_time_for_collection.append(div.children[0]);
+                         }
+                    }
+                    
+               }
+          }
+     }
+
+     
 
      const nextStep = () => {
           let select_day_for_collection = document.getElementById("select_day_for_collection")
@@ -268,7 +315,7 @@ const StepTwoComponent = () => {
                                                        {/* select day */}
                                                        <div className="col-md-6">
                                                             <p>Select Day</p>
-                                                            <select name="" className="form-control" id="select_day_for_collection">
+                                                            <select name="" className="form-control" id="select_day_for_collection" onChange={collectionDayChange}>
                                                                  
                                                             </select>
                                                        </div>

@@ -7,5 +7,9 @@
      #progressbar li {
           font-size: 9px;
           width: 15%;
-      }
+     }
+     .order-details-step{
+          overflow: scroll;
+          overflow-y: hidden;
+     }
 }

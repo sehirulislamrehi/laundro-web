@@ -23,22 +23,22 @@ class OrderController extends Controller
 
             array_push($select_time,
                 [
-                    "time" => "09:00 - 11:00"
+                    "time" => "09:00-11:00"
                 ],
                 [
-                    "time" => "11:00 - 13:00"
+                    "time" => "11:00-13:00"
                 ],   
                 [
-                    "time" => "13:00 - 15:00"
+                    "time" => "13:00-15:00"
                 ],
                 [
-                    "time" => "15:00 - 17:00"
+                    "time" => "15:00-17:00"
                 ],
                 [
-                    "time" => "17:00 - 19:00"
+                    "time" => "17:00-19:00"
                 ],
                 [
-                    "time" => "19:00 - 21:00"
+                    "time" => "19:00-21:00"
                 ],
             );
 
@@ -49,12 +49,14 @@ class OrderController extends Controller
             for( $i = 0 ; $i < 10 ; $i++ ){
                 $date = Carbon::now()->addDay($i)->format("l, M j");
                 array_push($select_day_for_collection,[
-                    "day" => $date
+                    "day" => $date,
+                    "date" => Carbon::now()->addDay($i)->format("j")
                 ]);
 
                 if( $i != 0 ){
                     array_push($select_day_for_delivery,[
-                        "day" => $date
+                        "day" => $date,
+                        "date" => Carbon::now()->addDay($i)->format("j")
                     ]);
                 }
             }
