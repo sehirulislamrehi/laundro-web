@@ -12,6 +12,10 @@ import { PageIndicator } from "./Includes/PageIndicator";
 import { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+const MySwal = withReactContent(Swal)
+
 const StepTwoComponent = () => {
 
      {/* window scroll to top */}
@@ -28,6 +32,7 @@ const StepTwoComponent = () => {
      const [address_type, set_address_type] = useState(null)
      const [others_instruction, set_others_instruction] = useState(null)
      const [time, set_time] = useState(null)
+     const [delivery_day, set_delivery_day] = useState(null)
      var current = new Date();
 
      useEffect( () => {
@@ -121,9 +126,14 @@ const StepTwoComponent = () => {
                          }
                     }
 
+
+
+
                     //select_day_for_delivery
                     let select_day_for_delivery = document.getElementById("select_day_for_delivery")
                     for( let i = 0 ; i < response.data.select_day_for_delivery.length ; i++ ){
+
+                         set_delivery_day(response.data.select_day_for_delivery)
 
                          if( data && data.day_for_delivery == response.data.select_day_for_delivery[i].day ){
                               var str = `<option data-id='${response.data.select_day_for_delivery[i].day}' selected>${response.data.select_day_for_delivery[i].day}</option>`;
@@ -204,7 +214,7 @@ const StepTwoComponent = () => {
           let select_time_for_collection = document.getElementById("select_time_for_collection")
 
           
-          let len = select_time_for_collection.length
+          var len = select_time_for_collection.length
           for( let k = 0 ; k < len ; k++ ){
                select_time_for_collection[0].remove()
           }
@@ -234,6 +244,27 @@ const StepTwoComponent = () => {
                     }
                     
                }
+          }
+
+          let delivery_days = delivery_day;
+          let select_day_for_delivery = document.getElementById("select_day_for_delivery")
+
+          var len = select_day_for_delivery.length
+          for( let i = 0 ; i < len ; i++ ){
+               select_day_for_delivery[0].remove()
+          }
+          for( let i = 0 ; i < delivery_days.length ; i++ ){
+               if( parseInt(date) < parseInt(delivery_days[i].date) ){
+                    
+                    var str = `<option data-id='${delivery_days[i].day}'>${delivery_days[i].day}</option>`;
+
+                    var div = document.createElement('div');
+                    div.innerHTML = str;
+                    while ( div.children.length > 0 ) {
+                         select_day_for_delivery.append(div.children[0]);
+                    }
+               }
+               
           }
      }
 
@@ -273,6 +304,12 @@ const StepTwoComponent = () => {
                }; 
                localStorage.setItem('step_two_data',JSON.stringify(step_two_data))
                history.push(`/booking-3`)
+          }
+          else{
+               MySwal.fire({
+                    title : "",
+                    text : "Please select date and time properly",
+               })
           }
      }
      
