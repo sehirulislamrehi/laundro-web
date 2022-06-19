@@ -185,6 +185,11 @@
      left: 50%;
      transform: translate(-50%,-50%);
 }
+.please-wait img{
+     display: block;
+     margin: 0 auto;
+     width: 50%;
+}
 #react-select-2-listbox{
      z-index: 999999!important;
 }

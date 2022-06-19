@@ -63,10 +63,11 @@ Route::get("date-and-time",[OrderController::class,"date_and_time"]);
 //place order
 Route::post("place-order",[OrderController::class,"place_order"]);
 
-
 //get order
 Route::get("get-order/{token}",[OrderController::class,"get_order"]);
 
-
 //order details
 Route::post("order-details/{order_no}",[OrderController::class,"order_details"]);
+
+//order dashboard data
+Route::get("order-data/{token}",[OrderController::class,"order_data"]);

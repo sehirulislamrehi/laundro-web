@@ -60,6 +60,12 @@ const LoginComponent = (state) => {
 
                if( response.status == 'success' ){
                     localStorage.setItem('token',response.data.remember_token)
+
+                    localStorage.removeItem("step_one_data")
+                    localStorage.removeItem("step_two_data")
+                    localStorage.removeItem("contact_data")
+                    localStorage.removeItem("services")
+
                     history.push('/dashboard')
                }
 

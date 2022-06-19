@@ -265,4 +265,55 @@ class OrderController extends Controller
         }
     }
     //order_details function end
+
+
+    //order_data function start
+    public function order_data($token){
+        try{
+            $customer = Customer::where("remember_token",$token)->first();
+
+            if( $customer ){
+                $order = Order::where("customer_id", $customer->id)->select("order_status")->get();
+
+                $total = $order->count();
+                $pending = $order->where("order_status","Pending")->count();
+                $confirmed = $order->where("order_status","Confirmed")->count();
+                $assigned = $order->where("order_status","Assigned")->count();
+                $on_process = $order->where("order_status","OnProcess")->count();
+                $delivered = $order->where("order_status","Delivered")->count();
+                $cancelled = $order->where("order_status","Cancelled")->count();
+
+                $data = [];
+                array_push($data,[
+                    'total' => $total,
+                    'pending' => $pending,
+                    'confirmed' => $confirmed,
+                    'assigned' => $assigned,
+                    'on_process' => $on_process,
+                    'delivered' => $delivered,
+                    'cancelled' => $cancelled
+                ]);
+
+                return response()->json([
+                    'status' => 'success',
+                    'data' => $data[0]
+                ],200);
+
+            }
+            else{
+                return response()->json([
+                    'status' => 'warning',
+                    'data' => 'No customer found'
+                ],200);
+            }
+
+        }
+        catch( Exception $e ){
+            return response()->json([
+                'status' => 'error',
+                'data' => $e->getMessage()
+            ],200);
+        }
+    }
+    //order_data function end
 }

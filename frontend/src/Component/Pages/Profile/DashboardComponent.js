@@ -16,6 +16,7 @@ const DashboardComponent = () => {
      let [check_authorized, set_authorized] = useState('unauthorized');
 
      const history = useHistory();
+     const [data, set_data] = useState(null);
 
      //manage session
      const [user, setUser] = useState(null);
@@ -51,6 +52,18 @@ const DashboardComponent = () => {
           else{
                history.push("/login")
           }
+
+          //get dashboard data
+          const get_dashboard_data_url = `${window.url}/order-data/${token}`;
+          fetch(`${get_dashboard_data_url}`,{
+               method : "GET"
+          })
+          .then( response => response.json() )
+          .then( response => {
+               if( response.status == "success" ){
+                    set_data(response.data)
+               }
+          })
 
      },[])
 
@@ -94,7 +107,7 @@ const DashboardComponent = () => {
                                                             "background" : "rgb(168 251 232)"
                                                        }}>
                                                             <p>Total Order </p>  
-                                                            <strong >01</strong>  
+                                                            <strong >{ data && data.total }</strong>  
                                                        </div>                                              
                                                   </div>
      
@@ -103,8 +116,8 @@ const DashboardComponent = () => {
                                                        <div className="dashboard-item-card" style={{
                                                             "background" : "rgb(202 206 255)"
                                                        }}>
-                                                            <p>Today's Order</p>  
-                                                            <strong>00</strong>  
+                                                            <p>Pending Order</p>  
+                                                            <strong>{ data && data.pending }</strong>  
                                                        </div>                                              
                                                   </div>
      
@@ -113,8 +126,28 @@ const DashboardComponent = () => {
                                                        <div className="dashboard-item-card" style={{
                                                             "background" : "rgb(251 255 186)"
                                                        }}>
-                                                            <p>Pending Order</p>  
-                                                            <strong>01</strong>  
+                                                            <p>Confirmed Order</p>  
+                                                            <strong>{ data && data.confirmed }</strong>  
+                                                       </div>                                              
+                                                  </div>
+
+                                                  {/* item start */}
+                                                  <div className="col-md-4 col-6">
+                                                       <div className="dashboard-item-card" style={{
+                                                            "background" : "rgb(255 174 174)"
+                                                       }}>
+                                                            <p>Assigned Order</p>  
+                                                            <strong>{ data && data.assigned }</strong>  
+                                                       </div>                                              
+                                                  </div>
+
+                                                  {/* item start */}
+                                                  <div className="col-md-4 col-6">
+                                                       <div className="dashboard-item-card" style={{
+                                                            "background" : "rgb(253 228 249)"
+                                                       }}>
+                                                            <p>Onprocess Order</p>  
+                                                            <strong>{ data && data.on_process }</strong>  
                                                        </div>                                              
                                                   </div>
      
@@ -123,28 +156,8 @@ const DashboardComponent = () => {
                                                        <div className="dashboard-item-card" style={{
                                                             "background" : "rgb(193 255 177)"
                                                        }}>
-                                                            <p>Confirm Order</p>  
-                                                            <strong>00</strong>  
-                                                       </div>                                              
-                                                  </div>
-     
-                                                  {/* item start */}
-                                                  <div className="col-md-4 col-6">
-                                                       <div className="dashboard-item-card" style={{
-                                                            "background" : "rgb(253 228 249)"
-                                                       }}>
-                                                            <p>Completed Order</p>  
-                                                            <strong>00</strong>  
-                                                       </div>                                              
-                                                  </div>
-     
-                                                  {/* item start */}
-                                                  <div className="col-md-4 col-6">
-                                                       <div className="dashboard-item-card" style={{
-                                                            "background" : "rgb(255 174 174)"
-                                                       }}>
-                                                            <p>Cancelled Order</p>  
-                                                            <strong>01</strong>  
+                                                            <p>Delivered Order</p>  
+                                                            <strong>{ data && data.delivered }</strong>  
                                                        </div>                                              
                                                   </div>
      

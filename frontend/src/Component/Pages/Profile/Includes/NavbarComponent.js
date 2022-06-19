@@ -13,6 +13,11 @@ const NavbarComponent = (props) => {
 
           if( token ){
                localStorage.removeItem('token')
+
+               localStorage.removeItem("step_one_data")
+               localStorage.removeItem("step_two_data")
+               localStorage.removeItem("contact_data")
+               localStorage.removeItem("services")
           }
 
           history.push('/login');

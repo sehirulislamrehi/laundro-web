@@ -1,4 +1,4 @@
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
 
 import HomeComponent from './Component/Pages/HomeComponent';
 import AboutComponent from './Component/Pages/AboutComponent';
@@ -17,6 +17,7 @@ import StepTwoComponent from "./Component/Pages/Booking/StepTwoComponent";
 import StepThreeComponent from "./Component/Pages/Booking/StepThreeComponent";
 import StepFourComponent from "./Component/Pages/Booking/StepFourComponent";
 import OrderDetailsComponent from "./Component/Pages/Profile/OrderDetailsComponent";
+import NotFoundComponent from "./Component/Pages/NotFoundComponent";
 
 function App() {
   return (
@@ -108,6 +109,12 @@ function App() {
             <Route path="/booking-4">
               <StepFourComponent></StepFourComponent>
             </Route>
+            
+
+            <Route path="/404">
+              <NotFoundComponent></NotFoundComponent>
+            </Route>
+            <Redirect to="/404"/>
 
       </Switch>
     </Router>
