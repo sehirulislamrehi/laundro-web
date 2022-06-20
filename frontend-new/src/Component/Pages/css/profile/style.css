@@ -1,0 +1,411 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Bree+Serif&display=swap");
+
+
+.profile-header {
+     background: #fff;
+     width: 100%;
+     display: flex;
+     height: 190px;
+     position: relative;
+     /* box-shadow: 0px 1px 10px rgb(0 0 0 / 20%); */
+}
+
+.profile-img {
+     float: left;
+     width: 340px;
+     height: 200px;
+}
+
+.profile-img img {
+     border-radius: 50%;
+     height: 230px;
+     width: 230px;
+     border: 5px solid #fff;
+     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+     position: absolute;
+     left: 50px;
+     top: 20px;
+     z-index: 5;
+     background: #fff;
+}
+
+.profile-nav-info {
+     float: left;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     padding-top: 15px;
+}
+
+.profile-nav-info h3 {
+     font-size: 2rem;
+     font-weight: bold;
+}
+
+.profile-nav-info .address {
+     display: flex;
+     font-weight: bold;
+     color: #777;
+}
+
+.profile-nav-info .address p {
+     margin-right: 5px;
+}
+
+.profile-option {
+     width: 40px;
+     height: 40px;
+     position: absolute;
+     right: 50px;
+     top: 50%;
+     transform: translateY(-50%);
+     border-radius: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     cursor: pointer;
+     transition: all 0.5s ease-in-out;
+     outline: none;
+     background: #006BCC;
+}
+
+.profile-option:hover {
+     background: #fff;
+     border: 1px solid #006BCC;
+}
+
+.profile-option:hover .notification i {
+     color: #006BCC;
+}
+
+.profile-option:hover span {
+     background: #006BCC;
+}
+
+.profile-option .notification i {
+     color: #fff;
+     font-size: 1.2rem;
+     transition: all 0.5s ease-in-out;
+}
+
+.profile-option .notification .alert-message {
+     position: absolute;
+     top: -5px;
+     right: -5px;
+     background: #fff;
+     color: #006BCC;
+     border: 1px solid #006BCC;
+     padding: 5px;
+     border-radius: 50%;
+     height: 20px;
+     width: 20px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 0.8rem;
+     font-weight: bold;
+}
+
+.main-bd {
+     width: 100%;
+     display: flex;
+     padding-right: 15px;
+}
+
+.profile-side {
+     width: 300px;
+     background: #fff;
+     border: 1px solid #e9e9e9;
+     padding: 90px 20px 20px;
+     font-family: "Bree Serif", serif;
+     margin-left: 10px;
+     z-index: 99;
+}
+
+.profile-side p {
+     margin-bottom: 7px;
+     color: #333;
+     font-size: 14px;
+}
+
+.profile-side p i {
+     color: #006BCC;
+     margin-right: 10px;
+}
+
+.mobile-no i {
+     transform: rotateY(180deg);
+     color: #006BCC;
+}
+
+.profile-btn {
+     display: flex;
+}
+
+button.chatbtn,
+button.createbtn {
+     border: 0;
+     padding: 10px;
+     width: 100%;
+     border-radius: 3px;
+     background: #006BCC;
+     color: #fff;
+     font-family: "Bree Serif";
+     font-size: 1rem;
+     margin: 5px 2px;
+     cursor: pointer;
+     outline: none;
+     margin-bottom: 10px;
+     transition: background 0.3s ease-in-out;
+     box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.3);
+}
+
+button.chatbtn:hover,
+button.createbtn:hover {
+     background: rgb(49 127 181 / 90%);
+}
+
+button.chatbtn i,
+button.createbtn i {
+     margin-right: 5px;
+}
+
+.user-rating {
+     display: flex;
+}
+
+.user-rating h3 {
+     font-size: 2.5rem;
+     font-weight: 200;
+     margin-right: 5px;
+     letter-spacing: 1px;
+     color: #666;
+}
+
+.user-rating .no-of-user-rate {
+     font-size: 0.9rem;
+}
+
+.rate {
+     padding-top: 6px;
+}
+
+.rate i {
+     font-size: 0.9rem;
+     color: rgb(0 107 205);
+}
+
+.nav {
+     width: 100%;
+     z-index: -1;
+     display: block!important;
+}
+
+.nav ul {
+     display: flex;
+     justify-content: space-around;
+     list-style-type: none;
+     height: 40px;
+     background: #fff;
+     /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); */
+     border-top: 1px solid #e9e9e9;
+}
+
+.nav ul li {
+     padding: 10px;
+     cursor: pointer;
+     text-align: center;
+     transition: all 0.2s ease-in-out;
+}
+
+.nav ul li:hover,
+.nav ul li.active {
+     box-shadow: 0px -3px 0px rgb(0 107 205) inset;
+}
+
+.profile-body {
+     width: 100%;
+     z-index: -1;
+}
+
+.tab {
+     display: none;
+}
+
+.tab {
+     padding: 20px;
+     width: 100%;
+     text-align: center;
+}
+.profile{
+     padding: 50px 0;
+}
+.link-send {
+     margin: 15px 0;
+}
+.link-send h4{
+     font-size: 18px;
+}
+.link-send .row{
+     margin-top: 15px;
+}
+.link-send .row .phone-number{
+     padding-left: 0;
+}
+.link-send .row .phone-number input{
+     margin: 0;
+}
+.link-send .row .form-control:focus{
+     box-shadow: none;
+     border: 1px solid black;
+}
+.link-send .row .button button{
+     width: 100%;
+     margin-top: 10px;
+     background: #22d3ee;
+     color: white;
+     border: none;
+     padding: 10px;
+}
+.profile-body{
+     padding: 15px 30px;
+}
+.right-side{
+     width: 100%;
+}
+.right-side .nav ul li a{
+     color: black;
+}
+.order-card{
+     background: whitesmoke;
+     padding: 15px;
+     position: relative;
+     border-radius: 5px;
+     margin-bottom: 15px;
+}
+.order-card .fa-times{
+     position: absolute;
+     right: 15px;
+     top: 15px;
+     color: white;
+     cursor: pointer;
+     background: #22d3ee;
+     padding: 5px 10px;
+}
+.order-card-footer{
+     margin-top: 10px;
+}
+.order-card .left-part small{
+     color: black;
+}
+.order-card-footer .left-part ul li .fas{
+     margin-right: 5px;
+}
+.order-card-footer .left-part ul li{
+     display: inline;
+     margin-right: 15px;
+     color: black;
+}
+.order-card-footer .right-part .order-status{
+     display: block;
+     margin: 0 0 0 auto;
+     background: #006BCC;
+     color: white;
+     border: none;
+     padding: 5px 20px;
+     border-radius: 5px;
+}
+.my-dashboard img{
+     display: block;
+     margin: 0 auto;
+}
+.my-account {
+     background: whitesmoke;
+     padding: 15px;
+     position: relative;
+}
+.my-account .edit-column ul{
+     text-align: right;
+}
+.my-account .edit-column ul li{
+     display: inline;
+     margin-left: 15px;
+}
+.my-account .edit-column ul li a{
+     background: #006BCC;
+    color: white;
+    padding: 5px 15px;
+}
+.my-account .edit-column ul li a:hover{
+     background: #22d3ee;
+}
+.my-account .edit-column ul li a .fas{
+     margin-right: 5px;
+}
+.my-account .image-column{
+     margin-bottom: 15px;
+     position: relative;
+}
+.my-account .image-column i{
+     position: absolute;
+     left: 55%;
+     transform: translateX(-50%);
+     background: #006BCC;
+     height: 20px;
+     border-radius: 100%;
+     width: 20px;
+     padding: 2px 4px;
+     color: white;
+     cursor: pointer;
+}
+
+.my-account .image-column img{
+     width: 10%;
+     display: block;
+     margin: 0 auto;
+     border-radius: 100%;
+}
+.my-account .image-column .account-information {
+     padding: 15px 0;
+}
+.my-account .account-information ul li{
+     margin-bottom: 10px;
+}
+.my-account .form-group{
+     margin-bottom: 15px;
+}
+.form-control:focus{
+     box-shadow: none;
+     border: 1px solid black;
+}
+.change-password-btn{
+     display: block;
+     margin: 0 0 0 auto;
+     background: #006BCC;
+     color: white;
+     border: none;
+     padding: 5px 20px;
+}
+.booking-details .title h4{
+     text-align: center;
+}
+#progressbar{
+     text-align: center;
+}
+.profile-body.booking-details{
+     padding: 50px 0;
+}
+.booking-status .image{
+     
+}
+.booking-status .content{
+     padding: 15px;
+     text-align: justify;
+}
+
+.dashboard-item-card{
+	padding: 15px;
+	color: black;
+     margin-bottom: 15px;
+}
