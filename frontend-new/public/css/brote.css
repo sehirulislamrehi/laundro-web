@@ -2189,10 +2189,10 @@ ul {
   font-size: 20px;
   color: var(--brote-gray);
   font-weight: 500;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transform: translateY(-120px);
-  transform: translateY(-120px);
+  /* opacity: 0;
+  visibility: hidden; */
+  -webkit-transform: translateY(120px);
+  transform: translateY(120px);
   -webkit-transition-delay: 1000ms;
   transition-delay: 1000ms;
   -webkit-transition: opacity 2000ms ease, -webkit-transform 2000ms ease;
@@ -2209,8 +2209,8 @@ ul {
   letter-spacing: -0.04em;
   margin-top: 12px;
   margin-bottom: 36px;
-  opacity: 0;
-  visibility: hidden;
+  /* opacity: 0;
+  visibility: hidden; */
   -webkit-transform: translateY(120px);
   transform: translateY(120px);
   -webkit-transition-delay: 1000ms;
@@ -2224,10 +2224,10 @@ ul {
 .main-slider__btn-box {
   position: relative;
   display: block;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transform: translateY(-120px);
-  transform: translateY(-120px);
+  /* opacity: 0;
+  visibility: hidden; */
+  -webkit-transform: translateY(120px);
+  transform: translateY(120px);
   -webkit-transition-delay: 1000ms;
   transition-delay: 1000ms;
   -webkit-transition: opacity 2000ms ease, -webkit-transform 2000ms ease;
@@ -3482,6 +3482,9 @@ ul {
   transition: all 500ms ease;
   z-index: 3;
 }
+.services-one__icon img{
+  border-radius: 100%;
+}
 
 .services-one__single:hover .services-one__icon {
   background-color: var(--brote-primary);
@@ -4309,6 +4312,29 @@ ul {
   position: relative;
   display: block;
   margin-bottom: 20px;
+}
+.contact-one__form-input-box select{
+  position: relative;
+  height: 50px;
+  outline: none !important;
+  border-radius: 10px;
+  border: 0;
+  background-color: #4055be!important;
+  margin: 0;
+  padding: 0;
+  padding-left: 30px;
+  padding-right: 30px;
+  /* color: var(--brote-white) !important; */
+  font-size: 14px;
+  line-height: 50px;
+  font-weight: 400;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  background-repeat: no-repeat;
+  background-size: 14px 12px;
+  background-position: right 25.75px center;
+  width: 100%;
+  margin-top: 5px;
 }
 
 .contact-one__form-input-box input[type="text"],
@@ -12037,7 +12063,7 @@ body.boxed-wrapper .contact-one__call {
 	margin-bottom: 15px;
 }
 .book-service .book-service-row .section-form .form-control{
-	padding: 15px;
+	padding: 12px;
 }
 .book-service .book-service-row .section-form .form-control:focus{
 	box-shadow: none;
@@ -12075,4 +12101,21 @@ body.boxed-wrapper .contact-one__call {
 	width: 30%;
 	display: block;
 	margin: 0 auto;
+}
+input, select{
+  font-family: var(--brote-font)!important;
+  color: var(--brote-gray)!important;
+  font-size: 16px!important;
+  line-height: 30px!important;
+  font-weight: 500!important;
+}
+::placeholder{
+  font-family: var(--brote-font)!important;
+  color: var(--brote-gray)!important;
+  font-size: 16px!important;
+  line-height: 30px!important;
+  font-weight: 500!important;
+}
+ul{
+  padding-left: 0!important;
 }

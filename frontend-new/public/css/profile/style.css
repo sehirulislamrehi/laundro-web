@@ -316,6 +316,9 @@ button.createbtn i {
      padding: 5px 20px;
      border-radius: 5px;
 }
+.order-card-footer .right-part .order-status:hover{
+     background: #ffb400;
+}
 .my-dashboard img{
      display: block;
      margin: 0 auto;
@@ -371,6 +374,8 @@ button.createbtn i {
 }
 .my-account .account-information ul li{
      margin-bottom: 10px;
+     display: block;
+     list-style: none;
 }
 .my-account .form-group{
      margin-bottom: 15px;
@@ -408,4 +413,7 @@ button.createbtn i {
 	padding: 15px;
 	color: black;
      margin-bottom: 15px;
+}
+.profile-body .order-list:hover{
+     color: unset!important;
 }

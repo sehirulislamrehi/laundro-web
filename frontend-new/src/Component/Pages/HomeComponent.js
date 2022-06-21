@@ -181,7 +181,7 @@ const HomeComponent = () => {
                                         <div className="row">
                                              <div className="col-xl-12">
                                                   <div className="main-slider__content">
-                                                       <p className="main-slider__sub-title">Welcome to Brote Cleaning</p>
+                                                       <p className="main-slider__sub-title">Welcome to Laundro Cleaning</p>
                                                        <h2 className="main-slider__title">
                                                             Quality <br></br> Solutions <br></br> in Cleaning
                                                        </h2>
@@ -229,7 +229,7 @@ const HomeComponent = () => {
                                         <div className="row">
                                              <div className="col-xl-12">
                                                   <div className="main-slider__content">
-                                                       <p className="main-slider__sub-title">Welcome to Brote Cleaning</p>
+                                                       <p className="main-slider__sub-title">Welcome to Laundro Cleaning</p>
                                                        <h2 className="main-slider__title">Quality <br></br> Solutions <br></br>in Cleaning</h2>
                                                        <div className="main-slider__btn-box">
                                                        <a href="about.html" className="thm-btn main-slider__btn">Discover more <i
@@ -325,7 +325,7 @@ const HomeComponent = () => {
                                                        <select className="form-control"
                                                             onChange={ e => set_service(e.target.value) }
                                                        >
-                                                            <option selected disabled>Select Service</option>
+                                                            <option defaultValue disabled>Select Service</option>
                                                             {
                                                                  get_all_services && get_all_services.map( item => (
                                                                       (
@@ -361,7 +361,7 @@ const HomeComponent = () => {
                                    {/*Feature One single Start*/}
                                    {
                                         get_all_services && get_all_services.map(item => (
-                                        <div className="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
+                                        <div className="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms" key={item.slug}>
                                              <div className="feature-one__single">
                                                   <div className="feature-one-single-bg"
                                                   style={{
@@ -507,7 +507,7 @@ const HomeComponent = () => {
                                    {/*Services One Single Start*/}
                                    {
                                         get_all_services && get_all_services.map(item => (
-                                             <div className="col-xl-4 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                             <div className="col-xl-4 col-lg-6 wow fadeInUp" data-wow-delay="100ms" key={item.id}>
                                                   <div className="services-one__single">
                                                        <div className="services-one__single-top-bubble"
                                                        style={{
@@ -723,9 +723,13 @@ const HomeComponent = () => {
                                                        <div className="contact-one__form-input-box">
                                                             <select className="selectpicker" aria-label="Default select example">
                                                                  <option>Select service</option>
-                                                                 <option>service One</option>
-                                                                 <option>service Two</option>
-                                                                 <option>service Three</option>
+                                                                 
+                                                                 {    get_all_services && get_all_services.map( item => (
+                                                                           (
+                                                                                (item.service_durations.length == 0) ? <option value={item.slug}>{item.name}</option> : ""
+                                                                           )
+                                                                      ))
+                                                                 }
                                                             </select>
                                                        </div>
                                                        </div>

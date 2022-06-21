@@ -144,7 +144,7 @@
   cursor: pointer;
 }
 .booking-card .select-order-duration ul li:hover{
-  background: #22d3ee;
+  background: #ffb400;
 }
 .booking-summary{
   background: #eefbfd;
@@ -178,7 +178,7 @@
   text-align: right;
 }
 .next-step a{
-  background: #22d3ee;
+  background: #ffb400;
   padding: 10px 20px;
   color: white;
   width: max-content;
@@ -193,7 +193,7 @@
 }
 
 .next-step a:hover:nth-child(1){
-  background: #22d3ee;
+  background: #ffb400;
 }
 .booking-card .how-many-hour ul li{
   display: inline-block;
@@ -242,7 +242,7 @@
   padding: 5px 15px;
 }
 .choose-date ul li span.date:hover{
-  background: #22d3ee!important
+  background: #ffb400!important
 }
 .choose-time ul li{
   display: inline-block;
@@ -254,7 +254,7 @@
   padding: 5px 15px;
 }
 .choose-time ul li:hover{
-  background: #22d3ee!important
+  background: #ffb400!important
 }
 .payment-method ul li{
   display: inline-block;
@@ -266,5 +266,5 @@
   padding: 5px 15px;
 }
 .payment-method ul li:hover{
-  background: #22d3ee!important
+  background: #ffb400!important
 }

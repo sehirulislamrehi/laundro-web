@@ -10,6 +10,7 @@ import HeaderComponent from "./Includes/HeaderComponent";
 import LeftSidebarComponent from "./Includes/LeftSidebarComponent";
 import NavbarComponent from "./Includes/NavbarComponent";
 import { useParams } from "react-router-dom";
+import Header from "../../Include/Header";
 
 
 const OrderDetailsComponent = () => {
@@ -76,425 +77,419 @@ const OrderDetailsComponent = () => {
           return(
                <div className="id">
 
-                    {/* desktop menu start */}
-                    
-                    {/* desktop menu end */}
-
-                    {/* Mobile Menu */}
                     <MobileMenu></MobileMenu>
-                    {/* Mobile Menu End */}
 
-                    <section className="profile">
-                         <div className="container">
+                    <div className="page-wrapper">
+                         <Header></Header>
 
-                              {/* header component */}
-                              <HeaderComponent user={user}></HeaderComponent>
-     
-                              <div className="main-bd">
-     
-                                   {/* left sidebar */}
-                                   <LeftSidebarComponent user={user}></LeftSidebarComponent>
-                                   
-                                   {/* https://codepen.io/brightprogrammer/pen/mdyMOGV */}
-                                   <div className="right-side">
+                         <section className="profile">
+                              <div className="container">
 
-                                        {/* navbar component */}
-                                        <NavbarComponent></NavbarComponent>
+                                   {/* header component */}
+                                   <HeaderComponent user={user}></HeaderComponent>
+          
+                                   <div className="main-bd">
+          
+                                        {/* left sidebar */}
+                                        <LeftSidebarComponent user={user}></LeftSidebarComponent>
                                         
-                                        <div className="profile-body booking-details">
+                                        {/* https://codepen.io/brightprogrammer/pen/mdyMOGV */}
+                                        <div className="right-side">
 
-                                             <div className="row">
+                                             {/* navbar component */}
+                                             <NavbarComponent></NavbarComponent>
+                                             
+                                             <div className="profile-body booking-details">
+
+                                                  <div className="row">
 
 
-                                                  <div className="col-md-12">
-                                                       <div className="row">
+                                                       <div className="col-md-12">
+                                                            <div className="row">
 
-                                                            <div className="col-md-12 title">
-                                                                 <h4>Booking Details</h4>
-                                                            </div>
+                                                                 <div className="col-md-12 title">
+                                                                      <h4>Booking Details</h4>
+                                                                 </div>
 
-                                                            <div className="col-md-12 mt-4 order-details-step">
-                                                                 {/* progressbar */}
-                                                                 
-                                                                      {
-                                                                           order && ( order.order_status == "Pending" ) ? 
-                                                                           <ul className="step-bar">
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     Pending
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item ">
-                                                                                     <a >
-                                                                                     Confirmed
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item ">
-                                                                                     <a >
-                                                                                     Assigned
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item ">
-                                                                                     <a >
-                                                                                     OnProcess
-                                                                                     </a>
-                                                                                </li> 
-                                                                                <li className="step-bar__item ">
-                                                                                     <a >
-                                                                                     Delivered
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item ">
-                                                                                     <a >
-                                                                                     Cancelled
-                                                                                     </a>
-                                                                                </li> 
-                                                                           </ul>
-                                                                           : ""
-                                                                      }
-                                                                      {
-                                                                           order && ( order.order_status == "Confirmed" ) ? 
-                                                                           <ul className="step-bar">
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     Pending
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     Confirmed
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item ">
-                                                                                     <a >
-                                                                                     Assigned
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item ">
-                                                                                     <a >
-                                                                                     OnProcess
-                                                                                     </a>
-                                                                                </li> 
-                                                                                <li className="step-bar__item ">
-                                                                                     <a >
-                                                                                     Delivered
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item ">
-                                                                                     <a >
-                                                                                     Cancelled
-                                                                                     </a>
-                                                                                </li> 
-                                                                           </ul>
-                                                                           : ""
-                                                                      }
-                                                                      {
-                                                                           order && ( order.order_status == "Assigned" ) ? 
-                                                                           <ul className="step-bar">
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     Pending
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     Confirmed
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     Assigned
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item ">
-                                                                                     <a >
-                                                                                     OnProcess
-                                                                                     </a>
-                                                                                </li> 
-                                                                                <li className="step-bar__item ">
-                                                                                     <a >
-                                                                                     Delivered
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item ">
-                                                                                     <a >
-                                                                                     Cancelled
-                                                                                     </a>
-                                                                                </li> 
-                                                                           </ul>
-                                                                           : ""
-                                                                      }
-                                                                      {
-                                                                           order && ( order.order_status == "OnProcess" ) ? 
-                                                                           <ul className="step-bar">
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     Pending
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     Confirmed
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     Assigned
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     OnProcess
-                                                                                     </a>
-                                                                                </li> 
-                                                                                <li className="step-bar__item ">
-                                                                                     <a >
-                                                                                     Delivered
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item ">
-                                                                                     <a >
-                                                                                     Cancelled
-                                                                                     </a>
-                                                                                </li> 
-                                                                           </ul>
-                                                                           : ""
-                                                                      }
-                                                                      {
-                                                                           order && ( order.order_status == "Delivered" ) ? 
-                                                                           <ul className="step-bar">
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     Pending
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     Confirmed
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     Assigned
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     OnProcess
-                                                                                     </a>
-                                                                                </li> 
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     Delivered
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item ">
-                                                                                     <a >
-                                                                                     Cancelled
-                                                                                     </a>
-                                                                                </li> 
-                                                                           </ul>
-                                                                           : ""
-                                                                      }
-                                                                      {
-                                                                           order && ( order.order_status == "Cancelled" ) ? 
-                                                                           <ul className="step-bar">
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     Pending
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     Confirmed
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     Assigned
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     OnProcess
-                                                                                     </a>
-                                                                                </li> 
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     Delivered
-                                                                                     </a>
-                                                                                </li>
-                                                                                <li className="step-bar__item step-bar__item_active">
-                                                                                     <a >
-                                                                                     Cancelled
-                                                                                     </a>
-                                                                                </li> 
-                                                                           </ul>
-                                                                           : ""
-                                                                      }
+                                                                 <div className="col-md-12 mt-4 order-details-step">
+                                                                      {/* progressbar */}
                                                                       
-                                                                 
-                                                            </div>
+                                                                           {
+                                                                                order && ( order.order_status == "Pending" ) ? 
+                                                                                <ul className="step-bar">
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          Pending
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item ">
+                                                                                          <a >
+                                                                                          Confirmed
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item ">
+                                                                                          <a >
+                                                                                          Assigned
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item ">
+                                                                                          <a >
+                                                                                          OnProcess
+                                                                                          </a>
+                                                                                     </li> 
+                                                                                     <li className="step-bar__item ">
+                                                                                          <a >
+                                                                                          Delivered
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item ">
+                                                                                          <a >
+                                                                                          Cancelled
+                                                                                          </a>
+                                                                                     </li> 
+                                                                                </ul>
+                                                                                : ""
+                                                                           }
+                                                                           {
+                                                                                order && ( order.order_status == "Confirmed" ) ? 
+                                                                                <ul className="step-bar">
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          Pending
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          Confirmed
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item ">
+                                                                                          <a >
+                                                                                          Assigned
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item ">
+                                                                                          <a >
+                                                                                          OnProcess
+                                                                                          </a>
+                                                                                     </li> 
+                                                                                     <li className="step-bar__item ">
+                                                                                          <a >
+                                                                                          Delivered
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item ">
+                                                                                          <a >
+                                                                                          Cancelled
+                                                                                          </a>
+                                                                                     </li> 
+                                                                                </ul>
+                                                                                : ""
+                                                                           }
+                                                                           {
+                                                                                order && ( order.order_status == "Assigned" ) ? 
+                                                                                <ul className="step-bar">
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          Pending
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          Confirmed
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          Assigned
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item ">
+                                                                                          <a >
+                                                                                          OnProcess
+                                                                                          </a>
+                                                                                     </li> 
+                                                                                     <li className="step-bar__item ">
+                                                                                          <a >
+                                                                                          Delivered
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item ">
+                                                                                          <a >
+                                                                                          Cancelled
+                                                                                          </a>
+                                                                                     </li> 
+                                                                                </ul>
+                                                                                : ""
+                                                                           }
+                                                                           {
+                                                                                order && ( order.order_status == "OnProcess" ) ? 
+                                                                                <ul className="step-bar">
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          Pending
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          Confirmed
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          Assigned
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          OnProcess
+                                                                                          </a>
+                                                                                     </li> 
+                                                                                     <li className="step-bar__item ">
+                                                                                          <a >
+                                                                                          Delivered
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item ">
+                                                                                          <a >
+                                                                                          Cancelled
+                                                                                          </a>
+                                                                                     </li> 
+                                                                                </ul>
+                                                                                : ""
+                                                                           }
+                                                                           {
+                                                                                order && ( order.order_status == "Delivered" ) ? 
+                                                                                <ul className="step-bar">
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          Pending
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          Confirmed
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          Assigned
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          OnProcess
+                                                                                          </a>
+                                                                                     </li> 
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          Delivered
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item ">
+                                                                                          <a >
+                                                                                          Cancelled
+                                                                                          </a>
+                                                                                     </li> 
+                                                                                </ul>
+                                                                                : ""
+                                                                           }
+                                                                           {
+                                                                                order && ( order.order_status == "Cancelled" ) ? 
+                                                                                <ul className="step-bar">
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          Pending
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          Confirmed
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          Assigned
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          OnProcess
+                                                                                          </a>
+                                                                                     </li> 
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          Delivered
+                                                                                          </a>
+                                                                                     </li>
+                                                                                     <li className="step-bar__item step-bar__item_active">
+                                                                                          <a >
+                                                                                          Cancelled
+                                                                                          </a>
+                                                                                     </li> 
+                                                                                </ul>
+                                                                                : ""
+                                                                           }
+                                                                           
+                                                                      
+                                                                 </div>
 
-                                                            <div className="col-md-12">
-                                                                 <div className="row booking-status">
+                                                                 <div className="col-md-12">
+                                                                      <div className="row booking-status">
 
-                                                                      <div className="col-md-12">
-                                                                           <div className="content table-responsive">
-                                                                                <table className="table table-bordered">
-                                                                                     <tbody>
-                                                                                          <tr style={{border:"1px solid #006bcc"}}>
-                                                                                               <th colSpan={4} style={{textAlign: "center"}}>Order information</th>
-                                                                                          </tr>
-                                                                                          <tr>
-                                                                                               <th>Order No</th>
-                                                                                               <td>{order && order.order_no}</td>
-                                                                                               <th>Order Status</th>
-                                                                                               <td>{order && order.order_status}</td>
-                                                                                          </tr>
-                                                                                          <tr>
-                                                                                               <th>Payment Status</th>
-                                                                                               <td>{order && order.payment_status}</td>
-                                                                                               <th>Payment Method</th>
-                                                                                               <td>{order && order.payment_method}</td>
-                                                                                          </tr>
-                                                                                          <tr>
-                                                                                               <th>Day for collection</th>
-                                                                                               <td>{order && JSON.parse(order.timing).day_for_collection}</td>
-                                                                                               <th>Time for collection</th>
-                                                                                               <td>{order && JSON.parse(order.timing).time_for_collection}</td>
-                                                                                          </tr>
-                                                                                          <tr>
-                                                                                               <th colSpan={2}>Instruction for collection</th>
-                                                                                               <td colSpan={2}>{order && JSON.parse(order.timing).instructions_for_collection}</td>
-                                                                                          </tr>
-                                                                                          <tr>
-                                                                                               <th>Day for Delivery</th>
-                                                                                               <td>{order && JSON.parse(order.timing).day_for_delivery}</td>
-                                                                                               <th>Time for Delivery</th>
-                                                                                               <td>{order && JSON.parse(order.timing).time_for_delivery}</td>
-                                                                                          </tr>
-                                                                                          <tr>
-                                                                                               <th colSpan={2}>Instruction for Delivery</th>
-                                                                                               <td colSpan={2}>{order && JSON.parse(order.timing).instructions_for_delivery}</td>
-                                                                                          </tr>
-                                                                                          <tr>
-                                                                                               <th colSpan={2}>Other Instructions</th>
-                                                                                               <td colSpan={2}>{order && JSON.parse(order.timing).others_instruction}</td>
-                                                                                          </tr>
-                                                                                          <tr>
-                                                                                               <th rowSpan={order && order.services.length} style={{ verticalAlign: "middle", textAlign : "center" }}>Services</th>
+                                                                           <div className="col-md-12">
+                                                                                <div className="content table-responsive">
+                                                                                     <table className="table table-bordered">
+                                                                                          <tbody>
+                                                                                               <tr style={{border:"1px solid #006bcc"}}>
+                                                                                                    <th colSpan={4} style={{textAlign: "center"}}>Order information</th>
+                                                                                               </tr>
+                                                                                               <tr>
+                                                                                                    <th>Order No</th>
+                                                                                                    <td>{order && order.order_no}</td>
+                                                                                                    <th>Order Status</th>
+                                                                                                    <td>{order && order.order_status}</td>
+                                                                                               </tr>
+                                                                                               <tr>
+                                                                                                    <th>Payment Status</th>
+                                                                                                    <td>{order && order.payment_status}</td>
+                                                                                                    <th>Payment Method</th>
+                                                                                                    <td>{order && order.payment_method}</td>
+                                                                                               </tr>
+                                                                                               <tr>
+                                                                                                    <th>Day for collection</th>
+                                                                                                    <td>{order && JSON.parse(order.timing).day_for_collection}</td>
+                                                                                                    <th>Time for collection</th>
+                                                                                                    <td>{order && JSON.parse(order.timing).time_for_collection}</td>
+                                                                                               </tr>
+                                                                                               <tr>
+                                                                                                    <th colSpan={2}>Instruction for collection</th>
+                                                                                                    <td colSpan={2}>{order && JSON.parse(order.timing).instructions_for_collection}</td>
+                                                                                               </tr>
+                                                                                               <tr>
+                                                                                                    <th>Day for Delivery</th>
+                                                                                                    <td>{order && JSON.parse(order.timing).day_for_delivery}</td>
+                                                                                                    <th>Time for Delivery</th>
+                                                                                                    <td>{order && JSON.parse(order.timing).time_for_delivery}</td>
+                                                                                               </tr>
+                                                                                               <tr>
+                                                                                                    <th colSpan={2}>Instruction for Delivery</th>
+                                                                                                    <td colSpan={2}>{order && JSON.parse(order.timing).instructions_for_delivery}</td>
+                                                                                               </tr>
+                                                                                               <tr>
+                                                                                                    <th colSpan={2}>Other Instructions</th>
+                                                                                                    <td colSpan={2}>{order && JSON.parse(order.timing).others_instruction}</td>
+                                                                                               </tr>
+                                                                                               <tr>
+                                                                                                    <th rowSpan={order && order.services.length} style={{ verticalAlign: "middle", textAlign : "center" }}>Services</th>
+                                                                                                    {
+                                                                                                         order && order.services.map( (value,key) => (
+                                                                                                              (
+                                                                                                                   ( key == 0 ) ?  
+                                                                                                                   <td colSpan={3}
+                                                                                                                   >
+                                                                                                                        <strong style={{marginRight: "5px"}}>{ value.service.name }</strong>
+                                                                                                                        ( { value.instruction ? value.instruction : 'No instructions' } )
+                                                                                                                        ( { value.price } BDT )
+                                                                                                                   </td> : ""
+                                                                                                              )
+                                                                                                              
+                                                                                                         ))
+                                                                                                    }
+                                                                                               </tr>
                                                                                                {
                                                                                                     order && order.services.map( (value,key) => (
                                                                                                          (
-                                                                                                              ( key == 0 ) ?  
-                                                                                                              <td colSpan={3}
-                                                                                                              >
-                                                                                                                   <strong style={{marginRight: "5px"}}>{ value.service.name }</strong>
-                                                                                                                   ( { value.instruction ? value.instruction : 'No instructions' } )
-                                                                                                                   ( { value.price } BDT )
-                                                                                                              </td> : ""
+                                                                                                              ( key != 0 ) ? 
+                                                                                                              <tr>
+                                                                                                                   <td colSpan={3}>
+                                                                                                                        <strong style={{marginRight: "5px"}}>{ value.service.name }</strong>
+                                                                                                                        ( { value.instruction ? value.instruction : 'No instructions' } )
+                                                                                                                        ( { value.price } BDT )
+                                                                                                                   </td>
+                                                                                                              </tr> : ""
                                                                                                          )
-                                                                                                         
                                                                                                     ))
                                                                                                }
-                                                                                          </tr>
-                                                                                          {
-                                                                                               order && order.services.map( (value,key) => (
-                                                                                                    (
-                                                                                                         ( key != 0 ) ? 
-                                                                                                         <tr>
-                                                                                                              <td colSpan={3}>
-                                                                                                                   <strong style={{marginRight: "5px"}}>{ value.service.name }</strong>
-                                                                                                                   ( { value.instruction ? value.instruction : 'No instructions' } )
-                                                                                                                   ( { value.price } BDT )
-                                                                                                              </td>
-                                                                                                         </tr> : ""
-                                                                                                    )
-                                                                                               ))
-                                                                                          }
-                                                                                          <tr>
-                                                                                               <th colSpan={2}>Order Total</th>
-                                                                                               <td colSpan={2}>{order && order.total} BDT</td>
-                                                                                          </tr>
+                                                                                               <tr>
+                                                                                                    <th colSpan={2}>Order Total</th>
+                                                                                                    <td colSpan={2}>{order && order.total} BDT</td>
+                                                                                               </tr>
 
 
-                                                                                          {/* customer information */}
-                                                                                          <tr>
-                                                                                               <th colSpan={4} style={{textAlign: "center", border: "1px solid #006bcc" }}>Customer information</th>
-                                                                                          </tr>
-                                                                                          <tr>
-                                                                                               <th>Name</th>
-                                                                                               <td>{order && order.customer_name}</td>
-                                                                                               <th>Email</th>
-                                                                                               <td>{order && order.customer_email}</td>
-                                                                                          </tr>
-                                                                                          <tr>
-                                                                                               <th>Phone</th>
-                                                                                               <td>{order && order.customer_phone}</td>
-                                                                                               <th>Postal Code</th>
-                                                                                               <td>{order && order.postal_code}</td>
-                                                                                          </tr>
-                                                                                          <tr>
-                                                                                               <th>Area</th>
-                                                                                               <td>{order && order.location}</td>
-                                                                                               <th>Address Type</th>
-                                                                                               <td>{order && order.address_type}</td>
-                                                                                          </tr>
-                                                                                          <tr>
-                                                                                               <th colSpan={2}>Address Details</th>
-                                                                                               <td colSpan={2}>{order && order.address_details}</td>
-                                                                                          </tr>
+                                                                                               {/* customer information */}
+                                                                                               <tr>
+                                                                                                    <th colSpan={4} style={{textAlign: "center", border: "1px solid #006bcc" }}>Customer information</th>
+                                                                                               </tr>
+                                                                                               <tr>
+                                                                                                    <th>Name</th>
+                                                                                                    <td>{order && order.customer_name}</td>
+                                                                                                    <th>Email</th>
+                                                                                                    <td>{order && order.customer_email}</td>
+                                                                                               </tr>
+                                                                                               <tr>
+                                                                                                    <th>Phone</th>
+                                                                                                    <td>{order && order.customer_phone}</td>
+                                                                                                    <th>Postal Code</th>
+                                                                                                    <td>{order && order.postal_code}</td>
+                                                                                               </tr>
+                                                                                               <tr>
+                                                                                                    <th>Area</th>
+                                                                                                    <td>{order && order.location}</td>
+                                                                                                    <th>Address Type</th>
+                                                                                                    <td>{order && order.address_type}</td>
+                                                                                               </tr>
+                                                                                               <tr>
+                                                                                                    <th colSpan={2}>Address Details</th>
+                                                                                                    <td colSpan={2}>{order && order.address_details}</td>
+                                                                                               </tr>
 
-                                                                                     </tbody>
-                                                                                </table>
+                                                                                          </tbody>
+                                                                                     </table>
+                                                                                </div>
                                                                            </div>
+
                                                                       </div>
-
                                                                  </div>
-                                                            </div>
 
-                                                       </div>
-                                                  </div>   
+                                                            </div>
+                                                       </div>   
+
+                                                  </div>
+
 
                                              </div>
-
-
+                                             
                                         </div>
-                                        
                                    </div>
                               </div>
-                         </div>
-                    </section>
+                         </section>
 
-                    {/* Footer */}
-                    <Footer></Footer>
-                    {/* Footer End */}
+                         <Footer></Footer>
+                    </div>
 
-               </div> 
+               </div>
           );
           
      }
      else{
           return(
                <div className="id">
-                    {/* desktop menu start */}
-                    
-                    {/* desktop menu end */}
 
-                    {/* Mobile Menu */}
                     <MobileMenu></MobileMenu>
-                    {/* Mobile Menu End */}
 
-                    {/* please wait section start */}
-                    <section className="please-wait">
-                         <h4 className="content">Please Wait...</h4>
-                    </section>
-                    {/* please wait section end */}
+                    <div className="page-wrapper">
+                         <Header></Header>
 
-                    {/* Footer */}
-                    <Footer></Footer>
-                    {/* Footer End */}
+                         {/* please wait section start */}
+                         <section className="please-wait">
+                              <h4 className="content">Please Wait...</h4>
+                         </section>
+                         {/* please wait section end */}
+
+                         <Footer></Footer>
+                    </div>
+
                </div> 
           );
      }

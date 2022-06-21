@@ -9,6 +9,7 @@ import HeaderComponent from "./Includes/HeaderComponent";
 import LeftSidebarComponent from "./Includes/LeftSidebarComponent";
 import NavbarComponent from "./Includes/NavbarComponent";
 import { useState, useEffect } from "react";
+import Header from "../../Include/Header";
 
 
 const DashboardComponent = () => {
@@ -70,133 +71,126 @@ const DashboardComponent = () => {
 
      if( check_authorized && check_authorized == "authorized" ){
           return(
-        
                <div className="id">
-     
-                    {/* desktop menu start */}
-                    
-                    {/* desktop menu end */}
-     
-                    {/* Mobile Menu */}
+
                     <MobileMenu></MobileMenu>
-                    {/* Mobile Menu End */}
-     
-                    <section className="profile" >
-                         <div className="container">
-     
-                              {/* header component */}
-                              <HeaderComponent user={user}></HeaderComponent>
-     
-                              <div className="main-bd">
-     
-                                   {/* left sidebar */}
-                                   <LeftSidebarComponent user={user}></LeftSidebarComponent>
-                                   
-                                   {/* https://codepen.io/brightprogrammer/pen/mdyMOGV */}
-                                   <div className="right-side">
-     
-                                        {/* navbar component */}
-                                        <NavbarComponent></NavbarComponent>
+
+                    <div className="page-wrapper">
+                    <Header></Header>
+
+                         <section className="profile" >
+                              <div className="container">
+          
+                                   {/* header component */}
+                                   <HeaderComponent user={user}></HeaderComponent>
+          
+                                   <div className="main-bd">
+          
+                                        {/* left sidebar */}
+                                        <LeftSidebarComponent user={user}></LeftSidebarComponent>
                                         
-                                        <div className="profile-body">
-                                             <div className="row">
-     
-                                                  {/* item start */}
-                                                  <div className="col-md-4 col-6">
-                                                       <div className="dashboard-item-card" style={{
-                                                            "background" : "rgb(168 251 232)"
-                                                       }}>
-                                                            <p>Total Order </p>  
-                                                            <strong >{ data && data.total }</strong>  
-                                                       </div>                                              
-                                                  </div>
-     
-                                                  {/* item start */}
-                                                  <div className="col-md-4 col-6">
-                                                       <div className="dashboard-item-card" style={{
-                                                            "background" : "rgb(202 206 255)"
-                                                       }}>
-                                                            <p>Pending Order</p>  
-                                                            <strong>{ data && data.pending }</strong>  
-                                                       </div>                                              
-                                                  </div>
-     
-                                                  {/* item start */}
-                                                  <div className="col-md-4 col-6">
-                                                       <div className="dashboard-item-card" style={{
-                                                            "background" : "rgb(251 255 186)"
-                                                       }}>
-                                                            <p>Confirmed Order</p>  
-                                                            <strong>{ data && data.confirmed }</strong>  
-                                                       </div>                                              
-                                                  </div>
+                                        {/* https://codepen.io/brightprogrammer/pen/mdyMOGV */}
+                                        <div className="right-side">
+          
+                                             {/* navbar component */}
+                                             <NavbarComponent></NavbarComponent>
+                                             
+                                             <div className="profile-body">
+                                                  <div className="row">
+          
+                                                       {/* item start */}
+                                                       <div className="col-md-4 col-6">
+                                                            <div className="dashboard-item-card" style={{
+                                                                 "background" : "rgb(168 251 232)"
+                                                            }}>
+                                                                 <p>Total Order </p>  
+                                                                 <strong >{ data && data.total }</strong>  
+                                                            </div>                                              
+                                                       </div>
+          
+                                                       {/* item start */}
+                                                       <div className="col-md-4 col-6">
+                                                            <div className="dashboard-item-card" style={{
+                                                                 "background" : "rgb(202 206 255)"
+                                                            }}>
+                                                                 <p>Pending Order</p>  
+                                                                 <strong>{ data && data.pending }</strong>  
+                                                            </div>                                              
+                                                       </div>
+          
+                                                       {/* item start */}
+                                                       <div className="col-md-4 col-6">
+                                                            <div className="dashboard-item-card" style={{
+                                                                 "background" : "rgb(251 255 186)"
+                                                            }}>
+                                                                 <p>Confirmed Order</p>  
+                                                                 <strong>{ data && data.confirmed }</strong>  
+                                                            </div>                                              
+                                                       </div>
 
-                                                  {/* item start */}
-                                                  <div className="col-md-4 col-6">
-                                                       <div className="dashboard-item-card" style={{
-                                                            "background" : "rgb(255 174 174)"
-                                                       }}>
-                                                            <p>Assigned Order</p>  
-                                                            <strong>{ data && data.assigned }</strong>  
-                                                       </div>                                              
-                                                  </div>
+                                                       {/* item start */}
+                                                       <div className="col-md-4 col-6">
+                                                            <div className="dashboard-item-card" style={{
+                                                                 "background" : "rgb(255 174 174)"
+                                                            }}>
+                                                                 <p>Assigned Order</p>  
+                                                                 <strong>{ data && data.assigned }</strong>  
+                                                            </div>                                              
+                                                       </div>
 
-                                                  {/* item start */}
-                                                  <div className="col-md-4 col-6">
-                                                       <div className="dashboard-item-card" style={{
-                                                            "background" : "rgb(253 228 249)"
-                                                       }}>
-                                                            <p>Onprocess Order</p>  
-                                                            <strong>{ data && data.on_process }</strong>  
-                                                       </div>                                              
+                                                       {/* item start */}
+                                                       <div className="col-md-4 col-6">
+                                                            <div className="dashboard-item-card" style={{
+                                                                 "background" : "rgb(253 228 249)"
+                                                            }}>
+                                                                 <p>Onprocess Order</p>  
+                                                                 <strong>{ data && data.on_process }</strong>  
+                                                            </div>                                              
+                                                       </div>
+          
+                                                       {/* item start */}
+                                                       <div className="col-md-4 col-6">
+                                                            <div className="dashboard-item-card" style={{
+                                                                 "background" : "rgb(193 255 177)"
+                                                            }}>
+                                                                 <p>Delivered Order</p>  
+                                                                 <strong>{ data && data.delivered }</strong>  
+                                                            </div>                                              
+                                                       </div>
+          
                                                   </div>
-     
-                                                  {/* item start */}
-                                                  <div className="col-md-4 col-6">
-                                                       <div className="dashboard-item-card" style={{
-                                                            "background" : "rgb(193 255 177)"
-                                                       }}>
-                                                            <p>Delivered Order</p>  
-                                                            <strong>{ data && data.delivered }</strong>  
-                                                       </div>                                              
-                                                  </div>
-     
                                              </div>
+          
                                         </div>
-     
                                    </div>
                               </div>
-                         </div>
-                    </section>
-     
-                    {/* Footer */}
+                         </section>
+
                     <Footer></Footer>
-                    {/* Footer End */}
-     
-               </div>   
+                    </div>
+
+               </div>
           );
      }
      else{
           return(
                <div className="id">
-                    {/* desktop menu start */}
-                    
-                    {/* desktop menu end */}
 
-                    {/* Mobile Menu */}
                     <MobileMenu></MobileMenu>
-                    {/* Mobile Menu End */}
 
-                    {/* please wait section start */}
-                    <section className="please-wait">
-                         <h4 className="content">Please Wait...</h4>
-                    </section>
-                    {/* please wait section end */}
+                    <div className="page-wrapper">
+                         <Header></Header>
 
-                    {/* Footer */}
-                    <Footer></Footer>
-                    {/* Footer End */}
-               </div> 
+                         {/* please wait section start */}
+                         <section className="please-wait">
+                              <h4 className="content">Please Wait...</h4>
+                         </section>
+                         {/* please wait section end */}
+
+                         <Footer></Footer>
+                    </div>
+
+               </div>
           );
      }
 

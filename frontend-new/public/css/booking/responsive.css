@@ -1,0 +1,15 @@
+
+
+@media( min-width: 320px ) and ( max-width: 500px ){
+     .service-instruction .instruction-box{
+          width: 90%
+     }
+     #progressbar li {
+          font-size: 9px;
+          width: 15%;
+     }
+     .order-details-step{
+          overflow: scroll;
+          overflow-y: hidden;
+     }
+}

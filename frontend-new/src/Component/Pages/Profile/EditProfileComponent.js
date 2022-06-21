@@ -11,6 +11,7 @@ import Loading from "../../Include/Loading";
 import HeaderComponent from "./Includes/HeaderComponent";
 import LeftSidebarComponent from "./Includes/LeftSidebarComponent";
 import NavbarComponent from "./Includes/NavbarComponent";
+import Header from "../../Include/Header";
 
 import { useEffect, useRef, useState } from "react";
 
@@ -55,6 +56,9 @@ const EditProfileComponent = () => {
                     }
                     if( response.status == 'success' ){
                          setUser(response.data)
+                         setName(response.data.name)
+                         setEmail(response.data.email)
+                         setAddress(response.data.address)
                          localStorage.setItem('token',response.data.remember_token)
                          set_authorized('authorized');
                     }
@@ -164,152 +168,146 @@ const EditProfileComponent = () => {
                     {/* loading */}
                     <Loading></Loading>
 
-                    {/* desktop menu start */}
-                    
-                    {/* desktop menu end */}
-
-                    {/* Mobile Menu */}
                     <MobileMenu></MobileMenu>
-                    {/* Mobile Menu End */}
 
-                    <section className="profile">
-                         <div className="container">
+                    <div className="page-wrapper">
+                         <Header></Header>
 
-                              {/* header component */}
-                              <HeaderComponent user={user}></HeaderComponent>
-     
-                              <div className="main-bd">
-     
-                                   {/* left sidebar */}
-                                   <LeftSidebarComponent user={user}></LeftSidebarComponent>
-                                   
-                                   {/* https://codepen.io/brightprogrammer/pen/mdyMOGV */}
-                                   <div className="right-side">
+                         <section className="profile">
+                              <div className="container">
 
-                                        {/* navbar component */}
-                                        <NavbarComponent></NavbarComponent>
+                                   {/* header component */}
+                                   <HeaderComponent user={user}></HeaderComponent>
+          
+                                   <div className="main-bd">
+          
+                                        {/* left sidebar */}
+                                        <LeftSidebarComponent user={user}></LeftSidebarComponent>
                                         
-                                        <div className="profile-body">
-                                             <div className="row my-account">
+                                        {/* https://codepen.io/brightprogrammer/pen/mdyMOGV */}
+                                        <div className="right-side">
 
-                                                  {/* edit */}
-                                                  <div className="col-md-12 edit-column">
-                                                       <ul>
-                                                            <li onClick={updateProfile}>
-                                                                 <Link to="#">
-                                                                           <i className="fas fa-check"></i> 
-                                                                      Save     
-                                                                 </Link>
-                                                            </li>
-                                                            <li>
-                                                                 <Link to="/account">
-                                                                 <i className="fas fa-times ml-2"></i>                                                  
-                                                                      Cancel         
-                                                                 </Link>
-                                                            </li>
-                                                       </ul>
-                                                  </div>
+                                             {/* navbar component */}
+                                             <NavbarComponent></NavbarComponent>
+                                             
+                                             <div className="profile-body">
+                                                  <div className="row my-account">
 
-                                                  {/* image */}
-                                                  <div className="col-md-12 image-column">
-                                                       <i className="fas fa-times" onClick={deleteImage}></i>
-                                                       {
-                                                            user && user.image ? 
-                                                            <img src={user.image} className="img-fluid" ref={preview} alt="" /> :
-                                                            <img src="" className="img-fluid" ref={preview} alt="" />
-                                                       }
-                                                       <input type="file" className="form-control-file"  onChange={filePreview}></input>
-                                                  </div>
+                                                       {/* edit */}
+                                                       <div className="col-md-12 edit-column">
+                                                            <ul>
+                                                                 <li onClick={updateProfile}>
+                                                                      <Link to="#">
+                                                                                <i className="fas fa-check"></i> 
+                                                                           Save     
+                                                                      </Link>
+                                                                 </li>
+                                                                 <li>
+                                                                      <Link to="/account">
+                                                                      <i className="fas fa-times ml-2"></i>                                                  
+                                                                           Cancel         
+                                                                      </Link>
+                                                                 </li>
+                                                            </ul>
+                                                       </div>
 
-                                                  <div className="col-md-4 form-group">
-                                                       <label>Name</label>
-                                                       <input type="text" className="form-control" name="name" value={
-                                                            name
-                                                       } onChange={
-                                                            e => {
-                                                                 setName(e.target.value)
+                                                       {/* image */}
+                                                       <div className="col-md-12 image-column">
+                                                            <i className="fas fa-times" onClick={deleteImage}></i>
+                                                            {
+                                                                 user && user.image ? 
+                                                                 <img src={user.image} className="img-fluid" ref={preview} alt="" /> :
+                                                                 <img src="" className="img-fluid" ref={preview} alt="" />
                                                             }
-                                                       } />
-                                                       {
-                                                            errors &&
-                                                            <small
-                                                            className="form_error"
-                                                            >
-                                                                 {errors.name}
-                                                            </small>
-                                                       }
-                                                  </div>
+                                                            <input type="file" className="form-control-file"  onChange={filePreview}></input>
+                                                       </div>
 
-                                                  <div className="col-md-4 form-group">
-                                                       <label>Email</label>
-                                                       <input type="email" className="form-control" name="email" value={
-                                                            email
-                                                       } onChange={
-                                                            e => {
-                                                                 setEmail(e.target.value)
+                                                       <div className="col-md-4 form-group">
+                                                            <label>Name</label>
+                                                            <input type="text" className="form-control" name="name" value={name} 
+                                                            onChange={
+                                                                 e => {
+                                                                      setName(e.target.value)
+                                                                 }
+                                                            } />
+                                                            {
+                                                                 errors &&
+                                                                 <small
+                                                                 className="form_error"
+                                                                 >
+                                                                      {errors.name}
+                                                                 </small>
                                                             }
-                                                       } />
-                                                       {
-                                                            errors &&
-                                                            <small
-                                                            className="form_error"
-                                                            >
-                                                                 {errors.email}
-                                                            </small>
-                                                       }
-                                                  </div>
+                                                       </div>
 
-                                                  <div className="col-md-4 form-group">
-                                                       <label>Address</label>
-                                                       <input type="text" className="form-control" name="address" value={address} onChange={
-                                                            e => {
-                                                                 setAddress(e.target.value)
+                                                       <div className="col-md-4 form-group">
+                                                            <label>Email</label>
+                                                            <input type="email" className="form-control" name="email" value={
+                                                                 email
+                                                            } onChange={
+                                                                 e => {
+                                                                      setEmail(e.target.value)
+                                                                 }
+                                                            } />
+                                                            {
+                                                                 errors &&
+                                                                 <small
+                                                                 className="form_error"
+                                                                 >
+                                                                      {errors.email}
+                                                                 </small>
                                                             }
-                                                       } />
-                                                       {
-                                                            errors &&
-                                                            <small
-                                                            className="form_error"
-                                                            >
-                                                                 {errors.address}
-                                                            </small>
-                                                       }
+                                                       </div>
+
+                                                       <div className="col-md-4 form-group">
+                                                            <label>Address</label>
+                                                            <input type="text" className="form-control" name="address" value={address} onChange={
+                                                                 e => {
+                                                                      setAddress(e.target.value)
+                                                                 }
+                                                            } />
+                                                            {
+                                                                 errors &&
+                                                                 <small
+                                                                 className="form_error"
+                                                                 >
+                                                                      {errors.address}
+                                                                 </small>
+                                                            }
+                                                       </div>
                                                   </div>
                                              </div>
+                                             
                                         </div>
-                                        
                                    </div>
                               </div>
-                         </div>
-                    </section>
+                         </section>
 
-                    {/* Footer */}
-                    <Footer></Footer>
-                    {/* Footer End */}
+                         <Footer></Footer>
+                    </div>
+
                </div>
           );
      }
      else{
           return(
                <div className="id">
-                    {/* desktop menu start */}
-                    
-                    {/* desktop menu end */}
 
-                    {/* Mobile Menu */}
                     <MobileMenu></MobileMenu>
-                    {/* Mobile Menu End */}
 
-                    {/* please wait section start */}
-                    <section className="please-wait">
-                         <h4 className="content">Please Wait...</h4>
-                    </section>
-                    {/* please wait section end */}
+                    <div className="page-wrapper">
+                         <Header></Header>
 
-                    {/* Footer */}
-                    <Footer></Footer>
-                    {/* Footer End */}
-               </div> 
+                         {/* please wait section start */}
+                         <section className="please-wait">
+                              <h4 className="content">Please Wait...</h4>
+                         </section>
+                         {/* please wait section end */}
+
+                         <Footer></Footer>
+                    </div>
+
+               </div>
           );
      }
 }

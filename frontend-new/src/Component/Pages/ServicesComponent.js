@@ -108,7 +108,7 @@ const ServicesComponent = () => {
                                    {/*Services Three Single Start-*/}
                                    {
                                         get_all_services && get_all_services.map(item => (
-                                        <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp animated" data-wow-delay="100ms" 
+                                        <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp animated" key={item.id} data-wow-delay="100ms" 
                                              style={{
                                                   visibility : "visible",
                                                   animationDelay: "100ms",

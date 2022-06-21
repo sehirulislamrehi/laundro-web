@@ -45,13 +45,13 @@ const ServiceList = (props) => {
                               props.service ? 
                               (
                                    (item.slug == props.service.slug) ? 
-                                   <li className="active">
+                                   <li className="active" key={item.id}>
                                         <Link to={`/service-details/${item.slug}`}>
                                              {item.name} 
                                              <span className="fa fa-angle-right"></span>
                                         </Link>
                                    </li> : 
-                                   <li>
+                                   <li key={item.id}>
                                         <Link to={`/service-details/${item.slug}`}>
                                              {item.name} 
                                              <span className="fa fa-angle-right"></span>

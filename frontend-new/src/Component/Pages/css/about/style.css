@@ -86,7 +86,7 @@
 	width: 100%;
 	height: 100%;
 	border-radius: 50%;
-	/* background-color: #22d3ee; */
+	/* background-color: #ffb400; */
 	z-index: 2;
 }
 
@@ -205,7 +205,7 @@
 .ab-service-section .ab-service-slider .slick-dots li.slick-active button {
 	width: 18px;
 	height: 18px;
-	background-color: #22d3ee;
+	background-color: #ffb400;
 	border: 1px solid #0431b8;
 }
 
@@ -279,7 +279,7 @@
 	height: 40px;
 	-webkit-clip-path: polygon(0 0, 100% 70%, 100% 100%, 0% 100%);
 	clip-path: polygon(0 0, 100% 70%, 100% 100%, 0% 100%);
-	background-color: #22d3ee;
+	background-color: #ffb400;
 }
 
 .laundro-team-area .laundro-team-container .laundro-team-single .laundro-img-wrapper::after {
@@ -362,7 +362,7 @@
 
 .laundro-team-area .laundro-team-container .laundro-team-single:hover .laundro-team-content .team-social-link {
 	background-color: #ffffff;
-	color: #22d3ee;
+	color: #ffb400;
 }
 
 .laundro-team-area .laundro-team-container .laundro-team-single:hover .laundro-team-content .laundro-team-social-items {
