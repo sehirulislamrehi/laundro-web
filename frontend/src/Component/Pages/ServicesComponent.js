@@ -1,17 +1,44 @@
 import { Link } from "react-router-dom";
 
 
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
+
 //import pages
-import DesktopMenu from "../Include/DesktopMenu";
 import MobileMenu from "../Include/MobileMenu";
 import Footer from "../Include/Footer";
-
+import Header from "../Include/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getAllServices } from "../../action";
 
 
 const ServicesComponent = () => {
+
+     const testimonial_options = {
+          loop: true,
+          margin: 0,
+          nav: false,
+          dots: true,
+          responsive: {
+               0: {
+                    items: 1,
+               },
+               400: {
+                    items: 1,
+               },
+               600: {
+                    items: 1,
+               },
+               700: {
+                    items: 2,
+               },
+               1000: {
+                    items: 3,
+               }
+          },
+     };
 
      {/* window scroll to top */}
      window.scrollTo(0, 0);
@@ -43,287 +70,210 @@ const ServicesComponent = () => {
      return(
           <div className="id">
 
-                         
-               {/* desktop menu start */}
-               <DesktopMenu></DesktopMenu>
-               {/* desktop menu end */}
-
-               {/* Mobile Menu */}
                <MobileMenu></MobileMenu>
-               {/* Mobile Menu End */}
 
-               {/* Breadcrumb Area */}
-               <div className="laundro-breadcrumb" style={{ backgroundImage: `url('/images/breadcrumb.jpg')` }}>
-                    <span className="breadcrumb-object"><img src="/images/slider-object.png" alt=""></img></span>
-                    <div className="container">
-                         <div className="breadcrumb-content">
-                              <h1>Services</h1>
-                              <Link to="/">Home <i className="fas fa-angle-double-right"></i></Link>
-                              <span>Services</span>
+               <div className="page-wrapper">
+
+                   <Header></Header>
+
+                   {/*Page Header Start*/}
+                    <section className="page-header">
+                         <div className="page-header-bg" style={{
+                              backgroundImage : `url(images/page-header-bg.jpg)`
+                         }}>
                          </div>
-                    </div>
-               </div>
-               {/* Breadcrumb End */}
+                         <div className="page-header-bubble"><img src="images/page-header-bubble.png" alt=""></img></div>
+                         <div className="container">
+                         <div className="page-header__inner">
+                              <ul className="thm-breadcrumb list-unstyled">
+                                   <li><Link to="/">Home</Link></li>
+                                   <li><span>/</span></li>
+                                   <li>Services</li>
+                              </ul>
+                              <h2>Services</h2>
+                         </div>
+                         </div>
+                    </section>
+                    {/*Page Header End*/}
 
-               {/* Services */}
-               <section className="laundro-services pt-150">
-                    <div className="container">
-                         <div className="laundro-service-wrapper">
+
+                    <section className="services-page-2">
+                         <div className="container">
+                              <div className="section-title text-center">
+                                   <span className="section-title__tagline">What We’re Offering</span>
+                                   <h2 className="section-title__title">Providing the Best Services <br></br> for Our Customers</h2>
+                              </div>
                               <div className="row">
 
+                                   {/*Services Three Single Start-*/}
                                    {
-                                        get_all_services && get_all_services.map( item => (
-                                        <div className="col-lg-4 col-md-6" key={item.id}>
-                                             <div className="laundro-single-item sr-item">
-                                                  <div className="laundro-icon-wrapper">
-                                                       <img src={`${window.image_path}/images/service/${item.icon}`} alt=""></img>
-                                                  </div>
-                                                  <div className="laundro-sr-content">
-                                                       <Link to={`/service-details/${item.slug}`}><h6>{item.name}</h6></Link>
-                                                       <p>{item.short_description.substring(0, 100)}...</p>
-                                                       <Link to={`/service-details/${item.slug}`} className="laundro-readmore-btn">Read More</Link>
-                                                  </div>
-                                                  <div className="laundro-sr-hover">
-                                                       <div className="img-wrapper">
-                                                            <img src="/images/01.jpg" alt=""></img>
-                                                            <span className="img-shadow"></span>
+                                        get_all_services && get_all_services.map(item => (
+                                        <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp animated" key={item.id} data-wow-delay="100ms" 
+                                             style={{
+                                                  visibility : "visible",
+                                                  animationDelay: "100ms",
+                                                  animationName: "fadeInUp"
+                                             }}>
+                                             <div className="services-three__single">
+                                                  <div className="services-three__img-box">
+                                                       <div className="services-three__img">
+                                                            <img src="images/services/services-3-2.jpg" alt=""></img>
                                                        </div>
-                                                       <div className="icon-wrapper">
-                                                            <div className="laundro-img">
+                                                       <div className="services-three__icon">
                                                             <img src={`${window.image_path}/images/service/${item.icon}`} alt=""></img>
-                                                            </div>
-                                                            <span className="laundro-icon-shadow"></span>
                                                        </div>
-                                                       <div className="laundro-sr-content">
-                                                            <Link to={`/service-details/${item.slug}`}><h6>{item.name}</h6></Link>
-                                                            <p>{item.short_description.substring(0, 100)}...</p>
-                                                            <Link to={`/service-details/${item.slug}`} className="laundro-readmore-btn">Read more</Link>
+                                                       <div className="services-three__bubble">
+                                                            <img src="images/services/services-three-bubble.png" alt=""></img>
+                                                       </div>
+                                                  </div>
+                                                  <div className="services-three__content">
+                                                       <h3 className="services-three__title">
+                                                            <Link to={`/service-details/${item.slug}`}>
+                                                            {item.name}
+                                                            </Link>
+                                                       </h3>
+                                                       <p className="services-three__text">{item.short_description.substring(0, 50)}...</p>
+                                                       <div className="services-three__btn-box">
+                                                            <Link to={`/service-details/${item.slug}`} className="services-three__btn">read more</Link>
                                                        </div>
                                                   </div>
                                              </div>
                                         </div>
                                         ))
                                    }
-                                   
-                              
+                                   {/*Services Three Single End-*/}
+
                               </div>
                          </div>
-                    </div>
-               </section>
-               {/* Services End */}
+                    </section>
 
 
-               {/* Pricing Table */}
-               <section className="laundro-pricing-table pb-150">
-                    <div className="container">
-                         <div className="row">
-                              <div className="col-lg-6 offset-lg-3">
-                              <div className="laundro-title-area text-center">
-                                   <span className="laundro-subtitle">Pricing Plan</span>
-                                   <h3>We are offering the best <span>pricing to help you!</span></h3>
-                                   <p>As a app web crawler expert, I help organizations adjust to the expanding significant of internet promoting.</p>
-                              </div>
-                              </div>
+                    <section className="call-one">
+                         <div className="call-one-shape-1" style={{backgroundImage: `url(images/call-one-shape-1.png)`}}>
                          </div>
-                         <div className="pricing-table-area">
-                              <div className="pricing-nav">
-                              <ul className="nav nav-tabs">
-                                   <li><a href="#monthly" data-bs-toggle="tab" className="active">Monthly</a></li>
-                                   <li><a href="#yearly" data-bs-toggle="tab">yearly</a></li>
-                              </ul>
-                              <span className="offer-price">Save 20%</span>
-                              </div>
-                              <div className="pricing-content">
-                              <div className="tab-content">
-                                   <div className="tab-pane show active" id="monthly">
-                                        <div className="row justify-content-center">
-                                             <div className="col-xl-3 col-lg-4 col-md-6">
-                                                  <div className="pricing-column">
-                                                  <div className="pc-top">
-                                                       <h4>New Business</h4>
-                                                       <span className="pc-subtitle">1-4 Employees</span>
-                                                  </div>
-                                                  <div className="pc-price">
-                                                       <h2>$99</h2>
-                                                  </div>
-                                                  <div className="pc-icon-wrapper">
-                                                       <img src="assets/images/home1/pc-icon-1.png" alt=""></img>
-                                                  </div>
-                                                  <div className="pc-list">
-                                                       <p>Plus One-Time Bambee In-Depth Audit for. </p>
-                                                       <span>$500</span>
-                                                  </div>
-                                                  <div className="pc-btn">
-                                                       <a href="#">Try Now</a>
-                                                  </div>
-                                                  </div>
-                                             </div>
-                                             <div className="col-xl-3 col-lg-4 col-md-6">
-                                                  <div className="pricing-column best-choise">
-                                                  <div className="pc-top">
-                                                       <span className="pc-top-title">Best choise</span>
-                                                       <h4>small Business</h4>
-                                                       <span className="pc-subtitle">5-19 Employees</span>
-                                                  </div>
-                                                  <div className="pc-price">
-                                                       <h2>$199</h2>
-                                                  </div>
-                                                  <div className="pc-icon-wrapper">
-                                                       <img src="assets/images/home1/pc-icon-2.png" alt=""></img>
-                                                  </div>
-                                                  <div className="pc-list">
-                                                       <p>Plus One-Time Bambee In-Depth Audit for. </p>
-                                                       <span>$500</span>
-                                                  </div>
-                                                  <div className="pc-btn">
-                                                       <a href="#">Try Now</a>
-                                                  </div>
-                                                  </div>
-                                             </div>
-                                             <div className="col-xl-3 col-lg-4 col-md-6">
-                                                  <div className="pricing-column">
-                                                  <div className="pc-top">
-                                                       <h4>Growing Business</h4>
-                                                       <span className="pc-subtitle">20-39 Employees</span>
-                                                  </div>
-                                                  <div className="pc-price">
-                                                       <h2>$299</h2>
-                                                  </div>
-                                                  <div className="pc-icon-wrapper">
-                                                       <img src="assets/images/home1/pc-icon-3.png" alt=""></img>
-                                                  </div>
-                                                  <div className="pc-list">
-                                                       <p>Plus One-Time Bambee In-Depth Audit for. </p>
-                                                       <span>$1000</span>
-                                                  </div>
-                                                  <div className="pc-btn">
-                                                       <a href="#">Try Now</a>
-                                                  </div>
-                                                  </div>
-                                             </div>
-                                             <div className="col-xl-3 col-lg-4 col-md-6">
-                                                  <div className="pricing-column">
-                                                  <div className="pc-top">
-                                                       <h4>Large Business</h4>
-                                                       <span className="pc-subtitle">Unlimited Employees</span>
-                                                  </div>
-                                                  <div className="pc-price">
-                                                       <h2>$399</h2>
-                                                  </div>
-                                                  <div className="pc-icon-wrapper">
-                                                       <img src="assets/images/home1/pc-icon-4.png" alt=""></img>
-                                                  </div>
-                                                  <div className="pc-list">
-                                                       <p>Plus One-Time Bambee In-Depth Audit for. </p>
-                                                       <span>$1500</span>
-                                                  </div>
-                                                  <div className="pc-btn">
-                                                       <a href="#">Try Now</a>
-                                                  </div>
-                                                  </div>
-                                             </div>
-                                        </div>
+                         <div className="call-one-shape-2" style={{backgroundImage: `url(images/call-one-shape-2.png)`}}>
+                         </div>
+                         <div className="container">
+                              <div className="call-one__inner">
+                                   <div className="call-one__text-box">
+                                   <p className="call-one__text">Call us to Take an Extraordinary Service!</p>
                                    </div>
-                                   <div className="tab-pane" id="yearly">
-                                        <div className="row justify-content-center">
-                                             <div className="col-xl-3 col-lg-4 col-md-6">
-                                                  <div className="pricing-column">
-                                                  <div className="pc-top">
-                                                       <h4>New Business</h4>
-                                                       <span className="pc-subtitle">1-4 Employees</span>
+                                   <div className="call-one__call-number">
+                                   <a href="tel:2300068603"> <i className="fas fa-phone-alt"></i> +23 (000) 68 603</a>
+                                   </div>
+                              </div>
+                         </div>
+                    </section>
+                    
+
+                    {/*Testimonial Two Start*/}
+                    <section className="testimonial-two">
+                         <div className="testimonial-two-shape-1"
+                              style={{backgroundImage: `url(images/testimonial-two-shape-1.png)`}}></div>
+                         <div className="testimonial-two-bubble"
+                              style={{backgroundImage: `url(images/testimonial-two-bubble.png)`}}></div>
+                         <div className="testimonial-two-star-1 zoominout">
+                              <img src="images/testimonial-two-star-1.png" alt=""></img>
+                         </div>
+                         <div className="testimonial-two-star-2 zoominout">
+                              <img src="images/testimonial-two-star-2.png" alt=""></img>
+                         </div>
+                         <div className="testimonial-two-star-3 zoominout-2">
+                              <img src="images/testimonial-two-star-3.png" alt=""></img>
+                         </div>
+                         <div className="testimonial-two-star-4 zoominout">
+                              <img src="images/testimonial-two-star-4.png" alt=""></img>
+                         </div>
+                         <div className="testimonial-two-star-5 zoom-fade">
+                              <img src="images/testimonial-two-star-5.png" alt=""></img>
+                         </div>
+                         <div className="testimonial-two__container">
+                              <div className="section-title text-center">
+                                   <span className="section-title__tagline">What They’re Saying</span>
+                                   <h2 className="section-title__title">Some Feedbacks <br></br> from Our Customers</h2>
+                              </div>
+                              <div className="row">
+                                   <div className="col-xl-12">
+                                        <div className="testimonial-one__inner">
+
+                                             <OwlCarousel className='owl-theme thm-owl__carousel testimonial-one__carousel' 
+                                                  {...testimonial_options}
+                                             >
+                                                  {/*Testimonial One Single Start*/}
+                                                  <div className="item">
+                                                       <div className="testimonial-one__single">
+                                                            <p className="testimonial-one__text">Lorem ipsum dolor sit amet, consectetur elit sed,
+                                                                 adipisicing do eiusmod tempor incididunt labore et dolore Lorem ipsum dolor
+                                                                 consectetur adipisicing elit, sed do eiusmod</p>
+                                                            <div className="testimonial-one__client-details">
+                                                                 <h3 className="testimonial-one__client-name">Kevin Martin</h3>
+                                                                 <p className="testimonial-one__client-sub-title">Marketing Manager</p>
+                                                            </div>
+                                                            <div className="testimonial-one__client-img">
+                                                                 <img src="images/testimonial-1-1.jpg" alt=""></img>
+                                                                 <div className="testimonial-one__client-img-boxs"></div>
+                                                            </div>
+                                                            <div className="testimonial-one__quote">
+                                                                 <i className="fas fa-quote-right"></i>
+                                                            </div>
+                                                       </div>
                                                   </div>
-                                                  <div className="pc-price">
-                                                       <h2>$199</h2>
+                                                  {/*Testimonial One Single End*/}
+
+                                                  {/*Testimonial One Single Start*/}
+                                                  <div className="item">
+                                                       <div className="testimonial-one__single">
+                                                            <p className="testimonial-one__text">Lorem ipsum dolor sit amet, consectetur elit sed,
+                                                                 adipisicing do eiusmod tempor incididunt labore et dolore Lorem ipsum dolor
+                                                                 consectetur adipisicing elit, sed do eiusmod</p>
+                                                            <div className="testimonial-one__client-details">
+                                                                 <h3 className="testimonial-one__client-name">Jessica Brown</h3>
+                                                                 <p className="testimonial-one__client-sub-title">Marketing Manager</p>
+                                                            </div>
+                                                            <div className="testimonial-one__client-img">
+                                                                 <img src="images/testimonial-1-2.jpg" alt=""></img>
+                                                                 <div className="testimonial-one__client-img-boxs"></div>
+                                                            </div>
+                                                            <div className="testimonial-one__quote">
+                                                                 <i className="fas fa-quote-right"></i>
+                                                            </div>
+                                                       </div>
                                                   </div>
-                                                  <div className="pc-icon-wrapper">
-                                                       <img src="assets/images/home1/pc-icon-1.png" alt=""></img>
+                                                  {/*Testimonial One Single End*/}
+
+                                                  {/*Testimonial One Single Start*/}
+                                                  <div className="item">
+                                                       <div className="testimonial-one__single">
+                                                            <p className="testimonial-one__text">Lorem ipsum dolor sit amet, consectetur elit sed,
+                                                                 adipisicing do eiusmod tempor incididunt labore et dolore Lorem ipsum dolor
+                                                                 consectetur adipisicing elit, sed do eiusmod</p>
+                                                            <div className="testimonial-one__client-details">
+                                                                 <h3 className="testimonial-one__client-name">Jessica Brown</h3>
+                                                                 <p className="testimonial-one__client-sub-title">Marketing Manager</p>
+                                                            </div>
+                                                            <div className="testimonial-one__client-img">
+                                                                 <img src="images/testimonial-1-3.jpg" alt=""></img>
+                                                                 <div className="testimonial-one__client-img-boxs"></div>
+                                                            </div>
+                                                            <div className="testimonial-one__quote">
+                                                                 <i className="fas fa-quote-right"></i>
+                                                            </div>
+                                                       </div>
                                                   </div>
-                                                  <div className="pc-list">
-                                                       <p>Plus One-Time Bambee In-Depth Audit for. </p>
-                                                       <span>$500</span>
-                                                  </div>
-                                                  <div className="pc-btn">
-                                                       <a href="#">Try Now</a>
-                                                  </div>
-                                                  </div>
-                                             </div>
-                                             <div className="col-xl-3 col-lg-4 col-md-6">
-                                                  <div className="pricing-column best-choise">
-                                                  <div className="pc-top">
-                                                       <span className="pc-top-title">Best choise</span>
-                                                       <h4>small Business</h4>
-                                                       <span className="pc-subtitle">5-19 Employees</span>
-                                                  </div>
-                                                  <div className="pc-price">
-                                                       <h2>$259</h2>
-                                                  </div>
-                                                  <div className="pc-icon-wrapper">
-                                                       <img src="assets/images/home1/pc-icon-2.png" alt=""></img>
-                                                  </div>
-                                                  <div className="pc-list">
-                                                       <p>Plus One-Time Bambee In-Depth Audit for. </p>
-                                                       <span>$500</span>
-                                                  </div>
-                                                  <div className="pc-btn">
-                                                       <a href="#">Try Now</a>
-                                                  </div>
-                                                  </div>
-                                             </div>
-                                             <div className="col-xl-3 col-lg-4 col-md-6">
-                                                  <div className="pricing-column">
-                                                  <div className="pc-top">
-                                                       <h4>Growing Business</h4>
-                                                       <span className="pc-subtitle">20-39 Employees</span>
-                                                  </div>
-                                                  <div className="pc-price">
-                                                       <h2>$999</h2>
-                                                  </div>
-                                                  <div className="pc-icon-wrapper">
-                                                       <img src="assets/images/home1/pc-icon-3.png" alt=""></img>
-                                                  </div>
-                                                  <div className="pc-list">
-                                                       <p>Plus One-Time Bambee In-Depth Audit for. </p>
-                                                       <span>$1000</span>
-                                                  </div>
-                                                  <div className="pc-btn">
-                                                       <a href="#">Try Now</a>
-                                                  </div>
-                                                  </div>
-                                             </div>
-                                             <div className="col-xl-3 col-lg-4 col-md-6">
-                                                  <div className="pricing-column">
-                                                  <div className="pc-top">
-                                                       <h4>Large Business</h4>
-                                                       <span className="pc-subtitle">Unlimited Employees</span>
-                                                  </div>
-                                                  <div className="pc-price">
-                                                       <h2>$1299</h2>
-                                                  </div>
-                                                  <div className="pc-icon-wrapper">
-                                                       <img src="assets/images/home1/pc-icon-4.png" alt=""></img>
-                                                  </div>
-                                                  <div className="pc-list">
-                                                       <p>Plus One-Time Bambee In-Depth Audit for. </p>
-                                                       <span>$1500</span>
-                                                  </div>
-                                                  <div className="pc-btn">
-                                                       <a href="#">Try Now</a>
-                                                  </div>
-                                                  </div>
-                                             </div>
+                                                  {/*Testimonial One Single End*/}
+
+                                             </OwlCarousel>
+
                                         </div>
                                    </div>
                               </div>
-                              </div>
                          </div>
-                    </div>
-               </section>
-               {/* Pricing Table End */}
+                    </section>
+                    {/*Testimonial Two End*/}
 
-
-               {/* Footer */}
-               <Footer></Footer>
-               {/* Footer End */}
+                    <Footer></Footer>
+                    
+               </div>
 
           </div>
      );

@@ -55,7 +55,7 @@
 	left: 0;
 	width: 40px;
 	height: 3px;
-	background-color: #22d3ee;
+	background-color: #ffb400;
 }
 
 .laundro-services .laundro-service-wrapper .laundro-single-item .laundro-sr-content p {
@@ -369,11 +369,11 @@
 }
 
 .laundro-pricing-table .pricing-table-area .pricing-nav ul li a.active::before {
-	border-color: #22d3ee;
+	border-color: #ffb400;
 }
 
 .laundro-pricing-table .pricing-table-area .pricing-nav ul li a.active::after {
-	background-color: #22d3ee;
+	background-color: #ffb400;
 }
 
 .laundro-pricing-table .pricing-table-area .pricing-nav .offer-price {
@@ -402,7 +402,7 @@
 
 .laundro-pricing-table .pricing-table-area .pricing-content .pricing-column .pc-top .pc-top-title {
 	font-size: 14px;
-	color: #22d3ee;
+	color: #ffb400;
 	font-family: "Poppins", sans-serif;
 	font-weight: 700;
 }
@@ -482,7 +482,7 @@
 }
 
 .laundro-pricing-table .pricing-table-area .pricing-content .pricing-column.best-choise .pc-btn a {
-	background-color: #22d3ee;
+	background-color: #ffb400;
 }
 
 @media (max-width: 767.98px) {

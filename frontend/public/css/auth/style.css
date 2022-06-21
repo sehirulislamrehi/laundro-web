@@ -65,7 +65,7 @@ input:focus
 .login, .signup
 {
 	text-align: center;
-	color: #fff;
+	color: #fff!important;
 	background: #006BCC;
 	line-height: 30px;
 	opacity: 0.95;

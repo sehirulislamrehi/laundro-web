@@ -5,13 +5,14 @@ import { useParams } from "react-router";
 
 
 //import pages
-import DesktopMenu from "../../Include/DesktopMenu";
+
 import MobileMenu from "../../Include/MobileMenu";
 import Footer from "../../Include/Footer";
 import { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllArea } from "../../../action";
+import Header from "../../Include/Header";
 
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
@@ -30,14 +31,14 @@ const StepOneComponent = () => {
      const dispatch = useDispatch();
 
      //manage session
-     const [user, setUser] = useState(null);
+     const [user, setUser] = useState('');
      const manage_session_url = `${window.url}/manage-session`;
 
-     const postal_code_field = useRef(null);
+     const postal_code_field = useRef('');
      const [postal_code, set_postal_code] = useState('')
-     const selectAddress = useRef(null)
-     const [address_in_details, set_address_in_details] = useState(null);
-     const address_details_field = useRef(null)
+     const selectAddress = useRef('')
+     const [address_in_details, set_address_in_details] = useState('');
+     const address_details_field = useRef('')
 
      useEffect(() => {
 
@@ -134,7 +135,7 @@ const StepOneComponent = () => {
                          if( x < select_address_type.length ){
                               if( select_address_type[x].dataset.id == data.address_type ){
                                    select_address_type[x].classList.add("selected")
-                                   select_address_type[x].style.background = "#22d3ee"
+                                   select_address_type[x].style.background = "#ffb400"
                               }
                               else{
                                    select_address_type[x].classList.remove("selected")
@@ -163,7 +164,7 @@ const StepOneComponent = () => {
           }
 
           e.target.classList.add("selected")
-          e.target.style.background = "#22d3ee"
+          e.target.style.background = "#ffb400"
      }
 
 
@@ -266,105 +267,99 @@ const StepOneComponent = () => {
      if( check_authorized && check_authorized == "authorized" ){
           return(
                <div className="id">
-     
-                    {/* desktop menu start */}
-                    <DesktopMenu></DesktopMenu>
-                    {/* desktop menu end */}
-     
-                    {/* Mobile Menu */}
+
                     <MobileMenu></MobileMenu>
-                    {/* Mobile Menu End */}
-     
-                    <section className="booking-section" style={{
+
+                    <div className="page-wrapper">
+                         <Header></Header>
+
+                         <section className="booking-section" style={{
                          padding: "10px 0 100px 0px"
-                    }} id="msform">
-                         <div className="container">
-                              <div className="row">
-                                   <div className="col-md-12">
-     
+                              }} id="msform">
+                                   <div className="container">
                                         <div className="row">
                                              <div className="col-md-12">
-                                                  {/* progressbar */}
-                                                  <PageIndicator></PageIndicator>
+               
+                                                  <div className="row">
+                                                       <div className="col-md-12">
+                                                            {/* progressbar */}
+                                                            <PageIndicator></PageIndicator>
+                                                       </div>
+                                                  </div>
+               
+                                                  <div className="row booking-card">
+
+               
+                                                       <div className="col-md-12 select-postal-code mb-3">
+                                                            <label htmlFor="">Enter BD postal code</label>
+                                                            <input type="text" className="form-control" onChange={postalCodeChange} value={postal_code} />
+                                                       </div>
+               
+                                                       <div className="col-md-12 select-address mb-3">
+                                                            <label htmlFor="">Select your address</label>
+                                                            <select name="" className="form-control" id="address-select">
+                                                                 
+                                                            </select>
+                                                            <span ref={selectAddress} style={{ color: "red" }}></span>
+                                                       </div>
+
+                                                       <div className="col-md-12 select-postal-code mb-3">
+                                                            <label htmlFor="">Address in details</label>
+                                                            <input type="text" className="form-control"
+                                                                 ref={address_details_field}
+                                                                 onChange={
+                                                                      e => set_address_in_details(e.target.value)
+                                                                 }
+                                                                 value={address_in_details}
+                                                            />
+                                                       </div>
+               
+                                                       <div className="col-md-12 select-order-duration mb-3">
+                                                            <p>Choose address type</p>
+                                                            <ul>
+                                                                 <li onClick={clickOnDuration} data-id="Home"> <i className="fas fa-home"></i> Home</li>
+                                                                 <li onClick={clickOnDuration} data-id="Office"> <i className="fas fa-briefcase"></i> Office</li>
+                                                                 <li onClick={clickOnDuration} data-id="Hotel"> <i className="fas fa-hotel"></i> Hotel</li>
+                                                            </ul>
+                                                       </div>
+               
+                                                       <div className="col-md-12 next-step">
+                                                            <button onClick={nextStep}>
+                                                                 Proceed
+                                                            </button>
+                                                       </div>
+               
+                                                  </div>
+                                                  
                                              </div>
                                         </div>
-     
-                                        <div className="row booking-card">
-
-     
-                                             <div className="col-md-12 select-postal-code mb-3">
-                                                  <label htmlFor="">Enter BD postal code</label>
-                                                  <input type="text" className="form-control" onChange={postalCodeChange} value={postal_code} />
-                                             </div>
-     
-                                             <div className="col-md-12 select-address mb-3">
-                                                  <label htmlFor="">Select your address</label>
-                                                  <select name="" className="form-control" id="address-select">
-                                                       
-                                                  </select>
-                                                  <span ref={selectAddress} style={{ color: "red" }}></span>
-                                             </div>
-
-                                             <div className="col-md-12 select-postal-code mb-3">
-                                                  <label htmlFor="">Address in details</label>
-                                                  <input type="text" className="form-control"
-                                                       ref={address_details_field}
-                                                       onChange={
-                                                            e => set_address_in_details(e.target.value)
-                                                       }
-                                                       value={address_in_details}
-                                                  />
-                                             </div>
-     
-                                             <div className="col-md-12 select-order-duration mb-3">
-                                                  <p>Choose address type</p>
-                                                  <ul>
-                                                       <li onClick={clickOnDuration} data-id="Home"> <i className="fas fa-home"></i> Home</li>
-                                                       <li onClick={clickOnDuration} data-id="Office"> <i className="fas fa-briefcase"></i> Office</li>
-                                                       <li onClick={clickOnDuration} data-id="Hotel"> <i className="fas fa-hotel"></i> Hotel</li>
-                                                  </ul>
-                                             </div>
-     
-                                             <div className="col-md-12 next-step">
-                                                  <button onClick={nextStep}>
-                                                       Proceed
-                                                  </button>
-                                             </div>
-     
-                                        </div>
-                                        
                                    </div>
-                              </div>
-                         </div>
-                    </section>
-     
-                    {/* Footer */}
-                    <Footer></Footer>
-                    {/* Footer End */}
-     
+                              </section>
+
+                         <Footer></Footer>
+                    </div>
+
                </div>
           );
      }
      else{
           return(
                <div className="id">
-                    {/* desktop menu start */}
-                    <DesktopMenu></DesktopMenu>
-                    {/* desktop menu end */}
 
-                    {/* Mobile Menu */}
                     <MobileMenu></MobileMenu>
-                    {/* Mobile Menu End */}
 
-                    {/* please wait section start */}
-                    <section className="please-wait">
-                         <h4 className="content">Please Wait...</h4>
-                    </section>
-                    {/* please wait section end */}
+                    <div className="page-wrapper">
+                         <Header></Header>
 
-                    {/* Footer */}
-                    <Footer></Footer>
-                    {/* Footer End */}
+                         {/* please wait section start */}
+                         <section className="please-wait">
+                              <h4 className="content">Please Wait...</h4>
+                         </section>
+                         {/* please wait section end */}
+
+                         <Footer></Footer>
+                    </div>
+
                </div> 
           );
      }

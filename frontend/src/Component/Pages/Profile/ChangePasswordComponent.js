@@ -3,14 +3,14 @@ import { Link, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 //import pages
-import DesktopMenu from "../../Include/DesktopMenu";
+
 import MobileMenu from "../../Include/MobileMenu";
 import Footer from "../../Include/Footer";
 import Loading from "../../Include/Loading";
 import HeaderComponent from "./Includes/HeaderComponent";
 import LeftSidebarComponent from "./Includes/LeftSidebarComponent";
 import NavbarComponent from "./Includes/NavbarComponent";
-
+import Header from "../../Include/Header";
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 const MySwal = withReactContent(Swal)
@@ -116,106 +116,104 @@ const ChangePasswordComponent = () => {
      if( check_authorized && check_authorized == "authorized" ){
 
           return(
+
                <div className="id">
 
                     {/* loading */}
                     <Loading></Loading>
 
-                    {/* desktop menu start */}
-                    <DesktopMenu></DesktopMenu>
-                    {/* desktop menu end */}
-
-                    {/* Mobile Menu */}
                     <MobileMenu></MobileMenu>
-                    {/* Mobile Menu End */}
 
-                    <section className="profile">
-                         <div className="container">
+                    <div className="page-wrapper">
+                         <Header></Header>
 
-                              {/* header component */}
-                              <HeaderComponent user={user}></HeaderComponent>
-     
-                              <div className="main-bd">
-     
-                                   {/* left sidebar */}
-                                   <LeftSidebarComponent user={user}></LeftSidebarComponent>
-                                   
-                                   {/* https://codepen.io/brightprogrammer/pen/mdyMOGV */}
-                                   <div className="right-side">
+                         <section className="profile">
+                              <div className="container">
 
-                                        {/* navbar component */}
-                                        <NavbarComponent></NavbarComponent>
+                                   {/* header component */}
+                                   <HeaderComponent user={user}></HeaderComponent>
+          
+                                   <div className="main-bd">
+          
+                                        {/* left sidebar */}
+                                        <LeftSidebarComponent user={user}></LeftSidebarComponent>
                                         
-                                        <div className="profile-body">
-                                             <div className="row my-account">
+                                        {/* https://codepen.io/brightprogrammer/pen/mdyMOGV */}
+                                        <div className="right-side">
 
-                                                  <div className="col-md-12 form-group">
-                                                       <label>Old Password</label>
-                                                       <input type="password" className="form-control" name="old_password"
-                                                            onChange={ e => {
-                                                                 set_old_password(e.target.value)
-                                                            }}
-                                                       />
-                                                       {
-                                                            errors &&
-                                                            <small
-                                                            className="form_error"
-                                                            >
-                                                                 {errors.old_password}
-                                                            </small>
-                                                       }
-                                                  </div>
-
-                                                  <div className="col-md-12 form-group">
-                                                       <label>New Password</label>
-                                                       <input type="password" className="form-control" name="password"
-                                                            onChange={ e => {
-                                                                 set_password(e.target.value)
-                                                            }}
-                                                       />
-                                                       {
-                                                            errors &&
-                                                            <small
-                                                            className="form_error"
-                                                            >
-                                                                 {errors.password}
-                                                            </small>
-                                                       }
-                                                  </div>
-
-                                                  <div className="col-md-12 form-group">
-                                                       <label>Confirm Password</label>
-                                                       <input type="password" className="form-control" name="password_confirmation"
-                                                            onChange={ e => {
-                                                                 set_password_confirmation(e.target.value)
-                                                            }}
-                                                       />
-                                                       {
-                                                            errors &&
-                                                            <small
-                                                            className="form_error"
-                                                            >
-                                                                 {errors.password}
-                                                            </small>
-                                                       }
-                                                  </div>
+                                             {/* navbar component */}
+                                             <NavbarComponent></NavbarComponent>
                                              
-                                                  <div className="col-md-12 form-group">
-                                                       <button className="change-password-btn" onClick={changePassword}>
-                                                            Update
-                                                       </button>
+                                             <div className="profile-body">
+                                                  <div className="row my-account">
+
+                                                       <div className="col-md-12 form-group">
+                                                            <label>Old Password</label>
+                                                            <input type="password" className="form-control" name="old_password"
+                                                                 onChange={ e => {
+                                                                      set_old_password(e.target.value)
+                                                                 }}
+                                                            />
+                                                            {
+                                                                 errors &&
+                                                                 <small
+                                                                 className="form_error"
+                                                                 >
+                                                                      {errors.old_password}
+                                                                 </small>
+                                                            }
+                                                       </div>
+
+                                                       <div className="col-md-12 form-group">
+                                                            <label>New Password</label>
+                                                            <input type="password" className="form-control" name="password"
+                                                                 onChange={ e => {
+                                                                      set_password(e.target.value)
+                                                                 }}
+                                                            />
+                                                            {
+                                                                 errors &&
+                                                                 <small
+                                                                 className="form_error"
+                                                                 >
+                                                                      {errors.password}
+                                                                 </small>
+                                                            }
+                                                       </div>
+
+                                                       <div className="col-md-12 form-group">
+                                                            <label>Confirm Password</label>
+                                                            <input type="password" className="form-control" name="password_confirmation"
+                                                                 onChange={ e => {
+                                                                      set_password_confirmation(e.target.value)
+                                                                 }}
+                                                            />
+                                                            {
+                                                                 errors &&
+                                                                 <small
+                                                                 className="form_error"
+                                                                 >
+                                                                      {errors.password}
+                                                                 </small>
+                                                            }
+                                                       </div>
+                                                  
+                                                       <div className="col-md-12 form-group">
+                                                            <button className="change-password-btn" onClick={changePassword}>
+                                                                 Update
+                                                            </button>
+                                                       </div>
                                                   </div>
                                              </div>
+                                             
                                         </div>
-                                        
                                    </div>
                               </div>
-                         </div>
-                    </section>
+                         </section>
 
-                    {/* Footer */}
-                    <Footer></Footer>
-                    {/* Footer End */}
+                         <Footer></Footer>
+                    </div>
+
                </div>
           );
           
@@ -223,24 +221,22 @@ const ChangePasswordComponent = () => {
      else{
           return(
                <div className="id">
-                    {/* desktop menu start */}
-                    <DesktopMenu></DesktopMenu>
-                    {/* desktop menu end */}
 
-                    {/* Mobile Menu */}
                     <MobileMenu></MobileMenu>
-                    {/* Mobile Menu End */}
 
-                    {/* please wait section start */}
-                    <section className="please-wait">
-                         <h4 className="content">Please Wait...</h4>
-                    </section>
-                    {/* please wait section end */}
+                    <div className="page-wrapper">
+                         <Header></Header>
 
-                    {/* Footer */}
-                    <Footer></Footer>
-                    {/* Footer End */}
-               </div> 
+                         {/* please wait section start */}
+                         <section className="please-wait">
+                              <h4 className="content">Please Wait...</h4>
+                         </section>
+                         {/* please wait section end */}
+
+                         <Footer></Footer>
+                    </div>
+
+               </div>
           );
      }
 }

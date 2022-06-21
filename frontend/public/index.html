@@ -12,66 +12,85 @@
   <!-- Favicon Icon -->
   <link rel="shortcut icon" href="/images/favicon.png" />
 
-  <!-- CSS Files -->
-  <!-- <link rel="stylesheet" href="/css/home/animate.css" /> -->
-  <link rel="stylesheet" href="/css/home/bootstrap.min.css" />
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+      rel="stylesheet">
+
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="/css/home/slick.css" /> -->
-  <!-- <link rel="stylesheet" href="/css/home/magnific-popup.css" /> -->
-  <!-- <link rel="stylesheet" href="/css/home/odometer-theme-car.css" /> -->
-  <!-- <link rel="stylesheet" href="/css/home/rs6.css" /> -->
-  <link rel="stylesheet" href="/css/home/style.css" />
-  <link rel="stylesheet" href="/css/home/responsive.css" />
-  <link rel="stylesheet" href="/css/style.css" />
-  <link rel="stylesheet" href="/css/responsive.css" />
-  <link rel="stylesheet" href="/css/about/style.css" />
-  <link rel="stylesheet" href="/css/services/style.css" />
-  <link rel="stylesheet" href="/css/service-details/style.css" />
-  <link rel="stylesheet" href="/css/contact/style.css" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/animate.min.css" />
+  <link rel="stylesheet" href="/css/custom-animate.css" />
+  <link rel="stylesheet" href="css/all.min.css" />
+  
+  <!-- <link rel="stylesheet" href="/css/jarallax.css" />
+  <link rel="stylesheet" href="/css/jquery.magnific-popup.css" />
+  <link rel="stylesheet" href="/css/nouislider.min.css" />
+  <link rel="stylesheet" href="/css/nouislider.pips.css" />
+  <link rel="stylesheet" href="/css/odometer.min.css" />
+  <link rel="stylesheet" href="/css/swiper.min.css" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/tiny-slider.min.css" />
+  <link rel="stylesheet" href="/css/stylesheet.css" />
+  <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
+  <link rel="stylesheet" href="/css/jquery.bxslider.css" />
+  <link rel="stylesheet" href="/css/bootstrap-select.min.css" />
+  <link rel="stylesheet" href="/css/vegas.min.css" />
+  <link rel="stylesheet" href="/css/jquery-ui.css" />
+  <link rel="stylesheet" href="/css/timePicker.css" /> -->
+
   <link rel="stylesheet" href="/css/auth/style.css" />
   <link rel="stylesheet" href="/css/auth/responsive.css" />
 
-  <!-- profile page -->
   <link rel="stylesheet" href="/css/profile/style.css" />
   <link rel="stylesheet" href="/css/profile/responsive.css" />
 
-  <!-- booking page -->
   <link rel="stylesheet" href="/css/booking/style.css" />
   <link rel="stylesheet" href="/css/booking/responsive.css" />
 
+  <!-- template styles -->
+  <link rel="stylesheet" href="/css/brote.css" />
+  <link rel="stylesheet" href="/css/brote-responsive.css" />
+
 </head>
 
-<body>
+<body class="custom-cursor">
 
   <div id="root"></div>
 
-  <!-- Javascript Files -->
-  <script src="/js/home/jquery-3.6.0.min.js"></script>
-  <script src="/js/home/bootstrap.min.js"></script>
-  <!-- <script src="/js/home/slick.min.js"></script> -->
-  <!-- <script src="/js/home/easing.min.js"></script> -->
-  <!-- <script src="/js/home/wow.min.js"></script> -->
-  <!-- <script src="/js/home/before-after.js"></script> -->
-  <!-- <script src="/js/home/jquery.magnific-popup.min.js"></script> -->
-  <!-- <script src="/js/home/odometer.min.js"></script> -->
-  <!-- <script src="/js/home/isotope.pkgd.js"></script> -->
-  <!-- <script src="/js/home/piechart.js"></script> -->
-  <!-- <script src="/js/home/appear.js"></script> -->
-  <!-- <script src="/js/home/rbtools.min.js"></script> -->
-  <!-- <script src="/js/home/rs6.min.js"></script> -->
-  <!-- <script src="/js/home/main.js"></script> -->
-  <!-- <script src="/js/profile/main.js"></script> -->
+  <script src="/js/jquery-3.6.0.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="/js/jarallax.min.js"></script>
+  <script src="/js/jquery.ajaxchimp.min.js"></script>
+  <script src="/js/jquery.appear.min.js"></script>
+  <script src="/js/jquery.circle-progress.min.js"></script>
+  <script src="/js/jquery.magnific-popup.min.js"></script>
+  <script src="/js/jquery.validate.min.js"></script>
+  <script src="/js/nouislider.min.js"></script>
+  <script src="/js/odometer.min.js"></script> -->
+  <!-- <script src="/js/swiper.min.js"></script> -->
+  <!-- <script src="/js/tiny-slider.min.js"></script>
+  <script src="/js/wNumb.min.js"></script>
+  <script src="/js/wow.js"></script>
+  <script src="/js/isotope.js"></script>
+  <script src="/js/countdown.min.js"></script>
+  <script src="/js/owl.carousel.min.js"></script>
+  <script src="/js/jquery.bxslider.min.js"></script>
+  <script src="/js/bootstrap-select.min.js"></script>
+  <script src="/js/vegas.min.js"></script>
+  <script src="/js/jquery-ui.js"></script>
+  <script src="/js/timePicker.js"></script>
+  <script src="/js/jquery.circleType.js"></script>
+  <script src="/js/jquery.lettering.min.js"></script> -->
 
-  <script>
-    $(window).on("scroll", function(){
-      var ScrollBar = $(this).scrollTop();
-      if (ScrollBar > 150 ) {
-        $(".laundro-header").addClass("header-sticky"); 
-      } else {
-        $(".laundro-header").removeClass("header-sticky");
-      }
-    });
-  </script>
+
+<!-- template js -->
+<!-- <script src="/js/brote.js"></script> -->
  
 </body>
 

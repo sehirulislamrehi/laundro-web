@@ -3,12 +3,13 @@ import { Link, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 //import pages
-import DesktopMenu from "../../Include/DesktopMenu";
+
 import MobileMenu from "../../Include/MobileMenu";
 import Footer from "../../Include/Footer";
 import HeaderComponent from "./Includes/HeaderComponent";
 import LeftSidebarComponent from "./Includes/LeftSidebarComponent";
 import NavbarComponent from "./Includes/NavbarComponent";
+import Header from "../../Include/Header";
 
 
 const MyOrderComponent = () => {
@@ -73,133 +74,128 @@ const MyOrderComponent = () => {
           return(
                <div className="id">
 
-                    {/* desktop menu start */}
-                    <DesktopMenu></DesktopMenu>
-                    {/* desktop menu end */}
-
-                    {/* Mobile Menu */}
                     <MobileMenu></MobileMenu>
-                    {/* Mobile Menu End */}
 
-                    <section className="profile">
-                         <div className="container">
+                    <div className="page-wrapper">
+                         <Header></Header>
 
-                              {/* header component */}
-                              <HeaderComponent user={user}></HeaderComponent>
-     
-                              <div className="main-bd">
-     
-                                   {/* left sidebar */}
-                                   <LeftSidebarComponent user={user}></LeftSidebarComponent>
-                                   
-                                   {/* https://codepen.io/brightprogrammer/pen/mdyMOGV */}
-                                   <div className="right-side">
+                         <section className="profile">
+                              <div className="container">
 
-                                        {/* navbar component */}
-                                        <NavbarComponent></NavbarComponent>
+                                   {/* header component */}
+                                   <HeaderComponent user={user}></HeaderComponent>
+          
+                                   <div className="main-bd">
+          
+                                        {/* left sidebar */}
+                                        <LeftSidebarComponent user={user}></LeftSidebarComponent>
                                         
-                                        <div className="profile-body">
-                                             <div className="row">
+                                        {/* https://codepen.io/brightprogrammer/pen/mdyMOGV */}
+                                        <div className="right-side">
 
-                                                  {/* order card start */}
-                                                  {
-                                                       order && order ? order.map( item => (
-                                                            <div className="col-md-12" key={item.id}>
-                                                                 <Link to={`/order-details/${item.order_no}`}>
-                                                                      <div className="order-card">
-                                                                           <i className="fas fa-times"></i>
-                                                                           <div className="row">
-                                                                                <div className="col-md-8">
-                                                                                     <div className="left-part">
-                                                                                          <p>
-                                                                                               <strong>Order No : </strong>
-                                                                                               {item.order_no}
-                                                                                          </p>
-                                                                                          <p>
-                                                                                               <strong>Collection Date : </strong>
-                                                                                               {JSON.parse(item.timing).day_for_collection},
-                                                                                               ( {JSON.parse(item.timing).time_for_collection} )
-                                                                                          </p>
-                                                                                          <p>
-                                                                                               <strong>Delivery Date : </strong>
-                                                                                               {JSON.parse(item.timing).day_for_delivery},
-                                                                                               ( {JSON.parse(item.timing).time_for_delivery} )
-                                                                                          </p>
+                                             {/* navbar component */}
+                                             <NavbarComponent></NavbarComponent>
+                                             
+                                             <div className="profile-body">
+                                                  <div className="row">
+
+                                                       {/* order card start */}
+                                                       {
+                                                            order && order ? order.map( item => (
+                                                                 <div className="col-md-12" key={item.id}>
+                                                                      <Link to={`/order-details/${item.order_no}`} className="order-list">
+                                                                           <div className="order-card">
+                                                                                <i className="fas fa-times"></i>
+                                                                                <div className="row">
+                                                                                     <div className="col-md-8">
+                                                                                          <div className="left-part">
+                                                                                               <p>
+                                                                                                    <strong>Order No : </strong>
+                                                                                                    {item.order_no}
+                                                                                               </p>
+                                                                                               <p>
+                                                                                                    <strong>Collection Date : </strong>
+                                                                                                    {JSON.parse(item.timing).day_for_collection},
+                                                                                                    ( {JSON.parse(item.timing).time_for_collection} )
+                                                                                               </p>
+                                                                                               <p>
+                                                                                                    <strong>Delivery Date : </strong>
+                                                                                                    {JSON.parse(item.timing).day_for_delivery},
+                                                                                                    ( {JSON.parse(item.timing).time_for_delivery} )
+                                                                                               </p>
+                                                                                          </div>
+                                                                                     </div>
+                                                                                </div>
+                                                                                <div className="row order-card-footer">
+                                                                                     <div className="col-md-6 col-8">
+                                                                                          <div className="left-part">
+                                                                                               {/* <ul>
+                                                                                                    <li>
+                                                                                                         <i className="fas fa-calendar"></i>
+                                                                                                         2022-04-19
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                         <i className="fas fa-clock"></i>
+                                                                                                         09:00
+                                                                                                    </li>
+                                                                                               </ul> */}
+                                                                                          </div>
+                                                                                     </div>
+                                                                                     <div className="col-md-6 col-4">
+                                                                                          <div className="right-part">
+                                                                                               <button className="order-status">
+                                                                                                    {item.order_status}
+                                                                                               </button>
+                                                                                          </div>
                                                                                      </div>
                                                                                 </div>
                                                                            </div>
-                                                                           <div className="row order-card-footer">
-                                                                                <div className="col-md-6 col-8">
-                                                                                     <div className="left-part">
-                                                                                          {/* <ul>
-                                                                                               <li>
-                                                                                                    <i className="fas fa-calendar"></i>
-                                                                                                    2022-04-19
-                                                                                               </li>
-                                                                                               <li>
-                                                                                                    <i className="fas fa-clock"></i>
-                                                                                                    09:00
-                                                                                               </li>
-                                                                                          </ul> */}
-                                                                                     </div>
-                                                                                </div>
-                                                                                <div className="col-md-6 col-4">
-                                                                                     <div className="right-part">
-                                                                                          <button className="order-status">
-                                                                                               {item.order_status}
-                                                                                          </button>
-                                                                                     </div>
-                                                                                </div>
-                                                                           </div>
-                                                                      </div>
-                                                                 </Link>
+                                                                      </Link>
+                                                                 </div>
+                                                                 
+                                                            )) :
+                                                            <div className="col-md-12">
+                                                                 <p className="text-center">No Order Found</p>
                                                             </div>
-                                                            
-                                                       )) :
-                                                       <div className="col-md-12">
-                                                            <p className="text-center">No Order Found</p>
-                                                       </div>
-                                                  }
-                                                  
-                                                  {/* order card end */}
+                                                       }
+                                                       
+                                                       {/* order card end */}
 
 
+                                                  </div>
                                              </div>
+                                             
                                         </div>
-                                        
                                    </div>
                               </div>
-                         </div>
-                    </section>
+                         </section>
 
-                    {/* Footer */}
-                    <Footer></Footer>
-                    {/* Footer End */}
+                         <Footer></Footer>
+                    </div>
 
-               </div> 
+               </div>
+               
           );
      }
      else{
           return(
                <div className="id">
-                    {/* desktop menu start */}
-                    <DesktopMenu></DesktopMenu>
-                    {/* desktop menu end */}
 
-                    {/* Mobile Menu */}
                     <MobileMenu></MobileMenu>
-                    {/* Mobile Menu End */}
 
-                    {/* please wait section start */}
-                    <section className="please-wait">
-                         <h4 className="content">Please Wait...</h4>
-                    </section>
-                    {/* please wait section end */}
+                    <div className="page-wrapper">
+                         <Header></Header>
 
-                    {/* Footer */}
-                    <Footer></Footer>
-                    {/* Footer End */}
-               </div> 
+                         {/* please wait section start */}
+                         <section className="please-wait">
+                              <h4 className="content">Please Wait...</h4>
+                         </section>
+                         {/* please wait section end */}
+
+                         <Footer></Footer>
+                    </div>
+
+               </div>
           );
      }
 }

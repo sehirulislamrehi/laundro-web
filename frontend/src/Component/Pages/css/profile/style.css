@@ -263,7 +263,7 @@ button.createbtn i {
 .link-send .row .button button{
      width: 100%;
      margin-top: 10px;
-     background: #22d3ee;
+     background: #ffb400;
      color: white;
      border: none;
      padding: 10px;
@@ -290,7 +290,7 @@ button.createbtn i {
      top: 15px;
      color: white;
      cursor: pointer;
-     background: #22d3ee;
+     background: #ffb400;
      padding: 5px 10px;
 }
 .order-card-footer{
@@ -338,7 +338,7 @@ button.createbtn i {
     padding: 5px 15px;
 }
 .my-account .edit-column ul li a:hover{
-     background: #22d3ee;
+     background: #ffb400;
 }
 .my-account .edit-column ul li a .fas{
      margin-right: 5px;

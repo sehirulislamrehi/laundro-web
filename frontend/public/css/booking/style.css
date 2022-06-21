@@ -166,7 +166,7 @@
 }
 
 .booking-card .select-order-duration ul li:hover {
-  background: #22d3ee;
+  background: #ffb400;
 }
 
 .booking-summary {
@@ -210,7 +210,7 @@
 
 .next-step button,
 .next-step a {
-  background: #22d3ee;
+  background: #ffb400;
   padding: 10px 20px;
   color: white;
   width: max-content;
@@ -231,7 +231,7 @@
 
 .next-step button:hover:nth-child(1),
 .next-step a:hover:nth-child(1) {
-  background: #22d3ee;
+  background: #ffb400;
 }
 
 .booking-card .how-many-hour ul li {
@@ -289,7 +289,7 @@
 }
 
 .choose-date ul li span.date:hover {
-  background: #22d3ee !important
+  background: #ffb400 !important
 }
 
 .choose-time ul li {
@@ -303,7 +303,7 @@
 }
 
 .choose-time ul li:hover {
-  background: #22d3ee !important
+  background: #ffb400 !important
 }
 
 .payment-method ul li {
@@ -317,7 +317,7 @@
 }
 
 .payment-method ul li:hover {
-  background: #22d3ee !important
+  background: #ffb400 !important
 }
 
 
@@ -326,7 +326,9 @@
   margin-bottom: 15px;
   padding: 15px;
 }
-
+.service-item-card .service-icon img{
+  width: 100%;
+}
 .service-item-card .service-information a {
   font-weight: bold;
   color: #006bcc;
@@ -334,7 +336,7 @@
 }
 
 .service-item-card .service-information a:hover {
-  color: #22d3ee;
+  color: #ffb400;
 }
 
 .service-item-card.selected {
@@ -352,7 +354,7 @@
 
 .service-item-card .service-buttons .remove-btn {
   border: none;
-  background: #22d3ee;
+  background: #ffb400;
   color: white;
   font-size: 12px;
   padding: 5px 15px;
@@ -370,7 +372,7 @@
 }
 
 .service-item-card .service-buttons .add-btn:hover {
-  background: #22d3ee;
+  background: #ffb400;
 }
 
 .service-item-card .service-buttons .remove-btn:hover {
@@ -435,7 +437,7 @@
 }
 
 .service-instruction .instruction-box .item button:hover {
-  background: #22d3ee;
+  background: #ffb400;
 }
 
 .service-instruction .instruction-box .item p {

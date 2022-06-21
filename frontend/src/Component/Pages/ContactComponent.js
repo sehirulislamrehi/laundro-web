@@ -2,9 +2,10 @@
 import { Link } from "react-router-dom";
 
 //import pages
-import DesktopMenu from "../Include/DesktopMenu";
+
 import MobileMenu from "../Include/MobileMenu";
 import Footer from "../Include/Footer";
+import Header from "../Include/Header";
 
 
 const ContactComponent = () => {
@@ -15,115 +16,120 @@ const ContactComponent = () => {
      return(
           <div className="id">
 
-                         
-               {/* desktop menu start */}
-               <DesktopMenu></DesktopMenu>
-               {/* desktop menu end */}
-
-               {/* Mobile Menu */}
                <MobileMenu></MobileMenu>
-               {/* Mobile Menu End */}
 
-               {/* Breadcrumb Area */}
-               <div className="laundro-breadcrumb" style={{ backgroundImage: `url('/images/breadcrumb.jpg')` }}>
-                    <span className="breadcrumb-object"><img src="/images/slider-object.png" alt=""></img></span>
-                    <div className="container">
-                         <div className="breadcrumb-content">
-                              <h1>Contact Us</h1>
-                              <Link to="/">Home <i className="fas fa-angle-double-right"></i></Link>
-                              <span>Contact Us</span>
+               <div className="page-wrapper">
+
+                   <Header></Header>
+
+                   {/*Page Header Start*/}
+                    <section className="page-header">
+                         <div className="page-header-bg" style={{
+                              backgroundImage : `url(images/page-header-bg.jpg)`
+                         }}>
                          </div>
-                    </div>
-               </div>
-               {/* Breadcrumb End */}
+                         <div className="page-header-bubble"><img src="images/page-header-bubble.png" alt=""></img></div>
+                         <div className="container">
+                         <div className="page-header__inner">
+                              <ul className="thm-breadcrumb list-unstyled">
+                                   <li><Link to="/">Home</Link></li>
+                                   <li><span>/</span></li>
+                                   <li>Contact</li>
+                              </ul>
+                              <h2>Contact</h2>
+                         </div>
+                         </div>
+                    </section>
+                    {/*Page Header End*/}
 
-               {/* Get In Tauch */}
-               <section className="laundro-gta-area" style={{ backgroundImage: `url("/images/gt-bg.jpg")` }}>
-                    <div className="container">
-                         <div className="row align-items-center">
-                              <div className="col-lg-6 offset-lg-6">
-                                   <div className="laundro-gt-right">
-                                        <h4>Get a estimate</h4>
-                                        <form action="#">
-                                             <input type="text" name="fname" placeholder="Your name*" required></input>
-                                             <input type="tel" name="pnumber" placeholder="Phone Number..."></input>
-                                             <div className="bx-form-select">
-                                                  <select>
-                                                       <option>Wash</option>
-                                                       <option>Wash & Iron</option>
-                                                       <option>Dry Cleaning</option>
-                                                       <option>Ironing</option>
-                                                       <option>Duvets & Bulky Items</option>
-                                                       <option>Deals</option>
-                                                  </select>
+                    {/*Contact Page Two Start*/}
+                    <section className="contact-page-two">
+                         <div className="container">
+                              <div className="row">
+                                   <div className="col-xl-4 col-lg-5">
+                                   <div className="contact-page-two__left">
+                                        <div className="section-title text-left">
+                                             <span className="section-title__tagline">Contact Now</span>
+                                             <h2 className="section-title__title">Feel Free to Write us</h2>
+                                        </div>
+                                        <ul className="list-unstyled contact-page-two__info">
+                                             <li>
+                                                  <div className="icon">
+                                                       <i className="fas fa-envelope"></i>
+                                                  </div>
+                                                  <div className="text">
+                                                       <p><a href="mailto:brote@company.com">brote@company.com</a></p>
+                                                       <h5>Send mail</h5>
+                                                  </div>
+                                             </li>
+                                             <li>
+                                                  <div className="icon">
+                                                       <i className="fas fa-phone"></i>
+                                                  </div>
+                                                  <div className="text">
+                                                       <p>Call Anytime</p>
+                                                       <h5><a href="tel:2300068603">+23 (000) 68 603</a></h5>
+                                                  </div>
+                                             </li>
+                                             <li>
+                                                  <div className="icon">
+                                                       <i className="fas fa-map"></i>
+                                                  </div>
+                                                  <div className="text">
+                                                       <p>88 Kilda Broklyn Road</p>
+                                                       <h5>New York, USA</h5>
+                                                  </div>
+                                             </li>
+                                        </ul>
+                                   </div>
+                                   </div>
+                                   <div className="col-xl-8 col-lg-7">
+                                   <div className="contact-page-two__right">
+                                        <form action="assets/inc/sendemail.php" className="comment-one__form contact-form-validated">
+                                             <div className="row">
+                                                  <div className="col-xl-6">
+                                                       <div className="comment-form__input-box">
+                                                       <input type="text" placeholder="Your name" name="name"></input>
+                                                       </div>
+                                                  </div>
+                                                  <div className="col-xl-6">
+                                                       <div className="comment-form__input-box">
+                                                       <input type="email" placeholder="Email address" name="email"></input>
+                                                       </div>
+                                                  </div>
+                                                  <div className="col-xl-6">
+                                                       <div className="comment-form__input-box">
+                                                       <input type="text" placeholder="Phone number" name="Phone"></input>
+                                                       </div>
+                                                  </div>
+                                                  <div className="col-xl-6">
+                                                       <div className="comment-form__input-box">
+                                                       <input type="text" placeholder="Subject" name="Subject"></input>
+                                                       </div>
+                                                  </div>
                                              </div>
-                                             <textarea placeholder="Text..." rows="5"></textarea>
-                                             <button type="submit" className="laundro-primary-btn submit-btn">Get a Quote <span><i className="fab fa-telegram-plane"></i></span></button>
+                                             <div className="row">
+                                                  <div className="col-xl-12">
+                                                       <div className="comment-form__input-box text-message-box">
+                                                       <textarea name="message" placeholder="Write message"></textarea>
+                                                       </div>
+                                                       <div className="comment-form__btn-box">
+                                                       <button type="submit" className="thm-btn comment-form__btn">Send a Message <i
+                                                                 className="fa fa-angle-right"></i></button>
+                                                       </div>
+                                                  </div>
+                                             </div>
                                         </form>
                                    </div>
-                              </div>
-                         </div>
-                    </div>
-               </section>
-               {/* Get In Tauch End */}
-
-
-               {/* Contact Info */}
-               <section class="laundro-contact-info pt-100 pb-70">
-                    <div class="container">
-                         <div class="row">
-                              <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1">
-                              <div class="laundro-title-area">
-                                   <span class="laundro-subtitle">Get in touch</span>
-                                   <h3>We want to shaare our location to find us easily.</h3>
-                              </div>
-                              </div>
-                         </div>
-                         <div class="laundro-contact-content">
-                              <div class="row justify-content-center">
-                              <div class="col-lg-4 col-md-6">
-                                   <div class="laundro-contact-column">
-                                        <div class="laundro-icon-wrapper">
-                                             <i class="flaticon flaticon-pin"></i>
-                                        </div>
-                                        <div class="column-content">
-                                             <h5>Office Address</h5>
-                                             <p>Mrs Smith 71 Cherry Court SOUTHAMPTON SO53 5PD UK</p>
-                                        </div>
                                    </div>
                               </div>
-                              <div class="col-lg-4 col-md-6">
-                                   <div class="laundro-contact-column">
-                                        <div class="laundro-icon-wrapper">
-                                             <i class="flaticon flaticon-phone"></i>
-                                        </div>
-                                        <div class="column-content">
-                                             <h5>Telephone number</h5>
-                                             <p>(+880)17XXXXXXXX</p>
-                                        </div>
-                                   </div>
-                              </div>
-                              <div class="col-lg-4 col-md-6">
-                                   <div class="laundro-contact-column">
-                                        <div class="laundro-icon-wrapper">
-                                             <i class="flaticon flaticon-mail"></i>
-                                        </div>
-                                        <div class="column-content">
-                                             <h5>Mail address</h5>
-                                             <p>info@laundro.co.uk</p>
-                                        </div>
-                                   </div>
-                              </div>
-                              </div>
                          </div>
-                    </div>
-               </section>
-               {/* End Contact Info */}
+                    </section>
+                    {/*Contact Page Two End*/}
 
-
-               {/* Footer */}
-               <Footer></Footer>
-               {/* Footer End */}
+                    <Footer></Footer>
+                    
+               </div>
 
           </div>
      );

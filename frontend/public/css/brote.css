@@ -4324,7 +4324,7 @@ ul {
   padding: 0;
   padding-left: 30px;
   padding-right: 30px;
-  /* color: var(--brote-white) !important; */
+  color: var(--brote-white) !important;
   font-size: 14px;
   line-height: 50px;
   font-weight: 400;
@@ -12104,14 +12104,14 @@ body.boxed-wrapper .contact-one__call {
 }
 input, select{
   font-family: var(--brote-font)!important;
-  color: var(--brote-gray)!important;
+  /* color: var(--brote-gray)!important; */
   font-size: 16px!important;
   line-height: 30px!important;
   font-weight: 500!important;
 }
 ::placeholder{
   font-family: var(--brote-font)!important;
-  color: var(--brote-gray)!important;
+  /* color: var(--brote-gray)!important; */
   font-size: 16px!important;
   line-height: 30px!important;
   font-weight: 500!important;

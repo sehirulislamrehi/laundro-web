@@ -1,15 +1,12 @@
 
 import { Link } from "react-router-dom";
 
-
-
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
 
 //import pages
-import DesktopMenu from "../Include/DesktopMenu";
 import MobileMenu from "../Include/MobileMenu";
 import Footer from "../Include/Footer";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,6 +16,7 @@ import { getAllServices } from "../../action";
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { useHistory } from "react-router-dom";
+import Header from "../Include/Header";
 const MySwal = withReactContent(Swal)
 
 
@@ -30,30 +28,7 @@ const HomeComponent = () => {
      //INITIALIZATION
      const dispatch = useDispatch();
 
-     const service_options = {
-          margin: 0,
-          nav: false,
-          dots: true,
-          responsive: {
-               0: {
-                    items: 1,
-               },
-               400: {
-                    items: 1,
-               },
-               600: {
-                    items: 1,
-               },
-               700: {
-                    items: 3,
-               },
-               1000: {
-                    items: 3,
-               }
-          },
-     };
-
-     const brand_options = {
+     const testimonial_options = {
           loop: true,
           margin: 0,
           nav: false,
@@ -69,10 +44,10 @@ const HomeComponent = () => {
                     items: 1,
                },
                700: {
-                    items: 3,
+                    items: 2,
                },
                1000: {
-                    items: 4,
+                    items: 2,
                }
           },
      };
@@ -156,913 +131,652 @@ const HomeComponent = () => {
           }
      }
 
-     
-
      return(
           <div className="id">
 
-               
-               {/* desktop menu start */}
-               <DesktopMenu></DesktopMenu>
-               {/* desktop menu end */}
-
-
-               {/* Mobile Menu */}
                <MobileMenu></MobileMenu>
-               {/* Mobile Menu End */}
 
-               {/* Hero Slider */}
-               <div className="home2-hero-slider">
-                    <p className="rs-p-wp-fix"></p>
-                    
-                    <div className="slider-banner" id="rev_slider_2_1_wrapper">
-                         <OwlCarousel className='owl-theme banner-carousel' 
-                              loop 
+               <div className="page-wrapper">
+
+                   <Header></Header>
+
+                    {/*Main Slider Start*/}
+                    <section className="main-slider clearfix" id="home">
+
+                    <OwlCarousel className='owl-theme banner-carousel swiper-container thm-swiper__slider' 
+                              loop="false" 
                               items="1"
                               nav="true"
                               dots="false"
                          >
 
-                              {/* banner item start */}
-                              <div className="item">
-                                   <div className="col-md-12">
-                                        <div className="banner_image_block">
-                                             <img src="/images/banner/banner-1.jpg" className="img-fluid banner-image" alt=""></img>
-                                             <img src="/images/slider2-bg-bottom1.png" className="banner-bottom-image" alt="" />
-                                        </div>
+                         {/* item start */}
+                         <div className="item">
+                              <div className="swiper-slide">
+                                   <div className="image-layer"
+                                        style={{
+                                             backgroundImage : `url(images/banner/main-slider-1-1.jpg)`
+                                        }}></div>
+                                   {/* /.image-layer */}
+
+                                   <div className="main-slider-bubble">
+                                        <div className="main-slider-bubble-bg"
+                                        style={{
+                                             backgroundImage : `url(images/banner/main-slider-bubble-bg.png)`
+                                        }}></div>
                                    </div>
-                              </div>
-                              {/* banner item end */}
 
-                              {/* banner item start */}
-                              <div className="item">
-                                   <div className="col-md-12">
-                                        <div className="banner_image_block">
-                                             <img src="/images/banner/banner-2.jpg" className="img-fluid banner-image" alt=""></img>
-                                             <img src="/images/slider2-bg-bottom1.png" className="banner-bottom-image" alt="" />
-                                        </div>
+                                   <div className="main-slider-star-1 zoominout">
+                                        <img src="images/banner/main-slider-star-1.png" alt=""></img>
                                    </div>
-                              </div>
-                              {/* banner item end */}
-                              
-                         </OwlCarousel>
-                    </div>
-                    {/* END REVOLUTION SLIDER */}
-
-                    {/* <div className="container">
-                         <div className="appoinment-form" style={{ backgroundImage : `url('images/form-bg.jpg')` }}>
-                              <div className="appoinment-title">
-                                   <h4>Online Booking</h4>
-                              </div>
-                              <form action="#">
-                                   <input type="text" placeholder="Your name*" />
-                                   <input type="tel" placeholder="Mobile number*" />
-                                   <input type="email" placeholder="Main Address" />
-                                   <div className="select-field">
-                                        <select className="form-control"
-                                        >
-                                             {
-                                                  get_all_services && get_all_services.map( item => (
-                                                       (
-                                                            (item.service_durations.length == 0) ? <option value="">{item.name}</option> : ""
-                                                       )
-                                                  ))
-                                             }
-                                        </select> 
+                                   <div className="main-slider-star-2 zoominout-2">
+                                        <img src="images/banner/main-slider-star-2.png" alt=""></img>
                                    </div>
-                                   <textarea placeholder="Type message..." rows="8"></textarea>
-                                   <button type="submit" className="laundro-primary-btn">
-                                        Proceed<span><i className="fab fa-telegram-plane"></i></span>
-                                   </button>
-                              </form>
-                         </div>
-                    </div> */}
-               </div>
-               {/* Hero Slider End */}
+                                   <div className="main-slider-star-3 zoominout">
+                                        <img src="images/banner/main-slider-star-3.png" alt=""></img>
+                                   </div>
 
 
-               {/* Book Service Section start */}
-               <section className="book-service">
-                    <div className="container">
-                         <div className="row book-service-row">
-
-                              {/* section title */}
-                              <div className="col-md-12 section-title">
-                                   <h4>Fill All Information Details to Consult With Us To Get Sevices From Us</h4>
-                              </div>
-
-                              {/* form part */}
-                              <div className="col-md-12 section-form">
-                                   <form action="">
+                                   <div className="container">
                                         <div className="row">
-
-                                             {/* name */}
-                                             <div className="col-md-5 col-12 form-group">
-                                                  <input style={{
-                                                           height: "55px",
-                                                           marginTop: "0px"
-                                                  }} type="text" className="form-control" placeholder="Enter your postal code"
-                                                       onChange={ e => set_code(e.target.value)}
-                                                   />                                                 
-                                             </div>
-
-                                             {/* service */}
-                                             <div className="col-md-5 col-12 form-group"> 
-                                                  <select className="form-control"
-                                                       onChange={ e => set_service(e.target.value) }
-                                                  >
-                                                       <option selected disabled>Select Service</option>
-                                                       {
-                                                            get_all_services && get_all_services.map( item => (
-                                                                 (
-                                                                      (item.service_durations.length == 0) ? <option value={item.slug}>{item.name}</option> : ""
-                                                                 )
-                                                            ))
-                                                       }
-                                                  </select>                                        
-                                             </div>
-
-                                             {/* button */}
-                                             <div className="col-md-2 col-12 form-group">
-                                                  <button className="book-now" type="button" onClick={bookNow}>
-                                                       Book Now
-                                                  </button>                                              
-                                             </div>
-
-
-                                        </div>
-                                   </form>
-                              </div>
-
-                         </div>
-                    </div>
-               </section>
-               {/* Book Service Section end */}
-
-
-               {/* About Section */}
-               <section className="home2-about-section pt-100 pb-100">
-                    <div className="container">
-                         <div className="row">
-                              <div className="col-lg-6">
-                                   <div className="about-left">
-                                        <div className="img-wrapper">
-                                             <img src="/images/ab-left.jpg" alt="" />
-                                             <div className="es-year">
-                                                  <div className="year-content">
-                                                       <span className="icon-wrapper"><i className="flaticon-factory"></i></span>
-                                                       <span className="subtitle">Establish</span>
-                                                       <span className="title">2015</span>
-                                                  </div>
-                                             </div>
-                                        </div>
-                                        <div className="about-left-content">
-                                             <div className="about-counterup">
-                                                  <div className="icon-container">
-                                                       <span><i className="flaticon flaticon-garment"></i></span>
-                                                  </div>
-                                                  <div className="counterup-content">
-                                                       <div className="title">
-                                                            <h4>
-                                                                 <span className="odometer" data-value="2542">000</span><sup>+</sup>
-                                                            </h4>
-                                                       </div>
-                                                       <div className="subtitle">
-                                                            <span>Satisfied Clients</span>
-                                                       </div>
-                                                  </div>
-                                             </div>
-                                             <div className="about-counterup">
-                                                  <div className="icon-container">
-                                                       <span><i className="flaticon flaticon-meeting"></i></span>
-                                                  </div>
-                                                  <div className="counterup-content">
-                                                       <div className="title">
-                                                            <h4>
-                                                                 <span className="odometer" data-value="282">000</span><sup>+</sup>
-                                                            </h4>
-                                                       </div>
-                                                       <div className="subtitle">
-                                                            <span>Expert Team</span>
+                                             <div className="col-xl-12">
+                                                  <div className="main-slider__content">
+                                                       <p className="main-slider__sub-title">Welcome to Laundro Cleaning</p>
+                                                       <h2 className="main-slider__title">
+                                                            Quality <br></br> Solutions <br></br> in Cleaning
+                                                       </h2>
+                                                       <div className="main-slider__btn-box">
+                                                       <a href="" className="thm-btn main-slider__btn">Discover more <i
+                                                                 className="fa fa-angle-right"></i></a>
                                                        </div>
                                                   </div>
                                              </div>
                                         </div>
                                    </div>
                               </div>
-                              <div className="col-lg-6">
-                                   <div className="about-right">
-                                        <div className="laundro-title-area">
-                                             <span className="laundro-subtitle">About Cleaning Agency</span>
-                                             <h3>Why will you choose <span>our services?</span></h3>
-                                             <p>
-                                                  As a app web crawler expert, I help organizations adjust to
-                                                  the expanding significance of internet promoting. or lipsum as
-                                                  it is sometimes known, is dummy text used in laying out print,
-                                                  grap or web designs.
-                                             </p>
-                                        </div>
-                                        <div className="seperator">
-                                             <hr />
-                                        </div>
-                                        <div className="about-content">
-                                             <ul>
-                                                  <li>
-                                                       <i className="fas fa-check"></i>
-                                                       <p>
-                                                            The housekeepers we hired are professionals who take pride
-                                                            in doing excellent work and in exceeding expectations.
-                                                       </p>
-                                                  </li>
-                                                  <li>
-                                                       <i className="fas fa-check"></i>
-                                                       <p>
-                                                            The housekeepers we hired are professionals who take pride
-                                                            in doing excellent work and in exceeding expectations.
-                                                       </p>
-                                                  </li>
-                                                  <li>
-                                                       <i className="fas fa-check"></i>
-                                                       <p>
-                                                            The housekeepers we hired are professionals who take pride
-                                                            in doing excellent work and in exceeding expectations.
-                                                       </p>
-                                                  </li>
-                                             </ul>
-                                        </div>
-                                        <div className="about-btn">
-                                             <Link to="/about" className="laundro-primary-btn">View Details<span><i
-                                                            className="fas fa-plus"></i></span></Link>
-                                        </div>
-                                   </div>
-                              </div>
                          </div>
-                    </div>
-               </section>
-               {/* About Section End */}
+                         {/* item end */}
 
-               {/* Services Section */}
-               <section className="home2-service-section pt-100 pb-70" style={{ backgroundImage : `url('images/service-bg.jpg')` }}>
-                    <div className="container">
-                         <div className="row">
-                              <div className="col-lg-6 offset-lg-3">
-                                   <div className="laundro-title-area text-center">
-                                        <span className="laundro-subtitle">Featured services</span>
-                                        <h3>We provide the best services <span>for your help!</span></h3>
-                                        <p>
-                                             As a app web crawler expert, I help organizations adjust to the
-                                             expanding significance of internet promoting.
-                                        </p>
+                         {/* item start */}
+                         <div className="item">
+                              <div className="swiper-slide">
+                                   <div className="image-layer"
+                                        style={{
+                                             backgroundImage : `url(images/banner/main-slider-1-2.jpg)`
+                                        }}>
+                                   </div>
+                                   {/* /.image-layer */}
+
+                                   <div className="main-slider-bubble">
+                                        <div className="main-slider-bubble-bg"
+                                        style={{
+                                             backgroundImage : `url(images/banner/main-slider-bubble-bg.png)`
+                                        }}></div>
+                                   </div>
+
+                                   <div className="main-slider-star-1 zoominout">
+                                        <img src="images/banner/main-slider-star-1.png" alt=""></img>
+                                   </div>
+                                   <div className="main-slider-star-2 zoominout-2">
+                                        <img src="images/banner/main-slider-star-2.png" alt=""></img>
+                                   </div>
+                                   <div className="main-slider-star-3 zoominout">
+                                        <img src="images/banner/main-slider-star-3.png" alt=""></img>
+                                   </div>
+
+
+                                   <div className="container">
+                                        <div className="row">
+                                             <div className="col-xl-12">
+                                                  <div className="main-slider__content">
+                                                       <p className="main-slider__sub-title">Welcome to Laundro Cleaning</p>
+                                                       <h2 className="main-slider__title">Quality <br></br> Solutions <br></br>in Cleaning</h2>
+                                                       <div className="main-slider__btn-box">
+                                                       <a href="about.html" className="thm-btn main-slider__btn">Discover more <i
+                                                                 className="fa fa-angle-right"></i></a>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
                                    </div>
                               </div>
                          </div>
-                         
-                        
-                         {
-                              get_all_services && 
-                              <OwlCarousel className='owl-theme home2-service-slider' 
-                                   loop 
-                                   items="3"
-                                   nav="false"
-                                   dots="true"
-                                   {...service_options}
-                                   
-                              >
+                         {/* item end */}
+
+                         {/* item start */}
+                         <div className="item">
+                              <div className="swiper-slide">
+                                   <div className="image-layer"
+                                        style={{
+                                             backgroundImage : `url(images/banner/main-slider-1-1.jpg)`
+                                        }}></div>
+                                   {/* /.image-layer */}
+
+                                   <div className="main-slider-bubble">
+                                        <div className="main-slider-bubble-bg"
+                                        style={{
+                                             backgroundImage : `url(images/banner/main-slider-bubble-bg.png)`
+                                        }}></div>
+                                   </div>
+
+                                   <div className="main-slider-star-1 zoominout">
+                                        <img src="images/banner/main-slider-star-1.png" alt=""></img>
+                                   </div>
+                                   <div className="main-slider-star-2 zoominout-2">
+                                        <img src="images/banner/main-slider-star-2.png" alt=""></img>
+                                   </div>
+                                   <div className="main-slider-star-3 zoominout">
+                                        <img src="images/banner/main-slider-star-3.png" alt=""></img>
+                                   </div>
+
+
+                                   <div className="container">
+                                        <div className="row">
+                                             <div className="col-xl-12">
+                                                  <div className="main-slider__content">
+                                                       <p className="main-slider__sub-title">Welcome to Brote Cleaning</p>
+                                                       <h2 className="main-slider__title">
+                                                            Quality <br></br> Solutions <br></br> in Cleaning
+                                                       </h2>
+                                                       <div className="main-slider__btn-box">
+                                                       <a href="" className="thm-btn main-slider__btn">Discover more <i
+                                                                 className="fa fa-angle-right"></i></a>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                         {/* item end */}
+
+                    </OwlCarousel>
+
+                    </section>
+                    {/*Main Slider End*/}
+
+                    {/* Book Service Section start */}
+                    <section className="book-service">
+                         <div className="container">
+                              <div className="row book-service-row">
+
+                                   {/* section title */}
+                                   <div className="col-md-12 section-title">
+                                        <h4>Fill All Information Details to Consult With Us To Get Sevices From Us</h4>
+                                   </div>
+
+                                   {/* form part */}
+                                   <div className="col-md-12 section-form">
+                                        <form action="">
+                                             <div className="row">
+
+                                                  {/* name */}
+                                                  <div className="col-md-5 col-12 form-group">
+                                                       <input style={{
+                                                            height: "55px",
+                                                            marginTop: "0px"
+                                                       }} type="text" className="form-control" placeholder="Enter your postal code"
+                                                            onChange={ e => set_code(e.target.value)}
+                                                       />                                                 
+                                                  </div>
+
+                                                  {/* service */}
+                                                  <div className="col-md-5 col-12 form-group"> 
+                                                       <select className="form-control"
+                                                            onChange={ e => set_service(e.target.value) }
+                                                       >
+                                                            <option defaultValue disabled>Select Service</option>
+                                                            {
+                                                                 get_all_services && get_all_services.map( item => (
+                                                                      (
+                                                                           (item.service_durations.length == 0) ? <option value={item.slug}>{item.name}</option> : ""
+                                                                      )
+                                                                 ))
+                                                            }
+                                                       </select>                                        
+                                                  </div>
+
+                                                  {/* button */}
+                                                  <div className="col-md-2 col-12 form-group">
+                                                       <button className="book-now" type="button" onClick={bookNow}>
+                                                            Book Now
+                                                       </button>                                              
+                                                  </div>
+
+
+                                             </div>
+                                        </form>
+                                   </div>
+
+                              </div>
+                         </div>
+                    </section>
+                    {/* Book Service Section end */}
+
+                    {/*Feature One Start*/}
+                    <section className="feature-one">
+                         <div className="container">
+                              <div className="row">
+
+                                   {/*Feature One single Start*/}
                                    {
-                                        get_all_services.map( item => (
-                                             <div className="item" key={item.id} >
-                                                  <div className="service-single-item item">
-                                                       <div className="img-wrapper">
-                                                            <img src={`${window.image_path}/images/service/${item.icon}`} alt="" />
-                                                       </div>
-                                                       <div className="srv2-service-content">
-                                                       <Link to={`/service-details/${item.slug}`}>
-                                                                 <h5>{item.name}</h5>
-                                                            </Link>
-                                                            <p>
-                                                                 {item.short_description.substring(0, 100)}...
-                                                            </p>
-                                                       </div>
-                                                       <div className="srv2-hover-item" style={{ backgroundImage : `url('images/01.jpg')` }}>
-                                                            <div className="img-wrapper">
-                                                                 <img src={`${window.image_path}/images/service/${item.icon}`} alt="" />
-                                                            </div>
-                                                            <div className="srv2-service-content">
-                                                                 <Link to={`/service-details/${item.slug}`}>
-                                                                      <h5>{item.name}</h5>
-                                                                 </Link>
-                                                                 <p>
-                                                                      {item.short_description.substring(0, 100)}...
-                                                                 </p>
-                                                                 <Link to={`/service-details/${item.slug}`} className="srv2-readmore-btn">
-                                                                      Read More 
-                                                                      <i className="fas fa-angle-right"></i>
-                                                                 </Link>
-                                                            </div>
+                                        get_all_services && get_all_services.map(item => (
+                                        <div className="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms" key={item.slug}>
+                                             <div className="feature-one__single">
+                                                  <div className="feature-one-single-bg"
+                                                  style={{
+                                                       backgroundImage : `url(images/services/feature-one-single-bg.jpg)`
+                                                  }}>
+                                                  </div>
+                                                  <div className="feature-one__icon">
+                                                       <img src={`${window.image_path}/images/service/${item.icon}`} alt=""></img>
+                                                       <div className="feature-one__icon-shape">
+                                                            <img src="images/services/feature-one-icon-shape.png" alt=""></img>
                                                        </div>
                                                   </div>
+                                                  <div className="feature-one__title-box">
+                                                       <div className="feature-one__title-border"></div>
+                                                       <h3 className="feature-one__title"><Link to={`/service-details/${item.slug}`}>{item.name}</Link></h3>
+                                                  </div>
+                                                  <p className="feature-one__text">{item.short_description.substring(0, 100)}...</p>
+                                                  <div className="feature-one__btn-box">
+                                                       <Link to={`/service-details/${item.slug}`} className="feature-one__btn">View more</Link>
+                                                  </div>
                                              </div>
-                                        )) 
+                                        </div>
+                                        ))
                                    }
-
-                              </OwlCarousel>
-                         }
-                         
-
-                         
-                    </div>
-               </section>
-               {/* Service Section End */}
-
-
-
-               {/* Skills Area */}
-               <section className="home2-skills-area pb-50">
-                    <div className="container">
-                         <div className="row">
-
-                              {
-                                   get_all_services && get_all_services.slice(0,4).map( (item, key) => (
-                                        
-                                        <div className="col-lg-3 col-md-4 col-sm-6">
-                                             <div className="home2-skills-column">
-                                                  <div className="circle-wrap">
-                                                       <div className="circle">
-                                                            <div className="mask full">
-                                                                 <div className="fill" style={{ transform: "rotate(100deg)" }} >
-                                                                      
-                                                                 </div>
-                                                            </div>
-                                                            <div className="mask half">
-                                                                 <div className="fill" style={{ transform: "rotate(100deg)" }} ></div>
-                                                            </div>
-                                                            <div className="inside-circle">
-                                                                 <img src={`${window.image_path}/images/service/${item.icon}`}  alt="" />   
-                                                            </div>
-                                                       </div>
-                                                  </div>
-                                                  <div className="skills-content">
-                                                  <Link to={`/service-details/${item.slug}`}>
-                                                            <h5>{item.name}</h5>
-                                                       </Link>
-                                                       <p>{item.short_description.substring(0, 50)}...</p>
-                                                  </div>
-                                             </div>
-                                        </div>
-                                        
-                                   ))
-                              }
-                              
-
-                         </div>
-                    </div>
-               </section>
-               {/* Skills area End */}
-
-               {/* Steps Area */}
-               <section className="home2-steps-area pb-100">
-                    <div className="container">
-                         <div className="steps-top">
-                              <div className="row align-items-center">
-                                   <div className="col-lg-6">
-                                        <div className="laundro-title-area">
-                                             <span className="laundro-subtitle">Steps to reach here</span>
-                                             <h3>Some easy stesps to <span>clean your asset.</span></h3>
-                                        </div>
-                                   </div>
-                                   <div className="col-lg-6">
-                                        <div className="bf-desc">
-                                             <p>
-                                                  As a app web crawler expert, I help organizations adjust to
-                                                  the expanding significance of internet promoting.
-                                             </p>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-                         <div className="steps-bottom">
-                              <div className="row">
-                                   <div className="col-lg-4 col-md-6">
-                                        <div className="steps-column">
-                                             <div className="icon-wrapper">
-                                                  <span><i className="fas fa-home"></i></span>
-                                             </div>
-                                             <div className="title">
-                                                  <h6>Find our agent</h6>
-                                             </div>
-                                             <div className="desc">
-                                                  <p>
-                                                       As a app web crawler expert, I help organizations adjust to
-                                                       the expanding significance of internet.
-                                                  </p>
-                                             </div>
-                                        </div>
-                                   </div>
-                                   <div className="col-lg-4 col-md-6">
-                                        <div className="steps-column cl-2">
-                                             <div className="icon-wrapper">
-                                                  <span><i className="fas fa-money-bill"></i></span>
-                                             </div>
-                                             <div className="title">
-                                                  <h6>Estimate budget</h6>
-                                             </div>
-                                             <div className="desc">
-                                                  <p>
-                                                       As a app web crawler expert, I help organizations adjust to
-                                                       the expanding significance of internet.
-                                                  </p>
-                                             </div>
-                                        </div>
-                                   </div>
-                                   <div className="col-lg-4 col-md-6">
-                                        <div className="steps-column cl-3">
-                                             <div className="icon-wrapper">
-                                                  <span><i className="fas fa-truck-pickup"></i></span>
-                                             </div>
-                                             <div className="title">
-                                                  <h6>Hire our agent!</h6>
-                                             </div>
-                                             <div className="desc">
-                                                  <p>
-                                                       As a app web crawler expert, I help organizations adjust to
-                                                       the expanding significance of internet.
-                                                  </p>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                              <div className="steps-btn">
-                                   <Link to="/about" className="laundro-primary-btn">Read more to rech us</Link>
-                              </div>
-                         </div>
-                    </div>
-               </section>
-               {/* Steps Area End */}
-
-               {/* Faq Section */}
-               <section className="home2-faq-area pt-100 pb-100" style={{ backgroundImage : `url('images/banner/banner-3.jpg')` }}>
-                    <div className="container">
-                         <div className="row">
-                              <div className="col-lg-6 offset-lg-6">
-                                   <div className="faq-content">
-                                        <div className="laundro-title-area">
-                                             <span className="laundro-subtitle">FAQ</span>
-                                             <h3>You will learn more from <span>our FAQ.</span></h3>
-                                             <p>
-                                                  As a app web crawler expert, I help organizations adjust to
-                                                  the expanding significance of internet promoting.
-                                             </p>
-                                        </div>
-                                        <div className="faq-wrapper">
-                                             <div className="accordion" id="faq-accordion">
-                                                  <div className="accordion-item">
-                                                       <div className="accordion-header">
-                                                            <a href="#collapseOne" data-bs-toggle="collapse">What should I include
-                                                                 in my personal statement?</a>
-                                                       </div>
-                                                       <div id="collapseOne" className="collapse show"
-                                                            data-bs-parent="#faq-accordion">
-                                                            <div className="accordion-body">
-                                                                 <p>
-                                                                      Lorem ipsum dolor sit amet consecte tur adipiscing
-                                                                      elit sed do eiusmod tempor incididunt ut labore.
-                                                                 </p>
-                                                            </div>
-                                                       </div>
-                                                  </div>
-                                                  <div className="accordion-item">
-                                                       <div className="accordion-header">
-                                                            <a href="#collapseTwo" data-bs-toggle="collapse">What will happer when
-                                                                 I've sent my application?</a>
-                                                       </div>
-                                                       <div id="collapseTwo" className="collapse" data-bs-parent="#faq-accordion">
-                                                            <div className="accordion-body">
-                                                                 <p>
-                                                                      Lorem ipsum dolor sit amet consecte tur adipiscing
-                                                                      elit sed do eiusmod tempor incididunt ut labore.
-                                                                 </p>
-                                                            </div>
-                                                       </div>
-                                                  </div>
-                                                  <div className="accordion-item">
-                                                       <div className="accordion-header">
-                                                            <a href="#collapseThree" data-bs-toggle="collapse">How can I make a
-                                                                 change to my application?</a>
-                                                       </div>
-                                                       <div id="collapseThree" className="collapse" data-bs-parent="#faq-accordion">
-                                                            <div className="accordion-body">
-                                                                 <p>
-                                                                      Lorem ipsum dolor sit amet consecte tur adipiscing
-                                                                      elit sed do eiusmod tempor incididunt ut labore.
-                                                                 </p>
-                                                            </div>
-                                                       </div>
-                                                  </div>
-                                                  <div className="accordion-item">
-                                                       <div className="accordion-header">
-                                                            <a href="#collapsefour" data-bs-toggle="collapse">How can I consult
-                                                                 with the cleaning team?</a>
-                                                       </div>
-                                                       <div id="collapsefour" className="collapse" data-bs-parent="#faq-accordion">
-                                                            <div className="accordion-body">
-                                                                 <p>
-                                                                      Lorem ipsum dolor sit amet consecte tur adipiscing
-                                                                      elit sed do eiusmod tempor incididunt ut labore.
-                                                                 </p>
-                                                            </div>
-                                                       </div>
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-                    </div>
-               </section>
-               {/* FAQ Area End */}
-
-               {/* Feedback Area */}
-               <section className="srv2-feedback-area pt-100 pb-100" style={{ backgroundImage : `url('images/feedback-bg.jpg')` }} >
-                    <div className="container">
-                         <div className="srv2-feedback-top">
-                              <div className="row align-items-center">
-                                   <div className="col-lg-6">
-                                        <div className="laundro-title-area">
-                                             <span className="laundro-subtitle">Clients Testimonial</span>
-                                             <h3>We are very glad to get <span>good reviews</span></h3>
-                                        </div>
-                                   </div>
-                                   <div className="col-lg-6">
-                                        <div className="bf-desc">
-                                             <p>
-                                                  As a app web crawler edxpert, I help organizations adjust to
-                                                  the expanding significance of internet promoting.
-                                             </p>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-
-                         <OwlCarousel className='owl-theme srv2-feedback-wrapper srv2-feedback-slider' 
-                              loop 
-                              items="3"
-                              nav="false"
-                              dots="true"
-                              {...service_options}
-                              
-                         >
-
-                              <div className="item">
-                                   <div className="feedback-single">
-                                        <p>
-                                             Testimonials are written or recorded statements that support your
-                                             credibility and level of expertise. They also streng then your
-                                             reputation.
-                                        </p>
-                                        <div className="srv2-clients-info">
-                                             <div className="clients-thumb">
-                                                  <span><img src="/images/client-1.jpg" alt="" /></span>
-                                             </div>
-                                             <div className="clients-info">
-                                                  <h5>Jeff Adams</h5>
-                                                  <span>Director</span>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div className="item">
-                                   <div className="feedback-single">
-                                        <p>
-                                             Testimonials are written or recorded statements that support your
-                                             credibility and level of expertise. They also streng then your
-                                             reputation.
-                                        </p>
-                                        <div className="srv2-clients-info">
-                                             <div className="clients-thumb">
-                                                  <span><img src="/images/client-2.jpg" alt="" /></span>
-                                             </div>
-                                             <div className="clients-info">
-                                                  <h5>Laito french</h5>
-                                                  <span>Director</span>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div className="item">
-                                   <div className="feedback-single">
-                                        <p>
-                                             Testimonials are written or recorded statements that support your
-                                             credibility and level of expertise. They also streng then your
-                                             reputation.
-                                        </p>
-                                        <div className="srv2-clients-info">
-                                             <div className="clients-thumb">
-                                                  <span><img src="/images/client-3.jpg" alt="" /></span>
-                                             </div>
-                                             <div className="clients-info">
-                                                  <h5>Fiona Titir</h5>
-                                                  <span>Director</span>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div className="item">
-                                   <div className="feedback-single">
-                                        <p>
-                                             Testimonials are written or recorded statements that support your
-                                             credibility and level of expertise. They also streng then your
-                                             reputation.
-                                        </p>
-                                        <div className="srv2-clients-info">
-                                             <div className="clients-thumb">
-                                                  <span><img src="/images/client-4.jpg" alt="" /></span>
-                                             </div>
-                                             <div className="clients-info">
-                                                  <h5>Amy Herzog</h5>
-                                                  <span>Director</span>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div className="item">
-                                   <div className="feedback-single">
-                                        <p>
-                                             Testimonials are written or recorded statements that support your
-                                             credibility and level of expertise. They also streng then your
-                                             reputation.
-                                        </p>
-                                        <div className="srv2-clients-info">
-                                             <div className="clients-thumb">
-                                                  <span><img src="/images/client-1.jpg" alt="" /></span>
-                                             </div>
-                                             <div className="clients-info">
-                                                  <h5>Lima Vinchy</h5>
-                                                  <span>Director</span>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-
-                         </OwlCarousel>
-
-                    </div>
-               </section>
-               {/* Feedback Area End */}
-
-               {/* Brand Area */}
-               <div className="home2-brand-area pt-60 pb-60">
-                    <div className="container">
-                         <div className="brand-wrapper">
-
-                              <OwlCarousel className='owl-theme row home2-brand-slider' 
-                                   {...brand_options}
                                    
-                              >
+                                   {/*Feature One single End*/}
 
-                                   <div className="item">
-                                        <div className="brand-single">
-                                             <div className="img-wrapper">
-                                                  <img src="/images/brand-1.png" alt="" />
-                                                  <img src="/images/brand-1.png" alt="" />
-                                             </div>
-                                        </div>
-                                   </div>
-
-                                   <div className="item">
-                                        <div className="brand-single">
-                                             <div className="img-wrapper">
-                                                  <img src="/images/brand-2.png" alt="" />
-                                                  <img src="/images/brand-2.png" alt="" />
-                                             </div>
-                                        </div>
-                                   </div>
-
-                                   <div className="item">
-                                        <div className="brand-single">
-                                             <div className="img-wrapper">
-                                                  <img src="/images/brand-3.png" alt="" />
-                                                  <img src="/images/brand-3.png" alt="" />
-                                             </div>
-                                        </div>
-                                   </div>
-
-                                   <div className="item">
-                                        <div className="brand-single">
-                                             <div className="img-wrapper">
-                                                  <img src="/images/brand-4.png" alt="" />
-                                                  <img src="/images/brand-4.png" alt="" />
-                                             </div>
-                                        </div>
-                                   </div>
-
-                                   <div className="item">
-                                        <div className="brand-single">
-                                             <div className="img-wrapper">
-                                                  <img src="/images/brand-4.png" alt="" />
-                                                  <img src="/images/brand-4.png" alt="" />
-                                             </div>
-                                        </div>
-                                   </div>
-
-                              </OwlCarousel>
-                              
-                         </div>
-                    </div>
-               </div>
-               {/* Brand Area End */}
-
-               {/* Blog Area */}
-               <section className="home2-blog-area pb-100">
-                    <div className="container">
-                         <div className="blog-top-title">
-                              <div className="row align-items-center">
-                                   <div className="col-lg-6">
-                                        <div className="laundro-title-area">
-                                             <span className="laundro-subtitle">Featured Blog</span>
-                                             <h3>Learn aobut our latest <span>news from blog.</span></h3>
-                                        </div>
-                                   </div>
-                                   <div className="col-lg-6">
-                                        <div className="bf-desc">
-                                             <p>
-                                                  As a app web crawler expert, I help organizations adjust to
-                                                  the expanding significance of internet promoting.
-                                             </p>
-                                        </div>
-                                   </div>
                               </div>
                          </div>
+                    </section>
+                    {/*Feature One End*/}
 
-                         <OwlCarousel className='owl-theme home2-blog-slider' 
-                              loop 
-                              items="3"
-                              nav="false"
-                              dots="true"
-                              {...service_options}
-                              
-                         >
-
-                              <div className="item">
-                                   <div className="blog-single-item">
-                                        <div className="thumb-wrapper">
-                                             <Link to="/"><img src="/images/blog-1.jpg" alt="" /></Link>
-                                        </div>
-                                        <div className="blog-content">
-                                             <div className="blog-meta">
-                                                  <span><i className="fas fa-calendar-alt"></i>September 12,2020</span>
-                                                  <span><i className="fas fa-user"></i>Admin</span>
-                                             </div>
-                                             <div className="blog-title">
-                                                  <Link to="/">
-                                                       <h5>Regional Managers & tiem management.</h5>
-                                                  </Link>
-                                             </div>
-                                             <div className="readmore-btn">
-                                             <Link to="/">Read more <i className="fas fa-angle-double-right"></i></Link>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div className="item">
-                                   <div className="blog-single-item">
-                                        <div className="thumb-wrapper">
-                                             <Link to="/"><img src="/images/blog-2.jpg" alt="" /></Link>
-                                        </div>
-                                        <div className="blog-content">
-                                             <div className="blog-meta">
-                                                  <span><i className="fas fa-calendar-alt"></i>September 12,2020</span>
-                                                  <span><i className="fas fa-user"></i>Admin</span>
-                                             </div>
-                                             <div className="blog-title">
-                                             <Link to="/">
-                                                       <h5>Revitalising your people in a retail downturn.</h5>
-                                                  </Link>
-                                             </div>
-                                             <div className="readmore-btn">
-                                             <Link to="/">Read more <i className="fas fa-angle-double-right"></i></Link>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div className="item">
-                                   <div className="blog-single-item">
-                                        <div className="thumb-wrapper">
-                                        <Link to="/"><img src="/images/blog-3.jpg" alt="" /></Link>
-                                        </div>
-                                        <div className="blog-content">
-                                             <div className="blog-meta">
-                                                  <span><i className="fas fa-calendar-alt"></i>September 12,2020</span>
-                                                  <span><i className="fas fa-user"></i>Admin</span>
-                                             </div>
-                                             <div className="blog-title">
-                                             <Link to="/">
-                                                       <h5>Organisational teams are just like families.</h5>
-                                                  </Link>
-                                             </div>
-                                             <div className="readmore-btn">
-                                                  <Link to="/">Read more <i className="fas fa-angle-double-right"></i></Link>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div className="item">
-                                   <div className="blog-single-item">
-                                        <div className="thumb-wrapper">
-                                        <Link to="/"><img src="/images/blog-1.jpg" alt="" /></Link>
-                                        </div>
-                                        <div className="blog-content">
-                                             <div className="blog-meta">
-                                                  <span><i className="fas fa-calendar-alt"></i>September 12,2020</span>
-                                                  <span><i className="fas fa-user"></i>Admin</span>
-                                             </div>
-                                             <div className="blog-title">
-                                             <Link to="/">
-                                                       <h5>Regional Managers & tiem management.</h5>
-                                                  </Link>
-                                             </div>
-                                             <div className="readmore-btn">
-                                             <Link to="/">Read more <i className="fas fa-angle-double-right"></i></Link>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div className="item">
-                                   <div className="blog-single-item">
-                                        <div className="thumb-wrapper">
-                                        <Link to="/"><img src="/images/blog-2.jpg" alt="" /></Link>
-                                        </div>
-                                        <div className="blog-content">
-                                             <div className="blog-meta">
-                                                  <span><i className="fas fa-calendar-alt"></i>September 12,2020</span>
-                                                  <span><i className="fas fa-user"></i>Admin</span>
-                                             </div>
-                                             <div className="blog-title">
-                                             <Link to="/">
-                                                       <h5>Regional Managers & tiem management.</h5>
-                                                  </Link>
-                                             </div>
-                                             <div className="readmore-btn">
-                                             <Link to="/">Read more <i className="fas fa-angle-double-right"></i></Link>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-
-                         </OwlCarousel>
-                    </div>
-               </section>
-               {/* Blog Area End */}
-
-               {/* Contact Area */}
-               <section className="home2-contact-area">
-                    <div className="container">
-                         <div className="home2-git" style={{ backgroundImage : `url('images/contact-bg.jpg')` }}>
+                    {/*Welcome One Start*/}
+                    <section className="welcome-one" id="about">
+                         <div className="container">
                               <div className="row">
-                                   <div className="col-lg-7 order-2 order-lg-1">
-                                        <div className="git-left">
-                                             <div className="title">
-                                                  <h3><span>Want to </span>Contact with us?</h3>
-                                             </div>
-                                             <div className="git-bottom">
-                                                  <div className="phon-area">
-                                                       <span className="git-title">Call us:</span>
-                                                       <a href="tel:+88017XXXXXXXX"><span><i
-                                                                      className="fas fa-phone-alt"></i></span>+88017XXXXXXXX</a>
-                                                  </div>
-                                                  <div className="git-txt">
-                                                       or
-                                                       <span></span>
-                                                  </div>
-                                                  <div className="mail-area">
-                                                       <span className="git-title">Mail us:</span>
-                                                       <a href="mailto:info@laundro.co.uk"><span><i
-                                                                      className="fas fa-envelope"></i></span>info@laundro.co.uk</a>
+                                   <div className="col-xl-6">
+                                        <div className="welcome-one__left">
+                                             <div className="welcome-one__bg"
+                                             style={{
+                                                  backgroundImage : `url(images/welcome-one-bg.png)`
+                                             }}></div>
+                                             <div className="welcome-one__main-box wow fadeInUp" data-wow-delay="100ms"
+                                                  data-wow-duration="2500ms">
+                                                  <div className="welcome-one__circle-one"></div>
+                                                  <div className="welcome-one__img-1">
+                                                       <img src="images/welcome-one-img-1.png" alt=""></img>
+                                                       <div className="welcome-one__small-img-1 float-bob-x">
+                                                            <img src="images/welcome-one-small-img-1.jpg" alt=""></img>
+                                                       </div>
+                                                       <div className="welcome-one__small-img-2 float-bob-y">
+                                                            <img src="images/welcome-one-small-img-2.jpg" alt=""></img>
+                                                       </div>
                                                   </div>
                                              </div>
                                         </div>
                                    </div>
-                                   <div className="col-lg-5 order-1 order-lg-2">
-                                        <div className="git-right">
-                                             <img src="/images/git-right.png" alt="" />
+                                   <div className="col-xl-6">
+                                        <div className="welcome-one__right">
+                                             <div className="section-title text-left">
+                                                  <span className="section-title__tagline">About Us</span>
+                                                  <h2 className="section-title__title">Welcome to Best Cleaning Company</h2>
+                                             </div>
+                                             <p className="welcome-one__text-1">Lorem ipsum is simply free text dolor sit am adipi we help
+                                                  you ensure everyone.</p>
+                                             <p className="welcome-one__text-2">Lorem ipsum is simply free text dolor sit am adipi we help
+                                                  you ensure everyone. Tincidunt elit magnis nulla facilisis sagittis maecenas. Sapien
+                                                  nunced amet dolores sit ipsum velit purus aliq massa fringilla leo.</p>
+                                             <div className="welcome-one__points-box">
+                                                  <ul className="list-unstyled welcome-one__points">
+                                                       <li>
+                                                            <div className="icon">
+                                                                 <i className="fas fa-check"></i>
+                                                            </div>
+                                                            <div className="text">
+                                                                 <p>We are Committed</p>
+                                                            </div>
+                                                       </li>
+                                                       <li>
+                                                            <div className="icon">
+                                                                 <i className="fas fa-check"></i>
+                                                            </div>
+                                                            <div className="text">
+                                                                 <p>Highly Rated Cleaning</p>
+                                                            </div>
+                                                       </li>
+                                                  </ul>
+                                                  <ul className="list-unstyled welcome-one__points welcome-one__points-two">
+                                                       <li>
+                                                            <div className="icon">
+                                                                 <i className="fas fa-check"></i>
+                                                            </div>
+                                                            <div className="text">
+                                                                 <p>Insured & Bonded</p>
+                                                            </div>
+                                                       </li>
+                                                       <li>
+                                                            <div className="icon">
+                                                                 <i className="fas fa-check"></i>
+                                                            </div>
+                                                            <div className="text">
+                                                                 <p>Trusted Professionals</p>
+                                                            </div>
+                                                       </li>
+                                                  </ul>
+                                             </div>
+                                             <div className="welcome-one__btn-call-box">
+                                                  <div className="welcome-one__btn-box">
+                                                       <a href="contact-page-1.html" className="thm-btn welcome-one__btn">
+                                                            Contact us 
+                                                            <i className="fa fa-angle-right"></i>
+                                                       </a>
+                                                  </div>
+                                                  <div className="welcome-one__call-box">
+                                                       <div className="welcome-one__call-icon">
+                                                            <i className="fas fa-phone"></i>
+                                                       </div>
+                                                       <div className="welcome-one__call-content">
+                                                            <p className="welcome-one__call-sub-title">Call Anytime</p>
+                                                            <h5 className="welcome-one__call-number">
+                                                                 <a href="tel:2300068603">+23 (000) 68603</a>
+                                                            </h5>
+                                                       </div>
+                                                  </div>
+                                             </div>
                                         </div>
                                    </div>
                               </div>
                          </div>
-                    </div>
-               </section>
-               {/* Contact Area End */}
+                    </section>
+                    {/*Welcome One End*/}
 
-               {/* Footer */}
-               <Footer></Footer>
-               {/* Footer End */}
+                    {/*Services One Start*/}
+                    <section className="services-one" id="services">
+                         <div className="container">
+                              <div className="section-title text-center">
+                                   <span className="section-title__tagline">What We’re Offering</span>
+                                   <h2 className="section-title__title">Providing the Best Services <br></br> for Our Customers</h2>
+                              </div>
+
+                              <div className="row">
+
+                                   {/*Services One Single Start*/}
+                                   {
+                                        get_all_services && get_all_services.map(item => (
+                                             <div className="col-xl-4 col-lg-6 wow fadeInUp" data-wow-delay="100ms" key={item.id}>
+                                                  <div className="services-one__single">
+                                                       <div className="services-one__single-top-bubble"
+                                                       style={{
+                                                            backgroundImage : `url(images/services/services-one-single-top-bubble.png)`
+                                                       }}>
+                                                       </div>
+                                                       <div className="services-one__icon">
+                                                            <img src={`${window.image_path}/images/service/${item.icon}`} alt=""></img>
+                                                       </div>
+                                                       <div className="services-one__single-inner">
+                                                            <div className="services-one__title-box">
+                                                                 <h3 className="services-one__title">
+                                                                      <Link to={`/service-details/${item.slug}`}>
+                                                                           {item.name}
+                                                                      </Link>
+                                                                 </h3>
+                                                            </div>
+                                                            <div className="services-one__text-box">
+                                                                 <p className="services-one__text">
+                                                                 {item.short_description.substring(0, 100)}...
+                                                                 </p>
+                                                            </div>
+                                                       </div>
+                                                       <div className="services-one__overly-box"
+                                                       style={{
+                                                            backgroundImage : `url(images/services/services-one-single-overlay-bg-1.png)`
+                                                       }}>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        ))
+                                   }
+                                   {/*Services One Single End*/}
+
+                                   
+                              </div>
+                         </div>
+                    </section>
+                    {/*Services One End*/}
+
+                    {/*Counter One Start*/}
+                    <section className="counter-one">
+                         <div className="container">
+                              <div className="counter-one__inner wow fadeInUp" data-wow-delay="100ms">
+                                   <div className="counter-one-bg-1"
+                                   style={{
+                                        backgroundImage: `url(images/counter-one-bg-1.png)`
+                                   }}>
+                                   </div>
+                                   <div className="counter-one-bg-2"
+                                   style={{
+                                        backgroundImage: `url(images/counter-one-bg-2.png)`
+                                   }}>
+                                   </div>
+                                   <ul className="list-unstyled counter-one__list">
+                                   <li>
+                                        <div className="counter-one__icon">
+                                             <i className="fas fa-users"></i>
+                                        </div>
+                                        <div className="counter-one__count-box">
+                                             <div className="counter-one__count-box-inner">
+                                                  <h3 className="odometer" data-count="2562">00</h3>
+                                                  <span className="counter-one__plus">+</span>
+                                             </div>
+                                             <p className="counter-one__text">Satisfied Clients</p>
+                                        </div>
+                                   </li>
+                                   <li>
+                                        <div className="counter-one__icon">
+                                             <i className="fas fa-project-diagram"></i>
+                                        </div>
+                                        <div className="counter-one__count-box">
+                                             <div className="counter-one__count-box-inner">
+                                                  <h3 className="odometer" data-count="562">00</h3>
+                                                  <span className="counter-one__plus">+</span>
+                                             </div>
+                                             <p className="counter-one__text">Active Project</p>
+                                        </div>
+                                   </li>
+                                   <li>
+                                        <div className="counter-one__icon">
+                                             <i className="fas fa-award"></i>
+                                        </div>
+                                        <div className="counter-one__count-box">
+                                             <div className="counter-one__count-box-inner">
+                                                  <h3 className="odometer" data-count="33">00</h3>
+                                                  <span className="counter-one__plus">+</span>
+                                             </div>
+                                             <p className="counter-one__text">Winning Award</p>
+                                        </div>
+                                   </li>
+                                   <li>
+                                        <div className="counter-one__icon">
+                                             <i className="fab fa-teamspeak"></i>
+                                        </div>
+                                        <div className="counter-one__count-box">
+                                             <div className="counter-one__count-box-inner">
+                                                  <h3 className="odometer" data-count="552">00</h3>
+                                                  <span className="counter-one__plus">+</span>
+                                             </div>
+                                             <p className="counter-one__text">Expert Teams</p>
+                                        </div>
+                                   </li>
+                                   </ul>
+                              </div>
+                         </div>
+                    </section>
+                    {/*Counter One End*/}
+
+                    {/*Testimonial One Start*/}
+                    <section className="testimonial-one" id="testimonial">
+                         <div className="testimonial-shape wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms"
+                              style={{
+                                   backgroundImage: `url(images/testimonial-shape.png)`
+                              }}>
+                         </div>
+                         <div className="container">
+                              <div className="section-title text-left">
+                                   <span className="section-title__tagline">What They’re Saying</span>
+                                   <h2 className="section-title__title">Some Feedbacks <br></br> from Our Customers</h2>
+                              </div>
+                              <div className="row">
+                                   <div className="col-xl-12">
+
+                                        <div className="testimonial-one__inner">
+
+                                        <OwlCarousel className='owl-theme thm-owl__carousel testimonial-one__carousel' 
+                                             {...testimonial_options}
+                                        >
+                                             {/*Testimonial One Single Start*/}
+                                             <div className="item">
+                                                  <div className="testimonial-one__single">
+                                                       <p className="testimonial-one__text">Lorem ipsum dolor sit amet, consectetur elit sed,
+                                                            adipisicing do eiusmod tempor incididunt labore et dolore Lorem ipsum dolor
+                                                            consectetur adipisicing elit, sed do eiusmod</p>
+                                                       <div className="testimonial-one__client-details">
+                                                            <h3 className="testimonial-one__client-name">Kevin Martin</h3>
+                                                            <p className="testimonial-one__client-sub-title">Marketing Manager</p>
+                                                       </div>
+                                                       <div className="testimonial-one__client-img">
+                                                            <img src="images/testimonial-1-1.jpg" alt=""></img>
+                                                            <div className="testimonial-one__client-img-boxs"></div>
+                                                       </div>
+                                                       <div className="testimonial-one__quote">
+                                                            <i className="fas fa-quote-right"></i>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                             {/*Testimonial One Single End*/}
+
+                                             {/*Testimonial One Single Start*/}
+                                             <div className="item">
+                                                  <div className="testimonial-one__single">
+                                                       <p className="testimonial-one__text">Lorem ipsum dolor sit amet, consectetur elit sed,
+                                                            adipisicing do eiusmod tempor incididunt labore et dolore Lorem ipsum dolor
+                                                            consectetur adipisicing elit, sed do eiusmod</p>
+                                                       <div className="testimonial-one__client-details">
+                                                            <h3 className="testimonial-one__client-name">Jessica Brown</h3>
+                                                            <p className="testimonial-one__client-sub-title">Marketing Manager</p>
+                                                       </div>
+                                                       <div className="testimonial-one__client-img">
+                                                            <img src="images/testimonial-1-2.jpg" alt=""></img>
+                                                            <div className="testimonial-one__client-img-boxs"></div>
+                                                       </div>
+                                                       <div className="testimonial-one__quote">
+                                                            <i className="fas fa-quote-right"></i>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                             {/*Testimonial One Single End*/}
+
+                                        </OwlCarousel>
+
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </section>
+                    {/*Testimonial One End*/}
+
+                    {/*Contact One Start*/}
+                    <section className="contact-one" id="contact">
+                         <div className="contact-one-shape-4 wow slideInLeft" data-wow-delay="100ms" data-wow-duration="2500ms">
+                              <img src="images/contact-one-shape-4.png" alt=""></img>
+                         </div>
+                         <div className="contact-one__container">
+                              <div className="container">
+                                   <div className="row">
+                                   <div className="col-xl-7 col-lg-7">
+                                        <div className="contact-one__left">
+                                             <div className="section-title text-left">
+                                                  <span className="section-title__tagline">Get a Free Estimate</span>
+                                                  <h2 className="section-title__title">Contact for Services</h2>
+                                             </div>
+                                             <form action="assets/inc/sendemail.php" className="contact-one__form contact-form-validated">
+                                                  <div className="row">
+                                                       <div className="col-xl-6 col-lg-6 col-md-6">
+                                                       <div className="contact-one__form-input-box">
+                                                            <input type="text" placeholder="Full name" name="name"></input>
+                                                       </div>
+                                                       </div>
+                                                       <div className="col-xl-6 col-lg-6 col-md-6">
+                                                       <div className="contact-one__form-input-box">
+                                                            <input type="email" placeholder="Your email" name="email"></input>
+                                                       </div>
+                                                       </div>
+                                                       <div className="col-xl-6 col-lg-6 col-md-6">
+                                                       <div className="contact-one__form-input-box">
+                                                            <input type="text" placeholder="Phone number" name="phone"></input>
+                                                       </div>
+                                                       </div>
+                                                       <div className="col-xl-6 col-lg-6 col-md-6">
+                                                       <div className="contact-one__form-input-box">
+                                                            <select className="selectpicker" aria-label="Default select example">
+                                                                 <option>Select service</option>
+                                                                 
+                                                                 {    get_all_services && get_all_services.map( item => (
+                                                                           (
+                                                                                (item.service_durations.length == 0) ? <option value={item.slug}>{item.name}</option> : ""
+                                                                           )
+                                                                      ))
+                                                                 }
+                                                            </select>
+                                                       </div>
+                                                       </div>
+                                                  </div>
+                                                  <div className="row">
+                                                       <div className="col-xl-12">
+                                                            <div className="contact-one__form-input-box text-message-box">
+                                                                 <textarea name="message" placeholder="Write message"></textarea>
+                                                            </div>
+                                                            <div className="contact-one__btn-box">
+                                                                 <button type="submit" className="thm-btn contact-one__btn">Send a message <i
+                                                                           className="fa fa-angle-right"></i></button>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                             </form>
+                                        </div>
+                                   </div>
+                                   <div className="col-xl-5 col-lg-5">
+                                        <div className="contact-one__right">
+                                             <div className="contact-one-shape-1"></div>
+                                             <div className="contact-one-shape-2"></div>
+                                             <div className="contact-one-shape-3"></div>
+                                             <div className="contact-one__img">
+                                                  <img src="images/contact-one-img-1.jpg" alt=""></img>
+                                             </div>
+                                             <div className="contact-one__call">
+                                                  <div className="contact-one__call-icon">
+                                                       <span className="icon-phone-call"></span>
+                                                  </div>
+                                                  <div className="contact-one__call-content">
+                                                       <p className="contact-one__call-sub-title">Call Anytime</p>
+                                                       <h5 className="contact-one__call-number"><a href="tel:2300068603">+23 (000) 68
+                                                            603</a></h5>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </section>
+                    {/*Contact One End*/}
+
+                    <Footer></Footer>
+                    
+               </div>
 
           </div>
      );

@@ -4,12 +4,15 @@ import { Link, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 //import pages
-import DesktopMenu from "../../Include/DesktopMenu";
+
 import MobileMenu from "../../Include/MobileMenu";
 import Footer from "../../Include/Footer";
 import HeaderComponent from "./Includes/HeaderComponent";
 import LeftSidebarComponent from "./Includes/LeftSidebarComponent";
 import NavbarComponent from "./Includes/NavbarComponent";
+import Header from "../../Include/Header";
+
+
 
 const AccountComponent = () => {
 
@@ -58,89 +61,83 @@ const AccountComponent = () => {
           return(
                <div className="id">
 
-                    {/* desktop menu start */}
-                    <DesktopMenu></DesktopMenu>
-                    {/* desktop menu end */}
-
-                    {/* Mobile Menu */}
                     <MobileMenu></MobileMenu>
-                    {/* Mobile Menu End */}
 
-                    
-                    <section className="profile">
-                         <div className="container">
+                    <div className="page-wrapper">
+                         <Header></Header>
 
-                              {/* header component */}
-                              <HeaderComponent user={user}></HeaderComponent>
-     
-                              <div className="main-bd">
-     
-                                   {/* left sidebar */}
-                                   <LeftSidebarComponent user={user}></LeftSidebarComponent>
-                                   
-                                   {/* https://codepen.io/brightprogrammer/pen/mdyMOGV */}
-                                   <div className="right-side">
+                         <section className="profile">
+                              <div className="container">
 
-                                        {/* navbar component */}
-                                        <NavbarComponent></NavbarComponent>
+                                   {/* header component */}
+                                   <HeaderComponent user={user}></HeaderComponent>
+          
+                                   <div className="main-bd">
+          
+                                        {/* left sidebar */}
+                                        <LeftSidebarComponent user={user}></LeftSidebarComponent>
                                         
-                                        <div className="profile-body">
-                                        <div className="row my-account">
+                                        {/* https://codepen.io/brightprogrammer/pen/mdyMOGV */}
+                                        <div className="right-side">
 
-                                             {/* edit */}
-                                             <div className="col-md-12 edit-column">
-                                                  <ul>
-                                                       <li>
-                                                            <Link to="/edit-profile">
-                                                                 <i className="fas fa-edit"></i> 
-                                                                 Edit                                                          
-                                                            </Link>
-                                                       </li>
-                                                  </ul>
-                                             </div>
+                                             {/* navbar component */}
+                                             <NavbarComponent></NavbarComponent>
+                                             
+                                             <div className="profile-body">
+                                             <div className="row my-account">
 
-                                             {/* image */}
-                                             <div className="col-md-12 image-column">
-                                                  {
-                                                       user && user.image ? 
-                                                       <img src={user.image} className="img-fluid" alt="" /> : ''
-                                                  }
-                                             </div>
-
-                                             {/* account information */}
-                                                  <div className="col-md-12 account-information">
+                                                  {/* edit */}
+                                                  <div className="col-md-12 edit-column">
                                                        <ul>
                                                             <li>
-                                                                 <strong>Name : </strong>
-                                                                 { user && user.name ? user.name : 'N/A' }
-                                                            </li>
-                                                            <li>
-                                                                 <strong>Email : </strong>
-                                                                 { user && user.email ? user.email : 'N/A' }
-                                                            </li>
-                                                            <li>
-                                                                 <strong>Phone : </strong>
-                                                                 { user && user.phone ? user.phone : 'N/A' }
-                                                            </li>
-                                                            <li>
-                                                                 <strong>Address : </strong>
-                                                                 { user && user.address ? user.address : 'N/A' }
+                                                                 <Link to="/edit-profile">
+                                                                      <i className="fas fa-edit"></i> 
+                                                                      Edit                                                          
+                                                                 </Link>
                                                             </li>
                                                        </ul>
                                                   </div>
+
+                                                  {/* image */}
+                                                  <div className="col-md-12 image-column">
+                                                       {
+                                                            user && user.image ? 
+                                                            <img src={user.image} className="img-fluid" alt="" /> : ''
+                                                       }
+                                                  </div>
+
+                                                  {/* account information */}
+                                                       <div className="col-md-12 account-information">
+                                                            <ul>
+                                                                 <li>
+                                                                      <strong>Name : </strong>
+                                                                      { user && user.name ? user.name : 'N/A' }
+                                                                 </li>
+                                                                 <li>
+                                                                      <strong>Email : </strong>
+                                                                      { user && user.email ? user.email : 'N/A' }
+                                                                 </li>
+                                                                 <li>
+                                                                      <strong>Phone : </strong>
+                                                                      { user && user.phone ? user.phone : 'N/A' }
+                                                                 </li>
+                                                                 <li>
+                                                                      <strong>Address : </strong>
+                                                                      { user && user.address ? user.address : 'N/A' }
+                                                                 </li>
+                                                            </ul>
+                                                       </div>
+                                                  
+                                             </div>
+                                             </div>
                                              
                                         </div>
-                                        </div>
-                                        
                                    </div>
                               </div>
-                         </div>
-                    </section>
+                         </section>
 
-
-                    {/* Footer */}
-                    <Footer></Footer>
-                    {/* Footer End */}
+                         <Footer></Footer>
+                    </div>
 
                </div> 
           );
@@ -148,24 +145,22 @@ const AccountComponent = () => {
      else{
           return(
                <div className="id">
-                    {/* desktop menu start */}
-                    <DesktopMenu></DesktopMenu>
-                    {/* desktop menu end */}
 
-                    {/* Mobile Menu */}
                     <MobileMenu></MobileMenu>
-                    {/* Mobile Menu End */}
 
-                    {/* please wait section start */}
-                    <section className="please-wait">
-                         <h4 className="content">Please Wait...</h4>
-                    </section>
-                    {/* please wait section end */}
+                    <div className="page-wrapper">
+                         <Header></Header>
 
-                    {/* Footer */}
-                    <Footer></Footer>
-                    {/* Footer End */}
-               </div> 
+                         {/* please wait section start */}
+                         <section className="please-wait">
+                              <h4 className="content">Please Wait...</h4>
+                         </section>
+                         {/* please wait section end */}
+
+                         <Footer></Footer>
+                    </div>
+
+               </div>
           );
      }
 }

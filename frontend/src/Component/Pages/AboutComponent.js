@@ -6,11 +6,12 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
 //import pages
-import DesktopMenu from "../Include/DesktopMenu";
+
 import MobileMenu from "../Include/MobileMenu";
 import Footer from "../Include/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import Header from "../Include/Header";
 import { getAllServices } from "../../action";
 
 
@@ -89,377 +90,253 @@ const AboutComponent = () => {
      
      const get_all_services = useSelector( state => state.getAllServices )
 
+     var cursor = document.querySelector('.custom-cursor__cursor');
+     var cursorinner = document.querySelector('.custom-cursor__cursor-two');
+     var a = document.querySelectorAll('a');
+
+     document.addEventListener('mousemove', function (e) {
+          var x = e.clientX;
+          var y = e.clientY;
+          if( cursor ){
+          cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+          }
+     });
+
+     document.addEventListener('mousemove', function (e) {
+          var x = e.clientX;
+          var y = e.clientY;
+          if( cursorinner ){
+               cursorinner.style.left = x + 'px';
+               cursorinner.style.top = y + 'px';
+          }
+     });
+
+     document.addEventListener('mousedown', function () {
+          if( cursor ){
+          cursor.classList.add('click'); 
+          }
+          if( cursorinner ){
+          cursorinner.classList.add('custom-cursor__innerhover')  
+          }
+          
+     });
+
+     document.addEventListener('mouseup', function () {
+          if( cursor ){
+          cursor.classList.remove('click')
+          }
+          if( cursorinner ){
+          cursorinner.classList.remove('custom-cursor__innerhover') 
+          }
+          
+     });
+
+     a.forEach(item => {
+          item.addEventListener('mouseover', () => {
+          if( cursor ){
+               cursor.classList.add('custom-cursor__hover');
+          }
+          
+          });
+          item.addEventListener('mouseleave', () => {
+          if( cursor ){
+               cursor.classList.remove('custom-cursor__hover');
+          }
+          
+          });
+     })
+
      return(
           <div className="id">
 
-                         
-               {/* desktop menu start */}
-               <DesktopMenu></DesktopMenu>
-               {/* desktop menu end */}
-
-               {/* Mobile Menu */}
                <MobileMenu></MobileMenu>
-               {/* Mobile Menu End */}
 
-               {/* Breadcrumb Area */}
-               <div className="laundro-breadcrumb" style={{ backgroundImage: `url('/images/breadcrumb.jpg')` }}>
-                    <span className="breadcrumb-object"><img src="/images/slider-object.png" alt=""></img></span>
-                    <div className="container">
-                         <div className="breadcrumb-content">
-                              <h1>About Us</h1>
-                              <Link to="/">Home <i className="fas fa-angle-double-right"></i></Link>
-                              <span>About Us</span>
+               <div className="page-wrapper">
+
+                   <Header></Header>
+
+                   {/*Page Header Start*/}
+                    <section className="page-header">
+                         <div className="page-header-bg" style={{
+                              backgroundImage : `url(images/page-header-bg.jpg)`
+                         }}>
                          </div>
-                    </div>
-               </div>
-               {/* Breadcrumb End */}
-
-
-               {/* About Section */}
-               <section className="laundro-about-section pt-100 pb-100">
-                    <div className="container">
-                         <div className="row align-items-center">
-                              <div className="col-lg-6">
-                              <div className="laundro-ab-left">
-                                   <div className="img-wrapper">
-                                        <img src="/images/sr-middle.png" alt=""></img>
-                                        <div className="banner-content">
-                                             <span className="banner-svg-1"></span>
-                                             <span className="banner-svg-2"></span>
-                                             <h3>25+</h3>
-                                             <p>Service <br></br>we provide</p>
-                                        </div>
-                                   </div>
-                              </div>
-                              </div>
-                              <div className="col-lg-6">
-                              <div className="laundro-about-right">
-                                   <div className="laundro-title-area">
-                                        <span className="laundro-subtitle">About Cleaning Agency</span>
-                                        <h3>Why will you choose <span>our services?</span></h3>
-                                        <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.  or lipsum as it is sometimes known, is dummy text used in laying out print, grap or web designs.</p>
-                                   </div>
-                                   <div className="devider"><hr></hr> </div>
-                                   <div className="laundro-about-content">
-                                        <div className="video-wrapper">
-                                             <div className="video-thumb">
-                                                  <img src="/images/insta-7.jpg" alt=""></img>
-                                                  <a href="https://www.youtube.com/watch?v=SF4aHwxHtZ0" className="video-popup"><i className="fas fa-play"></i></a>
-                                             </div>
-                                        </div>
-                                        <div className="video-content">
-                                             <Link href="/"><span className="title">Check how we clean</span></Link>
-                                             <p>Reference site about Lorem ipsum. giving information on its origin.</p>
-                                        </div>
-                                   </div>
-                              </div>
-                              </div>
-                         </div>
-                    </div>
-               </section>
-               {/* About Section End */}
-
-
-               {/* Service Slider */}
-               <section className="ab-service-section" style={{
-                    backgroundImage : `url("/images/service-bg.jpg")`
-               }}>
-                    <div className="container">
-                         <div className="ab-service-top">
-                              <div className="row align-items-center">
-                              <div className="col-lg-6">
-                                   <div className="laundro-title-area">
-                                        <span className="laundro-subtitle">Featured Service</span>
-                                        <h3>The best service we <span>have provided</span></h3>
-                                   </div>
-                              </div>
-                              <div className="col-lg-6">
-                                   <div className="bf-desc">
-                                        <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                   </div>
-                              </div>
-                              </div>
-                         </div>
-
-                         {
-                              get_all_services && 
-                              <OwlCarousel className='owl-theme ab-service-slider' 
-                                   loop 
-                                   items="3"
-                                   nav="false"
-                                   dots="true"
-                                   {...service_options}
-                                   
-                              >
-
-                                   {
-                                        get_all_services.map( item => (
-                                        <div className="item">
-                                             <div className="laundro-service-item">
-                                                  <div className="laundro-icon-wrapper">
-                                                       <span><i className="fas fa-broom"></i></span>
-                                                  </div>
-                                                  <div className="laundro-service-content">
-                                                       <Link to={`/service-details/${item.slug}`}><h5>{item.name}</h5></Link>
-                                                       <p>{item.short_description.substring(0, 100)}...</p>
-                                                  </div>
-                                             </div>
-                                        </div>
-                                        ))
-                                   }
-
-                              </OwlCarousel>
-                         }
-                         
-                         
-                    </div>
-               </section>
-               {/* Services Slider End */}
-
-
-               {/* History */}
-               <section className="ab-history-section pt-100 pb-100">
-                    <span className="ab-history-left-img"><img src="/images/history-left.jpg" alt=""></img></span>
-                    <div className="container">
-                         <div className="ab-history-top">
-                              <div className="row align-items-center">
-                              <div className="col-lg-6">
-                                   <div className="laundro-title-area">
-                                        <span className="laundro-subtitle">History</span>
-                                        <h3>You can check our <span>company timeline.</span></h3>
-                                   </div>
-                              </div>
-                              <div className="col-lg-6">
-                                   <div className="bf-desc">
-                                        <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                   </div>
-                              </div>
-                              </div>
-                         </div>
-                         <div className="ab-history-tab">
-                              <div className="tab-control">
-                              <ul className="nav nav-pills">
-                                   <li><a href="#seventeen" data-bs-toggle="pill" className="active">2017</a></li>
-                                   <li><a href="#eightteen" data-bs-toggle="pill">2018</a></li>
-                                   <li><a href="#nineteen" data-bs-toggle="pill">2019</a></li>
-                                   <li><a href="#tweenty" data-bs-toggle="pill">2020</a></li>
+                         <div className="page-header-bubble"><img src="images/page-header-bubble.png" alt=""></img></div>
+                         <div className="container">
+                         <div className="page-header__inner">
+                              <ul className="thm-breadcrumb list-unstyled">
+                                   <li><Link to="/">Home</Link></li>
+                                   <li><span>/</span></li>
+                                   <li>About</li>
                               </ul>
-                              <div className="tab-devider"><hr></hr></div>
-                              </div>
-                              <div className="tab-content">
-                              <div className="tab-pane fade show active" id="seventeen">
-                                   <div className="history-content">
-                                        <h4>Our Company starts first step <br></br>with our expert team!</h4>
-                                        <p>We know that if you love our service you’re going to recommend us to your family and friends, so your satisfaction is our number one priority. If you’re unhappy with our service in any way.</p>
+                              <h2>About us</h2>
+                         </div>
+                         </div>
+                    </section>
+                    {/*Page Header End*/}
+
+                    {/*Get To Know Start*/}
+                    <section className="get-to-know">
+                         <div className="get-to-know-bubble float-bob-x">
+                              <img src="images/get-to-know-bubble.png" alt=""></img>
+                         </div>
+                         <div className="container">
+                              <div className="row">
+                                   <div className="col-xl-6">
+                                        <div className="get-to-know__left">
+                                             <div className="get-to-know__img wow slideInLeft" data-wow-delay="100ms"
+                                                  data-wow-duration="2500ms">
+                                                  <img src="images/get-to-know-img-1.jpg" alt=""></img>
+                                                  <div className="get-to-know-shape-1"></div>
+                                                  <div className="get-to-know-shape-2"></div>
+                                             </div>
+                                        </div>
                                    </div>
-                              </div>
-                              <div className="tab-pane fade" id="eightteen">
-                                   <div className="history-content">
-                                        <h4>Our Company starts first step <br></br>with our expert team!</h4>
-                                        <p>We know that if you love our service you’re going to recommend us to your family and friends, so your satisfaction is our number one priority. If you’re unhappy with our service in any way.</p>
+                                   <div className="col-xl-6">
+                                        <div className="get-to-know__right">
+                                             <div className="section-title text-left">
+                                                  <span className="section-title__tagline">Company Benefits</span>
+                                                  <h2 className="section-title__title">Get to Know About Our Brote Company</h2>
+                                             </div>
+                                             <p className="get-to-know__text">Lorem ipsum is simply free text dolor sit am adipi we help you
+                                                  ensure everyone. Tincidunt elit magnis nulla facilisis sagittis maecenas. Sapien nunced
+                                                  amet dolores sit ipsum velit purus aliq massa fringilla leo.</p>
+                                             <div className="get-to-know__points-box">
+                                                  <ul className="list-unstyled get-to-know__points">
+                                                  <li>
+                                                       <div className="icon">
+                                                            <i className="fas fa-check"></i>
+                                                       </div>
+                                                       <div className="text">
+                                                            <p>We are Committed</p>
+                                                       </div>
+                                                  </li>
+                                                  <li>
+                                                       <div className="icon">
+                                                            <i className="fas fa-check"></i>
+                                                       </div>
+                                                       <div className="text">
+                                                            <p>Highly Rated Cleaning</p>
+                                                       </div>
+                                                  </li>
+                                                  </ul>
+                                                  <ul className="list-unstyled get-to-know__points get-to-know__points--two">
+                                                  <li>
+                                                       <div className="icon">
+                                                            <i className="fas fa-check"></i>
+                                                       </div>
+                                                       <div className="text">
+                                                            <p>We are Committed</p>
+                                                       </div>
+                                                  </li>
+                                                  <li>
+                                                       <div className="icon">
+                                                            <i className="fas fa-check"></i>
+                                                       </div>
+                                                       <div className="text">
+                                                            <p>Highly Rated Cleaning</p>
+                                                       </div>
+                                                  </li>
+                                                  </ul>
+                                             </div>
+                                             <a href="about.html" className="thm-btn get-to-know__btn">Discover more <i
+                                                  className="fa fa-angle-right"></i></a>
+                                        </div>
                                    </div>
-                              </div>
-                              <div className="tab-pane fade" id="nineteen">
-                                   <div className="history-content">
-                                        <h4>Our Company starts first step <br></br>with our expert team!</h4>
-                                        <p>We know that if you love our service you’re going to recommend us to your family and friends, so your satisfaction is our number one priority. If you’re unhappy with our service in any way.</p>
-                                   </div>
-                              </div>
-                              <div className="tab-pane fade" id="tweenty">
-                                   <div className="history-content">
-                                        <h4>Our Company starts first step <br></br>with our expert team!</h4>
-                                        <p>We know that if you love our service you’re going to recommend us to your family and friends, so your satisfaction is our number one priority. If you’re unhappy with our service in any way.</p>
-                                   </div>
-                              </div>
                               </div>
                          </div>
-                    </div>
-               </section>
-               {/* History Section End */}
+                    </section>
+                    {/*Get To Know End*/}
 
 
-              {/* Team Area */}
-               <section className="laundro-team-area pt-100 pb-100">
-                    <div className="container">
-                         <div className="row align-items-center">
-                              <div className="col-lg-8">
-                              <div className="laundro-title-area">
-                                   <span className="laundro-subtitle">Team Members</span>
-                                   <h3>We have an expert team <span>to serve you.</span></h3>
-                              </div>
+                    {/*Counter One Start*/}
+                    <section className="counter-two">
+                         <div className="container">
+                              <div className="counter-two__inner">
+                                   <ul className="list-unstyled counter-two__list">
+                                        <li>
+                                             <div className="counter-two__icon">
+                                                  <span className="icon-laundry-1"></span>
+                                             </div>
+                                             <div className="counter-two__count-box">
+                                                  <div className="counter-two__count-box-inner">
+                                                  <h3 className="odometer" data-count="2562">00</h3>
+                                                  <span className="counter-two__plus">+</span>
+                                                  </div>
+                                                  <p className="counter-two__text">Satisfied Clients</p>
+                                             </div>
+                                        </li>
+                                        <li>
+                                             <div className="counter-two__icon">
+                                                  <span className="icon-wipe"></span>
+                                             </div>
+                                             <div className="counter-two__count-box">
+                                                  <div className="counter-two__count-box-inner">
+                                                  <h3 className="odometer" data-count="562">00</h3>
+                                                  <span className="counter-two__plus">+</span>
+                                                  </div>
+                                                  <p className="counter-two__text">Active Project</p>
+                                             </div>
+                                        </li>
+                                        <li>
+                                             <div className="counter-two__icon">
+                                                  <span className="icon-trophy"></span>
+                                             </div>
+                                             <div className="counter-two__count-box">
+                                                  <div className="counter-two__count-box-inner">
+                                                  <h3 className="odometer" data-count="33">00</h3>
+                                                  <span className="counter-two__plus">+</span>
+                                                  </div>
+                                                  <p className="counter-two__text">Winning Award</p>
+                                             </div>
+                                        </li>
+                                        <li>
+                                             <div className="counter-two__icon">
+                                                  <span className="icon-teamwork"></span>
+                                             </div>
+                                             <div className="counter-two__count-box">
+                                                  <div className="counter-two__count-box-inner">
+                                                  <h3 className="odometer" data-count="552">00</h3>
+                                                  <span className="counter-two__plus">+</span>
+                                                  </div>
+                                                  <p className="counter-two__text">Expert Teams</p>
+                                             </div>
+                                        </li>
+                                   </ul>
                               </div>
                          </div>
+                    </section>
+                    {/*Counter One End*/}
 
-                         <OwlCarousel className='owl-theme laundro-team-container laundro-team-slider' 
-                              loop 
-                              items="4"
-                              nav="false"
-                              dots="true"
-                              {...team_options}
-                              
-                         >
-
-                              <div className="item">
-                                   <div className="laundro-team-single">
-                                        <div className="laundro-img-wrapper">
-                                             <img src="/images/team-1.jpg" alt=""></img>
-                                        </div>
-                                        <div className="laundro-team-content">
-                                             <a><h5>Laito French</h5></a>
-                                             <span>Head in Wash</span>
-                                             <span className="team-social-link"><i className="fas fa-share-alt"></i></span>
-                                             <div className="laundro-team-social-items">                                
-                                                  <a href="#"><i className="fab fa-behance"></i></a>
-                                                  <a href="#"><i className="fas fa-basketball-ball"></i></a>
-                                                  <a href="#"><i className="fab fa-twitter"></i></a>
-                                                  <a href="#"><i className="fab fa-facebook-f"></i></a>
-                                             </div>
-                                        </div>
-                                   </div>
+                    {/*CTA One Start*/}
+                    <section className="cta-one">
+                         <div className="cta-one-bg-bg">
+                              <div className="cta-one-bg jarallax" data-jarallax data-speed="0.2"
+                                   style={{
+                                        backgroundImage: `url(images/cta-one-bg.jpg)`
+                                   }}></div>
                               </div>
-
-                              <div className="item">
-                                   <div className="laundro-team-single">
-                                        <div className="laundro-img-wrapper">
-                                             <img src="/images/team-2.jpg" alt=""></img>
-                                        </div>
-                                        <div className="laundro-team-content">
-                                             <a><h5>Laito French</h5></a>
-                                             <span>Head in Wash & Iron</span>
-                                             <span className="team-social-link"><i className="fas fa-share-alt"></i></span>
-                                             <div className="laundro-team-social-items">                                
-                                                  <a href="#"><i className="fab fa-behance"></i></a>
-                                                  <a href="#"><i className="fas fa-basketball-ball"></i></a>
-                                                  <a href="#"><i className="fab fa-twitter"></i></a>
-                                                  <a href="#"><i className="fab fa-facebook-f"></i></a>
-                                             </div>
-                                        </div>
+                              <div className="cta-one-shape" 
+                              style={{
+                                   backgroundImage: `url(images/cta-one-shape.png)`
+                              }}></div>
+                              <div className="container">
+                              <div className="cta-one__inner">
+                                   <h2 className="cta-one__title">Get professional & affortable <br></br> house cleaner <span>today</span></h2>
+                                   <div className="cta-one__btn-box">
+                                        <a href="about.html" className="thm-btn cta-one__btn-1">Discover more <i
+                                                  className="fa fa-angle-right"></i></a>
+                                        <a href="contact-page-1.html" className="thm-btn cta-one__btn-2">Get a free quote <i
+                                                  className="fa fa-angle-right"></i></a>
                                    </div>
-                              </div>
-
-                              <div className="item">
-                                   <div className="laundro-team-single">
-                                        <div className="laundro-img-wrapper">
-                                             <img src="/images/team-3.jpg" alt=""></img>
-                                        </div>
-                                        <div className="laundro-team-content">
-                                             <a><h5>Laito French</h5></a>
-                                             <span>Head in Dry Cleaning</span>
-                                             <span className="team-social-link"><i className="fas fa-share-alt"></i></span>
-                                             <div className="laundro-team-social-items">                                
-                                                  <a href="#"><i className="fab fa-behance"></i></a>
-                                                  <a href="#"><i className="fas fa-basketball-ball"></i></a>
-                                                  <a href="#"><i className="fab fa-twitter"></i></a>
-                                                  <a href="#"><i className="fab fa-facebook-f"></i></a>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div className="item">
-                                   <div className="laundro-team-single">
-                                        <div className="laundro-img-wrapper">
-                                             <img src="/images/team-4.jpg" alt=""></img>
-                                        </div>
-                                        <div className="laundro-team-content">
-                                             <a><h5>Laito French</h5></a>
-                                             <span>Head in Ironing</span>
-                                             <span className="team-social-link"><i className="fas fa-share-alt"></i></span>
-                                             <div className="laundro-team-social-items">                                
-                                                  <a href="#"><i className="fab fa-behance"></i></a>
-                                                  <a href="#"><i className="fas fa-basketball-ball"></i></a>
-                                                  <a href="#"><i className="fab fa-twitter"></i></a>
-                                                  <a href="#"><i className="fab fa-facebook-f"></i></a>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div className="item">
-                                   <div className="laundro-team-single">
-                                        <div className="laundro-img-wrapper">
-                                             <img src="/images/team-2.jpg" alt=""></img>
-                                        </div>
-                                        <div className="laundro-team-content">
-                                             <a><h5>Laito French</h5></a>
-                                             <span>Head in Deals</span>
-                                             <span className="team-social-link"><i className="fas fa-share-alt"></i></span>
-                                             <div className="laundro-team-social-items">                                
-                                                  <a href="#"><i className="fab fa-behance"></i></a>
-                                                  <a href="#"><i className="fas fa-basketball-ball"></i></a>
-                                                  <a href="#"><i className="fab fa-twitter"></i></a>
-                                                  <a href="#"><i className="fab fa-facebook-f"></i></a>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-
-
-                         </OwlCarousel>
-
-                    </div>
-               </section>
-              {/* Team Area End */}
-
-
-              {/* Counterup Section */}
-               <section className="laundro-ct-section pt-100 pb-120">
-                    <div className="container">
-                         <div className="row">
-                              <div className="col-lg-3 col-md-4 col-6">
-                              <div className="laundro-counter-column bx-col-line">
-                                   <div className="laundro-icon-wrapper">
-                                        <span><i className="flaticon flaticon-garment"></i></span>
-                                   </div>
-                                   <div className="laundro-ct-content">
-                                        <h3><span className="odometer" data-value="2542">000</span><sup>+</sup></h3>
-                                        <span className="subtitle">Satisfied Clients</span>
-                                   </div>
-                              </div>
-                              </div>
-                              <div className="col-lg-3 col-md-4 col-6">
-                              <div className="laundro-counter-column bx-col-line">
-                                   <div className="laundro-icon-wrapper">
-                                        <span><i className="flaticon flaticon-meeting"></i></span>
-                                   </div>
-                                   <div className="laundro-ct-content">
-                                        <h3><span className="odometer" data-value="282">000</span><sup>+</sup></h3>
-                                        <span className="subtitle">Expert Team</span>
-                                   </div>
-                              </div>
-                              </div>
-                              <div className="col-lg-3 col-md-4 col-6">
-                              <div className="laundro-counter-column bx-col-line">
-                                   <div className="laundro-icon-wrapper">
-                                        <span><i className="flaticon flaticon-screen"></i></span>
-                                   </div>
-                                   <div className="laundro-ct-content">
-                                        <h3><span className="odometer" data-value="285">000</span><sup>+</sup></h3>
-                                        <span className="subtitle">Active Project</span>
-                                   </div>
-                              </div>
-                              </div>
-                              <div className="col-lg-3 col-md-4 col-6">
-                              <div className="laundro-counter-column">
-                                   <div className="laundro-icon-wrapper">
-                                        <span><i className="flaticon flaticon-trophy"></i></span>
-                                   </div>
-                                   <div className="laundro-ct-content">
-                                        <h3><span className="odometer" data-value="27">00</span><sup>+</sup></h3>
-                                        <span className="subtitle">Award winning</span>
-                                   </div>
-                              </div>
                               </div>
                          </div>
-                    </div>
-               </section>
-               {/* Counterup End */}
+                    </section>
+                    {/*CTA One End*/}
 
-
-
-               {/* Footer */}
-               <Footer></Footer>
-               {/* Footer End */}
+                    <Footer></Footer>
+                    
+               </div>
 
           </div>
      );
