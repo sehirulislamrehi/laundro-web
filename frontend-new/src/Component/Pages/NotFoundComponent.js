@@ -1,7 +1,6 @@
 
 //import pages
-
-
+import Header from "../Include/Header";
 import MobileMenu from "../Include/MobileMenu";
 import Footer from "../Include/Footer";
 
@@ -9,24 +8,23 @@ import Footer from "../Include/Footer";
 const NotFoundComponent = () => {
      return(
           <div className="id">
-               {/* desktop menu start */}
-               
-               {/* desktop menu end */}
 
-               {/* Mobile Menu */}
                <MobileMenu></MobileMenu>
-               {/* Mobile Menu End */}
 
-               {/* please wait section start */}
-               <section className="please-wait" >
-                    <img src="/images/404.png" alt=""/>
-               </section>
-               {/* please wait section end */}
+               <div className="page-wrapper">
+                    <Header></Header>
+                    
+                    {/* please wait section start */}
+                    <section className="please-wait" >
+                         <img src="/images/404.png" alt=""/>
+                    </section>
+                    {/* please wait section end */}
 
-               {/* Footer */}
-               <Footer></Footer>
-               {/* Footer End */}
-          </div> 
+                    <Footer></Footer>
+               </div>
+
+          </div>
+
      );
 };
 

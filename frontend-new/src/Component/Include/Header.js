@@ -32,9 +32,9 @@ const Header = () => {
                                    <div className="row">
                                         <div className="col-md-2">
                                              <div className="desktop-logo">
-                                                  <a href="">
+                                                  <Link to="/">
                                                        <img src="images/loader.png" className="img-fluid" alt=""></img>
-                                                  </a>
+                                                  </Link>
                                              </div>
                                         </div>
                                         <div className="col-md-10">

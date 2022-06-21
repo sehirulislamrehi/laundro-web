@@ -1,0 +1,74 @@
+
+@media( min-width: 320px ) and ( max-width: 500px ){
+     .user-card {
+          width: 95%;
+     }
+     .login-box {
+          width: 100%;
+     }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media( min-width: 500px ) and ( max-width: 768px ){
+     .user-card {
+          width: 80%;
+     }
+     .login-box {
+          width: 100%;
+     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media( min-width: 768px ) and ( max-width: 990px ){
+     .user-card {
+          width: 80%;
+     }
+     .login-box {
+          width: 80%;
+     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media( min-width: 990px ) and ( max-width: 1024px ){
+     .user-card {
+          width: 80%;
+     }
+     .login-box {
+          width: 80%;
+     }
+}

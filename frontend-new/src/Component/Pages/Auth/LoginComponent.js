@@ -9,6 +9,7 @@ import Loading from "../../Include/Loading";
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Header from "../../Include/Header";
 
 
 import Swal from 'sweetalert2'
@@ -98,76 +99,73 @@ const LoginComponent = (state) => {
                {/* loading */}
                <Loading></Loading>
 
-               {/* desktop menu start */}
-               
-               {/* desktop menu end */}
-
-               {/* Mobile Menu */}
                <MobileMenu></MobileMenu>
-               {/* Mobile Menu End */}
 
-               <div className="user-card round5">
-                    <div className="login-box">
-                         <div className="card-title">
-                              <h4>Login</h4>
-                         </div>
-                         <div className="form-group">
-                              <input type="text" name="phone" className="phone" placeholder="Phone Number"
-                                   onChange={ e => {
-                                        setPhone(e.target.value)
-                                   }}
-                              />
-                              {
-                                   errors &&
-                                   <small
-                                   className="form_error"
-                                   >
-                                        {errors.phone}
-                                   </small>
-                              }
-                         </div>
-                         <div className="form-group">
-                              <input type="password" name="password" className="password" placeholder="password"
-                                   onChange={ e => {
-                                        setPassword(e.target.value)
-                                   }}
-                              />
-                              {
-                                   errors &&
-                                   <small
-                                   className="form_error"
-                                   >
-                                        {errors.password}
-                                   </small>
-                              }
-                         </div>
-                         <div className="form-group">
-                              <input type="button" name="login" value="Login" className="login" onClick={doLogin} />
+               <div className="page-wrapper">
+
+                   <Header></Header>
+
+                   <div className="user-card round5">
+                         <div className="login-box">
+                              <div className="card-title">
+                                   <h4>Login</h4>
+                              </div>
+                              <div className="form-group">
+                                   <input type="text" name="phone" className="phone" placeholder="Phone Number"
+                                        onChange={ e => {
+                                             setPhone(e.target.value)
+                                        }}
+                                   />
+                                   {
+                                        errors &&
+                                        <small
+                                        className="form_error"
+                                        >
+                                             {errors.phone}
+                                        </small>
+                                   }
+                              </div>
+                              <div className="form-group">
+                                   <input type="password" name="password" className="password" placeholder="password"
+                                        onChange={ e => {
+                                             setPassword(e.target.value)
+                                        }}
+                                   />
+                                   {
+                                        errors &&
+                                        <small
+                                        className="form_error"
+                                        >
+                                             {errors.password}
+                                        </small>
+                                   }
+                              </div>
+                              <div className="form-group">
+                                   <input type="button" name="login" value="Login" className="login" onClick={doLogin} />
+                              </div>
+
+                              <div className="or"></div>
+
+                              <a href="" className="login-with-fb">
+                                   <i className="fab fa-facebook-f"></i>
+                                   Login with facebook
+                              </a>
+                              <a href="" className="login-with-google">
+                                   <i className="fab fa-google"></i>
+                                   Login with google
+                              </a>
                          </div>
 
-                         <div className="or"></div>
+                         {/* Card Footer */}
 
-                         <a href="" className="login-with-fb">
-                              <i className="fab fa-facebook-f"></i>
-                              Login with facebook
-                         </a>
-                         <a href="" className="login-with-google">
-                              <i className="fab fa-google"></i>
-                              Login with google
-                         </a>
+                         <div className="footer">
+                              <span>or </span><Link className="toggle-link" to="/register">Sign Up</Link>
+                         </div>
                     </div>
 
-                    {/* Card Footer */}
-
-                    <div className="footer">
-                         <span>or </span><Link className="toggle-link" to="/register">Sign Up</Link>
-                    </div>
+                   <Footer></Footer>
+                    
                </div>
-
-
-               {/* Footer */}
-               <Footer></Footer>
-               {/* Footer End */}
 
           </div>
      );

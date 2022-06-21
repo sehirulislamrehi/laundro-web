@@ -1,8 +1,6 @@
 
 import { Link } from "react-router-dom";
 
-
-
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
@@ -134,7 +132,7 @@ const HomeComponent = () => {
      }
 
      return(
-         <div className="id">
+          <div className="id">
 
                <MobileMenu></MobileMenu>
 
@@ -324,60 +322,6 @@ const HomeComponent = () => {
                                                   etur adipisicing elit, sed do eiusmod tempor bore et dolore.</p>
                                              <div className="feature-one__btn-box">
                                                   <a href="about.html" className="feature-one__btn">View more</a>
-                                             </div>
-                                        </div>
-                                   </div>
-                                   {/*Feature One single End*/}
-
-                                   {/*Feature One single Start*/}
-                                   <div className="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
-                                        <div className="feature-one__single">
-                                             <div className="feature-one-single-bg"
-                                             style={{
-                                                  backgroundImage : `url(images/services/feature-one-single-bg.jpg)`
-                                             }}>
-                                             </div>
-                                             <div className="feature-one__icon">
-                                                  <img src="images/services/feature-one-icon-2.png" alt=""></img>
-                                                  <div className="feature-one__icon-shape">
-                                                       <img src="images/services/feature-one-icon-shape.png" alt=""></img>
-                                                  </div>
-                                             </div>
-                                             <div className="feature-one__title-box">
-                                                  <div className="feature-one__title-border"></div>
-                                                  <h3 className="feature-one__title"><a href="about.html">Wash & Iron</a></h3>
-                                             </div>
-                                             <p className="feature-one__text">Lorem ipsum dolor sit amet, consect
-                                                  etur adipisicing elit, sed do eiusmod tempor bore et dolore.</p>
-                                             <div className="feature-one__btn-box">
-                                                  <a href="about.html" className="feature-one__btn">View more</a>
-                                             </div>
-                                        </div>
-                                   </div>
-                                   {/*Feature One single End*/}
-
-                                   {/*Feature One single Start*/}
-                                   <div className="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="300ms">
-                                        <div className="feature-one__single">
-                                             <div className="feature-one-single-bg"
-                                             style={{
-                                                  backgroundImage : `url(images/services/feature-one-single-bg.jpg)`
-                                             }}>
-                                             </div>
-                                             <div className="feature-one__icon">
-                                                  <img src="images/services/feature-one-icon-3.png" alt=""></img>
-                                                  <div className="feature-one__icon-shape">
-                                                       <img src="images/services/feature-one-icon-shape.png" alt=""></img>
-                                                  </div>
-                                             </div>
-                                             <div className="feature-one__title-box">
-                                                  <div className="feature-one__title-border"></div>
-                                                  <h3 className="feature-one__title"><a href="plumbing-services.html">Dry Cleaning</a></h3>
-                                             </div>
-                                             <p className="feature-one__text">Lorem ipsum dolor sit amet, consect
-                                                  etur adipisicing elit, sed do eiusmod tempor bore et dolore.</p>
-                                             <div className="feature-one__btn-box">
-                                                  <a href="plumbing-services.html" className="feature-one__btn">View more</a>
                                              </div>
                                         </div>
                                    </div>
@@ -828,7 +772,7 @@ const HomeComponent = () => {
                     
                </div>
 
-         </div>
+          </div>
      );
 }
 

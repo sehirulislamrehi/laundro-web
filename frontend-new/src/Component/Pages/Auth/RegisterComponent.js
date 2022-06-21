@@ -9,6 +9,7 @@ import Footer from "../../Include/Footer";
 import Loading from "../../Include/Loading";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import Header from "../../Include/Header";
 
 
 const RegisterComponent = () => {
@@ -92,116 +93,114 @@ const RegisterComponent = () => {
                {/* loading */}
                <Loading></Loading>
 
-               {/* desktop menu start */}
-               
-               {/* desktop menu end */}
-
-               {/* Mobile Menu */}
                <MobileMenu></MobileMenu>
-               {/* Mobile Menu End */}
 
-               <div className="user-card round5">
-                    <div className="login-box">
-                         <div className="card-title">
-                              <h4>Register</h4>
+               <div className="page-wrapper">
+
+                   <Header></Header>
+
+                    <div className="user-card round5">
+                         <div className="login-box">
+                              <div className="card-title">
+                                   <h4>Register</h4>
+                              </div>
+                              <form className="login-form" name="login" action="">
+                                   <div className="form-group">
+                                        <input type="text" name="name" className="name" placeholder="Enter your name"
+                                             onChange={
+                                                  e => {
+                                                       setName(e.target.value)
+                                                  }
+                                             }
+                                        />
+                                        {
+                                             errors &&
+                                             <small
+                                             className="form_error"
+                                             >
+                                             {errors.name}
+                                             </small>
+                                        }
+                                   </div>
+                                   <div className="form-group">
+                                        <input type="text" name="phone" className="phone" placeholder="Phone Number"
+                                             onChange={
+                                                  e => {
+                                                       setPhone(e.target.value)
+                                                  }
+                                             }
+                                        />
+                                        {
+                                             errors &&
+                                             <small
+                                             className="form_error"
+                                             >
+                                             {errors.phone}
+                                             </small>
+                                        }
+                                   </div>
+                                   <div className="form-group">
+                                        <input type="password" name="password" className="password" placeholder="Password" 
+                                             onChange={
+                                                  e => {
+                                                       setPassword(e.target.value)
+                                                  }
+                                             }
+                                        />
+                                        {
+                                             errors &&
+                                             <small
+                                             className="form_error"
+                                             >
+                                             {errors.password}
+                                             </small>
+                                        }
+                                   </div>
+                                   <div className="form-group">
+                                        <input type="password" name="password_confirmation" className="password" placeholder="Confirm Password"
+                                             onChange={
+                                                  e => {
+                                                       setPasswordConfirmation(e.target.value)
+                                                  }
+                                             }
+                                        />
+                                        {
+                                             errors &&
+                                             <small
+                                             className="form_error"
+                                             >
+                                             {errors.password}
+                                             </small>
+                                        }
+                                   </div>
+                                   <input type="button" name="register" value="Register" className="login" onClick={doRegister} />
+                              </form>
+
+                              <div className="or"></div>
+
+                              <a href="" className="login-with-fb">
+                                   <i className="fab fa-facebook-f"></i>
+                                   Login with facebook
+                              </a>
+                              <a href="" className="login-with-google">
+                                   <i className="fab fa-google"></i>
+                                   Login with google
+                              </a>
                          </div>
-                         <form className="login-form" name="login" action="">
-                              <div className="form-group">
-                                   <input type="text" name="name" className="name" placeholder="Enter your name"
-                                        onChange={
-                                             e => {
-                                                  setName(e.target.value)
-                                             }
-                                        }
-                                   />
-                                   {
-                                        errors &&
-                                        <small
-                                        className="form_error"
-                                        >
-                                            {errors.name}
-                                        </small>
-                                   }
-                              </div>
-                              <div className="form-group">
-                                   <input type="text" name="phone" className="phone" placeholder="Phone Number"
-                                        onChange={
-                                             e => {
-                                                  setPhone(e.target.value)
-                                             }
-                                        }
-                                   />
-                                   {
-                                        errors &&
-                                        <small
-                                        className="form_error"
-                                        >
-                                            {errors.phone}
-                                        </small>
-                                   }
-                              </div>
-                              <div className="form-group">
-                                   <input type="password" name="password" className="password" placeholder="Password" 
-                                        onChange={
-                                             e => {
-                                                  setPassword(e.target.value)
-                                             }
-                                        }
-                                   />
-                                   {
-                                        errors &&
-                                        <small
-                                        className="form_error"
-                                        >
-                                            {errors.password}
-                                        </small>
-                                   }
-                              </div>
-                              <div className="form-group">
-                                   <input type="password" name="password_confirmation" className="password" placeholder="Confirm Password"
-                                        onChange={
-                                             e => {
-                                                  setPasswordConfirmation(e.target.value)
-                                             }
-                                        }
-                                   />
-                                   {
-                                        errors &&
-                                        <small
-                                        className="form_error"
-                                        >
-                                            {errors.password}
-                                        </small>
-                                   }
-                              </div>
-                              <input type="button" name="register" value="Register" className="login" onClick={doRegister} />
-                         </form>
 
-                         <div className="or"></div>
+                         {/* Card Footer */}
 
-                         <a href="" className="login-with-fb">
-                              <i className="fab fa-facebook-f"></i>
-                              Login with facebook
-                         </a>
-                         <a href="" className="login-with-google">
-                              <i className="fab fa-google"></i>
-                              Login with google
-                         </a>
+                         <div className="footer">
+                              <span>or </span><Link className="toggle-link" to="/login">Sign In</Link>
+                         </div>
                     </div>
 
-                    {/* Card Footer */}
-
-                    <div className="footer">
-                         <span>or </span><Link className="toggle-link" to="/login">Sign In</Link>
-                    </div>
+                   <Footer></Footer>
+                    
                </div>
 
-
-               {/* Footer */}
-               <Footer></Footer>
-               {/* Footer End */}
-
           </div>
+          
      );
 }
 

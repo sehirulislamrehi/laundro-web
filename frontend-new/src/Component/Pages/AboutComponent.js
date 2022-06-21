@@ -11,6 +11,7 @@ import MobileMenu from "../Include/MobileMenu";
 import Footer from "../Include/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import Header from "../Include/Header";
 import { getAllServices } from "../../action";
 
 
@@ -148,269 +149,196 @@ const AboutComponent = () => {
      return(
           <div className="id">
 
-               <div className="custom-cursor__cursor"></div>
-               <div className="custom-cursor__cursor-two"></div>
+               <MobileMenu></MobileMenu>
 
                <div className="page-wrapper">
 
+                   <Header></Header>
 
-                    <header className="main-header clearfix">
-                         <div className="main-header__top">
-                              <div className="main-header__top-social-box">
-                                   <div className="container">
-                                   <div className="main-header__top-social-box-inner">
-                                        <p className="main-header__top-social-text">Welcome to our Laundro Cleaning Services!</p>
-                                        <div className="main-header__top-social">
-                                             <a href=""><i className="fab fa-twitter"></i></a>
-                                             <a href=""><i className="fab fa-facebook"></i></a>
-                                             <a href=""><i className="fab fa-pinterest-p"></i></a>
-                                             <a href=""><i className="fab fa-instagram"></i></a>
+                   {/*Page Header Start*/}
+                    <section className="page-header">
+                         <div className="page-header-bg" style={{
+                              backgroundImage : `url(images/page-header-bg.jpg)`
+                         }}>
+                         </div>
+                         <div className="page-header-bubble"><img src="images/page-header-bubble.png" alt=""></img></div>
+                         <div className="container">
+                         <div className="page-header__inner">
+                              <ul className="thm-breadcrumb list-unstyled">
+                                   <li><Link to="/">Home</Link></li>
+                                   <li><span>/</span></li>
+                                   <li>About</li>
+                              </ul>
+                              <h2>About us</h2>
+                         </div>
+                         </div>
+                    </section>
+                    {/*Page Header End*/}
+
+                    {/*Get To Know Start*/}
+                    <section className="get-to-know">
+                         <div className="get-to-know-bubble float-bob-x">
+                              <img src="images/get-to-know-bubble.png" alt=""></img>
+                         </div>
+                         <div className="container">
+                              <div className="row">
+                                   <div className="col-xl-6">
+                                        <div className="get-to-know__left">
+                                             <div className="get-to-know__img wow slideInLeft" data-wow-delay="100ms"
+                                                  data-wow-duration="2500ms">
+                                                  <img src="images/get-to-know-img-1.jpg" alt=""></img>
+                                                  <div className="get-to-know-shape-1"></div>
+                                                  <div className="get-to-know-shape-2"></div>
+                                             </div>
                                         </div>
                                    </div>
-                                   </div>
-                              </div>
-                              <div className="main-header__top-details">
-                                   <div className="container">
-                                        <div className="row">
-                                             <div className="col-md-2">
-                                                  <div className="desktop-logo">
-                                                       <a href="">
-                                                            <img src="images/loader.png" className="img-fluid" alt=""></img>
-                                                       </a>
-                                                  </div>
+                                   <div className="col-xl-6">
+                                        <div className="get-to-know__right">
+                                             <div className="section-title text-left">
+                                                  <span className="section-title__tagline">Company Benefits</span>
+                                                  <h2 className="section-title__title">Get to Know About Our Brote Company</h2>
                                              </div>
-                                             <div className="col-md-10">
-                                                  <div className="main-header__top-details-inner">
-                                             
-                                                       <ul className="list-unstyled main-header__top-details-list">
-                                                            <li>
-                                                                 <div className="icon">
-                                                                      <i className="fas fa-envelope"></i>
-                                                                 </div>
-                                                                 <div className="text">
-                                                                      <h5><a href="mailto:laundro@company.com">laundro@company.com</a></h5>
-                                                                      <p>Send mail</p>
-                                                                 </div>
-                                                            </li>
-                                                            <li>
-                                                                 <div className="icon">
-                                                                      <i className="fas fa-clock"></i>
-                                                                 </div>
-                                                                 <div className="text">
-                                                                      <h5>Mon to Sat</h5>
-                                                                      <p>08am - 09pm</p>
-                                                                 </div>
-                                                            </li>
-                                                            <li>
-                                                                 <div className="icon">
-                                                                      <i className="fas fa-phone"></i>
-                                                                 </div>
-                                                                 <div className="text">
-                                                                      <h5>Call Anytime</h5>
-                                                                      <p><a href="tel:+2300068603">+23 (000) 68 603</a></p>
-                                                                 </div>
-                                                            </li>
-                                                            <li>
-                                                                 <div className="icon">
-                                                                      <i className="fas fa-map"></i>
-                                                                 </div>
-                                                                 <div className="text">
-                                                                      <h5>88 Kilda Broklyn Road</h5>
-                                                                      <p>New York, USA</p>
-                                                                 </div>
-                                                            </li>
-                                                       </ul>
-                                                  </div>
+                                             <p className="get-to-know__text">Lorem ipsum is simply free text dolor sit am adipi we help you
+                                                  ensure everyone. Tincidunt elit magnis nulla facilisis sagittis maecenas. Sapien nunced
+                                                  amet dolores sit ipsum velit purus aliq massa fringilla leo.</p>
+                                             <div className="get-to-know__points-box">
+                                                  <ul className="list-unstyled get-to-know__points">
+                                                  <li>
+                                                       <div className="icon">
+                                                            <i className="fas fa-check"></i>
+                                                       </div>
+                                                       <div className="text">
+                                                            <p>We are Committed</p>
+                                                       </div>
+                                                  </li>
+                                                  <li>
+                                                       <div className="icon">
+                                                            <i className="fas fa-check"></i>
+                                                       </div>
+                                                       <div className="text">
+                                                            <p>Highly Rated Cleaning</p>
+                                                       </div>
+                                                  </li>
+                                                  </ul>
+                                                  <ul className="list-unstyled get-to-know__points get-to-know__points--two">
+                                                  <li>
+                                                       <div className="icon">
+                                                            <i className="fas fa-check"></i>
+                                                       </div>
+                                                       <div className="text">
+                                                            <p>We are Committed</p>
+                                                       </div>
+                                                  </li>
+                                                  <li>
+                                                       <div className="icon">
+                                                            <i className="fas fa-check"></i>
+                                                       </div>
+                                                       <div className="text">
+                                                            <p>Highly Rated Cleaning</p>
+                                                       </div>
+                                                  </li>
+                                                  </ul>
                                              </div>
+                                             <a href="about.html" className="thm-btn get-to-know__btn">Discover more <i
+                                                  className="fa fa-angle-right"></i></a>
                                         </div>
                                    </div>
                               </div>
                          </div>
-                         <nav className="main-menu clearfix">
-                              <div className="main-menu__wrapper clearfix">
-                                   <div className="container">
-                                        <div className="main-menu__wrapper-inner clearfix">
-                                             <div className="main-menu__left">
-                                                  <div className="main-menu__main-menu-box">
-                                                       <a href="#" className="mobile-nav__toggler"><i className="fa fa-bars"></i></a>
-                                                       <ul className="main-menu__list one-page-scroll-menu">
-                                                            <li className="scrollToLink">
-                                                                 <Link to="/">Home</Link>
-                                                            </li>
-                                                            <li className="scrollToLink">
-                                                                 <Link to="/about">About</Link>
-                                                            </li>
-                                                            <li className="scrollToLink">
-                                                                 <a href="">Services</a>
-                                                            </li>
-                                                            <li className="scrollToLink">
-                                                                 <a href="">Contact</a>
-                                                            </li>
-                                                            <li className="scrollToLink">
-                                                                 <a href="">Login</a>
-                                                            </li>
-                                                            <li className="scrollToLink">
-                                                                 <a href="">Book Now</a>
-                                                            </li>
-                                                       </ul>
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                         </nav>
-                    </header>
-
-                    <div className="stricky-header stricked-menu main-menu">
-                         <div className="sticky-header__content"></div>
-                    </div>
-
-
-                    {/*Google Map Start*/}
-                    <section className="google-map">
-                         <iframe
-                              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4562.753041141002!2d-118.80123790098536!3d34.152323469614075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e82469c2162619%3A0xba03efb7998eef6d!2sCostco+Wholesale!5e0!3m2!1sbn!2sbd!4v1562518641290!5m2!1sbn!2sbd"
-                              className="google-map__one" allowfullscreen></iframe>
-
                     </section>
-                    {/*Google Map End*/}
+                    {/*Get To Know End*/}
 
-                    {/*Information Start*/}
-                    <section className="information">
+
+                    {/*Counter One Start*/}
+                    <section className="counter-two">
                          <div className="container">
-                              <div className="information__inner">
-                                   <div className="information__logo-box">
-                                   <div className="information__border-1"></div>
-                                   <div className="information__border-2"></div>
-                                   <a href="index.html">
-                                        <img src="images//information-logo.png" alt=""></img>
-                                   </a>
-                                   </div>
-                                   <ul className="list-unstyled information__list">
-                                   <li>
-                                        <div className="information__icon">
-                                             <i className="fas fa-phone"></i>
-                                        </div>
-                                        <div className="information__content">
-                                             <p className="information__sub-title">Call anytime</p>
-                                             <h5 className="information__number">
-                                                  <a href="tel:2300068603">+23 (000) 68 603</a>
-                                             </h5>
-                                        </div>
-                                   </li>
-                                   <li>
-                                        <div className="information__icon">
-                                             <i className="fas fa-envelope"></i>
-                                        </div>
-                                        <div className="information__content">
-                                             <p className="information__sub-title">Send email</p>
-                                             <h5 className="information__number">
-                                                  <a href="mailto:laundro@company.com">laundro@company.com</a>
-                                             </h5>
-                                        </div>
-                                   </li>
-                                   <li>
-                                        <div className="information__icon">
-                                             <i className="fas fa-map"></i>
-                                        </div>
-                                        <div className="information__content">
-                                             <p className="information__sub-title">Visit office</p>
-                                             <h5 className="information__number">88 Kilda Broklyn Road</h5>
-                                        </div>
-                                   </li>
+                              <div className="counter-two__inner">
+                                   <ul className="list-unstyled counter-two__list">
+                                        <li>
+                                             <div className="counter-two__icon">
+                                                  <span className="icon-laundry-1"></span>
+                                             </div>
+                                             <div className="counter-two__count-box">
+                                                  <div className="counter-two__count-box-inner">
+                                                  <h3 className="odometer" data-count="2562">00</h3>
+                                                  <span className="counter-two__plus">+</span>
+                                                  </div>
+                                                  <p className="counter-two__text">Satisfied Clients</p>
+                                             </div>
+                                        </li>
+                                        <li>
+                                             <div className="counter-two__icon">
+                                                  <span className="icon-wipe"></span>
+                                             </div>
+                                             <div className="counter-two__count-box">
+                                                  <div className="counter-two__count-box-inner">
+                                                  <h3 className="odometer" data-count="562">00</h3>
+                                                  <span className="counter-two__plus">+</span>
+                                                  </div>
+                                                  <p className="counter-two__text">Active Project</p>
+                                             </div>
+                                        </li>
+                                        <li>
+                                             <div className="counter-two__icon">
+                                                  <span className="icon-trophy"></span>
+                                             </div>
+                                             <div className="counter-two__count-box">
+                                                  <div className="counter-two__count-box-inner">
+                                                  <h3 className="odometer" data-count="33">00</h3>
+                                                  <span className="counter-two__plus">+</span>
+                                                  </div>
+                                                  <p className="counter-two__text">Winning Award</p>
+                                             </div>
+                                        </li>
+                                        <li>
+                                             <div className="counter-two__icon">
+                                                  <span className="icon-teamwork"></span>
+                                             </div>
+                                             <div className="counter-two__count-box">
+                                                  <div className="counter-two__count-box-inner">
+                                                  <h3 className="odometer" data-count="552">00</h3>
+                                                  <span className="counter-two__plus">+</span>
+                                                  </div>
+                                                  <p className="counter-two__text">Expert Teams</p>
+                                             </div>
+                                        </li>
                                    </ul>
                               </div>
                          </div>
                     </section>
-                    {/*Information End*/}
+                    {/*Counter One End*/}
 
-                    {/*Site Footer Start*/}
-                    <footer className="site-footer">
-                         <div className="site-footer-shape-1"
-                         style={{
-                              backgroundImage : `url(images/site-footer-shape-1.png)`
-                         }}>
-                         </div>
-                         <div className="site-footer-shape-two">
-                              <img src="images/site-footer-shape-2.png" alt=""></img>
-                         </div>
-                         <div className="site-footer__top">
+                    {/*CTA One Start*/}
+                    <section className="cta-one">
+                         <div className="cta-one-bg-bg">
+                              <div className="cta-one-bg jarallax" data-jarallax data-speed="0.2"
+                                   style={{
+                                        backgroundImage: `url(images/cta-one-bg.jpg)`
+                                   }}></div>
+                              </div>
+                              <div className="cta-one-shape" 
+                              style={{
+                                   backgroundImage: `url(images/cta-one-shape.png)`
+                              }}></div>
                               <div className="container">
-                                   <div className="row">
-                                        <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
-                                             <div className="footer-widget__column footer-widget__about">
-                                                  <h3 className="footer-widget__title">Explore</h3>
-                                                  <div className="footer-widget__about-text-box">
-                                                       <p className="footer-widget__about-text">Tincidunt elit magnis nulla facilisis sagittis
-                                                            maecenas. Sapien nunced amet dolores.</p>
-                                                  </div>
-                                                  <div className="site-footer__social">
-                                                       <a href="#"><i className="fab fa-twitter"></i></a>
-                                                       <a href="#"><i className="fab fa-facebook"></i></a>
-                                                       <a href="#"><i className="fab fa-pinterest-p"></i></a>
-                                                       <a href="#"><i className="fab fa-instagram"></i></a>
-                                                  </div>
-                                             </div>
-                                        </div>
-                                        <div className="col-xl-2 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
-                                             <div className="footer-widget__column footer-widget__links clearfix">
-                                                  <h3 className="footer-widget__title">Links</h3>
-                                                  <ul className="footer-widget__links-list list-unstyled clearfix">
-                                                       <li><a href="about.html">About</a></li>
-                                                       <li><a href="team.html">Meet Our Team</a></li>
-                                                       <li><a href="about.html">What We Do</a></li>
-                                                       <li><a href="contact-page-1.html">Our Pricing</a></li>
-                                                       <li><a href="contact-page-2.html">Contact</a></li>
-                                                  </ul>
-                                             </div>
-                                        </div>
-                                        <div className="col-xl-2 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
-                                             <div className="footer-widget__column footer-widget__links clearfix">
-                                                  <h3 className="footer-widget__title">Links</h3>
-                                                  <ul className="footer-widget__links-list list-unstyled clearfix">
-                                                       <li><a href="about.html">About</a></li>
-                                                       <li><a href="team.html">Meet Our Team</a></li>
-                                                       <li><a href="about.html">What We Do</a></li>
-                                                       <li><a href="contact-page-1.html">Our Pricing</a></li>
-                                                       <li><a href="contact-page-2.html">Contact</a></li>
-                                                  </ul>
-                                             </div>
-                                        </div>
-                                        <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
-                                             <div className="footer-widget__column footer-widget__newsletter">
-                                                  <h3 className="footer-widget__title">Newsletter</h3>
-                                                  <p className="footer-widget__newsletter-text">Subscribe our newsletter to get <br></br> our
-                                                       latest update & news</p>
-                                                  <form className="footer-widget__newsletter-form">
-                                                       <div className="footer-widget__newsletter-input-box">
-                                                            <input type="email" placeholder="Email address" name="email"></input>
-                                                            <button type="submit" className="footer-widget__newsletter-btn"><i
-                                                                 className="far fa-paper-plane"></i></button>
-                                                       </div>
-                                                  </form>
-                                             </div>
-                                        </div>
+                              <div className="cta-one__inner">
+                                   <h2 className="cta-one__title">Get professional & affortable <br></br> house cleaner <span>today</span></h2>
+                                   <div className="cta-one__btn-box">
+                                        <a href="about.html" className="thm-btn cta-one__btn-1">Discover more <i
+                                                  className="fa fa-angle-right"></i></a>
+                                        <a href="contact-page-1.html" className="thm-btn cta-one__btn-2">Get a free quote <i
+                                                  className="fa fa-angle-right"></i></a>
                                    </div>
                               </div>
                          </div>
-                         <div className="site-footer__bottom">
-                              <div className="container">
-                                   <div className="row">
-                                        <div className="col-xl-12">
-                                             <div className="site-footer__bottom-inner">
-                                                  <p className="site-footer__bottom-text">© Copyright 2022 by <a href="#">laundro.com</a>
-                                                  </p>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-                    </footer>
-                    {/*Site Footer End*/}
+                    </section>
+                    {/*CTA One End*/}
+
+                    <Footer></Footer>
                     
                </div>
 
-         </div>
+          </div>
      );
 }
 
