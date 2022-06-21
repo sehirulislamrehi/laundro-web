@@ -41,6 +41,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Icon</th>
+                                    <th>Image</th>
                                     <th>Name</th>
                                     <th>Price ( BDT )</th>
                                     <th>Status</th>
@@ -86,6 +87,10 @@
                 {
                     data: 'icon',
                     name: 'icon'
+                },
+                {
+                    data: 'image',
+                    name: 'image'
                 },
                 {
                     data: 'name',

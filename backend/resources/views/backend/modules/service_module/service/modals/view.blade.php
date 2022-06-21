@@ -17,6 +17,12 @@
                               </td>
                          </tr>
                          <tr>
+                              <td>Image</td>
+                              <td>
+                                   <img src='{{ asset("images/service/".$service->image) }}' width='50px' height='50px'>
+                              </td>
+                         </tr>
+                         <tr>
                               <td>Name</td>
                               <td>
                                    {{ $service->name }}

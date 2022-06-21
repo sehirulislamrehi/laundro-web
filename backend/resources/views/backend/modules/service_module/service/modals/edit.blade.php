@@ -13,7 +13,7 @@
         <div class="row">
 
             <!-- name -->
-            <div class="col-md-6 col-12 form-group">
+            <div class="col-md-12 col-12 form-group">
                 <label for="name">Name</label><span class="require-span">*</span>
                 <input type="text" class="form-control" name="name" value="{{ $service->name }}" >
             </div>
@@ -23,6 +23,12 @@
             <div class="col-md-6 col-12 form-group">
                 <label for="icon" class="text-capitalize">icon</label><span class="require-span">*</span>
                 <input type="file" class="form-control-file" name="icon" >
+            </div>
+
+            <!-- image -->
+            <div class="col-md-6 col-12 form-group">
+                <label for="image" class="text-capitalize">image</label><span class="require-span">*</span>
+                <input type="file" class="form-control-file" name="image">
             </div>
 
             <!-- select parent -->

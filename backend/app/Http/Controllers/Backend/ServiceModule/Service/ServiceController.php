@@ -68,10 +68,10 @@ class ServiceController extends Controller
         if( can('services') ){
             $services = Service::orderBy('id', 'desc')
                         ->where("service_id",null)
-                        ->select("id","name","icon","is_active","service_id","price")
+                        ->select("id","name","icon","image","is_active","service_id","price")
                         ->get(); 
             return DataTables::of($services)
-            ->rawColumns(["icon","is_active",'action','price'])
+            ->rawColumns(["icon","is_active",'action','price','image'])
             ->editColumn('icon', function(Service $service){
 
                 if( $service->icon == null ){
@@ -85,7 +85,20 @@ class ServiceController extends Controller
                     <img src='$src' width='50px' height='50px'>
                 ";
 
-                return $service->name;
+            })
+            ->editColumn('image', function(Service $service){
+
+                if( $service->image == null ){
+                    $src = asset("images/service/default.png");
+                }
+                else{
+                    $src = asset("images/service/".$service->image);
+                }
+                
+                return "
+                    <img src='$src' width='50px' height='50px'>
+                ";
+
             })
             ->editColumn('is_active', function (Service $service) {
                 if ($service->is_active == true) {
@@ -151,10 +164,11 @@ class ServiceController extends Controller
         if( can('services') ){
             $services = Service::orderBy('id', 'desc')
                         ->where("service_id",decrypt($id))
-                        ->select("id","name","icon","price","is_active","service_id")
+                        ->select("id","name","icon","image","price","is_active","service_id")
                         ->get(); 
+
             return DataTables::of($services)
-            ->rawColumns(["icon","price","is_active", 'parent','action'])
+            ->rawColumns(["icon","price","is_active", 'parent','action','image'])
             ->editColumn('icon', function(Service $service){
 
                 if( $service->icon == null ){
@@ -167,8 +181,19 @@ class ServiceController extends Controller
                 return "
                     <img src='$src' width='50px' height='50px'>
                 ";
+            })
+            ->editColumn('image', function(Service $service){
 
-                return $service->name;
+                if( $service->icon == null ){
+                    $src = asset("images/service/default.png");
+                }
+                else{
+                    $src = asset("images/service/".$service->image);
+                }
+                
+                return "
+                    <img src='$src' width='50px' height='50px'>
+                ";
             })
             ->editColumn('price', function(Service $service){
 
@@ -240,6 +265,7 @@ class ServiceController extends Controller
                 $validator = Validator::make($request->all(),[
                     'name'           => 'required|unique:services,name',
                     'icon'           => 'required|mimes:jpeg,jpg,png,bmp',
+                    'image'           => 'required|mimes:jpeg,jpg,png,bmp',
                     'is_active'      => 'required',
                 ]);
             }
@@ -249,6 +275,7 @@ class ServiceController extends Controller
                     $validator = Validator::make($request->all(),[
                        'name'           => 'required|unique:services,name',
                         'icon'           => 'required|mimes:jpeg,jpg,png,bmp',
+                        'image'           => 'required|mimes:jpeg,jpg,png,bmp',
                         'is_active'      => 'required',
                         'service_id' => 'required|integer|exists:services,id',
                         'price' => 'required|integer',
@@ -258,6 +285,7 @@ class ServiceController extends Controller
                     $validator = Validator::make($request->all(),[
                        'name'           => 'required|unique:services,name',
                         'icon'           => 'required|mimes:jpeg,jpg,png,bmp',
+                        'image'           => 'required|mimes:jpeg,jpg,png,bmp',
                         'is_active'      => 'required',
                         'service_id' => 'required|integer|exists:services,id',
                     ]);
@@ -284,11 +312,20 @@ class ServiceController extends Controller
 					$service->service_id     = ($request->service_id == 'null') ? null : $request->service_id;
 					$service->is_active      = $request->is_active;
 
-                    $image = $request->file('icon');
-                    $img = $service->name . time().Str::random(12).'.'.$image->getClientOriginalExtension();
-                    $location = public_path('images/service/'.$img);
-                    Image::make($image)->save($location);
-					$service->icon           = $img;
+                    if( $request->file('icon') ){
+                        $image = $request->file('icon');
+                        $img = $service->name . time().Str::random(12).'.'.$image->getClientOriginalExtension();
+                        $location = public_path('images/service/'.$img);
+                        Image::make($image)->save($location);
+                        $service->icon = $img;
+                    }
+                    if( $request->file('image') ){
+                        $image = $request->file('image');
+                        $img = $service->name . time().Str::random(12).'.'.$image->getClientOriginalExtension();
+                        $location = public_path('images/service/'.$img);
+                        Image::make($image)->save($location);
+                        $service->image = $img;
+                    }
 
 					$service->short_description = $request->short_description;
 					$service->service_overview = $request->service_overview;
@@ -393,6 +430,17 @@ class ServiceController extends Controller
 	                    Image::make($image)->save($location);
 						$service->icon           = $img;
 					}
+
+                    if( $request->file('image') ){
+                        if( File::exists('images/service/'. $service->image) ){
+                            File::delete('images/service/'. $service->image);
+                        }
+                        $image = $request->file('image');
+                        $img = $service->name . time().Str::random(12).'.'.$image->getClientOriginalExtension();
+                        $location = public_path('images/service/'.$img);
+                        Image::make($image)->save($location);
+                        $service->image = $img;
+                    }
 
                     $service->short_description = $request->short_description;
 					$service->service_overview = $request->service_overview;
