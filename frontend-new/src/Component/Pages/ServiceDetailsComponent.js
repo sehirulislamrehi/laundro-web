@@ -8,6 +8,8 @@ import MobileMenu from "../Include/MobileMenu";
 import Footer from "../Include/Footer";
 import { useEffect, useState } from "react";
 import DOMPurify from "dompurify";
+import Header from "../Include/Header";
+import ServiceList from "./Includes/ServiceList";
 
 const ServiceDetailsComponent = () => {
      {/* window scroll to top */}
@@ -16,10 +18,12 @@ const ServiceDetailsComponent = () => {
      const { slug } =  useParams();
      const [service, setService] = useState(null);
 
+     //service details
+     const service_details_url = `${window.url}/service-details/${slug}`;
+
      useEffect( () => {
 
-          //service details
-          const service_details_url = `${window.url}/service-details/${slug}`;
+          
 
           fetch(service_details_url,{
                method : "GET"
@@ -40,161 +44,159 @@ const ServiceDetailsComponent = () => {
                
           })
 
-     },[]);
+     },[service_details_url]);
+
 
      return(
           <div className="id">
 
-                         
-               {/* desktop menu start */}
-               
-               {/* desktop menu end */}
-
-               {/* Mobile Menu */}
                <MobileMenu></MobileMenu>
-               {/* Mobile Menu End */}
 
-               
-               {/* Breadcrumb Area */}
-               <div className="laundro-breadcrumb" style={{ backgroundImage: `url('/images/breadcrumb.jpg')` }}>
-                    <span className="breadcrumb-object"><img src="/images/slider-object.png" alt=""></img></span>
-                    <div className="container">
-                         <div className="breadcrumb-content">
-                              <h1>{service && service.name}</h1>
-                              <Link to="/">Home <i className="fas fa-angle-double-right"></i></Link>
-                              <span>{service && service.name}</span>
+               <div className="page-wrapper">
+
+                   <Header></Header>
+
+                   {/*Page Header Start*/}
+                    <section className="page-header">
+                         <div className="page-header-bg" style={{
+                              backgroundImage : `url(images/page-header-bg.jpg)`
+                         }}>
                          </div>
-                    </div>
-               </div>
-               {/* Breadcrumb End */}
+                         <div className="page-header-bubble"><img src="images/page-header-bubble.png" alt=""></img></div>
+                         <div className="container">
+                         <div className="page-header__inner">
+                              <ul className="thm-breadcrumb list-unstyled">
+                                   <li><Link to="/">Home</Link></li>
+                                   <li><span>/</span></li>
+                                   <li><Link to="/services">Services</Link></li>
+                                   <li><span>/</span></li>
+                                   <li>{service && service.name}</li>
+                              </ul>
+                              <h2>{service && service.name}</h2>
+                         </div>
+                         </div>
+                    </section>
+                    {/*Page Header End*/}
 
-               {/* service details */}
-               <section className="service-details pt-100 pb-100">
-                    <div className="container">
-                         <div className="row">
-                              <div className="col-lg-3">
-                                   <div className="sr-sidebar">
-                                        <div className="sidebar-widget sr-list-widget">
-                                             <div className="widget-title">
-                                                  <h5>{service && service.name}</h5>
-                                             </div>
-                                             <div className="list-nav">
-                                                  <ul>
-                                                       
+
+                    <section className="service-details">
+                         <div className="container">
+                              <div className="row">
+                                   <div className="col-xl-4 col-lg-5">
+                                        <div className="service-details__left">
+                                             <div className="service-details__category">
+                                                  <h4 className="service-details__category-title">Services</h4>
+                                                  <ul className="service-details__category-list list-unstyled">
+                                                       <ServiceList service={service && service}></ServiceList>
                                                   </ul>
                                              </div>
-                                        </div>
-                                        <div className="sidebar-widget sr-btn-widget" style={{ backgroundImage: `url("/images/sr-widget-bg.jpg")` }}>
-                                             <span className="subtitle">PDF Files</span>
-                                             <h5>Download Brochures</h5>
-                                             <div className="download-btns">
-                                                  <a href="#" className="btn-1">Company Brochure<span><i className="far fa-file-pdf"></i> </span></a>
-                                                  <a href="#" className="btn-2">Company Brochure<span><i className="far fa-file-pdf"></i> </span></a>
+                                             <div className="service-details__need-help">
+                                                  <div className="service-details__need-help-bg" style={{
+                                                       backgroundImage: `url(images/service-details-need-help-bg.jpg)`
+                                                  }}>
+                                                  </div>
+                                                  <div className="service-details__need-help-icon">
+                                                       <i className="fas fa-phone"></i>
+                                                  </div>
+                                                  <h2 className="service-details__need-help-title">Best Solution <br></br> to Laundro Cleaning</h2>
+                                                  <div className="service-details__need-help-contact">
+                                                       <p>Call anytime</p>
+                                                       <a href="tel:2300068603"> +23 (000) 68 603</a>
+                                                  </div>
                                              </div>
                                         </div>
                                    </div>
-                              </div>
-                              <div className="col-lg-9">
-                                   <div className="sr-details-content">
-                                        <div className="title-txt">
-                                             <h3>{service && service.name}</h3>
-                                        </div>
-                                        <div className="pera-text mt-20">
-                                             <p>
-                                                  {service && service.short_description}
-                                             </p>
-                                        </div>
+                                   <div className="col-xl-8 col-lg-7">
+                                        <div className="service-details__right">
+                                             <div className="service-details__img">
+                                                  <img src="/images/services-details-img-1.jpg" alt=""></img>
+                                             </div>
+                                             <div className="service-details__content">
+                                                  <h3 className="service-details__content-title">{service && service.name}</h3>
+                                                  <p className="service-details__text-1">
+                                                       {service && service.short_description}
+                                                  </p>
+                                             </div>
+                                             <div className="service-details__points-box">
+                                                  <div className="row pricing">
 
-                                        <div className="sr-details-bottom mt-40">
-                                             <div className="row">
-                                                  <div className="col-lg-6">
-                                                       <div className="sr-details-left">
-                                                            <div className="title-txt">
-                                                                 <h4>Service Overview</h4>
+                                                       <div className="col-md-12 title">
+                                                            <h4>Pricing</h4>
+                                                       </div>
+                                                                                
+                                                       {
+                                                            service && 
+                                                            ( service.service_durations.length > 0 ) ?
+                                                            service.service_durations.map( item => (
+                                                            <div className="col-md-3 col-6" key={item.id}>
+                                                                 <div className="item">
+                                                                      <img src={`${window.image_path}/images/service/${service.icon}`} alt=""></img>
+                                                                      <p>{item.instructions}</p>                              
+                                                                      <p>{item.price} BDT</p> 
+                                                                 </div>  
                                                             </div>
-                                                                 <div className="pera-txt mt-20" dangerouslySetInnerHTML={{ __html: service && DOMPurify.sanitize(service.service_overview) }}>
+                                                            )) :
+                                                            <div className="col-md-12">
+                                                                 <div className="item">
+                                                                      <p>No pricing found</p>
+                                                                 </div>
+                                                            </div>
+                                                       }
+                                                  </div>
+                                             </div>
+                                             <div className="service-details__benefits">
+                                                  <div className="row">
+                                                       <div className="col-xl-6">
+                                                            <div className="service-details__benefits-img">
+                                                            <img src="/images/service-details-benefits-img.jpg" alt=""></img>
                                                             </div>
                                                        </div>
-                                                  </div>
-                                                  <div className="col-lg-6">
-                                                       <div className="srd-right-img">
-                                                       <img src="/images/srd-img.png" alt=""></img>
+                                                       <div className="col-xl-6">
+                                                            <div className="service-details__benefits-right">
+                                                            <h3 className="service-details__benefits-title">Our Benefits</h3>
+                                                            <p className="service-betails__benefits-text-1">Duis aute irure dolor in
+                                                                 reprehenderit in voluptate velit esse cillum.</p>
+                                                            <ul className="list-unstyled service-details__benefits-points">
+                                                                 <li>
+                                                                      <div className="icon">
+                                                                           <i className="fa fa-check"></i>
+                                                                      </div>
+                                                                      <div className="text">
+                                                                           <p>Praesent efficitur quam sit amet</p>
+                                                                      </div>
+                                                                 </li>
+                                                                 <li>
+                                                                      <div className="icon">
+                                                                           <i className="fa fa-check"></i>
+                                                                      </div>
+                                                                      <div className="text">
+                                                                           <p>Nunc cursus dolor id purus euismod</p>
+                                                                      </div>
+                                                                 </li>
+                                                                 <li>
+                                                                      <div className="icon">
+                                                                           <i className="fa fa-check"></i>
+                                                                      </div>
+                                                                      <div className="text">
+                                                                           <p>Quisque tincidunt eros ac place viverra</p>
+                                                                      </div>
+                                                                 </li>
+                                                            </ul>
+                                                            </div>
                                                        </div>
                                                   </div>
                                              </div>
-                                             <div className="row pricing">
-
-                                                  <div className="col-md-12 title">
-                                                       <h4>Pricing</h4>
-                                                  </div>
-                                                                           
-                                                  {
-                                                       service && 
-                                                       ( service.service_durations.length > 0 ) ?
-                                                       service.service_durations.map( item => (
-                                                       <div className="col-md-3 col-6">
-                                                            <div className="item">
-                                                                 <img src={`${window.image_path}/images/service/${service.icon}`} alt=""></img>
-                                                                 <p>{item.instructions}</p>                              
-                                                                 <p>{item.price} BDT</p> 
-                                                            </div>  
-                                                       </div>
-                                                       )) :
-                                                       <div className="col-md-12">
-                                                            <div className="item">
-                                                                 <p>No pricing found</p>
-                                                            </div>
-                                                       </div>
-                                                  }
-                                                  
-
-                                             </div>
+                                             
                                         </div>
-                                        
                                    </div>
                               </div>
                          </div>
-                    </div>
-               </section>
-               {/* Service Details End */}
+                    </section>
 
 
-               {/* Get In Tauch */}
-               <section className="laundro-gta-area" style={{ backgroundImage: `url("/images/gt-bg.jpg")` }}>
-                    <div className="container">
-                         <div className="row align-items-center">
-                              <div className="col-lg-6 offset-lg-6">
-                                   <div className="laundro-gt-right">
-                                        <h4>Get a estimate</h4>
-                                        <form action="#">
-                                             <input type="text" name="fname" placeholder="Your name*" required></input>
-                                             <input type="tel" name="pnumber" placeholder="Phone Number..."></input>
-                                             <div className="bx-form-select">
-                                                  <select>
-                                                       <option value="plumbing">Plumbing Service</option>
-                                                       <option value="office">Office cleaning</option>
-                                                       <option value="laundry">Laundry Service</option>
-                                                       <option value="toilet">Toilet Cleaning</option>
-                                                       <option value="kichen">Kitchen cleaning</option>
-                                                  </select>
-                                             </div>
-                                             <textarea placeholder="Text..." rows="5"></textarea>
-                                             <button type="submit" className="laundro-primary-btn submit-btn">Get a Quote <span><i className="fab fa-telegram-plane"></i></span></button>
-                                        </form>
-                                   </div>
-                              </div>
-                         </div>
-                    </div>
-               </section>
-               {/* Get In Tauch End */} 
-               
-               
-
-
-
-               {/* Footer */}
-               <Footer></Footer>
-               {/* Footer End */}
+                    <Footer></Footer>
+                    
+               </div>
 
           </div>
      );

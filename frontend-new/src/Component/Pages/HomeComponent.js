@@ -295,36 +295,98 @@ const HomeComponent = () => {
                     </section>
                     {/*Main Slider End*/}
 
+                    {/* Book Service Section start */}
+                    <section className="book-service">
+                         <div className="container">
+                              <div className="row book-service-row">
+
+                                   {/* section title */}
+                                   <div className="col-md-12 section-title">
+                                        <h4>Fill All Information Details to Consult With Us To Get Sevices From Us</h4>
+                                   </div>
+
+                                   {/* form part */}
+                                   <div className="col-md-12 section-form">
+                                        <form action="">
+                                             <div className="row">
+
+                                                  {/* name */}
+                                                  <div className="col-md-5 col-12 form-group">
+                                                       <input style={{
+                                                            height: "55px",
+                                                            marginTop: "0px"
+                                                       }} type="text" className="form-control" placeholder="Enter your postal code"
+                                                            onChange={ e => set_code(e.target.value)}
+                                                       />                                                 
+                                                  </div>
+
+                                                  {/* service */}
+                                                  <div className="col-md-5 col-12 form-group"> 
+                                                       <select className="form-control"
+                                                            onChange={ e => set_service(e.target.value) }
+                                                       >
+                                                            <option selected disabled>Select Service</option>
+                                                            {
+                                                                 get_all_services && get_all_services.map( item => (
+                                                                      (
+                                                                           (item.service_durations.length == 0) ? <option value={item.slug}>{item.name}</option> : ""
+                                                                      )
+                                                                 ))
+                                                            }
+                                                       </select>                                        
+                                                  </div>
+
+                                                  {/* button */}
+                                                  <div className="col-md-2 col-12 form-group">
+                                                       <button className="book-now" type="button" onClick={bookNow}>
+                                                            Book Now
+                                                       </button>                                              
+                                                  </div>
+
+
+                                             </div>
+                                        </form>
+                                   </div>
+
+                              </div>
+                         </div>
+                    </section>
+                    {/* Book Service Section end */}
+
                     {/*Feature One Start*/}
                     <section className="feature-one">
                          <div className="container">
                               <div className="row">
 
                                    {/*Feature One single Start*/}
-                                   <div className="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
-                                        <div className="feature-one__single">
-                                             <div className="feature-one-single-bg"
-                                             style={{
-                                                  backgroundImage : `url(images/services/feature-one-single-bg.jpg)`
-                                             }}>
-                                             </div>
-                                             <div className="feature-one__icon">
-                                                  <img src="images/services/feature-one-icon-1.png" alt=""></img>
-                                                  <div className="feature-one__icon-shape">
-                                                       <img src="images/services/feature-one-icon-shape.png" alt=""></img>
+                                   {
+                                        get_all_services && get_all_services.map(item => (
+                                        <div className="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
+                                             <div className="feature-one__single">
+                                                  <div className="feature-one-single-bg"
+                                                  style={{
+                                                       backgroundImage : `url(images/services/feature-one-single-bg.jpg)`
+                                                  }}>
+                                                  </div>
+                                                  <div className="feature-one__icon">
+                                                       <img src={`${window.image_path}/images/service/${item.icon}`} alt=""></img>
+                                                       <div className="feature-one__icon-shape">
+                                                            <img src="images/services/feature-one-icon-shape.png" alt=""></img>
+                                                       </div>
+                                                  </div>
+                                                  <div className="feature-one__title-box">
+                                                       <div className="feature-one__title-border"></div>
+                                                       <h3 className="feature-one__title"><Link to={`/service-details/${item.slug}`}>{item.name}</Link></h3>
+                                                  </div>
+                                                  <p className="feature-one__text">{item.short_description.substring(0, 100)}...</p>
+                                                  <div className="feature-one__btn-box">
+                                                       <Link to={`/service-details/${item.slug}`} className="feature-one__btn">View more</Link>
                                                   </div>
                                              </div>
-                                             <div className="feature-one__title-box">
-                                                  <div className="feature-one__title-border"></div>
-                                                  <h3 className="feature-one__title"><a href="about.html">Wash</a></h3>
-                                             </div>
-                                             <p className="feature-one__text">Lorem ipsum dolor sit amet, consect
-                                                  etur adipisicing elit, sed do eiusmod tempor bore et dolore.</p>
-                                             <div className="feature-one__btn-box">
-                                                  <a href="about.html" className="feature-one__btn">View more</a>
-                                             </div>
                                         </div>
-                                   </div>
+                                        ))
+                                   }
+                                   
                                    {/*Feature One single End*/}
 
                               </div>
@@ -443,103 +505,43 @@ const HomeComponent = () => {
                               <div className="row">
 
                                    {/*Services One Single Start*/}
-                                   <div className="col-xl-4 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
-                                        <div className="services-one__single">
-                                             <div className="services-one__single-top-bubble"
-                                             style={{
-                                                  backgroundImage : `url(images/services/services-one-single-top-bubble.png)`
-                                             }}>
-                                             </div>
-                                             <div className="services-one__icon">
-                                                  <img src="images/icon-3.png" alt=""></img>
-                                             </div>
-                                             <div className="services-one__single-inner">
-                                                  <div className="services-one__title-box">
-                                                       <h3 className="services-one__title">
-                                                            <a href="plumbing-services.html">
-                                                                 Wash
-                                                            </a>
-                                                       </h3>
+                                   {
+                                        get_all_services && get_all_services.map(item => (
+                                             <div className="col-xl-4 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                                  <div className="services-one__single">
+                                                       <div className="services-one__single-top-bubble"
+                                                       style={{
+                                                            backgroundImage : `url(images/services/services-one-single-top-bubble.png)`
+                                                       }}>
+                                                       </div>
+                                                       <div className="services-one__icon">
+                                                            <img src={`${window.image_path}/images/service/${item.icon}`} alt=""></img>
+                                                       </div>
+                                                       <div className="services-one__single-inner">
+                                                            <div className="services-one__title-box">
+                                                                 <h3 className="services-one__title">
+                                                                      <Link to={`/service-details/${item.slug}`}>
+                                                                           {item.name}
+                                                                      </Link>
+                                                                 </h3>
+                                                            </div>
+                                                            <div className="services-one__text-box">
+                                                                 <p className="services-one__text">
+                                                                 {item.short_description.substring(0, 100)}...
+                                                                 </p>
+                                                            </div>
+                                                       </div>
+                                                       <div className="services-one__overly-box"
+                                                       style={{
+                                                            backgroundImage : `url(images/services/services-one-single-overlay-bg-1.png)`
+                                                       }}>
+                                                       </div>
                                                   </div>
-                                                  <div className="services-one__text-box">
-                                                       <p className="services-one__text">
-                                                            Tincidunt elit magnis nulla facilisis sagittis maecenas. Sapien nunced amet dolores.
-                                                       </p>
-                                                  </div>
                                              </div>
-                                             <div className="services-one__overly-box"
-                                             style={{
-                                                  backgroundImage : `url(images/services/services-one-single-overlay-bg-1.png)`
-                                             }}>
-                                             </div>
-                                        </div>
-                                   </div>
+                                        ))
+                                   }
                                    {/*Services One Single End*/}
 
-                                   {/*Services One Single Start*/}
-                                   <div className="col-xl-4 col-lg-6 wow fadeInUp" data-wow-delay="200ms">
-                                        <div className="services-one__single">
-                                             <div className="services-one__single-top-bubble"
-                                             style={{
-                                                  backgroundImage : `url(images/services/services-one-single-top-bubble.png)`
-                                             }}>
-                                             </div>
-                                             <div className="services-one__icon">
-                                                  <img src="images/icon-3.png" alt=""></img>
-                                             </div>
-                                             <div className="services-one__single-inner">
-                                                  <div className="services-one__title-box">
-                                                       <h3 className="services-one__title">
-                                                            <a href="office-cleaning.html">Wash & Iron</a>
-                                                       </h3>
-                                                  </div>
-                                                  <div className="services-one__text-box">
-                                                       <p className="services-one__text">
-                                                            Tincidunt elit magnis nulla facilisis sagittis maecenas.
-                                                            Sapien nunced amet dolores.
-                                                       </p>
-                                                  </div>
-                                             </div>
-                                             <div className="services-one__overly-box"
-                                                  style={{
-                                                       backgroundImage : `url(images/services/services-one-single-overlay-bg-1.png)`
-                                                  }}>
-                                             </div>
-                                        </div>
-                                   </div>
-                                   {/*Services One Single End*/}
-
-                                   {/*Services One Single Start*/}
-                                   <div className="col-xl-4 col-lg-6 wow fadeInUp" data-wow-delay="300ms">
-                                        <div className="services-one__single">
-                                             <div className="services-one__single-top-bubble"
-                                             style={{
-                                                  backgroundImage : `url(images/services/services-one-single-top-bubble.png)`
-                                             }}>
-                                             </div>
-                                             <div className="services-one__icon">
-                                                  <img src="images/icon-3.png" alt=""></img>
-                                             </div>
-                                             <div className="services-one__single-inner">
-                                                  <div className="services-one__title-box">
-                                                       <h3 className="services-one__title">
-                                                            <a href="laundry-services.html">Dry Cleaning</a>
-                                                       </h3>
-                                                  </div>
-                                                  <div className="services-one__text-box">
-                                                       <p className="services-one__text">
-                                                            Tincidunt elit magnis nulla facilisis sagittis maecenas. Sapien nunced amet dolores.
-                                                       </p>
-                                                  </div>
-                                             </div>
-                                             <div className="services-one__overly-box"
-                                             style={{
-                                                  backgroundImage : `url(images/services/services-one-single-overlay-bg-1.png)`
-                                             }}>
-                                             </div>
-                                        </div>
-                                   </div>
-                                   {/*Services One Single End*/}
                                    
                               </div>
                          </div>

@@ -106,134 +106,41 @@ const ServicesComponent = () => {
                               <div className="row">
 
                                    {/*Services Three Single Start-*/}
-                                   <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp animated" data-wow-delay="100ms" 
-                                   style={{
-                                        visibility : "visible",
-                                        animationDelay: "100ms",
-                                        animationName: "fadeInUp"
-                                   }}>
-                                        <div className="services-three__single">
-                                             <div className="services-three__img-box">
-                                                  <div className="services-three__img">
-                                                       <img src="images/services/services-3-1.jpg" alt=""></img>
+                                   {
+                                        get_all_services && get_all_services.map(item => (
+                                        <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp animated" data-wow-delay="100ms" 
+                                             style={{
+                                                  visibility : "visible",
+                                                  animationDelay: "100ms",
+                                                  animationName: "fadeInUp"
+                                             }}>
+                                             <div className="services-three__single">
+                                                  <div className="services-three__img-box">
+                                                       <div className="services-three__img">
+                                                            <img src="images/services/services-3-2.jpg" alt=""></img>
+                                                       </div>
+                                                       <div className="services-three__icon">
+                                                            <img src={`${window.image_path}/images/service/${item.icon}`} alt=""></img>
+                                                       </div>
+                                                       <div className="services-three__bubble">
+                                                            <img src="images/services/services-three-bubble.png" alt=""></img>
+                                                       </div>
                                                   </div>
-                                                  <div className="services-three__icon">
-                                                       <img src="images/icon-3.png" alt=""></img>
-                                                  </div>
-                                                  <div className="services-three__bubble">
-                                                       <img src="images/services/services-three-bubble.png" alt=""></img>
-                                                  </div>
-                                             </div>
-                                             <div className="services-three__content">
-                                                  <h3 className="services-three__title"><a href="plumbing-services.html">Plumbing <br></br>
-                                                            Services</a></h3>
-                                                  <p className="services-three__text">Lorem ipsum is simply free text dolor sit am ad help you
-                                                       ensure.</p>
-                                                  <div className="services-three__btn-box">
-                                                       <a href="plumbing-services.html" className="services-three__btn">read more</a>
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                                   {/*Services Three Single End-*/}
-
-
-                                   {/*Services Three Single Start-*/}
-                                   <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp animated" data-wow-delay="100ms" 
-                                   style={{
-                                        visibility : "visible",
-                                        animationDelay: "100ms",
-                                        animationName: "fadeInUp"
-                                   }}>
-                                        <div className="services-three__single">
-                                             <div className="services-three__img-box">
-                                                  <div className="services-three__img">
-                                                       <img src="images/services/services-3-2.jpg" alt=""></img>
-                                                  </div>
-                                                  <div className="services-three__icon">
-                                                       <img src="images/icon-3.png" alt=""></img>
-                                                  </div>
-                                                  <div className="services-three__bubble">
-                                                       <img src="images/services/services-three-bubble.png" alt=""></img>
-                                                  </div>
-                                             </div>
-                                             <div className="services-three__content">
-                                                  <h3 className="services-three__title"><a href="laundry-services.html">Laundry <br></br>
-                                                            Services</a></h3>
-                                                  <p className="services-three__text">Lorem ipsum is simply free text dolor sit am ad help you
-                                                       ensure.</p>
-                                                  <div className="services-three__btn-box">
-                                                       <a href="laundry-services.html" className="services-three__btn">read more</a>
+                                                  <div className="services-three__content">
+                                                       <h3 className="services-three__title">
+                                                            <Link to={`/service-details/${item.slug}`}>
+                                                            {item.name}
+                                                            </Link>
+                                                       </h3>
+                                                       <p className="services-three__text">{item.short_description.substring(0, 50)}...</p>
+                                                       <div className="services-three__btn-box">
+                                                            <Link to={`/service-details/${item.slug}`} className="services-three__btn">read more</Link>
+                                                       </div>
                                                   </div>
                                              </div>
                                         </div>
-                                   </div>
-                                   {/*Services Three Single End-*/}
-
-
-                                   {/*Services Three Single Start-*/}
-                                   <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp animated" data-wow-delay="100ms" 
-                                   style={{
-                                        visibility : "visible",
-                                        animationDelay: "100ms",
-                                        animationName: "fadeInUp"
-                                   }}>
-                                        <div className="services-three__single">
-                                             <div className="services-three__img-box">
-                                                  <div className="services-three__img">
-                                                       <img src="images/services/services-3-3.jpg" alt=""></img>
-                                                  </div>
-                                                  <div className="services-three__icon">
-                                                       <img src="images/icon-3.png" alt=""></img>
-                                                  </div>
-                                                  <div className="services-three__bubble">
-                                                       <img src="images/services/services-three-bubble.png" alt=""></img>
-                                                  </div>
-                                             </div>
-                                             <div className="services-three__content">
-                                                  <h3 className="services-three__title"><a href="kitchen-cleaning.html">Kitchen <br></br>
-                                                            Cleaning</a></h3>
-                                                  <p className="services-three__text">Lorem ipsum is simply free text dolor sit am ad help you
-                                                       ensure.</p>
-                                                  <div className="services-three__btn-box">
-                                                       <a href="kitchen-cleaning.html" className="services-three__btn">read more</a>
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                                   {/*Services Three Single End-*/}
-
-
-                                   {/*Services Three Single Start-*/}
-                                   <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp animated" data-wow-delay="100ms" 
-                                   style={{
-                                        visibility : "visible",
-                                        animationDelay: "100ms",
-                                        animationName: "fadeInUp"
-                                   }}>
-                                        <div className="services-three__single">
-                                             <div className="services-three__img-box">
-                                                  <div className="services-three__img">
-                                                       <img src="images/services/services-3-4.jpg" alt=""></img>
-                                                  </div>
-                                                  <div className="services-three__icon">
-                                                       <img src="images/icon-3.png" alt=""></img>
-                                                  </div>
-                                                  <div className="services-three__bubble">
-                                                       <img src="images/services/services-three-bubble.png" alt=""></img>
-                                                  </div>
-                                             </div>
-                                             <div className="services-three__content">
-                                                  <h3 className="services-three__title"><a href="window-cleaning.html">Window <br></br>
-                                                            Cleaning</a></h3>
-                                                  <p className="services-three__text">Lorem ipsum is simply free text dolor sit am ad help you
-                                                       ensure.</p>
-                                                  <div className="services-three__btn-box">
-                                                       <a href="window-cleaning.html" className="services-three__btn">read more</a>
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
+                                        ))
+                                   }
                                    {/*Services Three Single End-*/}
 
                               </div>

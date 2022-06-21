@@ -7526,6 +7526,9 @@ ul {
   transform: translateX(-50%);
   z-index: 3;
 }
+.services-three__icon img{
+border-radius: 100%;
+}
 
 .services-three__icon:before {
   position: absolute;
@@ -9954,6 +9957,10 @@ ul {
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
+.service-details__need-help-icon i{
+  color: white;
+  font-size: 30px;
+}
 
 .service-details__need-help-icon:hover {
   background-color: var(--brote-white);
@@ -12011,4 +12018,61 @@ body.boxed-wrapper .contact-one__call {
   font-size: 10px;
   color: red;
   font-weight: bold;
+}
+/********************* Book Service Section ***********************/
+.book-service{
+	padding: 100px 0 0;
+}
+.book-service .book-service-row{
+	box-shadow: 0px 16px 100px 0px rgb(41 162 104 / 20%);
+	background: #fff;
+	padding: 50px 51px;
+}
+.book-service .book-service-row .section-title h4{
+	text-align: center;
+	margin-bottom: 30px;
+}
+.book-service .book-service-row .section-form .form-group{
+	position: relative;
+	margin-bottom: 15px;
+}
+.book-service .book-service-row .section-form .form-control{
+	padding: 15px;
+}
+.book-service .book-service-row .section-form .form-control:focus{
+	box-shadow: none;
+	border: 1px solid black;
+}
+.book-service .book-service-row .section-form .book-now{
+	width: 100%;
+	padding: 15px;
+	background: #006BCC;
+	border: none;
+	color: white;
+	border-radius: 5px;
+	position: relative;
+}
+.book-service .book-service-row .section-form .book-now:hover{
+	background: var(--brote-primary)
+}
+
+
+.service-details__points-box .pricing .item{
+	padding: 15px;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px 0 rgb(0 0 0 / 10%);
+}
+.service-details__points-box .pricing .title{
+	margin-bottom: 15px;
+}
+.service-details__points-box .pricing .item:hover{
+	background: #f7f7f7;
+}
+.service-details__points-box .pricing .item img{
+	width: 30%;
+	display: block;
+	margin: 0 auto;
 }
