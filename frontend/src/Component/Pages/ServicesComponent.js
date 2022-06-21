@@ -117,7 +117,7 @@ const ServicesComponent = () => {
                                              <div className="services-three__single">
                                                   <div className="services-three__img-box">
                                                        <div className="services-three__img">
-                                                            <img src="images/services/services-3-2.jpg" alt=""></img>
+                                                            <img src={`${window.image_path}/images/service/${item.image}`} alt=""></img>
                                                        </div>
                                                        <div className="services-three__icon">
                                                             <img src={`${window.image_path}/images/service/${item.icon}`} alt=""></img>

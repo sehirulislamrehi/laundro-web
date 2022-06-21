@@ -109,7 +109,9 @@ const ServiceDetailsComponent = () => {
                                    <div className="col-xl-8 col-lg-7">
                                         <div className="service-details__right">
                                              <div className="service-details__img">
-                                                  <img src="/images/services-details-img-1.jpg" alt=""></img>
+                                                  {
+                                                       service ? <img src={`${window.image_path}/images/service/${service.image}`} alt=""></img> : <img src="/images/services-details-img-1.jpg" alt=""></img>
+                                                  }
                                              </div>
                                              <div className="service-details__content">
                                                   <h3 className="service-details__content-title">{service && service.name}</h3>
@@ -148,7 +150,9 @@ const ServiceDetailsComponent = () => {
                                                   <div className="row">
                                                        <div className="col-xl-6">
                                                             <div className="service-details__benefits-img">
-                                                            <img src="/images/service-details-benefits-img.jpg" alt=""></img>
+                                                                 {
+                                                                      service ? <img src={`${window.image_path}/images/service/${service.image}`} alt=""></img> : <img src="/images/services-details-img-1.jpg" alt=""></img>
+                                                                 }
                                                             </div>
                                                        </div>
                                                        <div className="col-xl-6">

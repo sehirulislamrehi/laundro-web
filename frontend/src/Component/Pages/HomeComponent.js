@@ -365,7 +365,7 @@ const HomeComponent = () => {
                                              <div className="feature-one__single">
                                                   <div className="feature-one-single-bg"
                                                   style={{
-                                                       backgroundImage : `url(images/services/feature-one-single-bg.jpg)`
+                                                       backgroundImage : `url(${window.image_path}/images/service/${item.image})`
                                                   }}>
                                                   </div>
                                                   <div className="feature-one__icon">

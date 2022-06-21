@@ -1728,8 +1728,14 @@
         margin: 0 auto;
         margin-top: 15px;
     }
-
-
+    .banner-carousel .owl-nav .owl-prev{
+        right: 15px;
+        left: unset;
+    }
+    .banner-carousel .owl-nav .owl-next{
+        right: 15px;
+        left: unset;
+    }
 
 
 
