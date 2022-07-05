@@ -33,7 +33,7 @@ const Header = () => {
                                         <div className="col-md-2">
                                              <div className="desktop-logo">
                                                   <Link to="/">
-                                                       <img src="/images/loader.png" className="img-fluid" alt=""></img>
+                                                       <img src="/images/logo-t.png" className="img-fluid" alt=""></img>
                                                   </Link>
                                              </div>
                                         </div>
@@ -46,7 +46,7 @@ const Header = () => {
                                                                  <i className="fas fa-envelope"></i>
                                                             </div>
                                                             <div className="text">
-                                                                 <h5><a href="mailto:laundro@company.com">laundro@company.com</a></h5>
+                                                                 <h5><a href="mailto:info@laundro.com">info@laundro.com</a></h5>
                                                                  <p>Send mail</p>
                                                             </div>
                                                        </li>

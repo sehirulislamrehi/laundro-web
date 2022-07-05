@@ -23,7 +23,7 @@ const Footer = () => {
                               <div className="information__border-1"></div>
                               <div className="information__border-2"></div>
                               <a href="index.html">
-                                   <img src="images//information-logo.png" alt=""></img>
+                                   <img src="images/information-logo.png" alt=""></img>
                               </a>
                               </div>
                               <ul className="list-unstyled information__list">
@@ -45,7 +45,7 @@ const Footer = () => {
                                    <div className="information__content">
                                         <p className="information__sub-title">Send email</p>
                                         <h5 className="information__number">
-                                             <a href="mailto:laundro@company.com">laundro@company.com</a>
+                                             <a href="mailto:info@laundro.com">info@laundro.com</a>
                                         </h5>
                                    </div>
                               </li>
@@ -96,11 +96,11 @@ const Footer = () => {
                                         <div className="footer-widget__column footer-widget__links clearfix">
                                              <h3 className="footer-widget__title">Links</h3>
                                              <ul className="footer-widget__links-list list-unstyled clearfix">
-                                                  <li><a href="about.html">About</a></li>
-                                                  <li><a href="team.html">Meet Our Team</a></li>
-                                                  <li><a href="about.html">What We Do</a></li>
-                                                  <li><a href="contact-page-1.html">Our Pricing</a></li>
-                                                  <li><a href="contact-page-2.html">Contact</a></li>
+                                                  <li><Link to="/">Home</Link></li>
+                                                  <li><Link to="/about">About</Link></li>
+                                                  <li><Link to="/services">Services</Link></li>
+                                                  <li><Link to="/contact">Contact</Link></li>
+                                                  <li><Link to="/booking-1">Book Now</Link></li>
                                              </ul>
                                         </div>
                                    </div>
@@ -108,11 +108,10 @@ const Footer = () => {
                                         <div className="footer-widget__column footer-widget__links clearfix">
                                              <h3 className="footer-widget__title">Links</h3>
                                              <ul className="footer-widget__links-list list-unstyled clearfix">
-                                                  <li><a href="about.html">About</a></li>
-                                                  <li><a href="team.html">Meet Our Team</a></li>
-                                                  <li><a href="about.html">What We Do</a></li>
-                                                  <li><a href="contact-page-1.html">Our Pricing</a></li>
-                                                  <li><a href="contact-page-2.html">Contact</a></li>
+                                                  <li><Link to="/faq">FAQ</Link></li>
+                                                  <li><Link to={`/pages/privacy-policy`}>Privacy Policy</Link></li>
+                                                  <li><Link to={`/pages/return-and-refund`}>Return and Refund Policy</Link></li>
+                                                  <li><Link to={`/pages/terms-and-condition`}>Terms & Condition</Link></li>
                                              </ul>
                                         </div>
                                    </div>
@@ -138,7 +137,8 @@ const Footer = () => {
                               <div className="row">
                                    <div className="col-xl-12">
                                         <div className="site-footer__bottom-inner">
-                                             <p className="site-footer__bottom-text">© Copyright 2022 by <a href="#">laundro.com</a>
+                                             <p className="site-footer__bottom-text">
+                                                  © Copyright 2022 by <a href="#">laundro.com</a>
                                              </p>
                                         </div>
                                    </div>

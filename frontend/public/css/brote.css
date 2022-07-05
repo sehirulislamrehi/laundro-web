@@ -12035,14 +12035,14 @@ body.boxed-wrapper .contact-one__call {
 }
 .form-group{
   position: relative;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 .form-group .form_error{
   position: absolute;
   left: 0;
   top: 90%;
-  font-size: 10px;
-  color: red;
+  font-size: 14px;
+  color: #DB4A37;
   font-weight: bold;
 }
 /********************* Book Service Section ***********************/

@@ -18,6 +18,8 @@ import StepThreeComponent from "./Component/Pages/Booking/StepThreeComponent";
 import StepFourComponent from "./Component/Pages/Booking/StepFourComponent";
 import OrderDetailsComponent from "./Component/Pages/Profile/OrderDetailsComponent";
 import NotFoundComponent from "./Component/Pages/NotFoundComponent";
+import FaqComponent from "./Component/Pages/FaqComponent";
+import CustomPage from "./Component/Pages/CustomPage";
 
 function App() {
   return (
@@ -109,12 +111,24 @@ function App() {
             <Route path="/booking-4">
               <StepFourComponent></StepFourComponent>
             </Route>
-            
 
+            {/* FAQ */}
+            <Route path="/faq">
+              <FaqComponent></FaqComponent>
+            </Route>
+
+            {/* pages */}
+            <Route path="/pages/:slug">
+              <CustomPage></CustomPage>
+            </Route>
+            
+            {/* 404 */}
             <Route path="/404">
               <NotFoundComponent></NotFoundComponent>
             </Route>
             <Redirect to="/404"/>
+
+            
 
       </Switch>
     </Router>

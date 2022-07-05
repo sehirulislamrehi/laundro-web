@@ -301,7 +301,7 @@ const HomeComponent = () => {
                               <div className="row book-service-row">
 
                                    {/* section title */}
-                                   <div className="col-md-12 section-title">
+                                   <div className="col-md-12 section-title mb-3">
                                         <h4>Fill All Information Details to Consult With Us To Get Sevices From Us</h4>
                                    </div>
 
