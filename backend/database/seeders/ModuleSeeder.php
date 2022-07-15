@@ -26,7 +26,7 @@ class ModuleSeeder extends Seeder
             ],
             [
                 'id' => 2,
-                'name' => 'Setting Module',
+                'name' => 'Settings',
                 'key' => 'settings',
                 'icon' => 'fas fa-cog',
                 'position' => 10,

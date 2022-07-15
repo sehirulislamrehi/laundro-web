@@ -48,6 +48,14 @@ class SubModuleSeeder extends Seeder
                 'route' => 'app.info.all',
                 'module_id' => 2,
             ],
+            [
+                'id' => 12,
+                'name' => 'Banners',
+                'key' => 'banners',
+                'position' => 2,
+                'route' => 'banner.all',
+                'module_id' => 2,
+            ],
             //module id 2 end
 
 
@@ -128,6 +136,6 @@ class SubModuleSeeder extends Seeder
         
         ]);
 
-        //last id 11
+        //last id 12
     }
 }
