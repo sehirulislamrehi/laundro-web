@@ -78,3 +78,10 @@ Route::get("banner-data",[ApiController::class,"banner_data"]);
 
 //faq data
 Route::get("faq-data",[ApiController::class,"faq_data"]);
+
+//custom page
+Route::get("custom-page",[ApiController::class,"custom_page"]);
+Route::get("custom-page-details/{slug}",[ApiController::class,"custom_page_details"]);
+
+//application information
+Route::get("application-data",[ApiController::class,"application_data"]);

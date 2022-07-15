@@ -34,6 +34,9 @@
                                             Logo & Fav
                                         </a>
 
+                                        <a class="nav-link" id="vert-tabs-home-tab" data-toggle="pill" href="#tab-two" role="tab" aria-controls="vert-tabs-home" aria-selected="true">
+                                            Company Information
+                                        </a>
 
                                     </div>
                                 </div>
@@ -109,6 +112,86 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!-- ITEM END -->
+
+                                        <!-- ITEM START -->
+                                        <div class="tab-pane text-left fade" id="tab-two" role="tabpanel" aria-labelledby="vert-tabs-home-tab">
+                                            <div class="row">
+
+                                                <!-- mail from address -->
+                                                <div class="col-md-4 form-group">
+                                                    <label>Mail from address</label>
+                                                    <input type="email" class="form-control" name="mail_from_address" value="{{ $app_info->mail_from_address }}">
+                                                </div>
+
+                                                <!-- Email -->
+                                                <div class="col-md-4 form-group">
+                                                    <label>Email</label>
+                                                    <input type="email" class="form-control" name="email" value="{{ $app_info->email }}">
+                                                </div>
+
+                                                <!-- Phone -->
+                                                <div class="col-md-4 form-group">
+                                                    <label>Phone</label>
+                                                    <input type="text" class="form-control" name="phone" value="{{ $app_info->phone }}">
+                                                </div>
+
+                                                <!-- Address -->
+                                                <div class="col-md-4 form-group">
+                                                    <label>Address</label>
+                                                    <input type="text" class="form-control" name="address" value="{{ $app_info->address }}">
+                                                </div>
+
+                                                <!-- City -->
+                                                <div class="col-md-4 form-group">
+                                                    <label>City</label>
+                                                    <input type="text" class="form-control" name="city" value="{{ $app_info->city }}">
+                                                </div>
+
+                                                <!-- country -->
+                                                <div class="col-md-4 form-group">
+                                                    <label>Country</label>
+                                                    <input type="text" class="form-control" name="country" value="{{ $app_info->country }}">
+                                                </div>
+
+                                                <!-- day -->
+                                                <div class="col-md-4 form-group">
+                                                    <label>Day</label>
+                                                    <input type="text" class="form-control" name="day" value="{{ $app_info->day }}">
+                                                </div>
+
+                                                <!-- timing -->
+                                                <div class="col-md-4 form-group">
+                                                    <label>Timing</label>
+                                                    <input type="text" class="form-control" name="timing" value="{{ $app_info->timing }}">
+                                                </div>
+
+                                                <!-- facebook_link -->
+                                                <div class="col-md-4 form-group">
+                                                    <label>Facebook link</label>
+                                                    <input type="text" class="form-control" name="facebook_link" value="{{ $app_info->facebook_link }}">
+                                                </div>
+
+                                                <!-- youtube_link -->
+                                                <div class="col-md-4 form-group">
+                                                    <label>Youtube link</label>
+                                                    <input type="text" class="form-control" name="youtube_link" value="{{ $app_info->youtube_link }}">
+                                                </div>
+
+                                                <!-- twitter_link -->
+                                                <div class="col-md-4 form-group">
+                                                    <label>Twitter link</label>
+                                                    <input type="text" class="form-control" name="twitter_link" value="{{ $app_info->twitter_link }}">
+                                                </div>
+
+                                                <!-- linkedin_link -->
+                                                <div class="col-md-4 form-group">
+                                                    <label>Linkedin link</label>
+                                                    <input type="text" class="form-control" name="linkedin_link" value="{{ $app_info->linkedin_link }}">
                                                 </div>
 
                                             </div>

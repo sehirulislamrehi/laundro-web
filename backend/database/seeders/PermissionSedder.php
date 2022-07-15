@@ -312,6 +312,30 @@ class PermissionSedder extends Seeder
                 'display_name' => '-- Delete Faq',
                 'module_id' => 2,
             ],
+            [
+                'id' => 51,
+                'key' => 'custom_page',
+                'display_name' => 'Custom Page',
+                'module_id' => 2,
+            ],
+            [
+                'id' => 52,
+                'key' => 'add_custom_page',
+                'display_name' => '-- Add Custom Page',
+                'module_id' => 2,
+            ],
+            [
+                'id' => 53,
+                'key' => 'edit_custom_page',
+                'display_name' => '-- Edit Custom Page',
+                'module_id' => 2,
+            ],
+            [
+                'id' => 54,
+                'key' => 'delete_custom_page',
+                'display_name' => '-- Delete Custom Page',
+                'module_id' => 2,
+            ],
         ]);
     }
 }

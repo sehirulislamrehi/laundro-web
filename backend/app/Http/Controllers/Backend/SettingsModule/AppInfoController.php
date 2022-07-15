@@ -53,6 +53,18 @@ class AppInfoController extends Controller
                     $app_info->fav = $img;
                 }
                 
+                $app_info->mail_from_address = $request->mail_from_address;
+                $app_info->email = $request->email;
+                $app_info->phone = $request->phone;
+                $app_info->address = $request->address;
+                $app_info->city = $request->city;
+                $app_info->country = $request->country;
+                $app_info->day = $request->day;
+                $app_info->timing = $request->timing;
+                $app_info->facebook_link = $request->facebook_link;
+                $app_info->youtube_link = $request->youtube_link;
+                $app_info->twitter_link = $request->twitter_link;
+                $app_info->linkedin_link = $request->linkedin_link;
 
                 if( $app_info->save() ){
                     return response()->json(['success' => 'App Info Updated'], 200);

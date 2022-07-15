@@ -64,6 +64,14 @@ class SubModuleSeeder extends Seeder
                 'route' => 'faq.all',
                 'module_id' => 2,
             ],
+            [
+                'id' => 14,
+                'name' => 'Custom Pages',
+                'key' => 'custom_page',
+                'position' => 4,
+                'route' => 'custom_page.all',
+                'module_id' => 2,
+            ],
             //module id 2 end
 
 
@@ -144,6 +152,6 @@ class SubModuleSeeder extends Seeder
         
         ]);
 
-        //last id 13
+        //last id 14
     }
 }
