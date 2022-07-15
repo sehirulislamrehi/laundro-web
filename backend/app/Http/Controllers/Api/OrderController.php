@@ -124,7 +124,6 @@ class OrderController extends Controller
                 
                 $location = Location::where("id", $step_one_data->address_id)->first();
 
-
                 $order = new Order();
 
                 $order->order_no = "L-" . rand(00000000,99999999);
@@ -137,10 +136,15 @@ class OrderController extends Controller
                 $order->address_details = $step_one_data->address_in_details;
                 $order->address_type = $step_one_data->address_type;
                 $order->timing = json_encode($step_two_data);
+                $order->order_date = Carbon::parse($step_two_data->day_for_collection)->toDateString();
+                $order->delivery_date = Carbon::parse($step_two_data->day_for_delivery)->toDateString();
                 $order->total = 0;
                 $order->order_status = "Pending";
                 $order->payment_status = "Pending";
                 $order->payment_method = "Cash";
+
+                $order->month = Carbon::now()->month;
+                $order->year = Carbon::now()->year;
 
                 
                 if( $order->save() ){

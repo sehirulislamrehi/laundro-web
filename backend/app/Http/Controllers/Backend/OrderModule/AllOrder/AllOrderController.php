@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Backend\OrderModule\AllOrder;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\OrderModule\OrderResource;
 use App\Models\OrderModule\Order;
 use App\Models\OrderModule\OrderServices;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Excel;
+use App\Exports\AllOrderData;
+use Carbon\Carbon;
 
 class AllOrderController extends Controller
 {
@@ -18,10 +20,22 @@ class AllOrderController extends Controller
             if( can("all_order") ){
 
                 $search = $request->search;
-                $query = Order::orderBy("id","desc")->select("id","order_no","timing","order_status","payment_status","total");
+
+                if( $request->button == "search" ){
+                    $query = Order::orderBy("id","desc")->select("id","order_no","timing","order_status","payment_status","total","order_date","delivery_date");
+                }
+                elseif( $request->button == "download" ){
+                    $query = Order::orderBy("id","desc");
+                }
+                else{
+                    $query = Order::orderBy("id","desc")->select("id","order_no","timing","order_status","payment_status","total","order_date","delivery_date");
+                }
+
                 $order_status = '';
                 $payment_status = '';
                 $payment_method = '';
+                $date = '';
+                $type = '';
 
                 if( $search ){
                     $query->where("order_no","LIKE","%$search%");
@@ -48,9 +62,39 @@ class AllOrderController extends Controller
                     }
                 }
 
-                $orders = $query->paginate(10);
+                if( $request->date ){
+                    $date = $request->date;
+                    $type = $request->type;
 
-                return view("backend.modules.order_module.all_order.index", compact("orders",'search','order_status','payment_status','payment_method'));
+                    if( !$request->type || $request->type == "All" ){
+                        $query->whereDate("order_date",$date)->whereDate("delivery_date",$date);
+                    }
+                    if( $request->type == "Delivery" ){
+                        $query->whereDate("delivery_date",$date);
+                    }
+                    if( $request->type == "Collection" ){
+                        $query->whereDate("order_date",$date);
+                    }
+                }
+                
+                if( $request->button == "search" ){
+
+                    $orders = $query->paginate(10);
+
+                    return view("backend.modules.order_module.all_order.index", compact("orders",'search','order_status','payment_status','payment_method','date','type'));
+                }
+                elseif( $request->button == "download" ){
+                    $orders = $query->get();
+                    $export = new AllOrderData();
+            
+                    return Excel::download($export->getDownloadByQuery($orders), 'orders.csv');
+                }
+                else{
+                    $orders = $query->paginate(10);
+                    return view("backend.modules.order_module.all_order.index", compact("orders",'search','order_status','payment_status','payment_method','date','type'));
+                }
+
+                
             }   
             else{
                 return view("errors.403");

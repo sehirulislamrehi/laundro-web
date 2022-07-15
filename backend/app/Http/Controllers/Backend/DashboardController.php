@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\LocationModule\Zipcode;
 use App\Models\LocationModule\Location;
+use App\Models\OrderModule\Order;
+use Carbon\Carbon;
+use Exception;
 
 class DashboardController extends Controller
 {
@@ -12,17 +15,58 @@ class DashboardController extends Controller
     {
         if( auth('super_admin')->check() || auth('web')->check() ){
 
-            $zipcode = Zipcode::select("id")->count();
-            $location = Location::select("type")->get();
+            $orders = Order::select("order_status","total","order_date","delivery_date")->get();
 
             return view('backend.dashboard', compact(
-                'zipcode', 'location'
+                'orders'
             ));
         }
         else{
             return view("errors.404");
         }
     }
+
+
+    //order_progress function start
+    public function order_progress(){
+        try{
+            $month = Carbon::now()->month;
+            $this_month = Carbon::now()->month - 1;
+            $year = Carbon::now()->year;
+            $data = [];
+
+            for( $i = 0 ; $i < 6 ; $i++ ){
+
+                $orders = Order::select("order_status","total")->where("year",$year)->where("month",$month)->get();
+
+                array_push($data,
+                    [
+                        "total_order" => $orders->count(),
+                        "total_income" => $orders->where("order_status","Delivered")->sum("total"),
+                        "possible_income" => $orders->where("order_status","!=","Pending")->where("order_status","!=","Cancelled")->sum("total"),
+                        "time" => Carbon::create()->day(1)->month($month)->format('M') .' '. $year,
+                    ]
+                );
+                
+                $month--;
+
+                if( $i == $this_month && $month < 6 ){
+                    $year = $year - 1;
+                }
+                
+                if( $month == 0 ){
+                    $month = 12;
+                }
+            }
+
+            return response()->json(['data' => $data], 200);
+
+        }
+        catch( Exception $e ){
+            return response()->json(['error' => $e->getMessage()], 200);
+        }
+    }
+    //order_progress function end
 
 
     //zipcode_area function start
@@ -45,43 +89,6 @@ class DashboardController extends Controller
     //zipcode_area function end
 
 
-    //city_zone function start
-    public function city_zone(){
-        $data = [];
-        $cities = Location::select("id","name")->where("type",null)->get();
 
-        foreach( $cities as $city ){
-            $zone = Location::where("location_id",$city->id)->select("id")->count();
-            array_push($data,
-                [
-                    "city" => $city->name,
-                    "zone" => $zone ,
-                ]
-            );
-        }
-
-        return response()->json(['data' => $data], 200);
-    } 
-    //city_zone function end
-
-
-    //zone_area function start
-    public function zone_area(){
-        $data = [];
-        $zones = Location::select("id","name")->where("type","zone")->get();
-
-        foreach( $zones as $zone ){
-            $area = Location::where("location_id",$zone->id)->select("id")->count();
-            array_push($data,
-                [
-                    "zone" => $zone->name,
-                    "area" => $area ,
-                ]
-            );
-        }
-
-        return response()->json(['data' => $data], 200);
-    } 
-    //zone_area function end
 
 }

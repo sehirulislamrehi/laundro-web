@@ -57,9 +57,26 @@
                                                             <option value="Cash" @if( $payment_method == "Cash" ) selected @endif>Cash</option>
                                                        </select>
                                                   </div>
-                                                  <div class="form-group col-md-1 col-2">
-                                                       <button type="submit" class="btn btn-success">
+                                                  <div class="form-group col-md-2 col-10">
+                                                       <input type="date" name="date" class="form-control" value="{{ $date }}">
+                                                  </div>
+                                                  <div class="form-group col-md-2 col-10">
+                                                       <select name="type" class="form-control">
+                                                            <option selected disabled>Type</option>
+                                                            <option value="All" @if( $type == "All" ) selected @endif>All</option>
+                                                            <option value="Delivery" @if( $type == "Delivery" ) selected @endif>Delivery</option>
+                                                            <option value="Collection" @if( $type == "Collection" ) selected @endif>Collection</option>
+                                                       </select>
+                                                  </div>
+                                                  <div class="form-group col-md-12 col-2 text-right">
+                                                       <a href="{{ route('order.all') }}" class="btn btn-danger">
+                                                            <i class="fas fa-redo"></i>
+                                                       </a>
+                                                       <button type="submit" class="btn btn-success" name="button" value="search" >
                                                             <i class="fas fa-search"></i>
+                                                       </button> 
+                                                       <button type="submit" class="btn btn-info" name="button" value="download">
+                                                            <i class="fas fa-download"></i>
                                                        </button>
                                                   </div>
                                              </div>

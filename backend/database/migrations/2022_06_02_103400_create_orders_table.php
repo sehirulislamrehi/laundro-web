@@ -28,11 +28,16 @@ class CreateOrdersTable extends Migration
             $table->string("address_details");
             $table->string("address_type");
             $table->text("timing");
+            $table->date("order_date");
+            $table->date("delivery_date");
 
             $table->integer("total");
             $table->enum("order_status",["Pending","Confirmed","Assigned","OnProcess","Delivered","Cancelled"]);
             $table->enum("payment_status",["Pending","Success","Cancelled"]);
             $table->enum("payment_method",["Cash","Online"]);
+
+            $table->integer("month");
+            $table->integer("year");
 
             $table->foreign("customer_id")->references("id")->on("customers")->onDelete("cascade");
 

@@ -21,8 +21,8 @@
                 <div class="rounded overflow-hidden" style="background: #127383">
                     <div class="pd-x-20 pd-t-20 d-flex align-items-center">
                         <div class="mg-l-20">
-                            <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">{{ $zipcode }}</p>
-                            <span class="tx-11 tx-roboto tx-white-8">Zipcode</span>
+                            <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">{{ $orders->count() }}</p>
+                            <span class="tx-11 tx-roboto tx-white-8">Total Order</span>
                         </div>
                     </div>
                     <div id="ch1" class="ht-50 tr-y-1"></div>
@@ -35,8 +35,8 @@
                 <div class="rounded overflow-hidden" style="background: #6c6c6c">
                     <div class="pd-x-20 pd-t-20 d-flex align-items-center">
                         <div class="mg-l-20">
-                            <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">{{ $location->where("type",null)->count() }}</p>
-                            <span class="tx-11 tx-roboto tx-white-8">City</span>
+                            <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">{{ $orders->where("order_date",\Carbon\Carbon::now()->toDateString())->count() }}</p>
+                            <span class="tx-11 tx-roboto tx-white-8">Todays Order Collection</span>
                         </div>
                     </div>
                     <div id="ch2" class="ht-50 tr-y-1"></div>
@@ -49,8 +49,8 @@
                 <div class="rounded overflow-hidden" style="background: #703146">
                     <div class="pd-x-20 pd-t-20 d-flex align-items-center">
                         <div class="mg-l-20">
-                            <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">{{ $location->where("type","zone")->count() }}</p>
-                            <span class="tx-11 tx-roboto tx-white-8">Zone</span>
+                            <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">{{ $orders->where("order_delivery",\Carbon\Carbon::now()->toDateString())->count() }}</p>
+                            <span class="tx-11 tx-roboto tx-white-8">Todays Order Delivery</span>
                         </div>
                     </div>
                     <div id="ch3" class="ht-50 tr-y-1"></div>
@@ -63,8 +63,8 @@
                 <div class="rounded overflow-hidden" style="background: #4f52a7">
                     <div class="pd-x-20 pd-t-20 d-flex align-items-center">
                         <div class="mg-l-20">
-                            <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">{{ $location->where("type","area")->count() }}</p>
-                            <span class="tx-11 tx-roboto tx-white-8">Area</span>
+                            <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">{{ $orders->where("order_status","Delivered")->sum("total") }}</p>
+                            <span class="tx-11 tx-roboto tx-white-8">Total Earning</span>
                         </div>
                     </div>
                     <div id="ch4" class="ht-50 tr-y-1"></div>
@@ -76,23 +76,13 @@
 
         <div class="row row-sm charts mt-5">
 
-            <div class="col-md-6 pr-2 mb-2">
-                <div class="card">
-                    <div class="card-header">
-                    Zones in Cities
-                    </div>
-                    <div class="card-body" id="city-zone">
-                        
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-6 pr-2 mb-2">
+            <div class="col-md-12 pr-2 mb-5">
                 <div class="card">
                     <div class="card-header">
-                        Areas in Zone
+                        Last 6 month order progress
                     </div>
-                    <div class="card-body" id="zone-area">
+                    <div class="card-body" id="order-progress">
                         
                     </div>
                 </div>
@@ -117,6 +107,115 @@
 @section("per_page_js")
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
+
+    $.ajax({
+        url: "{{ route('order.progress') }}",
+        method: 'GET',
+        data: {},
+        success: function(data) {
+            var total_order = Array();
+            var total_income = Array();
+            var possible_income = Array();
+            var time = Array();
+
+            $.each(data.data, (key, value) => {
+                total_income.push(value.total_income)
+                possible_income.push(value.possible_income)
+                total_order.push(value.total_order)
+                time.push(value.time)
+            })
+
+            var options = {
+                series: [
+                    {
+                        name: 'Total Income',
+                        data: total_income,
+                    },
+                    {
+                        name: 'Possible Income',
+                        data: possible_income,
+                    },
+                    {
+                        name: 'Total Order',
+                        data: total_order,
+                    },
+                ],
+                chart: {
+                    height: 350,
+                    type: 'bar',
+                },
+                plotOptions: {
+                    bar: {
+                        dataLabels: {
+                            position: 'top', // top, center, bottom
+                        },
+                    }
+                },
+                dataLabels: {
+                    enabled: true,
+                    formatter: function(val) {
+                        return val + "";
+                    },
+                    offsetY: -20,
+                    style: {
+                        fontSize: '11px',
+                        colors: ["#0951a0"]
+                    }
+                },
+                xaxis: {
+                    categories: time,
+                    position: 'top',
+                    axisBorder: {
+                        show: false
+                    },
+                    axisTicks: {
+                        show: false
+                    },
+                    crosshairs: {
+                        fill: {
+                            type: 'gradient',
+                            gradient: {
+                                colorFrom: '#0951a0',
+                                colorTo: '#0951a0',
+                                stops: [0, 100],
+                                opacityFrom: 0.4,
+                                opacityTo: 0.5,
+                            }
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                    }
+                },
+                yaxis: {
+                    axisBorder: {
+                        show: false
+                    },
+                    axisTicks: {
+                        show: false,
+                    },
+                    labels: {
+                        show: false,
+                        formatter: function(val) {
+                            return val + "";
+                        }
+                    }
+                },
+                title: {
+                    text: '',
+                    floating: true,
+                    offsetY: 330,
+                    align: 'center',
+                    style: {
+                        color: '#444'
+                    }
+                }
+            };
+            var chart = new ApexCharts(document.querySelector("#order-progress"), options);
+            chart.render();
+        }
+    })
+
     $.ajax({
         url: "{{ route('zipcode.area') }}",
         method: 'GET',
@@ -148,199 +247,6 @@
             };
 
             var chart = new ApexCharts(document.querySelector("#zipcode-area"), options);
-            chart.render();
-        }
-    })
-
-
-    $.ajax({
-        url: "{{ route('city.zone') }}",
-        method: 'GET',
-        data: {},
-        success: function(data) {
-            var city = Array();
-            var zone = Array();
-            $.each(data.data, (key, value) => {
-                city.push(value.city)
-                zone.push(value.zone)
-            })
-
-            var options = {
-                fill: {
-                    colors: ['#ff8989']
-                },
-                series: [{
-                    name: 'Zone',
-                    data: zone,
-                }, ],
-                chart: {
-                    height: 350,
-                    type: 'bar',
-                },
-                plotOptions: {
-                    bar: {
-                        dataLabels: {
-                            position: 'top', // top, center, bottom
-                        },
-                    }
-                },
-                dataLabels: {
-                    enabled: true,
-                    formatter: function(val) {
-                        return val + "";
-                    },
-                    offsetY: -20,
-                    style: {
-                        fontSize: '11px',
-                        colors: ["#0951a0"]
-                    }
-                },
-                xaxis: {
-                    categories: city,
-                    position: 'top',
-                    axisBorder: {
-                        show: false
-                    },
-                    axisTicks: {
-                        show: false
-                    },
-                    crosshairs: {
-                        fill: {
-                            type: 'gradient',
-                            gradient: {
-                                colorFrom: '#0951a0',
-                                colorTo: '#0951a0',
-                                stops: [0, 100],
-                                opacityFrom: 0.4,
-                                opacityTo: 0.5,
-                            }
-                        }
-                    },
-                    tooltip: {
-                        enabled: true,
-                    }
-                },
-                yaxis: {
-                    axisBorder: {
-                        show: false
-                    },
-                    axisTicks: {
-                        show: false,
-                    },
-                    labels: {
-                        show: false,
-                        formatter: function(val) {
-                            return val + "";
-                        }
-                    }
-                },
-                title: {
-                    text: '',
-                    floating: true,
-                    offsetY: 330,
-                    align: 'center',
-                    style: {
-                        color: '#444'
-                    }
-                }
-            };
-            var chart = new ApexCharts(document.querySelector("#city-zone"), options);
-            chart.render();
-        }
-    })
-
-    $.ajax({
-        url: "{{ route('zone.area') }}",
-        method: 'GET',
-        data: {},
-        success: function(data) {
-            var zone = Array();
-            var area = Array();
-            $.each(data.data, (key, value) => {
-                zone.push(value.zone)
-                area.push(value.area)
-            })
-
-            var options = {
-                fill: {
-                    colors: ['#b6ff9e']
-                },
-                series: [{
-                    name: 'Area',
-                    data: area,
-                }, ],
-                chart: {
-                    height: 350,
-                    type: 'bar',
-                },
-                plotOptions: {
-                    bar: {
-                        dataLabels: {
-                            position: 'top', // top, center, bottom
-                        },
-                    }
-                },
-                dataLabels: {
-                    enabled: true,
-                    formatter: function(val) {
-                        return val + "";
-                    },
-                    offsetY: -20,
-                    style: {
-                        fontSize: '11px',
-                        colors: ["#0951a0"]
-                    }
-                },
-                xaxis: {
-                    categories: zone,
-                    position: 'top',
-                    axisBorder: {
-                        show: false
-                    },
-                    axisTicks: {
-                        show: false
-                    },
-                    crosshairs: {
-                        fill: {
-                            type: 'gradient',
-                            gradient: {
-                                colorFrom: '#0951a0',
-                                colorTo: '#0951a0',
-                                stops: [0, 100],
-                                opacityFrom: 0.4,
-                                opacityTo: 0.5,
-                            }
-                        }
-                    },
-                    tooltip: {
-                        enabled: true,
-                    }
-                },
-                yaxis: {
-                    axisBorder: {
-                        show: false
-                    },
-                    axisTicks: {
-                        show: false,
-                    },
-                    labels: {
-                        show: false,
-                        formatter: function(val) {
-                            return val + "";
-                        }
-                    }
-                },
-                title: {
-                    text: '',
-                    floating: true,
-                    offsetY: 330,
-                    align: 'center',
-                    style: {
-                        color: '#444'
-                    }
-                }
-            };
-            var chart = new ApexCharts(document.querySelector("#zone-area"), options);
             chart.render();
         }
     })

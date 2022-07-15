@@ -12,7 +12,9 @@
         "intervention/image": "^2.5",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
+        "maatwebsite/excel": "^3.1",
         "nwidart/laravel-modules": "^8.2",
+        "psr/simple-cache": "1.0",
         "tymon/jwt-auth": "^1.0",
         "yajra/laravel-datatables": "1.5",
         "yajra/laravel-datatables-oracle": "~9.0"
