@@ -13,6 +13,15 @@ Route::group(['prefix' => 'banners'], function(){
 
      //add route
      Route::get("add-modal",[BannerController::class,"add_modal"])->name("banner.add.modal");
+     Route::post("add",[BannerController::class,"add"])->name("banner.add");
+
+     //edit route
+     Route::get("edit-modal/{id}",[BannerController::class,"edit_modal"])->name("banner.edit.modal");
+     Route::post("edit/{id}",[BannerController::class,"edit"])->name("banner.edit");
+
+     //delete route
+     Route::get("delete-modal/{id}",[BannerController::class,"delete_modal"])->name("banner.delete.modal");
+     Route::post("delete/{id}",[BannerController::class,"delete"])->name("banner.delete");
 
 });
 

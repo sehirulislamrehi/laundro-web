@@ -11,7 +11,7 @@
      <div class="br-pageheader">
           <nav class="breadcrumb pd-0 mg-0 tx-12">
                <a class="breadcrumb-item" href="{{ route('dashboard') }}">Dashboard</a>
-               <a class="breadcrumb-item active" href="#">All Banner</a>
+               <a class="breadcrumb-item active" href="#">All FAQ</a>
           </nav>
      </div>
 
@@ -20,8 +20,8 @@
                <div class="col-md-12">
                     <div class="card card-primary card-outline table-responsive">
                          <div class="card-header text-right">
-                              @if( can('add_banners') )
-                              <button type="button" data-content="{{ route('banner.add.modal') }}" data-target="#myModal" class="btn btn-outline-dark" data-toggle="modal">
+                              @if( can('add_faq') )
+                              <button type="button" data-content="{{ route('faq.add.modal') }}" data-target="#myModal" class="btn btn-outline-dark" data-toggle="modal">
                                    Add
                               </button>
                               @endif
@@ -33,8 +33,9 @@
                                         <tr>
                                              <th>SI.</th>
                                              <th>Position</th>
-                                             <th>Image</th>
-                                             <th>Title</th>
+                                             <th>Question</th>
+                                             <th>Answer</th>
+                                             <th>Status</th>
                                              <th>Action</th>
                                         </tr>
                                    </thead>
@@ -63,7 +64,7 @@
           $('.yajra-datatable').DataTable({
                processing: true,
                serverSide: true,
-               ajax: "{{ route('banner.data') }}",
+               ajax: "{{ route('faq.data') }}",
                order: [
                     [0, 'Desc']
                ],
@@ -78,12 +79,16 @@
                          name: 'position'
                     },
                     {
-                         data: 'image',
-                         name: 'image'
+                         data: 'question',
+                         name: 'question'
                     },
                     {
-                         data: 'title',
-                         name: 'title'
+                         data: 'answer',
+                         name: 'answer'
+                    },
+                    {
+                         data: 'status',
+                         name: 'status'
                     },
                     {
                          data: 'action',

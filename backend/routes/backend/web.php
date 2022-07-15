@@ -75,6 +75,7 @@ Route::group(['prefix' => 'admindashboard', 'middleware' => 'auth'], function ()
     Route::group(['prefix' => 'settings-module'], function () {
         require_once 'settings_module/app_info.php';
         require_once 'settings_module/banner.php';
+        require_once 'settings_module/faq.php';
     });
     //settings module routes end
 

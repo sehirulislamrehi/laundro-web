@@ -56,6 +56,14 @@ class SubModuleSeeder extends Seeder
                 'route' => 'banner.all',
                 'module_id' => 2,
             ],
+            [
+                'id' => 13,
+                'name' => 'FAQ',
+                'key' => 'faq',
+                'position' => 3,
+                'route' => 'faq.all',
+                'module_id' => 2,
+            ],
             //module id 2 end
 
 
@@ -136,6 +144,6 @@ class SubModuleSeeder extends Seeder
         
         ]);
 
-        //last id 12
+        //last id 13
     }
 }

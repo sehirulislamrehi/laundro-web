@@ -288,6 +288,30 @@ class PermissionSedder extends Seeder
                 'display_name' => '-- Delete Banners',
                 'module_id' => 2,
             ],
+            [
+                'id' => 47,
+                'key' => 'faq',
+                'display_name' => 'FAQ',
+                'module_id' => 2,
+            ],
+            [
+                'id' => 48,
+                'key' => 'add_faq',
+                'display_name' => '-- Add Faq',
+                'module_id' => 2,
+            ],
+            [
+                'id' => 49,
+                'key' => 'edit_faq',
+                'display_name' => '-- Edit Faq',
+                'module_id' => 2,
+            ],
+            [
+                'id' => 50,
+                'key' => 'delete_faq',
+                'display_name' => '-- Delete Faq',
+                'module_id' => 2,
+            ],
         ]);
     }
 }

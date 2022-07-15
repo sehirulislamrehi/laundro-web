@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ApiController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\LocationController;
 use App\Http\Controllers\Api\OrderController;
@@ -71,3 +72,9 @@ Route::post("order-details/{order_no}",[OrderController::class,"order_details"])
 
 //order dashboard data
 Route::get("order-data/{token}",[OrderController::class,"order_data"]);
+
+//banner data
+Route::get("banner-data",[ApiController::class,"banner_data"]);
+
+//faq data
+Route::get("faq-data",[ApiController::class,"faq_data"]);
