@@ -8,7 +8,7 @@ import Footer from "../Include/Footer";
 import Header from "../Include/Header";
 
 
-const ContactComponent = () => {
+const ContactComponent = (props) => {
 
      {/* window scroll to top */}
      window.scrollTo(0, 0);
@@ -16,11 +16,11 @@ const ContactComponent = () => {
      return(
           <div className="id">
 
-               <MobileMenu></MobileMenu>
+               <MobileMenu data={props.applicationData}></MobileMenu>
 
                <div className="page-wrapper">
 
-                   <Header></Header>
+                   <Header data={props.applicationData}></Header>
 
                    {/*Page Header Start*/}
                     <section className="page-header">
@@ -127,7 +127,7 @@ const ContactComponent = () => {
                     </section>
                     {/*Contact Page Two End*/}
 
-                    <Footer></Footer>
+                    <Footer data={props.applicationData}></Footer>
                     
                </div>
 

@@ -20,8 +20,30 @@ import OrderDetailsComponent from "./Component/Pages/Profile/OrderDetailsCompone
 import NotFoundComponent from "./Component/Pages/NotFoundComponent";
 import FaqComponent from "./Component/Pages/FaqComponent";
 import CustomPage from "./Component/Pages/CustomPage";
+import { useEffect } from "react";
+import { useState } from "react";
 
 function App() {
+
+  const [application_data, set_application_data] = useState(null)
+
+     useEffect(() => {
+
+          //get application data
+          const get_application_data_url = `${window.url}/application-data`;
+          fetch(get_application_data_url,{
+               method : "GET"
+          })
+          .then( response => response.json() )
+          .then( response => {
+               set_application_data(response.data)
+          })
+          .catch( response => {
+               
+          })
+
+     },[])
+
   return (
 
     <Router>
@@ -29,102 +51,102 @@ function App() {
 
             {/* Home Component */}
             <Route exact path="/">
-              <HomeComponent></HomeComponent>
+              <HomeComponent applicationData={application_data}></HomeComponent>
             </Route>
 
             {/* About Component */}
             <Route path="/about">
-              <AboutComponent></AboutComponent>
+              <AboutComponent applicationData={application_data}></AboutComponent>
             </Route>
 
             {/* Services Component */}
             <Route path="/services">
-              <ServicesComponent></ServicesComponent>
+              <ServicesComponent applicationData={application_data}></ServicesComponent>
             </Route>
 
             {/* Services Details Component */}
             <Route path="/service-details/:slug">
-              <ServiceDetailsComponent></ServiceDetailsComponent>
+              <ServiceDetailsComponent applicationData={application_data}></ServiceDetailsComponent>
             </Route>
 
             {/* ContactComponent Component */}
             <Route path="/contact">
-              <ContactComponent></ContactComponent>
+              <ContactComponent applicationData={application_data}></ContactComponent>
             </Route>
 
             {/* LoginComponent Component */}
             <Route path="/login">
-              <LoginComponent></LoginComponent>
+              <LoginComponent applicationData={application_data}></LoginComponent>
             </Route>
 
             {/* RegisterComponent Component */}
             <Route path="/register">
-              <RegisterComponent></RegisterComponent>
+              <RegisterComponent applicationData={application_data}></RegisterComponent>
             </Route>
 
             {/* DashbaordComponent Component */}
             <Route path="/dashboard">
-              <DashboardComponent></DashboardComponent>
+              <DashboardComponent applicationData={application_data}></DashboardComponent>
             </Route>
 
             {/* my order Component */}
             <Route path="/my-order">
-              <MyOrderComponent></MyOrderComponent>
+              <MyOrderComponent applicationData={application_data}></MyOrderComponent>
             </Route>
 
             {/* order details Component */}
             <Route path="/order-details/:order_no">
-              <OrderDetailsComponent></OrderDetailsComponent>
+              <OrderDetailsComponent applicationData={application_data}></OrderDetailsComponent>
             </Route>
 
             {/* account Component */}
             <Route path="/account">
-              <AccountComponent></AccountComponent>
+              <AccountComponent applicationData={application_data}></AccountComponent>
             </Route>
 
             {/* edit profile  */}
             <Route path="/edit-profile">
-              <EditProfileComponent></EditProfileComponent>
+              <EditProfileComponent applicationData={application_data}></EditProfileComponent>
             </Route>
 
             {/* change password  */}
             <Route path="/change-password">
-              <ChangePasswordComponent></ChangePasswordComponent>
+              <ChangePasswordComponent applicationData={application_data}></ChangePasswordComponent>
             </Route>
 
             {/* booking step 1 */}
             <Route path="/booking-1">
-              <StepOneComponent></StepOneComponent>
+              <StepOneComponent applicationData={application_data}></StepOneComponent>
             </Route>
 
             {/* booking step 2 */}
             <Route path="/booking-2">
-              <StepTwoComponent></StepTwoComponent>
+              <StepTwoComponent applicationData={application_data}></StepTwoComponent>
             </Route>
 
             {/* booking step 3 */}
             <Route path="/booking-3">
-              <StepThreeComponent></StepThreeComponent>
+              <StepThreeComponent applicationData={application_data}></StepThreeComponent>
             </Route>
 
             {/* booking step 4 */}
             <Route path="/booking-4">
-              <StepFourComponent></StepFourComponent>
+              <StepFourComponent applicationData={application_data}></StepFourComponent>
             </Route>
 
             {/* FAQ */}
             <Route path="/faq">
-              <FaqComponent></FaqComponent>
+              <FaqComponent applicationData={application_data}></FaqComponent>
             </Route>
 
             {/* pages */}
             <Route path="/pages/:slug">
-              <CustomPage></CustomPage>
+              <CustomPage applicationData={application_data}></CustomPage>
             </Route>
             
             {/* 404 */}
             <Route path="/404">
-              <NotFoundComponent></NotFoundComponent>
+              <NotFoundComponent applicationData={application_data}></NotFoundComponent>
             </Route>
             <Redirect to="/404"/>
 

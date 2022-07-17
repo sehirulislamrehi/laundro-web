@@ -19,7 +19,7 @@ import withReactContent from 'sweetalert2-react-content'
 import { PageIndicator } from "./Includes/PageIndicator";
 const MySwal = withReactContent(Swal)
 
-const StepOneComponent = () => {
+const StepOneComponent = (props) => {
 
      {/* window scroll to top */}
      // window.scrollTo(0, 0);
@@ -268,10 +268,10 @@ const StepOneComponent = () => {
           return(
                <div className="id">
 
-                    <MobileMenu></MobileMenu>
+                    <MobileMenu data={props.applicationData}></MobileMenu>
 
                     <div className="page-wrapper">
-                         <Header></Header>
+                         <Header data={props.applicationData}></Header>
 
                          <section className="booking-section" style={{
                          padding: "10px 0 100px 0px"
@@ -336,7 +336,7 @@ const StepOneComponent = () => {
                                    </div>
                               </section>
 
-                         <Footer></Footer>
+                         <Footer data={props.applicationData}></Footer>
                     </div>
 
                </div>
@@ -346,10 +346,10 @@ const StepOneComponent = () => {
           return(
                <div className="id">
 
-                    <MobileMenu></MobileMenu>
+                    <MobileMenu data={props.applicationData}></MobileMenu>
 
                     <div className="page-wrapper">
-                         <Header></Header>
+                         <Header data={props.applicationData}></Header>
 
                          {/* please wait section start */}
                          <section className="please-wait">
@@ -357,7 +357,7 @@ const StepOneComponent = () => {
                          </section>
                          {/* please wait section end */}
 
-                         <Footer></Footer>
+                         <Footer data={props.applicationData}></Footer>
                     </div>
 
                </div> 

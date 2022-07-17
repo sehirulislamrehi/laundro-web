@@ -5,24 +5,47 @@ import { useParams } from "react-router";
 import MobileMenu from "../Include/MobileMenu";
 import Footer from "../Include/Footer";
 import Header from "../Include/Header";
+import { useEffect, useState } from "react";
+import DOMPurify from "dompurify";
 
-
-const CustomPage = () => {
+const CustomPage = (props) => {
 
      {/* window scroll to top */}
      window.scrollTo(0, 0);
 
      
      const { slug } =  useParams();
+     const [page_data, set_page_data] = useState(null)
+
+     //page details
+     const page_details_url = `${window.url}/custom-page-details/${slug}`;
+
+     useEffect( () => {
+
+          fetch(page_details_url,{
+               method : "GET"
+          })
+          .then( response => response.json() )
+          .then( response => {
+               if( response.status == "success" ){
+                    set_page_data(response.data)
+               }
+               
+          })
+          .catch( response => {
+               
+          })
+
+     },[page_details_url]);
 
      return(
           <div className="id">
 
-               <MobileMenu></MobileMenu>
+               <MobileMenu data={props.applicationData}></MobileMenu>
 
                <div className="page-wrapper">
 
-                    <Header></Header>
+                    <Header data={props.applicationData}></Header>
 
                     {/*Page Header Start*/}
                     <section className="page-header">
@@ -37,36 +60,13 @@ const CustomPage = () => {
                                         <li><Link to="/">Home</Link></li>
                                         <li><span>/</span></li>
                                         {
-                                             slug && ( slug == "privacy-policy" ) ? 
-                                             <li>Privacy Policy</li>
-                                             : ""
+                                             page_data && 
+                                             <li>{page_data.name}</li>
                                         }
-                                        {
-                                             slug && ( slug == "return-and-refund" ) ? 
-                                             <li>Return and Refund Policy</li>
-                                             : ""
-                                        }
-                                        {
-                                             slug && ( slug == "terms-and-condition" ) ? 
-                                             <li>Terms and Condition</li>
-                                             : ""
-                                        }
-                                        
                                    </ul>
                                    {
-                                        slug && ( slug == "privacy-policy" ) ? 
-                                        <h2>Privacy Policy</h2>
-                                        : ""
-                                   }
-                                   {
-                                        slug && ( slug == "return-and-refund" ) ? 
-                                        <h2>Return and Refund Policy</h2>
-                                        : ""
-                                   }
-                                   {
-                                        slug && ( slug == "terms-and-condition" ) ? 
-                                        <h2>Terms and Condition</h2>
-                                        : ""
+                                        page_data && 
+                                        <h2>{page_data.name}</h2>
                                    }
                               </div>
                          </div>
@@ -78,52 +78,17 @@ const CustomPage = () => {
                          <div class="container">
                               <div className="row">
                                    <div className="col-md-12">
-                                        <p className="mb-3">
-                                        Usage Data is collected automatically when using the Service.
-
-                                             Usage Data may include information such as Your Device's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.
-
-                                             When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.
-
-                                             We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.
-                                        </p>
-
-                                        <p className="mb-3">
-                                        Usage Data is collected automatically when using the Service.
-
-                                             Usage Data may include information such as Your Device's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.
-
-                                             When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.
-
-                                             We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.
-                                        </p>
-
-                                        <p className="mb-3">
-                                        Usage Data is collected automatically when using the Service.
-
-                                             Usage Data may include information such as Your Device's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.
-
-                                             When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.
-
-                                             We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.
-                                        </p>
-
-                                        <p className="mb-3">
-                                        Usage Data is collected automatically when using the Service.
-
-                                             Usage Data may include information such as Your Device's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.
-
-                                             When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.
-
-                                             We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.
-                                        </p>
+                                        {
+                                             page_data &&
+                                             <div className="pera-txt mt-20" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(page_data.content) }}></div>
+                                        }
                                    </div>
                               </div>                              
                          </div>
                     </section>
 
                     
-                    <Footer></Footer>
+                    <Footer data={props.applicationData}></Footer>
                
                </div>
 

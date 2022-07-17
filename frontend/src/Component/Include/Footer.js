@@ -1,8 +1,29 @@
 
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 
 const Footer = () => {
+
+     const [custom_page, set_custom_page] = useState(null);
+
+     useEffect(() => {
+
+          //get pages data
+          const custom_pages_url = `${window.url}/custom-page`
+          fetch(custom_pages_url,{
+               method : "GET"
+          })
+          .then( response => response.json() )
+          .then( response => {
+               set_custom_page(response.data)
+          })
+          .catch( response => {
+               
+          }) 
+
+     },[])
+
      return(
           <div className="id">
 
@@ -109,9 +130,11 @@ const Footer = () => {
                                              <h3 className="footer-widget__title">Links</h3>
                                              <ul className="footer-widget__links-list list-unstyled clearfix">
                                                   <li><Link to="/faq">FAQ</Link></li>
-                                                  <li><Link to={`/pages/privacy-policy`}>Privacy Policy</Link></li>
-                                                  <li><Link to={`/pages/return-and-refund`}>Return and Refund Policy</Link></li>
-                                                  <li><Link to={`/pages/terms-and-condition`}>Terms & Condition</Link></li>
+                                                  {
+                                                       custom_page && custom_page.map( item => (
+                                                            <li><Link to={`/pages/${item.slug}`}>{item.name}</Link></li>
+                                                       ))
+                                                  }
                                              </ul>
                                         </div>
                                    </div>

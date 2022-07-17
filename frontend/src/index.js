@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import {createRoot} from 'react-dom/client';
 import App from './App';
@@ -7,10 +9,11 @@ import { createStore } from 'redux';
 import allReducer from "./reducer";
 import { Provider } from 'react-redux';
 
+
+
 window.url = "https://laundro-admin.sehirulislamrehi.com/api"
 window.image_path = "https://laundro-admin.sehirulislamrehi.com"
 const myStore = createStore(allReducer)
-
 
 // window.url = "http://127.0.0.1:8000/api"
 // window.image_path = "http://127.0.0.1:8000"

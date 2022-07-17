@@ -16,7 +16,7 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 const MySwal = withReactContent(Swal)
 
-const LoginComponent = (state) => {
+const LoginComponent = (state, props) => {
 
      {/* window scroll to top */}
      window.scrollTo(0, 0);
@@ -99,11 +99,11 @@ const LoginComponent = (state) => {
                {/* loading */}
                <Loading></Loading>
 
-               <MobileMenu></MobileMenu>
+               <MobileMenu data={props.applicationData}></MobileMenu>
 
                <div className="page-wrapper">
 
-                   <Header></Header>
+                   <Header data={props.applicationData}></Header>
 
                    <div className="user-card round5">
                          <div className="login-box">
@@ -163,7 +163,7 @@ const LoginComponent = (state) => {
                          </div>
                     </div>
 
-                   <Footer></Footer>
+                   <Footer data={props.applicationData}></Footer>
                     
                </div>
 

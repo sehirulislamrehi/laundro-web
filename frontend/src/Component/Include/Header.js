@@ -1,9 +1,19 @@
 
+import { useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = (props) => {
 
-     
+     const [application_data, set_application_data] = useState(null)
+
+     useEffect(() => {
+
+          if( props.data ){
+               set_application_data(props.data)
+          }
+
+     },[])
 
      const openNav = () => {
           let a = document.querySelector(".mobile-nav__wrapper")
@@ -33,7 +43,11 @@ const Header = () => {
                                         <div className="col-md-2">
                                              <div className="desktop-logo">
                                                   <Link to="/">
-                                                       <img src="/images/logo-t.png" className="img-fluid" alt=""></img>
+                                                       {
+                                                            application_data &&
+                                                            <img src={`${window.image_path}/images/info/${application_data.logo}`} className="img-fluid" alt=""></img>
+                                                       }
+                                                       
                                                   </Link>
                                              </div>
                                         </div>
@@ -46,7 +60,13 @@ const Header = () => {
                                                                  <i className="fas fa-envelope"></i>
                                                             </div>
                                                             <div className="text">
-                                                                 <h5><a href="mailto:info@laundro.com">info@laundro.com</a></h5>
+                                                                 <h5>
+                                                                      {
+                                                                           application_data &&
+                                                                           <a href={application_data.email}>{application_data.email}</a>
+                                                                      }
+                                                                      
+                                                                 </h5>
                                                                  <p>Send mail</p>
                                                             </div>
                                                        </li>
@@ -54,10 +74,13 @@ const Header = () => {
                                                             <div className="icon">
                                                                  <i className="fas fa-clock"></i>
                                                             </div>
-                                                            <div className="text">
-                                                                 <h5>Mon to Sat</h5>
-                                                                 <p>08am - 09pm</p>
-                                                            </div>
+                                                            {
+                                                                 application_data &&
+                                                                 <div className="text">
+                                                                      <h5>{application_data.day}</h5>
+                                                                      <p>{application_data.timing}</p>
+                                                                 </div>
+                                                            }  
                                                        </li>
                                                        <li>
                                                             <div className="icon">
@@ -65,17 +88,27 @@ const Header = () => {
                                                             </div>
                                                             <div className="text">
                                                                  <h5>Call Anytime</h5>
-                                                                 <p><a href="tel:+2300068603">+23 (000) 68 603</a></p>
+                                                                 <p>
+                                                                      {
+                                                                           application_data &&
+                                                                           <a href={`tel:+${application_data.phone}`}>{application_data.phone}</a>
+                                                                      }
+                                                                      
+                                                                 </p>
                                                             </div>
                                                        </li>
                                                        <li>
                                                             <div className="icon">
                                                                  <i className="fas fa-map"></i>
                                                             </div>
-                                                            <div className="text">
-                                                                 <h5>88 Kilda Broklyn Road</h5>
-                                                                 <p>New York, USA</p>
-                                                            </div>
+                                                            {
+                                                                 application_data &&
+                                                                 <div className="text">
+                                                                      <h5>{application_data.address}</h5>
+                                                                      <p>{application_data.address}, {application_data.country}</p>
+                                                                 </div>
+                                                            }
+                                                            
                                                        </li>
                                                   </ul>
                                              </div>

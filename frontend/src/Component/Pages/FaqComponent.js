@@ -6,8 +6,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import Header from "../Include/Header";
 
-const FaqComponent = () => {
+const FaqComponent = (props) => {
      
+     {/* window scroll to top */}
+     window.scrollTo(0, 0);
 
      const openBox = (e) => {
           let all_collapse = document.querySelectorAll(".faq .card .collapse");
@@ -20,14 +22,33 @@ const FaqComponent = () => {
           document.querySelector(`.faq .card ${id}`).style.display = "block"
      }
 
+     const [faq, set_faq] = useState(null)
+
+     useEffect(() => {
+
+          //get faq data
+          const faq_url = `${window.url}/faq-data`
+          fetch(faq_url,{
+               method : "GET"
+          })
+          .then( response => response.json() )
+          .then( response => {
+               set_faq(response.data)
+          })
+          .catch( response => {
+               
+          })
+
+     },[])
+
      return(
           <div className="id">
 
-               <MobileMenu></MobileMenu>
+               <MobileMenu data={props.applicationData}></MobileMenu>
 
                <div className="page-wrapper">
 
-                   <Header></Header>
+                   <Header data={props.applicationData}></Header>
 
                    {/*Page Header Start*/}
                     <section className="page-header">
@@ -57,63 +78,28 @@ const FaqComponent = () => {
                                         <div class="faq" id="accordion">
 
                                              {/* item start */}
-                                             <div class="card">
-                                                  <div class="card-header" id="faqHeading-1">
-                                                       <div class="mb-0">
-                                                            <h5 class="faq-title" onClick={openBox} data-toggle="collapse" data-target="#faqCollapse-1" data-aria-expanded="true" data-aria-controls="faqCollapse-1">
-                                                                 <span class="badge">1</span>
-                                                                 Do you wash my clothes together with other people's clothes?
-                                                            </h5>
+                                             {
+                                                  faq && faq.map( (item,key) => (
+                                                  <div class="card">
+                                                       <div class="card-header" id="faqHeading-1">
+                                                            <div class="mb-0">
+                                                                 <h5 class="faq-title" onClick={openBox} data-toggle="collapse" data-target={`faq-${key}`} data-aria-expanded="true" data-aria-controls={`faq-${key}`}>
+                                                                      <span class="badge">{key + 1}</span>
+                                                                      {item.question}
+                                                                 </h5>
+                                                            </div>
+                                                       </div>
+                                                       <div id={`faq-${key}`} class="collapse" aria-labelledby="faqHeading-1" data-parent="#accordion">
+                                                            <div class="card-body">
+                                                                 <p>
+                                                                      {item.answer}
+                                                                 </p>
+                                                            </div>
                                                        </div>
                                                   </div>
-                                                  <div id="faqCollapse-1" class="collapse" aria-labelledby="faqHeading-" data-parent="#accordion">
-                                                       <div class="card-body">
-                                                            <p>
-                                                                 Absolutely not. Each order is washed separately so no need to worry about that. Your clothes are safe with us!
-                                                            </p>
-                                                       </div>
-                                                  </div>
-                                             </div>
-                                             {/* item end */}
-
-                                             {/* item start */}
-                                             <div class="card">
-                                                  <div class="card-header" id="faqHeading-2">
-                                                       <div class="mb-0">
-                                                            <h5 class="faq-title" onClick={openBox} data-toggle="collapse" data-target="#faqCollapse-2" data-aria-expanded="true" data-aria-controls="faqCollapse-2">
-                                                                 <span class="badge">1</span>
-                                                                 Where do you clean my clothes?
-                                                            </h5>
-                                                       </div>
-                                                  </div>
-                                                  <div id="faqCollapse-2" class="collapse" aria-labelledby="faqHeading-2" data-parent="#accordion">
-                                                       <div class="card-body">
-                                                            <p>
-                                                                 After your items are collected by our driver, they are taken to one of our trusted partner facilities to ensure your items are treated with the utmost care. We take pride in supporting local businesses and minimizing the carbon emissions from transport.
-                                                            </p>
-                                                       </div>
-                                                  </div>
-                                             </div>
-                                             {/* item end */}
-
-                                             {/* item start */}
-                                             <div class="card">
-                                                  <div class="card-header" id="faqHeading-3">
-                                                       <div class="mb-0">
-                                                            <h5 class="faq-title" onClick={openBox} data-toggle="collapse" data-target="#faqCollapse-3" data-aria-expanded="true" data-aria-controls="faqCollapse-3">
-                                                                 <span class="badge">1</span>
-                                                                 What is the turnaround time?
-                                                            </h5>
-                                                       </div>
-                                                  </div>
-                                                  <div id="faqCollapse-3" class="collapse" aria-labelledby="faqHeading-3" data-parent="#accordion">
-                                                       <div class="card-body">
-                                                            <p>
-                                                                 You will be happy to know that last month we have delivered 98.7% of all standard laundry and dry cleaning within 24 hours.
-                                                            </p>
-                                                       </div>
-                                                  </div>
-                                             </div>
+                                                  ))
+                                             }
+                                             
                                              {/* item end */}
 
                                         </div>
@@ -123,7 +109,7 @@ const FaqComponent = () => {
                     </section>
 
 
-                    <Footer></Footer>
+                    <Footer data={props.applicationData}></Footer>
                     
                </div>
 

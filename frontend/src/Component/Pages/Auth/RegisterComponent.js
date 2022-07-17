@@ -12,7 +12,7 @@ import { useHistory } from "react-router-dom";
 import Header from "../../Include/Header";
 
 
-const RegisterComponent = () => {
+const RegisterComponent = (props) => {
 
      {/* window scroll to top */}
      window.scrollTo(0, 0);
@@ -93,11 +93,11 @@ const RegisterComponent = () => {
                {/* loading */}
                <Loading></Loading>
 
-               <MobileMenu></MobileMenu>
+               <MobileMenu data={props.applicationData}></MobileMenu>
 
                <div className="page-wrapper">
 
-                   <Header></Header>
+                   <Header data={props.applicationData}></Header>
 
                     <div className="user-card round5">
                          <div className="login-box">
@@ -195,7 +195,7 @@ const RegisterComponent = () => {
                          </div>
                     </div>
 
-                   <Footer></Footer>
+                   <Footer data={props.applicationData}></Footer>
                     
                </div>
 

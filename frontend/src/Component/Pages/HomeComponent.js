@@ -20,7 +20,7 @@ import Header from "../Include/Header";
 const MySwal = withReactContent(Swal)
 
 
-const HomeComponent = () => {
+const HomeComponent = (props) => {
 
      {/* window scroll to top */}
      // window.scrollTo(0, 0);
@@ -56,6 +56,7 @@ const HomeComponent = () => {
      const service_slug = [];
      const [code, set_code] = useState(null)
      const [service, set_service] = useState(null)
+     const [banner, set_banner] = useState(null)
 
      useEffect(() => {
 
@@ -67,10 +68,20 @@ const HomeComponent = () => {
           })
           .then( response => response.json() )
           .then( response => {
-
-               
-
                dispatch(getAllServices(response.data))
+          })
+          .catch( response => {
+               
+          })
+
+          //get banner data
+          const get_banner_url = `${window.url}/banner-data`
+          fetch(get_banner_url,{
+               method : "GET"
+          })
+          .then( response => response.json() )
+          .then( response => {
+               set_banner(response.data)
           })
           .catch( response => {
                
@@ -134,163 +145,79 @@ const HomeComponent = () => {
      return(
           <div className="id">
 
-               <MobileMenu></MobileMenu>
+               <MobileMenu data={props.applicationData}></MobileMenu>
 
                <div className="page-wrapper">
 
-                   <Header></Header>
+                   <Header data={props.applicationData}></Header>
 
                     {/*Main Slider Start*/}
                     <section className="main-slider clearfix" id="home">
 
-                    <OwlCarousel className='owl-theme banner-carousel swiper-container thm-swiper__slider' 
+                    {
+                         banner && 
+                         <OwlCarousel className='owl-theme banner-carousel swiper-container thm-swiper__slider' 
                               loop="false" 
                               items="1"
                               nav="true"
                               dots="false"
                          >
 
-                         {/* item start */}
-                         <div className="item">
-                              <div className="swiper-slide">
-                                   <div className="image-layer"
-                                        style={{
-                                             backgroundImage : `url(images/banner/main-slider-1-1.jpg)`
-                                        }}></div>
-                                   {/* /.image-layer */}
+                              {/* item start */}
+                              { banner.map( item => (
+                                   <div className="item">
+                                        <div className="swiper-slide">
+                                             <div className="image-layer"
+                                                  style={{
+                                                       backgroundImage : `url(${window.image_path}/images/banners/${item.image})`
+                                                  }}></div>
+                                             {/* /.image-layer */}
 
-                                   <div className="main-slider-bubble">
-                                        <div className="main-slider-bubble-bg"
-                                        style={{
-                                             backgroundImage : `url(images/banner/main-slider-bubble-bg.png)`
-                                        }}></div>
-                                   </div>
+                                             <div className="main-slider-bubble">
+                                                  <div className="main-slider-bubble-bg"
+                                                  style={{
+                                                       backgroundImage : `url(images/banner/main-slider-bubble-bg.png)`
+                                                  }}></div>
+                                             </div>
 
-                                   <div className="main-slider-star-1 zoominout">
-                                        <img src="images/banner/main-slider-star-1.png" alt=""></img>
-                                   </div>
-                                   <div className="main-slider-star-2 zoominout-2">
-                                        <img src="images/banner/main-slider-star-2.png" alt=""></img>
-                                   </div>
-                                   <div className="main-slider-star-3 zoominout">
-                                        <img src="images/banner/main-slider-star-3.png" alt=""></img>
-                                   </div>
+                                             <div className="main-slider-star-1 zoominout">
+                                                  <img src="images/banner/main-slider-star-1.png" alt=""></img>
+                                             </div>
+                                             <div className="main-slider-star-2 zoominout-2">
+                                                  <img src="images/banner/main-slider-star-2.png" alt=""></img>
+                                             </div>
+                                             <div className="main-slider-star-3 zoominout">
+                                                  <img src="images/banner/main-slider-star-3.png" alt=""></img>
+                                             </div>
 
 
-                                   <div className="container">
-                                        <div className="row">
-                                             <div className="col-xl-12">
-                                                  <div className="main-slider__content">
-                                                       <p className="main-slider__sub-title">Welcome to Laundro Cleaning</p>
-                                                       <h2 className="main-slider__title">
-                                                            Quality <br></br> Solutions <br></br> in Cleaning
-                                                       </h2>
-                                                       <div className="main-slider__btn-box">
-                                                       <a href="" className="thm-btn main-slider__btn">Discover more <i
-                                                                 className="fa fa-angle-right"></i></a>
+                                             <div className="container">
+                                                  <div className="row">
+                                                       <div className="col-xl-12">
+                                                            <div className="main-slider__content">
+                                                                 <p className="main-slider__sub-title">{item.title}</p>
+                                                                 <h2 className="main-slider__title">
+                                                                     {item.short_description}
+                                                                 </h2>
+                                                                 <div className="main-slider__btn-box">
+                                                                      <a href={item.banner_link} className="thm-btn main-slider__btn">
+                                                                           {item.button_text} 
+                                                                           <i className="fa fa-angle-right"></i>
+                                                                      </a>
+                                                                 </div>
+                                                            </div>
                                                        </div>
                                                   </div>
                                              </div>
                                         </div>
                                    </div>
-                              </div>
-                         </div>
-                         {/* item end */}
+                                   ))
+                              }
+                              {/* item end */}
 
-                         {/* item start */}
-                         <div className="item">
-                              <div className="swiper-slide">
-                                   <div className="image-layer"
-                                        style={{
-                                             backgroundImage : `url(images/banner/main-slider-1-2.jpg)`
-                                        }}>
-                                   </div>
-                                   {/* /.image-layer */}
-
-                                   <div className="main-slider-bubble">
-                                        <div className="main-slider-bubble-bg"
-                                        style={{
-                                             backgroundImage : `url(images/banner/main-slider-bubble-bg.png)`
-                                        }}></div>
-                                   </div>
-
-                                   <div className="main-slider-star-1 zoominout">
-                                        <img src="images/banner/main-slider-star-1.png" alt=""></img>
-                                   </div>
-                                   <div className="main-slider-star-2 zoominout-2">
-                                        <img src="images/banner/main-slider-star-2.png" alt=""></img>
-                                   </div>
-                                   <div className="main-slider-star-3 zoominout">
-                                        <img src="images/banner/main-slider-star-3.png" alt=""></img>
-                                   </div>
-
-
-                                   <div className="container">
-                                        <div className="row">
-                                             <div className="col-xl-12">
-                                                  <div className="main-slider__content">
-                                                       <p className="main-slider__sub-title">Welcome to Laundro Cleaning</p>
-                                                       <h2 className="main-slider__title">Quality <br></br> Solutions <br></br>in Cleaning</h2>
-                                                       <div className="main-slider__btn-box">
-                                                       <a href="about.html" className="thm-btn main-slider__btn">Discover more <i
-                                                                 className="fa fa-angle-right"></i></a>
-                                                       </div>
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-                         {/* item end */}
-
-                         {/* item start */}
-                         <div className="item">
-                              <div className="swiper-slide">
-                                   <div className="image-layer"
-                                        style={{
-                                             backgroundImage : `url(images/banner/main-slider-1-1.jpg)`
-                                        }}></div>
-                                   {/* /.image-layer */}
-
-                                   <div className="main-slider-bubble">
-                                        <div className="main-slider-bubble-bg"
-                                        style={{
-                                             backgroundImage : `url(images/banner/main-slider-bubble-bg.png)`
-                                        }}></div>
-                                   </div>
-
-                                   <div className="main-slider-star-1 zoominout">
-                                        <img src="images/banner/main-slider-star-1.png" alt=""></img>
-                                   </div>
-                                   <div className="main-slider-star-2 zoominout-2">
-                                        <img src="images/banner/main-slider-star-2.png" alt=""></img>
-                                   </div>
-                                   <div className="main-slider-star-3 zoominout">
-                                        <img src="images/banner/main-slider-star-3.png" alt=""></img>
-                                   </div>
-
-
-                                   <div className="container">
-                                        <div className="row">
-                                             <div className="col-xl-12">
-                                                  <div className="main-slider__content">
-                                                       <p className="main-slider__sub-title">Welcome to Brote Cleaning</p>
-                                                       <h2 className="main-slider__title">
-                                                            Quality <br></br> Solutions <br></br> in Cleaning
-                                                       </h2>
-                                                       <div className="main-slider__btn-box">
-                                                       <a href="" className="thm-btn main-slider__btn">Discover more <i
-                                                                 className="fa fa-angle-right"></i></a>
-                                                       </div>
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-                         {/* item end */}
-
-                    </OwlCarousel>
+                         </OwlCarousel>
+                    }
+                    
 
                     </section>
                     {/*Main Slider End*/}

@@ -20,7 +20,7 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 const MySwal = withReactContent(Swal)
 
-const StepThreeComponent = () => {
+const StepThreeComponent = (props) => {
 
      {/* window scroll to top */}
      // window.scrollTo(0, 0);
@@ -119,10 +119,10 @@ const StepThreeComponent = () => {
           return(
                <div className="id">
 
-                    <MobileMenu></MobileMenu>
+                    <MobileMenu data={props.applicationData}></MobileMenu>
 
                     <div className="page-wrapper">
-                         <Header></Header>
+                         <Header data={props.applicationData}></Header>
 
                          <section className="booking-section" style={{
                               padding: "10px 0 100px 0px"
@@ -212,7 +212,7 @@ const StepThreeComponent = () => {
                               </div>
                          </section>
 
-                         <Footer></Footer>
+                         <Footer data={props.applicationData}></Footer>
                     </div>
 
                </div> 
@@ -222,10 +222,10 @@ const StepThreeComponent = () => {
           return(
                <div className="id">
 
-                    <MobileMenu></MobileMenu>
+                    <MobileMenu data={props.applicationData}></MobileMenu>
 
                     <div className="page-wrapper">
-                         <Header></Header>
+                         <Header data={props.applicationData}></Header>
 
                          {/* please wait section start */}
                          <section className="please-wait">
@@ -233,7 +233,7 @@ const StepThreeComponent = () => {
                          </section>
                          {/* please wait section end */}
 
-                         <Footer></Footer>
+                         <Footer data={props.applicationData}></Footer>
                     </div>
 
                </div> 

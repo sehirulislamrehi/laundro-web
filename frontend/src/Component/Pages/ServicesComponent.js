@@ -14,7 +14,7 @@ import { useEffect } from "react";
 import { getAllServices } from "../../action";
 
 
-const ServicesComponent = () => {
+const ServicesComponent = (props) => {
 
      const testimonial_options = {
           loop: true,
@@ -70,11 +70,11 @@ const ServicesComponent = () => {
      return(
           <div className="id">
 
-               <MobileMenu></MobileMenu>
+               <MobileMenu data={props.applicationData}></MobileMenu>
 
                <div className="page-wrapper">
 
-                   <Header></Header>
+                   <Header data={props.applicationData}></Header>
 
                    {/*Page Header Start*/}
                     <section className="page-header">
@@ -271,7 +271,7 @@ const ServicesComponent = () => {
                     </section>
                     {/*Testimonial Two End*/}
 
-                    <Footer></Footer>
+                    <Footer data={props.applicationData}></Footer>
                     
                </div>
 

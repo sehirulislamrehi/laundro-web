@@ -15,7 +15,7 @@ import Header from "../Include/Header";
 import { getAllServices } from "../../action";
 
 
-const AboutComponent = () => {
+const AboutComponent = (props) => {
 
      {/* window scroll to top */}
      window.scrollTo(0, 0);
@@ -149,11 +149,11 @@ const AboutComponent = () => {
      return(
           <div className="id">
 
-               <MobileMenu></MobileMenu>
+               <MobileMenu data={props.applicationData}></MobileMenu>
 
                <div className="page-wrapper">
 
-                   <Header></Header>
+                   <Header data={props.applicationData}></Header>
 
                    {/*Page Header Start*/}
                     <section className="page-header">
@@ -334,7 +334,7 @@ const AboutComponent = () => {
                     </section>
                     {/*CTA One End*/}
 
-                    <Footer></Footer>
+                    <Footer data={props.applicationData}></Footer>
                     
                </div>
 

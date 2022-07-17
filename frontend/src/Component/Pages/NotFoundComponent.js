@@ -5,14 +5,14 @@ import MobileMenu from "../Include/MobileMenu";
 import Footer from "../Include/Footer";
 
 
-const NotFoundComponent = () => {
+const NotFoundComponent = (props) => {
      return(
           <div className="id">
 
-               <MobileMenu></MobileMenu>
+               <MobileMenu data={props.applicationData}></MobileMenu>
 
                <div className="page-wrapper">
-                    <Header></Header>
+                    <Header data={props.applicationData}></Header>
                     
                     {/* please wait section start */}
                     <section className="please-wait" >
@@ -20,7 +20,7 @@ const NotFoundComponent = () => {
                     </section>
                     {/* please wait section end */}
 
-                    <Footer></Footer>
+                    <Footer data={props.applicationData}></Footer>
                </div>
 
           </div>

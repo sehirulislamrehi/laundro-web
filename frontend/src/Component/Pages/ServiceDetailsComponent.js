@@ -11,7 +11,7 @@ import DOMPurify from "dompurify";
 import Header from "../Include/Header";
 import ServiceList from "./Includes/ServiceList";
 
-const ServiceDetailsComponent = () => {
+const ServiceDetailsComponent = (props) => {
      {/* window scroll to top */}
      window.scrollTo(0, 0);
 
@@ -50,11 +50,11 @@ const ServiceDetailsComponent = () => {
      return(
           <div className="id">
 
-               <MobileMenu></MobileMenu>
+               <MobileMenu data={props.applicationData}></MobileMenu>
 
                <div className="page-wrapper">
 
-                   <Header></Header>
+                   <Header data={props.applicationData}></Header>
 
                    {/*Page Header Start*/}
                     <section className="page-header">
@@ -198,7 +198,7 @@ const ServiceDetailsComponent = () => {
                     </section>
 
 
-                    <Footer></Footer>
+                    <Footer data={props.applicationData}></Footer>
                     
                </div>
 

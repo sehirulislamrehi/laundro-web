@@ -44,7 +44,9 @@ body {
   line-height: 30px;
   font-weight: 500;
 }
-
+button{
+  font-family: var(--brote-font);
+}
 body.locked {
   overflow: hidden;
 }

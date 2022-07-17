@@ -80,7 +80,7 @@ const MobileMenu = () => {
 
                          <div className="logo-box">
                               <Link to="/" aria-label="logo image">
-                                   <img src="images/logo.png" width="89" alt="" />
+                                   <img src="images/logo-t.png" width="89" alt="" />
                               </Link>
                          </div>
                          {/* /.logo-box */}
