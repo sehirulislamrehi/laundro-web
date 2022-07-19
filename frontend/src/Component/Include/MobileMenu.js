@@ -1,4 +1,6 @@
 
+import { useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 
@@ -65,6 +67,26 @@ const MobileMenu = () => {
           
           });
      })
+     
+     const [application_data, set_application_data] = useState(null)
+
+     useEffect(() => {
+
+          //get application data
+          const get_application_data_url = `${window.url}/application-data`;
+          fetch(get_application_data_url,{
+               method : "GET"
+          })
+          .then( response => response.json() )
+          .then( response => {
+               set_application_data(response.data)
+          })
+          .catch( response => {
+               
+          })
+
+     },[])
+
 
      return(
           <div className="id">
@@ -79,8 +101,11 @@ const MobileMenu = () => {
                          </span>
 
                          <div className="logo-box">
-                              <Link to="/" aria-label="logo image">
-                                   <img src="images/logo-t.png" width="89" alt="" />
+                              <Link to="/">
+                                   {
+                                        application_data &&
+                                        <img src={`${window.image_path}/images/info/${application_data.logo}`} className="img-fluid" alt=""></img>
+                                   }
                               </Link>
                          </div>
                          {/* /.logo-box */}
@@ -117,11 +142,17 @@ const MobileMenu = () => {
                          <ul className="mobile-nav__contact list-unstyled">
                               <li>
                                    <i className="fa fa-envelope"></i>
-                                   <a href="mailto:info@laundro.com">info@laundro.com</a>
+                                   {
+                                        application_data &&
+                                        <a href={application_data.email}>{application_data.email}</a>
+                                   }
                               </li>
                               <li>
                                    <i className="fa fa-phone-alt"></i>
-                                   <a href="tel:666-888-0000">666 888 0000</a>
+                                   {
+                                        application_data &&
+                                        <a href={`tel:+${application_data.phone}`}>{application_data.phone}</a>
+                                   }
                               </li>
                          </ul>{/* /.mobile-nav__contact */}
                          <div className="mobile-nav__top">

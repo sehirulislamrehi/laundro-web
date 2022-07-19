@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import MobileMenu from "../Include/MobileMenu";
 import Footer from "../Include/Footer";
 import Header from "../Include/Header";
+import { useEffect } from "react";
+import { useState } from "react";
 
 
 const ContactComponent = (props) => {
@@ -13,14 +15,33 @@ const ContactComponent = (props) => {
      {/* window scroll to top */}
      window.scrollTo(0, 0);
 
+     const [application_data, set_application_data] = useState(null)
+
+     useEffect(() => {
+
+          //get application data
+          const get_application_data_url = `${window.url}/application-data`;
+          fetch(get_application_data_url,{
+               method : "GET"
+          })
+          .then( response => response.json() )
+          .then( response => {
+               set_application_data(response.data)
+          })
+          .catch( response => {
+               
+          })
+
+     },[])
+
      return(
           <div className="id">
 
-               <MobileMenu data={props.applicationData}></MobileMenu>
+               <MobileMenu ></MobileMenu>
 
                <div className="page-wrapper">
 
-                   <Header data={props.applicationData}></Header>
+                   <Header ></Header>
 
                    {/*Page Header Start*/}
                     <section className="page-header">
@@ -58,7 +79,12 @@ const ContactComponent = (props) => {
                                                        <i className="fas fa-envelope"></i>
                                                   </div>
                                                   <div className="text">
-                                                       <p><a href="mailto:brote@company.com">brote@company.com</a></p>
+                                                       <p>
+                                                            {
+                                                                 application_data &&
+                                                                 <a href={application_data.email}>{application_data.email}</a>
+                                                            }
+                                                       </p>
                                                        <h5>Send mail</h5>
                                                   </div>
                                              </li>
@@ -68,17 +94,25 @@ const ContactComponent = (props) => {
                                                   </div>
                                                   <div className="text">
                                                        <p>Call Anytime</p>
-                                                       <h5><a href="tel:2300068603">+23 (000) 68 603</a></h5>
+                                                       <h5>
+                                                            {
+                                                                 application_data &&
+                                                                 <a href={`tel:+${application_data.phone}`}>{application_data.phone}</a>
+                                                            }
+                                                       </h5>
                                                   </div>
                                              </li>
                                              <li>
                                                   <div className="icon">
                                                        <i className="fas fa-map"></i>
                                                   </div>
-                                                  <div className="text">
-                                                       <p>88 Kilda Broklyn Road</p>
-                                                       <h5>New York, USA</h5>
-                                                  </div>
+                                                  {
+                                                       application_data &&
+                                                       <div className="text">
+                                                            <h5>{application_data.address}</h5>
+                                                            <p>{application_data.city}, {application_data.country}</p>
+                                                       </div>
+                                                  }
                                              </li>
                                         </ul>
                                    </div>
@@ -127,7 +161,7 @@ const ContactComponent = (props) => {
                     </section>
                     {/*Contact Page Two End*/}
 
-                    <Footer data={props.applicationData}></Footer>
+                    <Footer ></Footer>
                     
                </div>
 

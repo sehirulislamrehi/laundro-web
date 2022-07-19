@@ -9,9 +9,18 @@ const Header = (props) => {
 
      useEffect(() => {
 
-          if( props.data ){
-               set_application_data(props.data)
-          }
+          //get application data
+          const get_application_data_url = `${window.url}/application-data`;
+          fetch(get_application_data_url,{
+               method : "GET"
+          })
+          .then( response => response.json() )
+          .then( response => {
+               set_application_data(response.data)
+          })
+          .catch( response => {
+               
+          })
 
      },[])
 
@@ -47,7 +56,6 @@ const Header = (props) => {
                                                             application_data &&
                                                             <img src={`${window.image_path}/images/info/${application_data.logo}`} className="img-fluid" alt=""></img>
                                                        }
-                                                       
                                                   </Link>
                                              </div>
                                         </div>
@@ -93,7 +101,6 @@ const Header = (props) => {
                                                                            application_data &&
                                                                            <a href={`tel:+${application_data.phone}`}>{application_data.phone}</a>
                                                                       }
-                                                                      
                                                                  </p>
                                                             </div>
                                                        </li>
@@ -105,7 +112,7 @@ const Header = (props) => {
                                                                  application_data &&
                                                                  <div className="text">
                                                                       <h5>{application_data.address}</h5>
-                                                                      <p>{application_data.address}, {application_data.country}</p>
+                                                                      <p>{application_data.city}, {application_data.country}</p>
                                                                  </div>
                                                             }
                                                             

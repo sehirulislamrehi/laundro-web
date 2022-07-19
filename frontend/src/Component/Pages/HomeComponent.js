@@ -57,8 +57,15 @@ const HomeComponent = (props) => {
      const [code, set_code] = useState(null)
      const [service, set_service] = useState(null)
      const [banner, set_banner] = useState(null)
+     const [application_data, set_application_data] = useState(null)
+
+     
 
      useEffect(() => {
+
+          if( props.applicationData ){
+               set_application_data(props.applicationData)
+          }
 
           //get services
           const get_services_url = `${window.url}/get-all-services`;
@@ -145,11 +152,13 @@ const HomeComponent = (props) => {
      return(
           <div className="id">
 
-               <MobileMenu data={props.applicationData}></MobileMenu>
+               <MobileMenu></MobileMenu>
 
                <div className="page-wrapper">
 
-                   <Header data={props.applicationData}></Header>
+                    <Header></Header>
+                    
+                   
 
                     {/*Main Slider Start*/}
                     <section className="main-slider clearfix" id="home">

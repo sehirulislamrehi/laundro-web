@@ -9,10 +9,10 @@ const NotFoundComponent = (props) => {
      return(
           <div className="id">
 
-               <MobileMenu data={props.applicationData}></MobileMenu>
+               <MobileMenu ></MobileMenu>
 
                <div className="page-wrapper">
-                    <Header data={props.applicationData}></Header>
+                    <Header ></Header>
                     
                     {/* please wait section start */}
                     <section className="please-wait" >
@@ -20,7 +20,7 @@ const NotFoundComponent = (props) => {
                     </section>
                     {/* please wait section end */}
 
-                    <Footer data={props.applicationData}></Footer>
+                    <Footer ></Footer>
                </div>
 
           </div>

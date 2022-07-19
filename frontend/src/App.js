@@ -29,18 +29,7 @@ function App() {
 
      useEffect(() => {
 
-          //get application data
-          const get_application_data_url = `${window.url}/application-data`;
-          fetch(get_application_data_url,{
-               method : "GET"
-          })
-          .then( response => response.json() )
-          .then( response => {
-               set_application_data(response.data)
-          })
-          .catch( response => {
-               
-          })
+          
 
      },[])
 
@@ -51,102 +40,102 @@ function App() {
 
             {/* Home Component */}
             <Route exact path="/">
-              <HomeComponent applicationData={application_data}></HomeComponent>
+              <HomeComponent ></HomeComponent>
             </Route>
 
             {/* About Component */}
             <Route path="/about">
-              <AboutComponent applicationData={application_data}></AboutComponent>
+              <AboutComponent ></AboutComponent>
             </Route>
 
             {/* Services Component */}
             <Route path="/services">
-              <ServicesComponent applicationData={application_data}></ServicesComponent>
+              <ServicesComponent ></ServicesComponent>
             </Route>
 
             {/* Services Details Component */}
             <Route path="/service-details/:slug">
-              <ServiceDetailsComponent applicationData={application_data}></ServiceDetailsComponent>
+              <ServiceDetailsComponent ></ServiceDetailsComponent>
             </Route>
 
             {/* ContactComponent Component */}
             <Route path="/contact">
-              <ContactComponent applicationData={application_data}></ContactComponent>
+              <ContactComponent ></ContactComponent>
             </Route>
 
             {/* LoginComponent Component */}
             <Route path="/login">
-              <LoginComponent applicationData={application_data}></LoginComponent>
+              <LoginComponent ></LoginComponent>
             </Route>
 
             {/* RegisterComponent Component */}
             <Route path="/register">
-              <RegisterComponent applicationData={application_data}></RegisterComponent>
+              <RegisterComponent ></RegisterComponent>
             </Route>
 
             {/* DashbaordComponent Component */}
             <Route path="/dashboard">
-              <DashboardComponent applicationData={application_data}></DashboardComponent>
+              <DashboardComponent ></DashboardComponent>
             </Route>
 
             {/* my order Component */}
             <Route path="/my-order">
-              <MyOrderComponent applicationData={application_data}></MyOrderComponent>
+              <MyOrderComponent ></MyOrderComponent>
             </Route>
 
             {/* order details Component */}
             <Route path="/order-details/:order_no">
-              <OrderDetailsComponent applicationData={application_data}></OrderDetailsComponent>
+              <OrderDetailsComponent ></OrderDetailsComponent>
             </Route>
 
             {/* account Component */}
             <Route path="/account">
-              <AccountComponent applicationData={application_data}></AccountComponent>
+              <AccountComponent ></AccountComponent>
             </Route>
 
             {/* edit profile  */}
             <Route path="/edit-profile">
-              <EditProfileComponent applicationData={application_data}></EditProfileComponent>
+              <EditProfileComponent ></EditProfileComponent>
             </Route>
 
             {/* change password  */}
             <Route path="/change-password">
-              <ChangePasswordComponent applicationData={application_data}></ChangePasswordComponent>
+              <ChangePasswordComponent ></ChangePasswordComponent>
             </Route>
 
             {/* booking step 1 */}
             <Route path="/booking-1">
-              <StepOneComponent applicationData={application_data}></StepOneComponent>
+              <StepOneComponent ></StepOneComponent>
             </Route>
 
             {/* booking step 2 */}
             <Route path="/booking-2">
-              <StepTwoComponent applicationData={application_data}></StepTwoComponent>
+              <StepTwoComponent ></StepTwoComponent>
             </Route>
 
             {/* booking step 3 */}
             <Route path="/booking-3">
-              <StepThreeComponent applicationData={application_data}></StepThreeComponent>
+              <StepThreeComponent ></StepThreeComponent>
             </Route>
 
             {/* booking step 4 */}
             <Route path="/booking-4">
-              <StepFourComponent applicationData={application_data}></StepFourComponent>
+              <StepFourComponent ></StepFourComponent>
             </Route>
 
             {/* FAQ */}
             <Route path="/faq">
-              <FaqComponent applicationData={application_data}></FaqComponent>
+              <FaqComponent ></FaqComponent>
             </Route>
 
             {/* pages */}
             <Route path="/pages/:slug">
-              <CustomPage applicationData={application_data}></CustomPage>
+              <CustomPage ></CustomPage>
             </Route>
             
             {/* 404 */}
             <Route path="/404">
-              <NotFoundComponent applicationData={application_data}></NotFoundComponent>
+              <NotFoundComponent ></NotFoundComponent>
             </Route>
             <Redirect to="/404"/>
 

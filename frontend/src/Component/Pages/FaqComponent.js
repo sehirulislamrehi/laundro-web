@@ -44,11 +44,11 @@ const FaqComponent = (props) => {
      return(
           <div className="id">
 
-               <MobileMenu data={props.applicationData}></MobileMenu>
+               <MobileMenu ></MobileMenu>
 
                <div className="page-wrapper">
 
-                   <Header data={props.applicationData}></Header>
+                   <Header ></Header>
 
                    {/*Page Header Start*/}
                     <section className="page-header">
@@ -109,7 +109,7 @@ const FaqComponent = (props) => {
                     </section>
 
 
-                    <Footer data={props.applicationData}></Footer>
+                    <Footer ></Footer>
                     
                </div>
 

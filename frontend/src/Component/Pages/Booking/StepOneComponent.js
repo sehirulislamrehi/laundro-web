@@ -268,10 +268,10 @@ const StepOneComponent = (props) => {
           return(
                <div className="id">
 
-                    <MobileMenu data={props.applicationData}></MobileMenu>
+                    <MobileMenu ></MobileMenu>
 
                     <div className="page-wrapper">
-                         <Header data={props.applicationData}></Header>
+                         <Header ></Header>
 
                          <section className="booking-section" style={{
                          padding: "10px 0 100px 0px"
@@ -336,7 +336,7 @@ const StepOneComponent = (props) => {
                                    </div>
                               </section>
 
-                         <Footer data={props.applicationData}></Footer>
+                         <Footer ></Footer>
                     </div>
 
                </div>
@@ -346,10 +346,10 @@ const StepOneComponent = (props) => {
           return(
                <div className="id">
 
-                    <MobileMenu data={props.applicationData}></MobileMenu>
+                    <MobileMenu ></MobileMenu>
 
                     <div className="page-wrapper">
-                         <Header data={props.applicationData}></Header>
+                         <Header ></Header>
 
                          {/* please wait section start */}
                          <section className="please-wait">
@@ -357,7 +357,7 @@ const StepOneComponent = (props) => {
                          </section>
                          {/* please wait section end */}
 
-                         <Footer data={props.applicationData}></Footer>
+                         <Footer ></Footer>
                     </div>
 
                </div> 

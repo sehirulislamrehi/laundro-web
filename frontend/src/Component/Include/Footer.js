@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
 
      const [custom_page, set_custom_page] = useState(null);
+     const [application_data, set_application_data] = useState(null)
 
      useEffect(() => {
 
@@ -21,6 +22,19 @@ const Footer = () => {
           .catch( response => {
                
           }) 
+
+          //get application data
+          const get_application_data_url = `${window.url}/application-data`;
+          fetch(get_application_data_url,{
+               method : "GET"
+          })
+          .then( response => response.json() )
+          .then( response => {
+               set_application_data(response.data)
+          })
+          .catch( response => {
+               
+          })
 
      },[])
 
@@ -55,7 +69,10 @@ const Footer = () => {
                                    <div className="information__content">
                                         <p className="information__sub-title">Call anytime</p>
                                         <h5 className="information__number">
-                                             <a href="tel:2300068603">+23 (000) 68 603</a>
+                                             {
+                                                  application_data &&
+                                                  <a href={`tel:+${application_data.phone}`}>{application_data.phone}</a>
+                                             }
                                         </h5>
                                    </div>
                               </li>
@@ -66,7 +83,10 @@ const Footer = () => {
                                    <div className="information__content">
                                         <p className="information__sub-title">Send email</p>
                                         <h5 className="information__number">
-                                             <a href="mailto:info@laundro.com">info@laundro.com</a>
+                                             {
+                                                  application_data &&
+                                                  <a href={application_data.email}>{application_data.email}</a>
+                                             }
                                         </h5>
                                    </div>
                               </li>
@@ -76,7 +96,11 @@ const Footer = () => {
                                    </div>
                                    <div className="information__content">
                                         <p className="information__sub-title">Visit office</p>
-                                        <h5 className="information__number">88 Kilda Broklyn Road</h5>
+                                        <h5 className="information__number">
+                                             {
+                                                  application_data && application_data.address
+                                             }
+                                        </h5>
                                    </div>
                               </li>
                               </ul>

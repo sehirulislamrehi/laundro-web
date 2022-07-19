@@ -99,11 +99,11 @@ const LoginComponent = (state, props) => {
                {/* loading */}
                <Loading></Loading>
 
-               <MobileMenu data={props.applicationData}></MobileMenu>
+               <MobileMenu ></MobileMenu>
 
                <div className="page-wrapper">
 
-                   <Header data={props.applicationData}></Header>
+                   <Header ></Header>
 
                    <div className="user-card round5">
                          <div className="login-box">
@@ -163,7 +163,7 @@ const LoginComponent = (state, props) => {
                          </div>
                     </div>
 
-                   <Footer data={props.applicationData}></Footer>
+                   <Footer ></Footer>
                     
                </div>
 
