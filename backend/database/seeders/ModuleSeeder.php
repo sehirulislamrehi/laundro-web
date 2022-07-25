@@ -56,6 +56,14 @@ class ModuleSeeder extends Seeder
                 'position' => 4,
                 'route' => null,
             ],
+            [
+                'id' => 6,
+                'name' => 'Customer Module',
+                'key' => 'customer_module',
+                'icon' => 'fas fa-users',
+                'position' => 5,
+                'route' => null,
+            ],
         ]);
     }
 }

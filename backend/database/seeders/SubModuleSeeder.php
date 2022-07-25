@@ -146,12 +146,39 @@ class SubModuleSeeder extends Seeder
                 'position' => 1,
                 'route' => 'order.all',
                 'module_id' => 5,
-            ]
+            ],
             //module id 5 end
 
+
+            //module id 6 start
+            [
+                'id' => 15,
+                'name' => 'All Customer',
+                'key' => 'all_customer',
+                'position' => 1,
+                'route' => 'customer.all',
+                'module_id' => 6,
+            ],
+            [
+                'id' => 16,
+                'name' => 'All Message',
+                'key' => 'all_message',
+                'position' => 2,
+                'route' => 'message.all',
+                'module_id' => 6,
+            ],
+            [
+                'id' => 17,
+                'name' => 'All Subscribers',
+                'key' => 'all_subscribers',
+                'position' => 3,
+                'route' => 'subscribers.all',
+                'module_id' => 6,
+            ],
+            //module id 6 end
         
         ]);
 
-        //last id 14
+        //last id 17
     }
 }

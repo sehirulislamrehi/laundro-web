@@ -336,6 +336,48 @@ class PermissionSedder extends Seeder
                 'display_name' => '-- Delete Custom Page',
                 'module_id' => 2,
             ],
+            [
+                'id' => 55,
+                'key' => 'customer_module',
+                'display_name' => 'Customer Module',
+                'module_id' => 6,
+            ],
+            [
+                'id' => 56,
+                'key' => 'all_customer',
+                'display_name' => 'All Customer',
+                'module_id' => 6,
+            ],
+            [
+                'id' => 57,
+                'key' => 'edit_customer',
+                'display_name' => '-- Edit Customer',
+                'module_id' => 6,
+            ],
+            [
+                'id' => 58,
+                'key' => 'all_message',
+                'display_name' => 'All Message',
+                'module_id' => 6,
+            ],
+            [
+                'id' => 59,
+                'key' => 'delete_message',
+                'display_name' => '-- Delete Message',
+                'module_id' => 6,
+            ],
+            [
+                'id' => 60,
+                'key' => 'all_subscribers',
+                'display_name' => 'All Subscribers',
+                'module_id' => 6,
+            ],
+            [
+                'id' => 61,
+                'key' => 'delete_subscribers',
+                'display_name' => '-- Delete Subscribers',
+                'module_id' => 6,
+            ],
         ]);
     }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 12, 2022 at 07:36 PM
+-- Generation Time: Jul 25, 2022 at 08:15 PM
 -- Server version: 5.7.38-cll-lve
 -- PHP Version: 7.4.30
 
@@ -32,6 +32,18 @@ CREATE TABLE `app_infos` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `logo` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `fav` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mail_from_address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `day` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timing` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facebook_link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `youtube_link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `twitter_link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `linkedin_link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -40,8 +52,61 @@ CREATE TABLE `app_infos` (
 -- Dumping data for table `app_infos`
 --
 
-INSERT INTO `app_infos` (`id`, `logo`, `fav`, `created_at`, `updated_at`) VALUES
-(1, '16506454434A5CdEoPH7hI.png', '1650645443kqaOH4wgbLin.png', NULL, '2022-04-22 10:37:23');
+INSERT INTO `app_infos` (`id`, `logo`, `fav`, `mail_from_address`, `email`, `phone`, `address`, `city`, `country`, `day`, `timing`, `facebook_link`, `youtube_link`, `twitter_link`, `linkedin_link`, `created_at`, `updated_at`) VALUES
+(1, '16579027728qu57W6s9VTW.png', '1657902772MwCtUt21xunr.png', 'mdsehirulislamrehi@gmail.com', 'info@laundro.com', '+23 (000) 68 603', '88 Kilda Broklyn Road', 'New York', 'USA', 'Mon to Sat', '8am - 09pm', NULL, NULL, NULL, NULL, NULL, '2022-07-25 00:06:13');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `banners`
+--
+
+CREATE TABLE `banners` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `position` int(11) NOT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `short_description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `banners`
+--
+
+INSERT INTO `banners` (`id`, `position`, `image`, `title`, `short_description`, `button_text`, `button_link`, `created_at`, `updated_at`) VALUES
+(1, 1, '1657902814nhJFplTUavUZ.jpg', 'Welcome to laundro cleaning', 'Quality solutions in cleaning', 'Discover More', '#', '2022-07-15 16:33:34', '2022-07-15 16:33:34'),
+(2, 2, '1657902820kNbTrlO4wc22.jpg', 'Welcome to laundro cleaning', 'Quality solutions in cleaning', 'Discover More', '#', '2022-07-15 16:33:40', '2022-07-15 16:33:40');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_forms`
+--
+
+CREATE TABLE `contact_forms` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `contact_forms`
+--
+
+INSERT INTO `contact_forms` (`id`, `name`, `email`, `phone`, `subject`, `message`, `created_at`, `updated_at`) VALUES
+(1, 'null', 'null', 'null', 'null', 'null', '2022-07-24 23:57:04', '2022-07-24 23:57:04'),
+(2, 'a', 'a@gmail.com', 'a', 'a', 'a', '2022-07-25 00:01:16', '2022-07-25 00:01:16'),
+(3, 'a', 'a@gmail.com', 'a', 'a', 'a', '2022-07-25 00:01:31', '2022-07-25 00:01:31'),
+(4, 'a', 'a@gmail.com', 'a', 'a', 'a', '2022-07-25 00:01:36', '2022-07-25 00:01:36');
 
 -- --------------------------------------------------------
 
@@ -102,6 +167,32 @@ INSERT INTO `customers` (`id`, `name`, `phone`, `email`, `password`, `address`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `custom_pages`
+--
+
+CREATE TABLE `custom_pages` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `position` int(11) NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_active` tinyint(1) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `custom_pages`
+--
+
+INSERT INTO `custom_pages` (`id`, `position`, `name`, `slug`, `content`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Privacy Policy', 'privacy-policy', '<p><p class=\"mb-3\" style=\" margin-bottom: 1rem !important; color: rgb(123, 125, 131); font-family: &quot;DM Sans&quot;, sans-serif; font-size: 16px; font-weight: 500; background-color: rgb(255, 255, 255)\">Usage Data is collected automatically when using the Service. Usage Data may include information such as Your Device\'s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data. When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data. We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.</p><p class=\"mb-3\" style=\" margin-bottom: 1rem !important; color: rgb(123, 125, 131); font-family: &quot;DM Sans&quot;, sans-serif; font-size: 16px; font-weight: 500; background-color: rgb(255, 255, 255)\">Usage Data is collected automatically when using the Service. Usage Data may include information such as Your Device\'s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data. When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data. We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.</p><p class=\"mb-3\" style=\" margin-bottom: 1rem !important; color: rgb(123, 125, 131); font-family: &quot;DM Sans&quot;, sans-serif; font-size: 16px; font-weight: 500; background-color: rgb(255, 255, 255)\">Usage Data is collected automatically when using the Service. Usage Data may include information such as Your Device\'s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data. When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data. We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.</p><p class=\"mb-3\" style=\" margin-bottom: 1rem !important; color: rgb(123, 125, 131); font-family: &quot;DM Sans&quot;, sans-serif; font-size: 16px; font-weight: 500; background-color: rgb(255, 255, 255)\">Usage Data is collected automatically when using the Service. Usage Data may include information such as Your Device\'s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data. When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data. We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device</p><br /></p>', 1, '2022-07-15 16:34:52', '2022-07-15 16:34:52'),
+(2, 2, 'Return and Refund Policy', 'return-and-refund-policy', '<p><p class=\"mb-3\" style=\" margin-bottom: 1rem !important; color: rgb(123, 125, 131); font-family: &quot;DM Sans&quot;, sans-serif; font-size: 16px; font-weight: 500; background-color: rgb(255, 255, 255)\">Usage Data is collected automatically when using the Service. Usage Data may include information such as Your Device\'s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data. When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data. We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.</p><p class=\"mb-3\" style=\" margin-bottom: 1rem !important; color: rgb(123, 125, 131); font-family: &quot;DM Sans&quot;, sans-serif; font-size: 16px; font-weight: 500; background-color: rgb(255, 255, 255)\">Usage Data is collected automatically when using the Service. Usage Data may include information such as Your Device\'s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data. When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data. We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.</p><p class=\"mb-3\" style=\" margin-bottom: 1rem !important; color: rgb(123, 125, 131); font-family: &quot;DM Sans&quot;, sans-serif; font-size: 16px; font-weight: 500; background-color: rgb(255, 255, 255)\">Usage Data is collected automatically when using the Service. Usage Data may include information such as Your Device\'s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data. When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data. We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.</p><p class=\"mb-3\" style=\" margin-bottom: 1rem !important; color: rgb(123, 125, 131); font-family: &quot;DM Sans&quot;, sans-serif; font-size: 16px; font-weight: 500; background-color: rgb(255, 255, 255)\">Usage Data is collected automatically when using the Service. Usage Data may include information such as Your Device\'s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data. When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data. We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device</p><br /></p>', 1, '2022-07-15 16:35:13', '2022-07-15 16:35:13'),
+(3, 3, 'Terms and Condition', 'terms-and-condition', '<p><p class=\"mb-3\" style=\" margin-bottom: 1rem !important; color: rgb(123, 125, 131); font-family: &quot;DM Sans&quot;, sans-serif; font-size: 16px; font-weight: 500; background-color: rgb(255, 255, 255)\">Usage Data is collected automatically when using the Service. Usage Data may include information such as Your Device\'s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data. When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data. We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.</p><p class=\"mb-3\" style=\" margin-bottom: 1rem !important; color: rgb(123, 125, 131); font-family: &quot;DM Sans&quot;, sans-serif; font-size: 16px; font-weight: 500; background-color: rgb(255, 255, 255)\">Usage Data is collected automatically when using the Service. Usage Data may include information such as Your Device\'s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data. When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data. We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.</p><p class=\"mb-3\" style=\" margin-bottom: 1rem !important; color: rgb(123, 125, 131); font-family: &quot;DM Sans&quot;, sans-serif; font-size: 16px; font-weight: 500; background-color: rgb(255, 255, 255)\">Usage Data is collected automatically when using the Service. Usage Data may include information such as Your Device\'s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data. When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data. We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.</p><p class=\"mb-3\" style=\" margin-bottom: 1rem !important; color: rgb(123, 125, 131); font-family: &quot;DM Sans&quot;, sans-serif; font-size: 16px; font-weight: 500; background-color: rgb(255, 255, 255)\">Usage Data is collected automatically when using the Service. Usage Data may include information such as Your Device\'s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data. When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data. We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device</p><br /></p>', 1, '2022-07-15 16:35:23', '2022-07-15 16:35:23');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `durations`
 --
 
@@ -137,6 +228,31 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faqs`
+--
+
+CREATE TABLE `faqs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `position` int(11) NOT NULL,
+  `question` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `answer` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_active` tinyint(1) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `faqs`
+--
+
+INSERT INTO `faqs` (`id`, `position`, `question`, `answer`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Do you wash my clothes together with other people\'s clothes?', 'bsolutely not. Each order is washed separately so no need to worry about that. Your clothes are safe with us!', 1, '2022-07-15 16:34:03', '2022-07-15 16:34:03'),
+(2, 2, 'Where do you clean my clothes?', 'After your items are collected by our driver, they are taken to one of our trusted partner facilities to ensure your items are treated with the utmost care. We take pride in supporting local businesses and minimizing the carbon emissions from transport.', 1, '2022-07-15 16:34:13', '2022-07-15 16:34:13'),
+(3, 3, 'What is the turnaround time?', 'ou will be happy to know that last month we have delivered 98.7% of all standard laundry and dry cleaning within 24 hours.', 1, '2022-07-15 16:34:24', '2022-07-15 16:34:24');
 
 -- --------------------------------------------------------
 
@@ -208,7 +324,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2021_04_24_161734_create_permission_roles_table', 1),
 (8, '2021_04_24_161742_create_sub_modules_table', 1),
 (9, '2021_04_24_161757_create_super_admins_table', 1),
-(10, '2021_08_19_102916_create_app_infos_table', 1),
 (12, '2022_02_02_130530_create_zipcodes_table', 2),
 (13, '2022_02_02_130531_create_locations_table', 2),
 (14, '2022_02_08_111156_create_durations_table', 3),
@@ -217,7 +332,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (17, '2022_02_09_072514_create_service_durations_table', 5),
 (18, '2022_05_28_005933_create_customers_table', 6),
 (25, '2022_06_02_103400_create_orders_table', 7),
-(26, '2022_06_02_103721_create_order_services_table', 7);
+(26, '2022_06_02_103721_create_order_services_table', 7),
+(27, '2021_08_19_102916_create_app_infos_table', 8),
+(28, '2022_07_15_112735_create_banners_table', 8),
+(29, '2022_07_15_182532_create_faqs_table', 8),
+(30, '2022_07_15_193805_create_custom_pages_table', 8),
+(31, '2022_07_25_054222_create_app_models_settings_module_contact_forms_table', 9);
 
 -- --------------------------------------------------------
 
@@ -242,7 +362,7 @@ CREATE TABLE `modules` (
 
 INSERT INTO `modules` (`id`, `name`, `key`, `icon`, `position`, `route`, `created_at`, `updated_at`) VALUES
 (1, 'User Module', 'user_module', 'fas fa-users', 1, NULL, NULL, NULL),
-(2, 'Setting Module', 'settings', 'fas fa-cog', 10, NULL, NULL, NULL),
+(2, 'Settings', 'settings', 'fas fa-cog', 10, NULL, NULL, NULL),
 (3, 'Locations', 'location_module', 'fas fa-location-arrow', 2, NULL, NULL, NULL),
 (4, 'Services', 'service_module', 'fas fa-wrench', 3, NULL, NULL, NULL),
 (5, 'Order Module', 'order_module', 'fas fa-cart-arrow-down', 4, NULL, NULL, NULL);
@@ -269,6 +389,10 @@ CREATE TABLE `orders` (
   `order_status` enum('Pending','Confirmed','Assigned','OnProcess','Delivered','Cancelled') COLLATE utf8mb4_unicode_ci NOT NULL,
   `payment_status` enum('Pending','Success','Cancelled') COLLATE utf8mb4_unicode_ci NOT NULL,
   `payment_method` enum('Cash','Online') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order_date` date NOT NULL,
+  `delivery_date` date NOT NULL,
+  `month` int(11) NOT NULL,
+  `year` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -277,12 +401,12 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `order_no`, `customer_id`, `name`, `email`, `phone`, `postal_code`, `location`, `address_details`, `address_type`, `timing`, `total`, `order_status`, `payment_status`, `payment_method`, `created_at`, `updated_at`) VALUES
-(11, 'L-99448262', 15, 'Md Sehirul Islam Rehi', 'mdsehirulislamrehi@gmail.com', '01858361812', '1213', 'Warless Gate', 'GP-CHA-29 ( 4th Floor )', 'Home', '{\"day_for_collection\":\"Friday, Jun 3\",\"time_for_collection\":\"19:00-21:00\",\"instructions_for_collection\":\"Driver collects from you\",\"day_for_delivery\":\"Saturday, Jun 4\",\"time_for_delivery\":\"17:00-19:00\",\"instructions_for_delivery\":\"Driver drops, rings, waits\",\"others_instruction\":null}', 17, 'Pending', 'Pending', 'Cash', '2022-06-03 12:41:55', '2022-06-03 12:41:55'),
-(12, 'L-52000347', 15, 'Md Sehirul Islam Rehi', 'mdsehirulislamrehi@gmail.com', '01858361812', '1213', 'Tb Gate', 'Gp-cha-29', 'Home', '{\"day_for_collection\":\"Saturday, Jun 4\",\"time_for_collection\":\"13:00-15:00\",\"instructions_for_collection\":\"Driver collects from you\",\"day_for_delivery\":\"Sunday, Jun 5\",\"time_for_delivery\":\"09:00-11:00\",\"instructions_for_delivery\":\"Driver drops, rings, waits\",\"others_instruction\":null}', 15, 'Pending', 'Pending', 'Cash', '2022-06-04 06:48:00', '2022-06-04 06:48:00'),
-(13, 'L-74152272', 15, 'Md Sehirul Islam Rehi', 'mdsehirulislamrehi@gmail.com', '01858361812', '1213', 'Tb Gate', 'GP-CHA-29', 'Home', '{\"day_for_collection\":\"Tuesday, Jun 21\",\"time_for_collection\":\"19:00-21:00\",\"instructions_for_collection\":\"Driver collects from you\",\"day_for_delivery\":\"Wednesday, Jun 22\",\"time_for_delivery\":\"09:00-11:00\",\"instructions_for_delivery\":\"Driver drops, rings, waits\",\"others_instruction\":null}', 7, 'Pending', 'Pending', 'Cash', '2022-06-21 11:53:45', '2022-06-21 11:53:45'),
-(14, 'L-58160197', 16, 'Faisal Hamid Hemel', 'faisal@gmail.com', '01715234605', '1213', 'Tb Gate', 'asdasd', 'Home', '{\"day_for_collection\":\"Monday, Jul 4\",\"time_for_collection\":\"15:00-17:00\",\"instructions_for_collection\":\"Driver collects from you\",\"day_for_delivery\":\"Tuesday, Jul 5\",\"time_for_delivery\":\"09:00-11:00\",\"instructions_for_delivery\":\"Driver drops, rings, waits\",\"others_instruction\":null}', 10, 'Pending', 'Pending', 'Cash', '2022-07-04 09:12:22', '2022-07-04 09:12:22'),
-(15, 'L-36590532', 15, 'Md Sehirul Islam Rehi', 'mdsehirulislam@gmail.com', '01858361812', '1213', 'Tb Gate', 'Dhaka', 'Home', '{\"day_for_collection\":\"Tuesday, Jul 5\",\"time_for_collection\":\"11:00-13:00\",\"instructions_for_collection\":\"Driver collects from you\",\"day_for_delivery\":\"Thursday, Jul 7\",\"time_for_delivery\":\"13:00-15:00\",\"instructions_for_delivery\":\"Driver drops, rings, waits\",\"others_instruction\":null}', 8, 'Pending', 'Pending', 'Cash', '2022-07-05 03:09:42', '2022-07-05 03:09:42');
+INSERT INTO `orders` (`id`, `order_no`, `customer_id`, `name`, `email`, `phone`, `postal_code`, `location`, `address_details`, `address_type`, `timing`, `total`, `order_status`, `payment_status`, `payment_method`, `order_date`, `delivery_date`, `month`, `year`, `created_at`, `updated_at`) VALUES
+(11, 'L-99448262', 15, 'Md Sehirul Islam Rehi', 'mdsehirulislamrehi@gmail.com', '01858361812', '1213', 'Warless Gate', 'GP-CHA-29 ( 4th Floor )', 'Home', '{\"day_for_collection\":\"Friday, Jun 3\",\"time_for_collection\":\"19:00-21:00\",\"instructions_for_collection\":\"Driver collects from you\",\"day_for_delivery\":\"Saturday, Jun 4\",\"time_for_delivery\":\"17:00-19:00\",\"instructions_for_delivery\":\"Driver drops, rings, waits\",\"others_instruction\":null}', 17, 'Pending', 'Pending', 'Cash', '2022-06-03', '2022-06-04', 7, 2022, '2022-06-03 12:41:55', '2022-07-15 16:28:36'),
+(12, 'L-52000347', 15, 'Md Sehirul Islam Rehi', 'mdsehirulislamrehi@gmail.com', '01858361812', '1213', 'Tb Gate', 'Gp-cha-29', 'Home', '{\"day_for_collection\":\"Saturday, Jun 4\",\"time_for_collection\":\"13:00-15:00\",\"instructions_for_collection\":\"Driver collects from you\",\"day_for_delivery\":\"Sunday, Jun 5\",\"time_for_delivery\":\"09:00-11:00\",\"instructions_for_delivery\":\"Driver drops, rings, waits\",\"others_instruction\":null}', 15, 'Pending', 'Pending', 'Cash', '2022-06-04', '2022-06-05', 7, 2022, '2022-06-04 06:48:00', '2022-07-15 16:28:36'),
+(13, 'L-74152272', 15, 'Md Sehirul Islam Rehi', 'mdsehirulislamrehi@gmail.com', '01858361812', '1213', 'Tb Gate', 'GP-CHA-29', 'Home', '{\"day_for_collection\":\"Tuesday, Jun 21\",\"time_for_collection\":\"19:00-21:00\",\"instructions_for_collection\":\"Driver collects from you\",\"day_for_delivery\":\"Wednesday, Jun 22\",\"time_for_delivery\":\"09:00-11:00\",\"instructions_for_delivery\":\"Driver drops, rings, waits\",\"others_instruction\":null}', 7, 'Pending', 'Pending', 'Cash', '2022-06-21', '2022-06-22', 6, 2022, '2022-06-21 11:53:45', '2022-07-15 16:28:36'),
+(14, 'L-58160197', 16, 'Faisal Hamid Hemel', 'faisal@gmail.com', '01715234605', '1213', 'Tb Gate', 'asdasd', 'Home', '{\"day_for_collection\":\"Monday, Jul 4\",\"time_for_collection\":\"15:00-17:00\",\"instructions_for_collection\":\"Driver collects from you\",\"day_for_delivery\":\"Tuesday, Jul 5\",\"time_for_delivery\":\"09:00-11:00\",\"instructions_for_delivery\":\"Driver drops, rings, waits\",\"others_instruction\":null}', 10, 'Pending', 'Pending', 'Cash', '2022-07-04', '2022-07-05', 5, 2022, '2022-07-04 09:12:22', '2022-07-15 16:28:36'),
+(15, 'L-36590532', 15, 'Md Sehirul Islam Rehi', 'mdsehirulislam@gmail.com', '01858361812', '1213', 'Tb Gate', 'Dhaka', 'Home', '{\"day_for_collection\":\"Tuesday, Jul 5\",\"time_for_collection\":\"11:00-13:00\",\"instructions_for_collection\":\"Driver collects from you\",\"day_for_delivery\":\"Thursday, Jul 7\",\"time_for_delivery\":\"13:00-15:00\",\"instructions_for_delivery\":\"Driver drops, rings, waits\",\"others_instruction\":null}', 8, 'Pending', 'Pending', 'Cash', '2022-07-05', '2022-07-07', 5, 2022, '2022-07-05 03:09:42', '2022-07-15 16:28:36');
 
 -- --------------------------------------------------------
 
@@ -387,7 +511,19 @@ INSERT INTO `permissions` (`id`, `key`, `display_name`, `module_id`, `created_at
 (39, 'order_module', 'Order Module', 5, NULL, NULL),
 (40, 'all_order', 'All Order', 5, NULL, NULL),
 (41, 'view_order_details', '-- View Order Details', 5, NULL, NULL),
-(42, 'edit_order', '-- Edit Order', 5, NULL, NULL);
+(42, 'edit_order', '-- Edit Order', 5, NULL, NULL),
+(43, 'banners', 'Banners', 2, NULL, NULL),
+(44, 'add_banners', '-- Add Banners', 2, NULL, NULL),
+(45, 'edit_banners', '-- Edit Banners', 2, NULL, NULL),
+(46, 'delete_banners', '-- Delete Banners', 2, NULL, NULL),
+(47, 'faq', 'FAQ', 2, NULL, NULL),
+(48, 'add_faq', '-- Add Faq', 2, NULL, NULL),
+(49, 'edit_faq', '-- Edit Faq', 2, NULL, NULL),
+(50, 'delete_faq', '-- Delete Faq', 2, NULL, NULL),
+(51, 'custom_page', 'Custom Page', 2, NULL, NULL),
+(52, 'add_custom_page', '-- Add Custom Page', 2, NULL, NULL),
+(53, 'edit_custom_page', '-- Edit Custom Page', 2, NULL, NULL),
+(54, 'delete_custom_page', '-- Delete Custom Page', 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -507,7 +643,10 @@ INSERT INTO `sub_modules` (`id`, `name`, `key`, `position`, `route`, `module_id`
 (8, 'Duration', 'duration', 2, 'duration.all', 4, NULL, NULL),
 (9, 'Coupon', 'coupon', 1, 'coupon.all', 4, NULL, NULL),
 (10, 'Service', 'service', 3, 'service.all', 4, NULL, NULL),
-(11, 'All Order', 'all_order', 1, 'order.all', 5, NULL, NULL);
+(11, 'All Order', 'all_order', 1, 'order.all', 5, NULL, NULL),
+(12, 'Banners', 'banners', 2, 'banner.all', 2, NULL, NULL),
+(13, 'FAQ', 'faq', 3, 'faq.all', 2, NULL, NULL),
+(14, 'Custom Pages', 'custom_page', 4, 'custom_page.all', 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -533,7 +672,7 @@ CREATE TABLE `super_admins` (
 --
 
 INSERT INTO `super_admins` (`id`, `name`, `email`, `image`, `phone`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Super Admin', 'superadmin@gmail.com', NULL, '1858361812', NULL, '$2y$10$DL4GYEre.pxRW.Ie17TKdOt1Qu1Ht578RmDVL7A0yfhoxjj2d4vXi', 'NFM74qYX2BKr60AuERn7xb28uEqqibq3Wob6TiEuFCVhRPTIx0YDeYSlQZsv', NULL, NULL);
+(1, 'Super Admin', 'superadmin@gmail.com', NULL, '1858361812', NULL, '$2y$10$Pq8GTKELk27N8Y6kCjIgzOAuQK0uaGob9wrx6O/wjnmL6AdwinjIS', 'eLYNFxp4OfuLfn80vzL4ISJ5T2PCnRxHmceIWYt1VdpB0GpEzjeywQuP7y7Q', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -595,6 +734,19 @@ ALTER TABLE `app_infos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `banners`
+--
+ALTER TABLE `banners`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `banners_position_unique` (`position`);
+
+--
+-- Indexes for table `contact_forms`
+--
+ALTER TABLE `contact_forms`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `coupons`
 --
 ALTER TABLE `coupons`
@@ -609,6 +761,15 @@ ALTER TABLE `customers`
   ADD UNIQUE KEY `customers_phone_unique` (`phone`);
 
 --
+-- Indexes for table `custom_pages`
+--
+ALTER TABLE `custom_pages`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `custom_pages_position_unique` (`position`),
+  ADD UNIQUE KEY `custom_pages_name_unique` (`name`),
+  ADD UNIQUE KEY `custom_pages_slug_unique` (`slug`);
+
+--
 -- Indexes for table `durations`
 --
 ALTER TABLE `durations`
@@ -621,6 +782,13 @@ ALTER TABLE `durations`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `faqs`
+--
+ALTER TABLE `faqs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `faqs_position_unique` (`position`);
 
 --
 -- Indexes for table `locations`
@@ -749,6 +917,18 @@ ALTER TABLE `app_infos`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `banners`
+--
+ALTER TABLE `banners`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `contact_forms`
+--
+ALTER TABLE `contact_forms`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `coupons`
 --
 ALTER TABLE `coupons`
@@ -759,6 +939,12 @@ ALTER TABLE `coupons`
 --
 ALTER TABLE `customers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `custom_pages`
+--
+ALTER TABLE `custom_pages`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `durations`
@@ -773,6 +959,12 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `faqs`
+--
+ALTER TABLE `faqs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `locations`
 --
 ALTER TABLE `locations`
@@ -782,7 +974,7 @@ ALTER TABLE `locations`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `modules`
@@ -812,7 +1004,7 @@ ALTER TABLE `password_resets`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `permission_role`
@@ -842,7 +1034,7 @@ ALTER TABLE `service_durations`
 -- AUTO_INCREMENT for table `sub_modules`
 --
 ALTER TABLE `sub_modules`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `super_admins`
