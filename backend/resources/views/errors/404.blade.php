@@ -401,7 +401,7 @@ border-bottom: 4px solid #e67e22;
 <div class="error__description">No page found in your request</div>
 <button class="error__button">
   @if($app_info)
-  <a href="{{ route('home') }}">
+  <a href="">
     <img src="{{ asset('images/info/'.$app_info->logo) }}" width="200px" alt="">
   </a>
   @endif

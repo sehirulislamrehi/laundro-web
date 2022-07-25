@@ -11,8 +11,8 @@ import { Provider } from 'react-redux';
 
 
 
-window.url = "https://laundro-admin.sehirulislamrehi.com/api"
-window.image_path = "https://laundro-admin.sehirulislamrehi.com"
+window.url = "https://admin.laundro.geekslab.io/api"
+window.image_path = "https://admin.laundro.geekslab.io"
 const myStore = createStore(allReducer)
 
 // window.url = "http://127.0.0.1:8000/api"
