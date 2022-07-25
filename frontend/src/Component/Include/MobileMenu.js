@@ -1,6 +1,8 @@
 
 import { useState } from "react";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 
@@ -68,24 +70,28 @@ const MobileMenu = () => {
           });
      })
      
-     const [application_data, set_application_data] = useState(null)
+     // const [application_data, set_application_data] = useState(null)
+
+     const dispatch = useDispatch();
 
      useEffect(() => {
 
           //get application data
-          const get_application_data_url = `${window.url}/application-data`;
-          fetch(get_application_data_url,{
-               method : "GET"
-          })
-          .then( response => response.json() )
-          .then( response => {
-               set_application_data(response.data)
-          })
-          .catch( response => {
+          // const get_application_data_url = `${window.url}/application-data`;
+          // fetch(get_application_data_url,{
+          //      method : "GET"
+          // })
+          // .then( response => response.json() )
+          // .then( response => {
+          //      set_application_data(response.data)
+          // })
+          // .catch( response => {
                
-          })
+          // })
 
      },[])
+
+     const application_data = useSelector( state => state.applicationData )
 
 
      return(

@@ -16,7 +16,7 @@ class DashboardController extends Controller
         if( auth('super_admin')->check() || auth('web')->check() ){
 
             $orders = Order::select("order_status","total","order_date","delivery_date")->get();
-
+            
             return view('backend.dashboard', compact(
                 'orders'
             ));

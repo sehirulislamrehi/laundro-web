@@ -28,3 +28,10 @@ export const RemoveService = (res) => {
           response : res
      }  
 }
+
+export const applicationData = (res) => {
+     return{
+          type : "applicationData",
+          response : res
+     }  
+}

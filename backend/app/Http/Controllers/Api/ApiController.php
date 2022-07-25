@@ -9,6 +9,8 @@ use App\Models\SettingsModule\CustomPage;
 use App\Models\SettingsModule\Faq;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Models\SettingsModule\ContactForm;
 
 class ApiController extends Controller
 {
@@ -116,4 +118,48 @@ class ApiController extends Controller
         }
     }
     //application_data function end
+    
+    
+    //contact_form function start
+    public function contact_form(Request $request){
+        try{
+            $validator = Validator::make($request->all(),[
+                "name" => "required",
+                "email" => "required",
+                "phone" => "required",
+                "subject" => "required",
+                "message" => "required",
+            ]);
+            
+            if( $validator->fails() ){
+                return response()->json([
+                    'status' => 'validation_error',
+                    'data' => $validator->errors()
+                ],200); 
+            }
+            else{
+                $contact_form = new ContactForm();
+                
+                $contact_form->name = $request->name;
+                $contact_form->email = $request->email;
+                $contact_form->phone = $request->phone;
+                $contact_form->subject = $request->subject;
+                $contact_form->message = $request->message;
+                
+                if( $contact_form->save() ){
+                    return response()->json([
+                        'status' => 'success',
+                        'data' => 'Thanks for contact with us'
+                    ],200);
+                }
+            }
+        }
+        catch( Exception $e ){
+            return response()->json([
+                'status' => 'error',
+                'data' => $e->getMessage()
+            ],200);
+        }
+    }
+    //contact_form function end
 }

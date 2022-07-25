@@ -8,34 +8,89 @@ import Footer from "../Include/Footer";
 import Header from "../Include/Header";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import Loading from "../Include/Loading";
+
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+const MySwal = withReactContent(Swal)
 
 
 const ContactComponent = (props) => {
 
      {/* window scroll to top */}
-     window.scrollTo(0, 0);
+     // window.scrollTo(0, 0);
 
-     const [application_data, set_application_data] = useState(null)
+     const dispatch = useDispatch();
+
+     const application_data = useSelector( state => state.applicationData )
 
      useEffect(() => {
 
-          //get application data
-          const get_application_data_url = `${window.url}/application-data`;
-          fetch(get_application_data_url,{
-               method : "GET"
+     },[])
+
+     //submit contact message
+     const [name, set_name] = useState('')
+     const [email, set_email] = useState('')
+     const [phone, set_phone] = useState('')
+     const [subject, set_subject] = useState('')
+     const [message, set_message] = useState('')
+     const [ errors, set_error ] = useState(null)
+
+     const doSubmit = () => {
+          const loading = document.getElementById("loading-wraper")
+          loading.style.display = "block"
+
+          const url = `${window.url}/contact-form`;
+
+          const formData = new FormData();
+
+          formData.append('name',name);
+          formData.append('email',email);
+          formData.append('phone',phone);
+          formData.append('subject',subject);
+          formData.append('message',message);
+
+          fetch(url,{
+               method : 'POST',
+               body : formData,
           })
-          .then( response => response.json() )
+          .then( response => response.json())
           .then( response => {
-               set_application_data(response.data)
+               loading.style.display = "none"
+
+               if( response.status == 'success' ){
+                    MySwal.fire({
+                         title : "Success",
+                         text : `${response.data}`,
+                    })
+               }
+
+               if( response.status == "validation_error" ){
+                    const single_error = response.data
+                    const distructured_error = {...single_error}
+                    set_error(distructured_error)
+               }
+
+               if( response.status == "warning" ){
+                    MySwal.fire({
+                         title : "WARNING",
+                         text : `${response.data}`,
+                    })
+               }
           })
           .catch( response => {
+               loading.style.display = "none"
                
           })
-
-     },[])
+     }
 
      return(
           <div className="id">
+
+               {/* loading */}
+               <Loading></Loading>
 
                <MobileMenu ></MobileMenu>
 
@@ -122,33 +177,83 @@ const ContactComponent = (props) => {
                                         <form action="assets/inc/sendemail.php" className="comment-one__form contact-form-validated">
                                              <div className="row">
                                                   <div className="col-xl-6">
-                                                       <div className="comment-form__input-box">
-                                                       <input type="text" placeholder="Your name" name="name"></input>
+                                                       <div className="comment-form__input-box form-group">
+                                                            <input type="text" 
+                                                                 onChange={ e => set_name(e.target.value) }
+                                                            placeholder="Your name" name="name"></input>
+                                                            {
+                                                                 errors &&
+                                                                 <small
+                                                                 className="form_error"
+                                                                 >
+                                                                      {errors.name}
+                                                                 </small>
+                                                            }
                                                        </div>
                                                   </div>
                                                   <div className="col-xl-6">
-                                                       <div className="comment-form__input-box">
-                                                       <input type="email" placeholder="Email address" name="email"></input>
+                                                       <div className="comment-form__input-box form-group">
+                                                            <input type="email"
+                                                                 onChange={ e => set_email(e.target.value) }
+                                                            placeholder="Email address" name="email"></input>
+                                                            {
+                                                                 errors &&
+                                                                 <small
+                                                                 className="form_error"
+                                                                 >
+                                                                      {errors.email}
+                                                                 </small>
+                                                            }
                                                        </div>
                                                   </div>
                                                   <div className="col-xl-6">
-                                                       <div className="comment-form__input-box">
-                                                       <input type="text" placeholder="Phone number" name="Phone"></input>
+                                                       <div className="comment-form__input-box form-group">
+                                                            <input type="text" 
+                                                                 onChange={ e => set_phone(e.target.value) }
+                                                            placeholder="Phone number" name="Phone"></input>
+                                                            {
+                                                                 errors &&
+                                                                 <small
+                                                                 className="form_error"
+                                                                 >
+                                                                      {errors.phone}
+                                                                 </small>
+                                                            }
                                                        </div>
                                                   </div>
                                                   <div className="col-xl-6">
-                                                       <div className="comment-form__input-box">
-                                                       <input type="text" placeholder="Subject" name="Subject"></input>
+                                                       <div className="comment-form__input-box form-group">
+                                                            <input type="text" 
+                                                                 onChange={ e => set_subject(e.target.value) }
+                                                            placeholder="Subject" name="Subject"></input>
+                                                            {
+                                                                 errors &&
+                                                                 <small
+                                                                 className="form_error"
+                                                                 >
+                                                                      {errors.subject}
+                                                                 </small>
+                                                            }
                                                        </div>
                                                   </div>
                                              </div>
                                              <div className="row">
                                                   <div className="col-xl-12">
-                                                       <div className="comment-form__input-box text-message-box">
-                                                       <textarea name="message" placeholder="Write message"></textarea>
+                                                       <div className="comment-form__input-box form-group text-message-box">
+                                                            <textarea name="message" 
+                                                                 onChange={ e => set_message(e.target.value) }
+                                                            placeholder="Write message"></textarea>
+                                                            {
+                                                                 errors &&
+                                                                 <small
+                                                                 className="form_error"
+                                                                 >
+                                                                      {errors.message}
+                                                                 </small>
+                                                            }
                                                        </div>
                                                        <div className="comment-form__btn-box">
-                                                       <button type="submit" className="thm-btn comment-form__btn">Send a Message <i
+                                                       <button type="button" onClick={doSubmit} className="thm-btn comment-form__btn">Send a Message <i
                                                                  className="fa fa-angle-right"></i></button>
                                                        </div>
                                                   </div>

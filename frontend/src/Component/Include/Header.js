@@ -1,26 +1,29 @@
 
 import { useState } from "react";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Header = (props) => {
 
-     const [application_data, set_application_data] = useState(null)
+     // const [application_data, set_application_data] = useState(null)
+
+     const dispatch = useDispatch();
 
      useEffect(() => {
 
           //get application data
-          const get_application_data_url = `${window.url}/application-data`;
-          fetch(get_application_data_url,{
-               method : "GET"
-          })
-          .then( response => response.json() )
-          .then( response => {
-               set_application_data(response.data)
-          })
-          .catch( response => {
+          // const get_application_data_url = `${window.url}/application-data`;
+          // fetch(get_application_data_url,{
+          //      method : "GET"
+          // })
+          // .then( response => response.json() )
+          // .then( response => {
+          //      set_application_data(response.data)
+          // })
+          // .catch( response => {
                
-          })
+          // })
 
      },[])
 
@@ -28,6 +31,8 @@ const Header = (props) => {
           let a = document.querySelector(".mobile-nav__wrapper")
           a.classList.add("expanded")
      }
+
+     const application_data = useSelector( state => state.applicationData )
      
      return(
           <div className="id">

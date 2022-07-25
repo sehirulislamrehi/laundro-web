@@ -22,16 +22,36 @@ import FaqComponent from "./Component/Pages/FaqComponent";
 import CustomPage from "./Component/Pages/CustomPage";
 import { useEffect } from "react";
 import { useState } from "react";
+import { applicationData } from "./action";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 function App() {
 
-  const [application_data, set_application_data] = useState(null)
+  const dispatch = useDispatch();
+
 
      useEffect(() => {
 
-          
+
+ 
+           //get application data
+           const get_application_data_url = `${window.url}/application-data`;
+           fetch(get_application_data_url,{
+                method : "GET"
+           })
+           .then( response => response.json() )
+           .then( response => {
+              dispatch(applicationData(response.data))
+           })
+           .catch( response => {
+                
+           })
+ 
 
      },[])
+
+     const application_data = useSelector( state => state.applicationData )
 
   return (
 

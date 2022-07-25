@@ -85,3 +85,6 @@ Route::get("custom-page-details/{slug}",[ApiController::class,"custom_page_detai
 
 //application information
 Route::get("application-data",[ApiController::class,"application_data"]);
+
+//submit contact form
+Route::post("contact-form",[ApiController::class,"contact_form"]);

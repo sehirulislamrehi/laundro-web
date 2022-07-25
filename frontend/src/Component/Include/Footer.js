@@ -1,12 +1,18 @@
 
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 
 const Footer = () => {
 
      const [custom_page, set_custom_page] = useState(null);
-     const [application_data, set_application_data] = useState(null)
+     // const [application_data, set_application_data] = useState(null)
+
+     const dispatch = useDispatch();
+
+     const application_data = useSelector( state => state.applicationData )
 
      useEffect(() => {
 
@@ -24,17 +30,17 @@ const Footer = () => {
           }) 
 
           //get application data
-          const get_application_data_url = `${window.url}/application-data`;
-          fetch(get_application_data_url,{
-               method : "GET"
-          })
-          .then( response => response.json() )
-          .then( response => {
-               set_application_data(response.data)
-          })
-          .catch( response => {
+          // const get_application_data_url = `${window.url}/application-data`;
+          // fetch(get_application_data_url,{
+          //      method : "GET"
+          // })
+          // .then( response => response.json() )
+          // .then( response => {
+          //      set_application_data(response.data)
+          // })
+          // .catch( response => {
                
-          })
+          // })
 
      },[])
 
@@ -57,9 +63,12 @@ const Footer = () => {
                               <div className="information__logo-box">
                               <div className="information__border-1"></div>
                               <div className="information__border-2"></div>
-                              <a href="index.html">
-                                   <img src="images/information-logo.png" alt=""></img>
-                              </a>
+                                   <Link to="/">
+                                        {
+                                             application_data &&
+                                             <img src={`${window.image_path}/images/info/${application_data.logo}`} className="img-fluid" alt=""></img>
+                                        }
+                                   </Link>
                               </div>
                               <ul className="list-unstyled information__list">
                               <li>
