@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\CustomerModule\Subscriber;
 use App\Models\SettingsModule\AppInfo;
 use App\Models\SettingsModule\Banner;
 use App\Models\SettingsModule\CustomPage;
@@ -162,4 +163,40 @@ class ApiController extends Controller
         }
     }
     //contact_form function end
+
+
+    //do_subscribe function start
+    public function do_subscribe(Request $request){
+        try{
+            $validator = Validator::make($request->all(),[
+                "email" => "required|unique:subscribers,email",
+            ]);
+            
+            if( $validator->fails() ){
+                return response()->json([
+                    'status' => 'validation_error',
+                    'data' => $validator->errors()
+                ],200); 
+            }
+            else{
+                $subscriber = new Subscriber();
+                
+                $subscriber->email = $request->email;
+                
+                if( $subscriber->save() ){
+                    return response()->json([
+                        'status' => 'success',
+                        'data' => 'Thanks for subscribe'
+                    ],200);
+                }
+            }
+        }
+        catch( Exception $e ){
+            return response()->json([
+                'status' => 'error',
+                'data' => $e->getMessage()
+            ],200);
+        }
+    }
+    //do_subscribe function end
 }

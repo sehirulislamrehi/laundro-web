@@ -88,3 +88,6 @@ Route::get("application-data",[ApiController::class,"application_data"]);
 
 //submit contact form
 Route::post("contact-form",[ApiController::class,"contact_form"]);
+
+//do subscribe
+Route::post("do-subscribe",[ApiController::class,"do_subscribe"]);
