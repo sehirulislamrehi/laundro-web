@@ -150,7 +150,7 @@ class ApiController extends Controller
                 if( $contact_form->save() ){
                     return response()->json([
                         'status' => 'success',
-                        'data' => 'Thanks for contact with us'
+                        'data' => 'Your message is submitted. We will contact with you soon.'
                     ],200);
                 }
             }
@@ -168,6 +168,7 @@ class ApiController extends Controller
     //do_subscribe function start
     public function do_subscribe(Request $request){
         try{
+
             $validator = Validator::make($request->all(),[
                 "email" => "required|unique:subscribers,email",
             ]);
@@ -186,7 +187,7 @@ class ApiController extends Controller
                 if( $subscriber->save() ){
                     return response()->json([
                         'status' => 'success',
-                        'data' => 'Thanks for subscribe'
+                        'data' => 'Thanks for the subscribe'
                     ],200);
                 }
             }

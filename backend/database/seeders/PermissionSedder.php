@@ -378,6 +378,36 @@ class PermissionSedder extends Seeder
                 'display_name' => '-- Delete Subscribers',
                 'module_id' => 6,
             ],
+            [
+                'id' => 62,
+                'key' => 'testimonials',
+                'display_name' => 'Testimonials',
+                'module_id' => 2,
+            ],
+            [
+                'id' => 63,
+                'key' => 'add_testimonials',
+                'display_name' => '-- Add Testimonials',
+                'module_id' => 2,
+            ],
+            [
+                'id' => 64,
+                'key' => 'edit_testimonials',
+                'display_name' => '-- Edit Testimonials',
+                'module_id' => 2,
+            ],
+            [
+                'id' => 65,
+                'key' => 'delete_testimonials',
+                'display_name' => '-- Delete Testimonials',
+                'module_id' => 2,
+            ],
+            [
+                'id' => 66,
+                'key' => 'view_testimonials',
+                'display_name' => '-- View Testimonials',
+                'module_id' => 2,
+            ],
         ]);
     }
 }

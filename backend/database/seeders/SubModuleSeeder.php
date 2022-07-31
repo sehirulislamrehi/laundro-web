@@ -72,6 +72,14 @@ class SubModuleSeeder extends Seeder
                 'route' => 'custom_page.all',
                 'module_id' => 2,
             ],
+            [
+                'id' => 18,
+                'name' => 'Testimonials',
+                'key' => 'testimonials',
+                'position' => 5,
+                'route' => 'testimonial.all',
+                'module_id' => 2,
+            ],
             //module id 2 end
 
 
@@ -179,6 +187,6 @@ class SubModuleSeeder extends Seeder
         
         ]);
 
-        //last id 17
+        //last id 18
     }
 }

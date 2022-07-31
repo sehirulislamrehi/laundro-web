@@ -17,6 +17,7 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { useHistory } from "react-router-dom";
 import Header from "../Include/Header";
+import Loading from "../Include/Loading";
 const MySwal = withReactContent(Swal)
 
 
@@ -150,8 +151,70 @@ const HomeComponent = (props) => {
      }
 
 
+     //submit contact message
+     const [name, set_name] = useState('')
+     const [email, set_email] = useState('')
+     const [phone, set_phone] = useState('')
+     const [subject, set_subject] = useState('')
+     const [message, set_message] = useState('')
+     const [ errors, set_error ] = useState(null)
+
+     const doSubmit = () => {
+          const loading = document.getElementById("loading-wraper")
+          loading.style.display = "block"
+
+          const url = `${window.url}/contact-form`;
+
+          const formData = new FormData();
+
+          formData.append('name',name);
+          formData.append('email',email);
+          formData.append('phone',phone);
+          formData.append('subject',subject);
+          formData.append('message',message);
+
+          fetch(url,{
+               method : 'POST',
+               body : formData,
+          })
+          .then( response => response.json())
+          .then( response => {
+               loading.style.display = "none"
+
+               if( response.status == 'success' ){
+                    set_name('')
+                    MySwal.fire({
+                         title : "Success",
+                         text : `${response.data}`,
+                    })
+               }
+
+               if( response.status == "validation_error" ){
+                    const single_error = response.data
+                    const distructured_error = {...single_error}
+                    set_error(distructured_error)
+               }
+
+               if( response.status == "warning" ){
+                    MySwal.fire({
+                         title : "WARNING",
+                         text : `${response.data}`,
+                    })
+               }
+          })
+          .catch( response => {
+               loading.style.display = "none"
+               
+          })
+     }
+
+
      return(
           <div className="id">
+
+               
+               {/* loading */}
+               <Loading></Loading>
 
                <MobileMenu></MobileMenu>
 
@@ -641,44 +704,95 @@ const HomeComponent = (props) => {
                                              </div>
                                              <form action="assets/inc/sendemail.php" className="contact-one__form contact-form-validated">
                                                   <div className="row">
+
+                                                       {/* name */}
                                                        <div className="col-xl-6 col-lg-6 col-md-6">
-                                                       <div className="contact-one__form-input-box">
-                                                            <input type="text" placeholder="Full name" name="name"></input>
-                                                       </div>
-                                                       </div>
-                                                       <div className="col-xl-6 col-lg-6 col-md-6">
-                                                       <div className="contact-one__form-input-box">
-                                                            <input type="email" placeholder="Your email" name="email"></input>
-                                                       </div>
-                                                       </div>
-                                                       <div className="col-xl-6 col-lg-6 col-md-6">
-                                                       <div className="contact-one__form-input-box">
-                                                            <input type="text" placeholder="Phone number" name="phone"></input>
-                                                       </div>
-                                                       </div>
-                                                       <div className="col-xl-6 col-lg-6 col-md-6">
-                                                       <div className="contact-one__form-input-box">
-                                                            <select className="selectpicker" aria-label="Default select example">
-                                                                 <option>Select service</option>
-                                                                 
-                                                                 {    get_all_services && get_all_services.map( item => (
-                                                                           (
-                                                                                (item.service_durations.length == 0) ? <option value={item.slug}>{item.name}</option> : ""
-                                                                           )
-                                                                      ))
+                                                            <div className="contact-one__form-input-box form-group">
+                                                                 <input type="text" 
+                                                                      onChange={ e => set_name(e.target.value) }
+                                                                 placeholder="Your name" name="name"></input>
+                                                                 {
+                                                                      errors &&
+                                                                      <small
+                                                                      className="form_error"
+                                                                      >
+                                                                           {errors.name}
+                                                                      </small>
                                                                  }
-                                                            </select>
+                                                            </div>
                                                        </div>
+
+                                                       {/* email */}
+                                                       <div className="col-xl-6 col-lg-6 col-md-6">
+                                                            <div className="contact-one__form-input-box form-group">
+                                                                 <input type="email"
+                                                                      onChange={ e => set_email(e.target.value) }
+                                                                 placeholder="Email address" name="email"></input>
+                                                                 {
+                                                                      errors &&
+                                                                      <small
+                                                                      className="form_error"
+                                                                      >
+                                                                           {errors.email}
+                                                                      </small>
+                                                                 }
+                                                            </div>
                                                        </div>
+
+                                                       {/* phone */}
+                                                       <div className="col-xl-6 col-lg-6 col-md-6">
+                                                            <div className="contact-one__form-input-box form-group">
+                                                                 <input type="text" 
+                                                                      onChange={ e => set_phone(e.target.value) }
+                                                                 placeholder="Phone number" name="Phone"></input>
+                                                                 {
+                                                                      errors &&
+                                                                      <small
+                                                                      className="form_error"
+                                                                      >
+                                                                           {errors.phone}
+                                                                      </small>
+                                                                 }
+                                                            </div>
+                                                       </div>
+
+                                                       {/* subject */}
+                                                       <div className="col-xl-6 col-lg-6 col-md-6">
+                                                            <div className="contact-one__form-input-box form-group ">
+                                                                 <input type="text" 
+                                                                      onChange={ e => set_subject(e.target.value) }
+                                                                 placeholder="Subject" name="Subject"></input>
+                                                                 {
+                                                                      errors &&
+                                                                      <small
+                                                                      className="form_error"
+                                                                      >
+                                                                           {errors.subject}
+                                                                      </small>
+                                                                 }
+                                                            </div>
+                                                       </div>
+                                                       
                                                   </div>
                                                   <div className="row">
                                                        <div className="col-xl-12">
                                                             <div className="contact-one__form-input-box text-message-box">
-                                                                 <textarea name="message" placeholder="Write message"></textarea>
+                                                                 <textarea name="message" 
+                                                                      onChange={ e => set_message(e.target.value) }
+                                                                 placeholder="Write message"></textarea>
+                                                                 {
+                                                                      errors &&
+                                                                      <small
+                                                                      className="form_error"
+                                                                      >
+                                                                           {errors.message}
+                                                                      </small>
+                                                                 }
                                                             </div>
                                                             <div className="contact-one__btn-box">
-                                                                 <button type="submit" className="thm-btn contact-one__btn">Send a message <i
-                                                                           className="fa fa-angle-right"></i></button>
+                                                                 <button type="button" onClick={doSubmit} className="thm-btn contact-one__btn">
+                                                                      Send a message <i className="fa fa-angle-right"></i>
+                                                                 </button>
                                                             </div>
                                                        </div>
                                                   </div>

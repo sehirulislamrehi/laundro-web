@@ -163,10 +163,30 @@ const MobileMenu = () => {
                          </ul>{/* /.mobile-nav__contact */}
                          <div className="mobile-nav__top">
                               <div className="mobile-nav__social">
-                                   <a href="#" className="fab fa-twitter"></a>
-                                   <a href="#" className="fab fa-facebook-square"></a>
-                                   <a href="#" className="fab fa-pinterest-p"></a>
-                                   <a href="#" className="fab fa-instagram"></a>
+                                   {
+                                        application_data &&
+                                        <a href={application_data.facebook_link} target="_blank">
+                                             <i className="fab fa-facebook"></i>
+                                        </a>
+                                   }
+                                   {
+                                        application_data &&
+                                        <a href={application_data.twitter_link} target="_blank">
+                                             <i className="fab fa-twitter"></i>
+                                        </a>
+                                   }
+                                   {
+                                        application_data &&
+                                        <a href={application_data.linkedin_link} target="_blank">
+                                             <i className="fab fa-linkedin"></i>
+                                        </a>
+                                   }
+                                   {
+                                        application_data &&
+                                        <a href={application_data.youtube_link} target="_blank">
+                                             <i className="fab fa-youtube"></i>
+                                        </a>
+                                   }
                               </div>{/* /.mobile-nav__social */}
                          </div>{/* /.mobile-nav__top */}
 

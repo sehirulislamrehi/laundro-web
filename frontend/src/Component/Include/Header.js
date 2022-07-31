@@ -33,6 +33,7 @@ const Header = (props) => {
      }
 
      const application_data = useSelector( state => state.applicationData )
+
      
      return(
           <div className="id">
@@ -43,10 +44,30 @@ const Header = (props) => {
                               <div className="main-header__top-social-box-inner">
                                    <p className="main-header__top-social-text">Welcome to our Laundro Cleaning Services!</p>
                                    <div className="main-header__top-social">
-                                        <a href=""><i className="fab fa-twitter"></i></a>
-                                        <a href=""><i className="fab fa-facebook"></i></a>
-                                        <a href=""><i className="fab fa-pinterest-p"></i></a>
-                                        <a href=""><i className="fab fa-instagram"></i></a>
+                                        {
+                                             application_data &&
+                                             <a href={application_data.facebook_link} target="_blank">
+                                                  <i className="fab fa-facebook"></i>
+                                             </a>
+                                        }
+                                        {
+                                             application_data &&
+                                             <a href={application_data.twitter_link} target="_blank">
+                                                  <i className="fab fa-twitter"></i>
+                                             </a>
+                                        }
+                                        {
+                                             application_data &&
+                                             <a href={application_data.linkedin_link} target="_blank">
+                                                  <i className="fab fa-linkedin"></i>
+                                             </a>
+                                        }
+                                        {
+                                             application_data &&
+                                             <a href={application_data.youtube_link} target="_blank">
+                                                  <i className="fab fa-youtube"></i>
+                                             </a>
+                                        }
                                    </div>
                               </div>
                               </div>

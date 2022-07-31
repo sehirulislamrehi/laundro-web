@@ -85,6 +85,7 @@ Route::group(['prefix' => 'admindashboard', 'middleware' => 'auth'], function ()
         require_once 'settings_module/banner.php';
         require_once 'settings_module/faq.php';
         require_once 'settings_module/custom_page.php';
+        require_once 'settings_module/testimonial.php';
     });
     //settings module routes end
 

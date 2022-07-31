@@ -4,6 +4,9 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+const MySwal = withReactContent(Swal)
 
 const Footer = () => {
 
@@ -43,6 +46,46 @@ const Footer = () => {
           // })
 
      },[])
+
+     const [email, set_email] = useState('');
+     const doSubscribe = () => {
+          if( email ){
+               let subscribe_url = `${window.url}/do-subscribe`;
+               let formData = new FormData();
+
+               formData.append('email', email);
+
+               fetch(subscribe_url, {
+                    method : "POST",
+                    body : formData
+               })
+               .then( response => response.json() )
+               .then( response => {
+                    if( response.status == 'success' ){
+                         MySwal.fire({
+                              title : "Success",
+                              text : `${response.data}`,
+                         })
+                    }
+                    if( response.status == 'validation_error' ){
+                         MySwal.fire({
+                              title : "Warning",
+                              text : `${response.data.email[0]}`,
+                         })
+                    }
+     
+               })
+               .catch( response => {
+
+               })
+          }
+          else{
+               MySwal.fire({
+                    title : "Warning",
+                    text : `Please enter an email address`,
+               })
+          }
+     }
 
      return(
           <div className="id">
@@ -139,10 +182,30 @@ const Footer = () => {
                                                        maecenas. Sapien nunced amet dolores.</p>
                                              </div>
                                              <div className="site-footer__social">
-                                                  <a href="#"><i className="fab fa-twitter"></i></a>
-                                                  <a href="#"><i className="fab fa-facebook"></i></a>
-                                                  <a href="#"><i className="fab fa-pinterest-p"></i></a>
-                                                  <a href="#"><i className="fab fa-instagram"></i></a>
+                                                  {
+                                                       application_data &&
+                                                       <a href={application_data.facebook_link} target="_blank">
+                                                            <i className="fab fa-facebook"></i>
+                                                       </a>
+                                                  }
+                                                  {
+                                                       application_data &&
+                                                       <a href={application_data.twitter_link} target="_blank">
+                                                            <i className="fab fa-twitter"></i>
+                                                       </a>
+                                                  }
+                                                  {
+                                                       application_data &&
+                                                       <a href={application_data.linkedin_link} target="_blank">
+                                                            <i className="fab fa-linkedin"></i>
+                                                       </a>
+                                                  }
+                                                  {
+                                                       application_data &&
+                                                       <a href={application_data.youtube_link} target="_blank">
+                                                            <i className="fab fa-youtube"></i>
+                                                       </a>
+                                                  }
                                              </div>
                                         </div>
                                    </div>
@@ -178,8 +241,8 @@ const Footer = () => {
                                                   latest update & news</p>
                                              <form className="footer-widget__newsletter-form">
                                                   <div className="footer-widget__newsletter-input-box">
-                                                       <input type="email" placeholder="Email address" name="email"></input>
-                                                       <button type="submit" className="footer-widget__newsletter-btn"><i
+                                                       <input type="email" onChange={ e => set_email(e.target.value) } placeholder="Email address" name="email"></input>
+                                                       <button type="button" onClick={doSubscribe} className="footer-widget__newsletter-btn"><i
                                                             className="far fa-paper-plane"></i></button>
                                                   </div>
                                              </form>
