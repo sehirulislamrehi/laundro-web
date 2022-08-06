@@ -31,6 +31,22 @@ class CreateAppInfosTable extends Migration
             $table->string("twitter_link")->nullable();
             $table->string("linkedin_link")->nullable();
 
+            $table->string("about_large_image")->nullable();
+            $table->string("about_left_image")->nullable();
+            $table->string("about_right_image")->nullable();
+            $table->text("about_title_one")->nullable();
+            $table->text("about_title_two")->nullable();
+            $table->text("about_title_three")->nullable();
+            $table->text("about_point_one")->nullable();
+            $table->text("about_point_two")->nullable();
+            $table->text("about_point_three")->nullable();
+            $table->text("about_point_four")->nullable();
+
+            $table->integer("count_one")->nullable();
+            $table->integer("count_two")->nullable();
+            $table->integer("count_three")->nullable();
+            $table->integer("count_four")->nullable();
+
             $table->timestamps();
         });
     }

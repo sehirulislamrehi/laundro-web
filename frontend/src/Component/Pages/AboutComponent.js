@@ -20,6 +20,8 @@ const AboutComponent = (props) => {
      {/* window scroll to top */}
      window.scrollTo(0, 0);
 
+     const application_data = useSelector( state => state.applicationData )
+
      const service_options = {
           margin: 0,
           nav: false,
@@ -186,7 +188,10 @@ const AboutComponent = (props) => {
                                         <div className="get-to-know__left">
                                              <div className="get-to-know__img wow slideInLeft" data-wow-delay="100ms"
                                                   data-wow-duration="2500ms">
-                                                  <img src="images/get-to-know-img-1.jpg" alt=""></img>
+                                                       {
+                                                            application_data &&
+                                                            <img src={`${window.image_path}/images/info/${application_data.about_large_image}`} alt=""></img>
+                                                       }
                                                   <div className="get-to-know-shape-1"></div>
                                                   <div className="get-to-know-shape-2"></div>
                                              </div>
@@ -195,52 +200,106 @@ const AboutComponent = (props) => {
                                    <div className="col-xl-6">
                                         <div className="get-to-know__right">
                                              <div className="section-title text-left">
-                                                  <span className="section-title__tagline">Company Benefits</span>
-                                                  <h2 className="section-title__title">Get to Know About Our Brote Company</h2>
+                                                  <span className="section-title__tagline">About Us</span>
+                                                  <h2 className="section-title__title">
+                                                       {
+                                                            application_data &&
+                                                            application_data.about_title_one
+                                                       }
+                                                  </h2>
                                              </div>
-                                             <p className="get-to-know__text">Lorem ipsum is simply free text dolor sit am adipi we help you
-                                                  ensure everyone. Tincidunt elit magnis nulla facilisis sagittis maecenas. Sapien nunced
-                                                  amet dolores sit ipsum velit purus aliq massa fringilla leo.</p>
-                                             <div className="get-to-know__points-box">
-                                                  <ul className="list-unstyled get-to-know__points">
-                                                  <li>
-                                                       <div className="icon">
-                                                            <i className="fas fa-check"></i>
-                                                       </div>
-                                                       <div className="text">
-                                                            <p>We are Committed</p>
-                                                       </div>
-                                                  </li>
-                                                  <li>
-                                                       <div className="icon">
-                                                            <i className="fas fa-check"></i>
-                                                       </div>
-                                                       <div className="text">
-                                                            <p>Highly Rated Cleaning</p>
-                                                       </div>
-                                                  </li>
+                                             <p className="welcome-one__text-1">
+                                                  {
+                                                       application_data &&
+                                                       application_data.about_title_two
+                                                  }
+                                             </p>
+                                             <p className="welcome-one__text-2">
+                                                  {
+                                                       application_data &&
+                                                       application_data.about_title_three
+                                                  }
+                                             </p>
+                                             <div className="welcome-one__points-box">
+                                                  <ul className="list-unstyled welcome-one__points">
+                                                       <li>
+                                                            <div className="icon">
+                                                                 <i className="fas fa-check"></i>
+                                                            </div>
+                                                            <div className="text">
+                                                                 <p>
+                                                                      {
+                                                                           application_data &&
+                                                                           application_data.about_point_one
+                                                                      }
+                                                                 </p>
+                                                            </div>
+                                                       </li>
+                                                       <li>
+                                                            <div className="icon">
+                                                                 <i className="fas fa-check"></i>
+                                                            </div>
+                                                            <div className="text">
+                                                                 <p>
+                                                                      {
+                                                                           application_data &&
+                                                                           application_data.about_point_two
+                                                                      }
+                                                                 </p>
+                                                            </div>
+                                                       </li>
                                                   </ul>
-                                                  <ul className="list-unstyled get-to-know__points get-to-know__points--two">
-                                                  <li>
-                                                       <div className="icon">
-                                                            <i className="fas fa-check"></i>
-                                                       </div>
-                                                       <div className="text">
-                                                            <p>We are Committed</p>
-                                                       </div>
-                                                  </li>
-                                                  <li>
-                                                       <div className="icon">
-                                                            <i className="fas fa-check"></i>
-                                                       </div>
-                                                       <div className="text">
-                                                            <p>Highly Rated Cleaning</p>
-                                                       </div>
-                                                  </li>
+                                                  <ul className="list-unstyled welcome-one__points welcome-one__points-two">
+                                                       <li>
+                                                            <div className="icon">
+                                                                 <i className="fas fa-check"></i>
+                                                            </div>
+                                                            <div className="text">
+                                                                 <p>
+                                                                      {
+                                                                           application_data &&
+                                                                           application_data.about_point_three
+                                                                      }
+                                                                 </p>
+                                                            </div>
+                                                       </li>
+                                                       <li>
+                                                            <div className="icon">
+                                                                 <i className="fas fa-check"></i>
+                                                            </div>
+                                                            <div className="text">
+                                                                 <p>
+                                                                      {
+                                                                           application_data &&
+                                                                           application_data.about_point_four
+                                                                      }
+                                                                 </p>
+                                                            </div>
+                                                       </li>
                                                   </ul>
                                              </div>
-                                             <a href="about.html" className="thm-btn get-to-know__btn">Discover more <i
-                                                  className="fa fa-angle-right"></i></a>
+                                             <div className="welcome-one__btn-call-box">
+                                                  <div className="welcome-one__btn-box">
+                                                       <Link to="/contact" className="thm-btn welcome-one__btn">
+                                                            Contact us 
+                                                            <i className="fa fa-angle-right"></i>
+                                                       </Link>
+                                                  </div>
+                                                  <div className="welcome-one__call-box">
+                                                       <div className="welcome-one__call-icon">
+                                                            <i className="fas fa-phone"></i>
+                                                       </div>
+                                                       <div className="welcome-one__call-content">
+                                                            <p className="welcome-one__call-sub-title">Call Anytime</p>
+                                                            <h5 className="welcome-one__call-number">
+                                                                 {
+                                                                      application_data &&
+                                                                      <a href={`tel:+${application_data.phone}`}>{application_data.phone}</a>
+                                                                 }
+                                                            </h5>
+                                                       </div>
+                                                  </div>
+                                             </div>
                                         </div>
                                    </div>
                               </div>
@@ -260,7 +319,12 @@ const AboutComponent = (props) => {
                                              </div>
                                              <div className="counter-two__count-box">
                                                   <div className="counter-two__count-box-inner">
-                                                  <h3 className="odometer" data-count="2562">00</h3>
+                                                       {
+                                                            application_data &&
+                                                            <h3 className="odometer" data-count={application_data.count_one}>
+                                                                 {application_data.count_one}
+                                                            </h3>
+                                                       }
                                                   <span className="counter-two__plus">+</span>
                                                   </div>
                                                   <p className="counter-two__text">Satisfied Clients</p>
@@ -272,7 +336,12 @@ const AboutComponent = (props) => {
                                              </div>
                                              <div className="counter-two__count-box">
                                                   <div className="counter-two__count-box-inner">
-                                                  <h3 className="odometer" data-count="562">00</h3>
+                                                       {
+                                                            application_data &&
+                                                            <h3 className="odometer" data-count={application_data.count_two}>
+                                                                 {application_data.count_two}
+                                                            </h3>
+                                                       }
                                                   <span className="counter-two__plus">+</span>
                                                   </div>
                                                   <p className="counter-two__text">Active Project</p>
@@ -284,7 +353,12 @@ const AboutComponent = (props) => {
                                              </div>
                                              <div className="counter-two__count-box">
                                                   <div className="counter-two__count-box-inner">
-                                                  <h3 className="odometer" data-count="33">00</h3>
+                                                       {
+                                                            application_data &&
+                                                            <h3 className="odometer" data-count={application_data.count_three}>
+                                                                 {application_data.count_three}
+                                                            </h3>
+                                                       }
                                                   <span className="counter-two__plus">+</span>
                                                   </div>
                                                   <p className="counter-two__text">Winning Award</p>
@@ -296,7 +370,12 @@ const AboutComponent = (props) => {
                                              </div>
                                              <div className="counter-two__count-box">
                                                   <div className="counter-two__count-box-inner">
-                                                  <h3 className="odometer" data-count="552">00</h3>
+                                                       {
+                                                            application_data &&
+                                                            <h3 className="odometer" data-count={application_data.count_four}>
+                                                                 {application_data.count_four}
+                                                            </h3>
+                                                       }
                                                   <span className="counter-two__plus">+</span>
                                                   </div>
                                                   <p className="counter-two__text">Expert Teams</p>
@@ -323,12 +402,12 @@ const AboutComponent = (props) => {
                               <div className="container">
                               <div className="cta-one__inner">
                                    <h2 className="cta-one__title">Get professional & affortable <br></br> house cleaner <span>today</span></h2>
-                                   <div className="cta-one__btn-box">
+                                   {/* <div className="cta-one__btn-box">
                                         <a href="about.html" className="thm-btn cta-one__btn-1">Discover more <i
                                                   className="fa fa-angle-right"></i></a>
                                         <a href="contact-page-1.html" className="thm-btn cta-one__btn-2">Get a free quote <i
                                                   className="fa fa-angle-right"></i></a>
-                                   </div>
+                                   </div> */}
                               </div>
                          </div>
                     </section>

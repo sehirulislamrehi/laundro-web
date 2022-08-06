@@ -59,15 +59,11 @@ const HomeComponent = (props) => {
      const [service, set_service] = useState(null)
      const [testimonial, set_testimonial] = useState(null)
      const [banner, set_banner] = useState(null)
-     const [application_data, set_application_data] = useState(null)
 
-     
+     const application_data = useSelector( state => state.applicationData )
 
      useEffect(() => {
 
-          if( props.applicationData ){
-               set_application_data(props.applicationData)
-          }
 
           //get services
           const get_services_url = `${window.url}/get-all-services`;
@@ -424,12 +420,21 @@ const HomeComponent = (props) => {
                                                   data-wow-duration="2500ms">
                                                   <div className="welcome-one__circle-one"></div>
                                                   <div className="welcome-one__img-1">
-                                                       <img src="images/welcome-one-img-1.png" alt=""></img>
+                                                       {
+                                                            application_data &&
+                                                            <img src={`${window.image_path}/images/info/${application_data.about_large_image}`} alt=""></img>
+                                                       }
                                                        <div className="welcome-one__small-img-1 float-bob-x">
-                                                            <img src="images/welcome-one-small-img-1.jpg" alt=""></img>
+                                                            {
+                                                                 application_data &&
+                                                                 <img src={`${window.image_path}/images/info/${application_data.about_left_image}`} alt=""></img>
+                                                            }
                                                        </div>
                                                        <div className="welcome-one__small-img-2 float-bob-y">
-                                                            <img src="images/welcome-one-small-img-2.jpg" alt=""></img>
+                                                            {
+                                                                 application_data &&
+                                                                 <img src={`${window.image_path}/images/info/${application_data.about_right_image}`} alt=""></img>
+                                                            }
                                                        </div>
                                                   </div>
                                              </div>
@@ -439,13 +444,25 @@ const HomeComponent = (props) => {
                                         <div className="welcome-one__right">
                                              <div className="section-title text-left">
                                                   <span className="section-title__tagline">About Us</span>
-                                                  <h2 className="section-title__title">Welcome to Best Cleaning Company</h2>
+                                                  <h2 className="section-title__title">
+                                                       {
+                                                            application_data &&
+                                                            application_data.about_title_one
+                                                       }
+                                                  </h2>
                                              </div>
-                                             <p className="welcome-one__text-1">Lorem ipsum is simply free text dolor sit am adipi we help
-                                                  you ensure everyone.</p>
-                                             <p className="welcome-one__text-2">Lorem ipsum is simply free text dolor sit am adipi we help
-                                                  you ensure everyone. Tincidunt elit magnis nulla facilisis sagittis maecenas. Sapien
-                                                  nunced amet dolores sit ipsum velit purus aliq massa fringilla leo.</p>
+                                             <p className="welcome-one__text-1">
+                                                  {
+                                                       application_data &&
+                                                       application_data.about_title_two
+                                                  }
+                                             </p>
+                                             <p className="welcome-one__text-2">
+                                                  {
+                                                       application_data &&
+                                                       application_data.about_title_three
+                                                  }
+                                             </p>
                                              <div className="welcome-one__points-box">
                                                   <ul className="list-unstyled welcome-one__points">
                                                        <li>
@@ -453,7 +470,12 @@ const HomeComponent = (props) => {
                                                                  <i className="fas fa-check"></i>
                                                             </div>
                                                             <div className="text">
-                                                                 <p>We are Committed</p>
+                                                                 <p>
+                                                                      {
+                                                                           application_data &&
+                                                                           application_data.about_point_one
+                                                                      }
+                                                                 </p>
                                                             </div>
                                                        </li>
                                                        <li>
@@ -461,7 +483,12 @@ const HomeComponent = (props) => {
                                                                  <i className="fas fa-check"></i>
                                                             </div>
                                                             <div className="text">
-                                                                 <p>Highly Rated Cleaning</p>
+                                                                 <p>
+                                                                      {
+                                                                           application_data &&
+                                                                           application_data.about_point_two
+                                                                      }
+                                                                 </p>
                                                             </div>
                                                        </li>
                                                   </ul>
@@ -471,7 +498,12 @@ const HomeComponent = (props) => {
                                                                  <i className="fas fa-check"></i>
                                                             </div>
                                                             <div className="text">
-                                                                 <p>Insured & Bonded</p>
+                                                                 <p>
+                                                                      {
+                                                                           application_data &&
+                                                                           application_data.about_point_three
+                                                                      }
+                                                                 </p>
                                                             </div>
                                                        </li>
                                                        <li>
@@ -479,17 +511,22 @@ const HomeComponent = (props) => {
                                                                  <i className="fas fa-check"></i>
                                                             </div>
                                                             <div className="text">
-                                                                 <p>Trusted Professionals</p>
+                                                                 <p>
+                                                                      {
+                                                                           application_data &&
+                                                                           application_data.about_point_four
+                                                                      }
+                                                                 </p>
                                                             </div>
                                                        </li>
                                                   </ul>
                                              </div>
                                              <div className="welcome-one__btn-call-box">
                                                   <div className="welcome-one__btn-box">
-                                                       <a href="contact-page-1.html" className="thm-btn welcome-one__btn">
+                                                       <Link to="/contact" className="thm-btn welcome-one__btn">
                                                             Contact us 
                                                             <i className="fa fa-angle-right"></i>
-                                                       </a>
+                                                       </Link>
                                                   </div>
                                                   <div className="welcome-one__call-box">
                                                        <div className="welcome-one__call-icon">
@@ -498,7 +535,10 @@ const HomeComponent = (props) => {
                                                        <div className="welcome-one__call-content">
                                                             <p className="welcome-one__call-sub-title">Call Anytime</p>
                                                             <h5 className="welcome-one__call-number">
-                                                                 <a href="tel:2300068603">+23 (000) 68603</a>
+                                                                 {
+                                                                      application_data &&
+                                                                      <a href={`tel:+${application_data.phone}`}>{application_data.phone}</a>
+                                                                 }
                                                             </h5>
                                                        </div>
                                                   </div>
@@ -579,54 +619,74 @@ const HomeComponent = (props) => {
                                    }}>
                                    </div>
                                    <ul className="list-unstyled counter-one__list">
-                                   <li>
-                                        <div className="counter-one__icon">
-                                             <i className="fas fa-users"></i>
-                                        </div>
-                                        <div className="counter-one__count-box">
-                                             <div className="counter-one__count-box-inner">
-                                                  <h3 className="odometer" data-count="2562">00</h3>
-                                                  <span className="counter-one__plus">+</span>
+                                        <li>
+                                             <div className="counter-one__icon">
+                                                  <i className="fas fa-users"></i>
                                              </div>
-                                             <p className="counter-one__text">Satisfied Clients</p>
-                                        </div>
-                                   </li>
-                                   <li>
-                                        <div className="counter-one__icon">
-                                             <i className="fas fa-project-diagram"></i>
-                                        </div>
-                                        <div className="counter-one__count-box">
-                                             <div className="counter-one__count-box-inner">
-                                                  <h3 className="odometer" data-count="562">00</h3>
-                                                  <span className="counter-one__plus">+</span>
+                                             <div className="counter-one__count-box">
+                                                  <div className="counter-one__count-box-inner">
+                                                       {
+                                                            application_data &&
+                                                            <h3 className="odometer" data-count={application_data.count_one}>
+                                                                 {application_data.count_one}
+                                                            </h3>
+                                                       }
+                                                       <span className="counter-one__plus">+</span>
+                                                  </div>
+                                                  <p className="counter-one__text">Satisfied Clients</p>
                                              </div>
-                                             <p className="counter-one__text">Active Project</p>
-                                        </div>
-                                   </li>
-                                   <li>
-                                        <div className="counter-one__icon">
-                                             <i className="fas fa-award"></i>
-                                        </div>
-                                        <div className="counter-one__count-box">
-                                             <div className="counter-one__count-box-inner">
-                                                  <h3 className="odometer" data-count="33">00</h3>
-                                                  <span className="counter-one__plus">+</span>
+                                        </li>
+                                        <li>
+                                             <div className="counter-one__icon">
+                                                  <i className="fas fa-project-diagram"></i>
                                              </div>
-                                             <p className="counter-one__text">Winning Award</p>
-                                        </div>
-                                   </li>
-                                   <li>
-                                        <div className="counter-one__icon">
-                                             <i className="fab fa-teamspeak"></i>
-                                        </div>
-                                        <div className="counter-one__count-box">
-                                             <div className="counter-one__count-box-inner">
-                                                  <h3 className="odometer" data-count="552">00</h3>
-                                                  <span className="counter-one__plus">+</span>
+                                             <div className="counter-one__count-box">
+                                                  <div className="counter-one__count-box-inner">
+                                                       {
+                                                            application_data &&
+                                                            <h3 className="odometer" data-count={application_data.count_two}>
+                                                                 {application_data.count_two}
+                                                            </h3>
+                                                       }
+                                                       <span className="counter-one__plus">+</span>
+                                                  </div>
+                                                  <p className="counter-one__text">Active Project</p>
                                              </div>
-                                             <p className="counter-one__text">Expert Teams</p>
-                                        </div>
-                                   </li>
+                                        </li>
+                                        <li>
+                                             <div className="counter-one__icon">
+                                                  <i className="fas fa-award"></i>
+                                             </div>
+                                             <div className="counter-one__count-box">
+                                                  <div className="counter-one__count-box-inner">
+                                                       {
+                                                            application_data &&
+                                                            <h3 className="odometer" data-count={application_data.count_three}>
+                                                                 {application_data.count_three}
+                                                            </h3>
+                                                       }
+                                                       <span className="counter-one__plus">+</span>
+                                                  </div>
+                                                  <p className="counter-one__text">Winning Award</p>
+                                             </div>
+                                        </li>
+                                        <li>
+                                             <div className="counter-one__icon">
+                                                  <i className="fab fa-teamspeak"></i>
+                                             </div>
+                                             <div className="counter-one__count-box">
+                                                  <div className="counter-one__count-box-inner">
+                                                       {
+                                                            application_data &&
+                                                            <h3 className="odometer" data-count={application_data.count_four}>
+                                                                 {application_data.count_four}
+                                                            </h3>
+                                                       }
+                                                       <span className="counter-one__plus">+</span>
+                                                  </div>
+                                                  <p className="counter-one__text">Expert Teams</p>
+                                             </div>
+                                        </li>
                                    </ul>
                               </div>
                          </div>
@@ -815,8 +875,12 @@ const HomeComponent = (props) => {
                                                   </div>
                                                   <div className="contact-one__call-content">
                                                        <p className="contact-one__call-sub-title">Call Anytime</p>
-                                                       <h5 className="contact-one__call-number"><a href="tel:2300068603">+23 (000) 68
-                                                            603</a></h5>
+                                                       <h5 className="contact-one__call-number">
+                                                            {
+                                                                 application_data &&
+                                                                 <a href={`tel:+${application_data.phone}`}>{application_data.phone}</a>
+                                                            }
+                                                       </h5>
                                                   </div>
                                              </div>
                                         </div>

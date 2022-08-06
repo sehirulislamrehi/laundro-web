@@ -38,6 +38,14 @@
                                             Company Information
                                         </a>
 
+                                        <a class="nav-link" id="vert-tabs-home-tab" data-toggle="pill" href="#tab-three" role="tab" aria-controls="vert-tabs-home" aria-selected="true">
+                                            About Us Information
+                                        </a>
+
+                                        <a class="nav-link" id="vert-tabs-home-tab" data-toggle="pill" href="#tab-four" role="tab" aria-controls="vert-tabs-home" aria-selected="true">
+                                            Counting section
+                                        </a>
+
                                     </div>
                                 </div>
                                 <div class="col-7 col-sm-9">
@@ -198,6 +206,109 @@
                                         </div>
                                         <!-- ITEM END -->
 
+                                        <!-- ITEM START -->
+                                        <div class="tab-pane text-left fade" id="tab-three" role="tabpanel" aria-labelledby="vert-tabs-home-tab">
+                                            <div class="row">
+
+                                                <!-- about_large_image -->
+                                                <div class="col-md-4 col-12 form-group">
+                                                    <label for="image" class="text-capitalize">About large image ( 455x670 px )</label><span class="require-span">*</span>
+                                                    <img src="{{ asset('images/info/'. $app_info->about_large_image) }}" class="mt-2 mb-2" width="100px">
+                                                    <input type="file" class="form-control-file" onchange="filePreview(this)" name="about_large_image">
+                                                </div>
+
+                                                <!-- about_left_image -->
+                                                <div class="col-md-4 col-12 form-group">
+                                                    <label for="image" class="text-capitalize">About left image ( 194x194 px )</label><span class="require-span">*</span>
+                                                    <img src="{{ asset('images/info/'. $app_info->about_left_image) }}" class="mt-2 mb-2" width="100px">
+                                                    <input type="file" class="form-control-file" onchange="filePreview(this)" name="about_left_image">
+                                                </div>
+
+                                                <!-- about_right_image -->
+                                                <div class="col-md-4 col-12 form-group">
+                                                    <label for="image" class="text-capitalize">About right image ( 194x194 px )</label><span class="require-span">*</span>
+                                                    <img src="{{ asset('images/info/'. $app_info->about_right_image) }}" class="mt-2 mb-2" width="100px">
+                                                    <input type="file" class="form-control-file" onchange="filePreview(this)" name="about_right_image">
+                                                </div>
+
+                                                <!-- about_title_one -->
+                                                <div class="col-md-4 col-12 form-group">
+                                                    <label class="text-capitalize">About title one</label><span class="require-span">*</span>
+                                                    <input type="text" class="form-control"  name="about_title_one" value="{{ $app_info->about_title_one }}">
+                                                </div>
+
+                                                <!-- about_title_two -->
+                                                <div class="col-md-4 col-12 form-group">
+                                                    <label class="text-capitalize">About title two</label><span class="require-span">*</span>
+                                                    <input type="text" class="form-control"  name="about_title_two" value="{{ $app_info->about_title_two }}">
+                                                </div>
+
+                                                <!-- about_title_three -->
+                                                <div class="col-md-4 col-12 form-group">
+                                                    <label class="text-capitalize">About title three</label><span class="require-span">*</span>
+                                                    <input type="text" class="form-control"  name="about_title_three" value="{{ $app_info->about_title_three }}">
+                                                </div>
+
+                                                <!-- about_point_one -->
+                                                <div class="col-md-4 col-12 form-group">
+                                                    <label class="text-capitalize">About point one</label><span class="require-span">*</span>
+                                                    <input type="text" class="form-control"  name="about_point_one" value="{{ $app_info->about_point_one }}">
+                                                </div>
+
+                                                <!-- about_point_two -->
+                                                <div class="col-md-4 col-12 form-group">
+                                                    <label class="text-capitalize">About point two</label><span class="require-span">*</span>
+                                                    <input type="text" class="form-control"  name="about_point_two" value="{{ $app_info->about_point_two }}">
+                                                </div>
+
+                                                <!-- about_point_three -->
+                                                <div class="col-md-4 col-12 form-group">
+                                                    <label class="text-capitalize">About point three</label><span class="require-span">*</span>
+                                                    <input type="text" class="form-control"  name="about_point_three" value="{{ $app_info->about_point_three }}">
+                                                </div>
+
+                                                <!-- about_point_four -->
+                                                <div class="col-md-4 col-12 form-group">
+                                                    <label class="text-capitalize">About point four</label><span class="require-span">*</span>
+                                                    <input type="text" class="form-control"  name="about_point_four" value="{{ $app_info->about_point_four }}">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!-- ITEM END -->
+
+                                        <!-- ITEM START -->
+                                        <div class="tab-pane text-left fade" id="tab-four" role="tabpanel" aria-labelledby="vert-tabs-home-tab">
+                                            <div class="row">
+
+                                                <!-- count_one -->
+                                                <div class="col-md-4 col-12 form-group">
+                                                    <label class="text-capitalize">Count One</label><span class="require-span">*</span>
+                                                    <input type="text" class="form-control"  name="count_one" value="{{ $app_info->count_one }}">
+                                                </div>
+
+                                                <!-- count_two -->
+                                                <div class="col-md-4 col-12 form-group">
+                                                    <label class="text-capitalize">Count two</label><span class="require-span">*</span>
+                                                    <input type="text" class="form-control"  name="count_two" value="{{ $app_info->count_two }}">
+                                                </div>
+
+                                                <!-- count_three -->
+                                                <div class="col-md-4 col-12 form-group">
+                                                    <label class="text-capitalize">Count three</label><span class="require-span">*</span>
+                                                    <input type="text" class="form-control"  name="count_three" value="{{ $app_info->count_three }}">
+                                                </div>
+
+                                                <!-- count_four -->
+                                                <div class="col-md-4 col-12 form-group">
+                                                    <label class="text-capitalize">Count one</label><span class="require-span">*</span>
+                                                    <input type="text" class="form-control"  name="count_four" value="{{ $app_info->count_four }}">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!-- ITEM END -->
+
                                     </div>
 
                                 </div>
@@ -227,4 +338,10 @@
 <script src="{{ asset('backend/js/dropify.min.js') }}"></script>
 <script src="{{ asset('backend/js/form-file-uploads.min.js') }}"></script>
 <script src="{{  asset('backend/js/ajax_form_submit.js') }}"></script>
+<script>
+     const filePreview = (e) => {
+          const file = e.files[0]
+          e.previousElementSibling.src = URL.createObjectURL(file)
+     }
+</script>
 @endsection
