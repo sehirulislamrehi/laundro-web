@@ -20,8 +20,9 @@
                <div class="col-md-12">
                     <div class="card card-primary card-outline table-responsive">
                          <div class="card-header text-right">
-                              @if( can('add_faq') )
-                              <button type="button" data-content="{{ route('faq.add.modal') }}" data-target="#myModal" class="btn btn-outline-dark" data-toggle="modal">
+
+                              @if( can('add_testimonials') )
+                              <button type="button" data-content="{{ route('testimonial.add.modal') }}" data-target="#myModal" class="btn btn-outline-dark" data-toggle="modal">
                                    Add
                               </button>
                               @endif
@@ -31,11 +32,10 @@
                               <table class="table table-bordered table-striped dataTable dtr-inline yajra-datatable" id="datatable">
                                    <thead>
                                         <tr>
-                                             <th>SI.</th>
                                              <th>Position</th>
-                                             <th>Question</th>
-                                             <th>Answer</th>
-                                             <th>Status</th>
+                                             <th>Image</th>
+                                             <th>Name</th>
+                                             <th>Designation</th>
                                              <th>Action</th>
                                         </tr>
                                    </thead>
@@ -64,31 +64,26 @@
           $('.yajra-datatable').DataTable({
                processing: true,
                serverSide: true,
-               ajax: "{{ route('faq.data') }}",
+               ajax: "{{ route('testimonial.data') }}",
                order: [
                     [0, 'Desc']
                ],
-               columns: [{
-                         data: 'DT_RowIndex',
-                         name: 'DT_RowIndex',
-                         orderable: false,
-                         searchable: false
-                    },
+               columns: [
                     {
                          data: 'position',
                          name: 'position'
                     },
                     {
-                         data: 'question',
-                         name: 'question'
+                         data: 'image',
+                         name: 'image'
                     },
                     {
-                         data: 'answer',
-                         name: 'answer'
+                         data: 'name',
+                         name: 'name'
                     },
                     {
-                         data: 'status',
-                         name: 'status'
+                         data: 'designation',
+                         name: 'designation'
                     },
                     {
                          data: 'action',

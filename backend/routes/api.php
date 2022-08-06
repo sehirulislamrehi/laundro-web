@@ -91,3 +91,6 @@ Route::post("contact-form",[ApiController::class,"contact_form"]);
 
 //do subscribe
 Route::post("do-subscribe",[ApiController::class,"do_subscribe"]);
+
+//get testimonials
+Route::get("get-testimonials/{value}",[ApiController::class,"get_testimonials"]);

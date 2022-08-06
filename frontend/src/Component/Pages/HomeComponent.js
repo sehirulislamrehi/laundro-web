@@ -57,6 +57,7 @@ const HomeComponent = (props) => {
      const service_slug = [];
      const [code, set_code] = useState(null)
      const [service, set_service] = useState(null)
+     const [testimonial, set_testimonial] = useState(null)
      const [banner, set_banner] = useState(null)
      const [application_data, set_application_data] = useState(null)
 
@@ -81,6 +82,21 @@ const HomeComponent = (props) => {
           .catch( response => {
                
           })
+
+          
+          //get testimonial data
+          const get_testimonial_url = `${window.url}/get-testimonials/8`
+          fetch(get_testimonial_url,{
+               method : "GET"
+          })
+          .then( response => response.json() )
+          .then( response => {
+               set_testimonial(response.data)
+          })
+          .catch( response => {
+               
+          })
+
 
           //get banner data
           const get_banner_url = `${window.url}/banner-data`
@@ -634,52 +650,38 @@ const HomeComponent = (props) => {
 
                                         <div className="testimonial-one__inner">
 
-                                        <OwlCarousel className='owl-theme thm-owl__carousel testimonial-one__carousel' 
-                                             {...testimonial_options}
-                                        >
-                                             {/*Testimonial One Single Start*/}
-                                             <div className="item">
-                                                  <div className="testimonial-one__single">
-                                                       <p className="testimonial-one__text">Lorem ipsum dolor sit amet, consectetur elit sed,
-                                                            adipisicing do eiusmod tempor incididunt labore et dolore Lorem ipsum dolor
-                                                            consectetur adipisicing elit, sed do eiusmod</p>
-                                                       <div className="testimonial-one__client-details">
-                                                            <h3 className="testimonial-one__client-name">Kevin Martin</h3>
-                                                            <p className="testimonial-one__client-sub-title">Marketing Manager</p>
-                                                       </div>
-                                                       <div className="testimonial-one__client-img">
-                                                            <img src="images/testimonial-1-1.jpg" alt=""></img>
-                                                            <div className="testimonial-one__client-img-boxs"></div>
-                                                       </div>
-                                                       <div className="testimonial-one__quote">
-                                                            <i className="fas fa-quote-right"></i>
-                                                       </div>
-                                                  </div>
-                                             </div>
-                                             {/*Testimonial One Single End*/}
+                                             {
+                                                  testimonial && 
+                                                  <OwlCarousel className='owl-theme thm-owl__carousel testimonial-one__carousel' 
+                                                       {...testimonial_options}
+                                                  >
+                                                       {/*Testimonial One Single Start*/}
+                                                       {
+                                                            testimonial.map( item => (
+                                                            <div className="item">
+                                                                 <div className="testimonial-one__single">
+                                                                      <p className="testimonial-one__text">{item.comments.substring(0, 100)}...</p>
+                                                                      <div className="testimonial-one__client-details">
+                                                                           <h3 className="testimonial-one__client-name">{item.name}</h3>
+                                                                           <p className="testimonial-one__client-sub-title">{item.designation}</p>
+                                                                      </div>
+                                                                      <div className="testimonial-one__client-img">
+                                                                           <img src={`${window.image_path}/images/testimonials/${item.image}`} alt=""></img>
+                                                                           <div className="testimonial-one__client-img-boxs"></div>
+                                                                      </div>
+                                                                      <div className="testimonial-one__quote">
+                                                                           <i className="fas fa-quote-right"></i>
+                                                                      </div>
+                                                                 </div>
+                                                            </div>
+                                                            ))
+                                                       }
+                                                       
+                                                       {/*Testimonial One Single End*/}
 
-                                             {/*Testimonial One Single Start*/}
-                                             <div className="item">
-                                                  <div className="testimonial-one__single">
-                                                       <p className="testimonial-one__text">Lorem ipsum dolor sit amet, consectetur elit sed,
-                                                            adipisicing do eiusmod tempor incididunt labore et dolore Lorem ipsum dolor
-                                                            consectetur adipisicing elit, sed do eiusmod</p>
-                                                       <div className="testimonial-one__client-details">
-                                                            <h3 className="testimonial-one__client-name">Jessica Brown</h3>
-                                                            <p className="testimonial-one__client-sub-title">Marketing Manager</p>
-                                                       </div>
-                                                       <div className="testimonial-one__client-img">
-                                                            <img src="images/testimonial-1-2.jpg" alt=""></img>
-                                                            <div className="testimonial-one__client-img-boxs"></div>
-                                                       </div>
-                                                       <div className="testimonial-one__quote">
-                                                            <i className="fas fa-quote-right"></i>
-                                                       </div>
-                                                  </div>
-                                             </div>
-                                             {/*Testimonial One Single End*/}
-
-                                        </OwlCarousel>
+                                                  </OwlCarousel>
+                                             }
+                                             
 
                                         </div>
                                    </div>

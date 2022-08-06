@@ -12,6 +12,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\SettingsModule\ContactForm;
+use App\Models\SettingsModule\Testimonial;
 
 class ApiController extends Controller
 {
@@ -200,4 +201,31 @@ class ApiController extends Controller
         }
     }
     //do_subscribe function end
+
+
+    //get_testimonials function start
+    public function get_testimonials($value){
+        try{
+
+            if( $value == "All" ){
+                $testimonials = Testimonial::orderBy("position","desc")->select("name","designation","image","comments")->get();
+            }
+            else{
+                $testimonials = Testimonial::orderBy("position","desc")->select("name","designation","image","comments")->take($value)->get();
+            }
+
+            return response()->json([
+                'status' => 'success',
+                'data' => $testimonials
+            ],200);
+
+        }
+        catch( Exception $e ){
+            return response()->json([
+                'status' => 'error',
+                'data' => $e->getMessage()
+            ],200);
+        }
+    }
+    //get_testimonials function end
 }
