@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import DOMPurify from "dompurify";
 import Header from "../Include/Header";
 import ServiceList from "./Includes/ServiceList";
+import { useSelector } from "react-redux";
 
 const ServiceDetailsComponent = (props) => {
      {/* window scroll to top */}
@@ -17,6 +18,8 @@ const ServiceDetailsComponent = (props) => {
 
      const { slug } =  useParams();
      const [service, setService] = useState(null);
+
+     const application_data = useSelector( state => state.applicationData )
 
      //service details
      const service_details_url = `${window.url}/service-details/${slug}`;
@@ -58,10 +61,14 @@ const ServiceDetailsComponent = (props) => {
 
                    {/*Page Header Start*/}
                     <section className="page-header">
-                         <div className="page-header-bg" style={{
-                              backgroundImage : `url(images/page-header-bg.jpg)`
-                         }}>
-                         </div>
+                         {
+                              application_data && 
+                              <div className="page-header-bg" 
+                              style={{
+                                   backgroundImage : `url(${window.image_path}/images/info/${application_data.breadcum_image})`
+                              }}>
+                              </div>
+                         }
                          <div className="page-header-bubble"><img src="images/page-header-bubble.png" alt=""></img></div>
                          <div className="container">
                          <div className="page-header__inner">
@@ -148,18 +155,19 @@ const ServiceDetailsComponent = (props) => {
                                              </div>
                                              <div className="service-details__benefits">
                                                   <div className="row">
-                                                       <div className="col-xl-6">
+                                                       {/* <div className="col-xl-6">
                                                             <div className="service-details__benefits-img">
                                                                  {
                                                                       service ? <img src={`${window.image_path}/images/service/${service.image}`} alt=""></img> : <img src="/images/services-details-img-1.jpg" alt=""></img>
                                                                  }
                                                             </div>
-                                                       </div>
-                                                       <div className="col-xl-6">
+                                                       </div> */}
+                                                       {/* <div className="col-xl-6">
                                                             <div className="service-details__benefits-right">
                                                             <h3 className="service-details__benefits-title">Our Benefits</h3>
-                                                            <p className="service-betails__benefits-text-1">Duis aute irure dolor in
-                                                                 reprehenderit in voluptate velit esse cillum.</p>
+                                                            <p className="service-betails__benefits-text-1">
+                                                                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.
+                                                            </p>
                                                             <ul className="list-unstyled service-details__benefits-points">
                                                                  <li>
                                                                       <div className="icon">
@@ -187,7 +195,7 @@ const ServiceDetailsComponent = (props) => {
                                                                  </li>
                                                             </ul>
                                                             </div>
-                                                       </div>
+                                                       </div> */}
                                                   </div>
                                              </div>
                                              

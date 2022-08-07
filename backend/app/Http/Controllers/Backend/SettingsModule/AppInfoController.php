@@ -85,6 +85,28 @@ class AppInfoController extends Controller
                     Image::make($image)->save($location);
                     $app_info->about_right_image = $img;
                 }
+
+                if( $request->home_contact_image ){
+                    if( File::exists('images/info/'. $app_info->home_contact_image) ){
+                        File::delete('images/info/'. $app_info->home_contact_image);
+                    }
+                    $image = $request->file('home_contact_image');
+                    $img = time().Str::random(12).'.'.$image->getClientOriginalExtension();
+                    $location = public_path('images/info/'.$img);
+                    Image::make($image)->save($location);
+                    $app_info->home_contact_image = $img;
+                }
+
+                if( $request->breadcum_image ){
+                    if( File::exists('images/info/'. $app_info->breadcum_image) ){
+                        File::delete('images/info/'. $app_info->breadcum_image);
+                    }
+                    $image = $request->file('breadcum_image');
+                    $img = time().Str::random(12).'.'.$image->getClientOriginalExtension();
+                    $location = public_path('images/info/'.$img);
+                    Image::make($image)->save($location);
+                    $app_info->breadcum_image = $img;
+                }
                 
                 $app_info->mail_from_address = $request->mail_from_address;
                 $app_info->email = $request->email;
@@ -111,6 +133,9 @@ class AppInfoController extends Controller
                 $app_info->count_two = $request->count_two;
                 $app_info->count_three = $request->count_three;
                 $app_info->count_four = $request->count_four;
+
+                $app_info->footer_content = $request->footer_content;
+                $app_info->footer_map = $request->footer_map;
 
                 if( $app_info->save() ){
                     return response()->json(['success' => 'App Info Updated'], 200);

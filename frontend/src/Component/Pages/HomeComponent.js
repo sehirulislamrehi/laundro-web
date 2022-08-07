@@ -867,7 +867,10 @@ const HomeComponent = (props) => {
                                              <div className="contact-one-shape-2"></div>
                                              <div className="contact-one-shape-3"></div>
                                              <div className="contact-one__img">
-                                                  <img src="images/contact-one-img-1.jpg" alt=""></img>
+                                                  {
+                                                       application_data &&
+                                                       <img src={`${window.image_path}/images/info/${application_data.home_contact_image}`} alt=""></img>
+                                                  }
                                              </div>
                                              <div className="contact-one__call">
                                                   <div className="contact-one__call-icon">

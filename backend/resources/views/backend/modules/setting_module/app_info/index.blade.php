@@ -46,6 +46,14 @@
                                             Counting section
                                         </a>
 
+                                        <a class="nav-link" id="vert-tabs-home-tab" data-toggle="pill" href="#tab-five" role="tab" aria-controls="vert-tabs-home" aria-selected="true">
+                                            Banners
+                                        </a>
+
+                                        <a class="nav-link" id="vert-tabs-home-tab" data-toggle="pill" href="#tab-six" role="tab" aria-controls="vert-tabs-home" aria-selected="true">
+                                            Content
+                                        </a>
+
                                     </div>
                                 </div>
                                 <div class="col-7 col-sm-9">
@@ -303,6 +311,51 @@
                                                 <div class="col-md-4 col-12 form-group">
                                                     <label class="text-capitalize">Count one</label><span class="require-span">*</span>
                                                     <input type="text" class="form-control"  name="count_four" value="{{ $app_info->count_four }}">
+                                                </div>
+                                                
+
+                                            </div>
+                                        </div>
+                                        <!-- ITEM END -->
+
+
+                                        <!-- ITEM START -->
+                                        <div class="tab-pane text-left fade" id="tab-five" role="tabpanel" aria-labelledby="vert-tabs-home-tab">
+                                            <div class="row">
+
+                                                <!-- home_contact_image -->
+                                                <div class="col-md-4 col-12 form-group">
+                                                    <label for="image" class="text-capitalize">Home contact background ( 1050x795 px )</label><span class="require-span">*</span>
+                                                    <img src="{{ asset('images/info/'. $app_info->home_contact_image) }}" class="mt-2 mb-2" width="100px">
+                                                    <input type="file" class="form-control-file" onchange="filePreview(this)" name="home_contact_image">
+                                                </div>
+
+                                                <!-- breadcum_image -->
+                                                <div class="col-md-4 col-12 form-group">
+                                                    <label for="image" class="text-capitalize">Breadcum Image ( 1380x300 px )</label><span class="require-span">*</span>
+                                                    <img src="{{ asset('images/info/'. $app_info->breadcum_image) }}" class="mt-2 mb-2" width="100px">
+                                                    <input type="file" class="form-control-file" onchange="filePreview(this)" name="breadcum_image">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!-- ITEM END -->
+
+
+                                        <!-- ITEM START -->
+                                        <div class="tab-pane text-left fade" id="tab-six" role="tabpanel" aria-labelledby="vert-tabs-home-tab">
+                                            <div class="row">
+
+                                                <!-- footer_content -->
+                                                <div class="col-md-12 col-12 form-group">
+                                                    <label class="text-capitalize">Footer Content</label><span class="require-span">*</span>
+                                                    <input type="text" class="form-control"  name="footer_content" value="{{ $app_info->footer_content }}">
+                                                </div>
+
+                                                <!-- footer_map -->
+                                                <div class="col-md-12 col-12 form-group">
+                                                    <label class="text-capitalize">Footer map</label><span class="require-span">*</span>
+                                                    <input type="text" class="form-control"  name="footer_map" value="{{ $app_info->footer_map }}">
                                                 </div>
 
                                             </div>

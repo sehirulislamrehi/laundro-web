@@ -11,16 +11,16 @@ import { Provider } from 'react-redux';
 
 
 
-// window.url = "https://admin.laundro.geekslab.io/api"
-// window.image_path = "https://admin.laundro.geekslab.io"
-// const myStore = createStore(allReducer)
+window.url = "https://admin.laundro.geekslab.io/api"
+window.image_path = "https://admin.laundro.geekslab.io"
+const myStore = createStore(allReducer)
 
-window.url = "http://127.0.0.1:8000/api"
-window.image_path = "http://127.0.0.1:8000"
-const myStore = createStore(
-  allReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
+// window.url = "http://127.0.0.1:8000/api"
+// window.image_path = "http://127.0.0.1:8000"
+// const myStore = createStore(
+//   allReducer,
+//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// )
 
 
 const rootElement = document.getElementById('root');

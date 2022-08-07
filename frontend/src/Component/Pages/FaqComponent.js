@@ -11,6 +11,8 @@ const FaqComponent = (props) => {
      {/* window scroll to top */}
      window.scrollTo(0, 0);
 
+     const application_data = useSelector( state => state.applicationData )
+
      const openBox = (e) => {
           let all_collapse = document.querySelectorAll(".faq .card .collapse");
 
@@ -52,10 +54,14 @@ const FaqComponent = (props) => {
 
                    {/*Page Header Start*/}
                     <section className="page-header">
-                         <div className="page-header-bg" style={{
-                              backgroundImage : `url(images/page-header-bg.jpg)`
-                         }}>
-                         </div>
+                         {
+                              application_data && 
+                              <div className="page-header-bg" 
+                              style={{
+                                   backgroundImage : `url(${window.image_path}/images/info/${application_data.breadcum_image})`
+                              }}>
+                              </div>
+                         }
                          <div className="page-header-bubble"><img src="images/page-header-bubble.png" alt=""></img></div>
                          <div className="container">
                          <div className="page-header__inner">

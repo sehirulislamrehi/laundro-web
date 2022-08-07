@@ -47,6 +47,13 @@ class CreateAppInfosTable extends Migration
             $table->integer("count_three")->nullable();
             $table->integer("count_four")->nullable();
 
+            $table->string("home_contact_image")->nullable();
+
+            $table->text("footer_content")->nullable();
+            $table->text("footer_map")->nullable();
+
+            $table->string("breadcum_image")->nullable();
+
             $table->timestamps();
         });
     }
