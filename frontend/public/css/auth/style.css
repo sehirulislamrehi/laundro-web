@@ -184,3 +184,24 @@ input:focus
   }
 }
 
+.login-google{
+	width: 100%;
+}
+
+.kep-login-facebook.metro{
+	height: 10px;
+	padding: 10px 5px 35px 19px;
+	font-size: 10px;
+	margin-top: 5px;
+	border-radius: 3px;
+	width: 100%;
+	text-align: left;
+}
+.kep-login-facebook.metro::before{
+	font-family: "Font Awesome 5 Free";
+   content: "\f39e";
+   display: inline-block;
+   padding-right: 3px;
+   vertical-align: middle;
+   font-weight: 900;
+}

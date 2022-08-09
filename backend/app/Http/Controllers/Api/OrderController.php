@@ -208,7 +208,7 @@ class OrderController extends Controller
             $customer = Customer::where("remember_token",$token)->first();
 
             if( $customer ){
-                $order = Order::where("customer_id", $customer->id)->with("order_service")->select("id","order_no","timing","order_status","address_details")->orderBy("id","desc")->get();
+                $order = Order::where("customer_id", $customer->id)->with("order_service")->select("id","order_no","timing","order_status","address_details")->orderBy("id","desc")->paginate(10);
 
                 return response()->json([
                     'status' => 'success',

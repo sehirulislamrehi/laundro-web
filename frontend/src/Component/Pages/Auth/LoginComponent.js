@@ -21,6 +21,7 @@ const LoginComponent = (state, props) => {
      {/* window scroll to top */}
      window.scrollTo(0, 0);
 
+
      const history = useHistory();
 
      //check authentication start
@@ -91,7 +92,7 @@ const LoginComponent = (state, props) => {
      //login functionality end
 
      
-     
+        
 
      return(
           <div className="id">
@@ -154,6 +155,7 @@ const LoginComponent = (state, props) => {
                                    <i className="fab fa-google"></i>
                                    Login with google
                               </a>
+
                          </div>
 
                          {/* Card Footer */}

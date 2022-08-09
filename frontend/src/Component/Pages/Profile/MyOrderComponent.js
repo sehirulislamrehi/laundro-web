@@ -1,4 +1,5 @@
 
+
 import { Link, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -10,6 +11,7 @@ import HeaderComponent from "./Includes/HeaderComponent";
 import LeftSidebarComponent from "./Includes/LeftSidebarComponent";
 import NavbarComponent from "./Includes/NavbarComponent";
 import Header from "../../Include/Header";
+import Pagination from "react-js-pagination";
 
 
 const MyOrderComponent = () => {
@@ -24,6 +26,13 @@ const MyOrderComponent = () => {
      const manage_session_url = `${window.url}/manage-session`;
 
      const [order, set_order] = useState(null);
+     
+     const [state, set_state] = useState({
+          orders : [],
+          activePage: 1,
+          itemsCountPerPage : 1,
+          totalItemsCount : 1
+     });
 
      useEffect(() => {
 
@@ -64,11 +73,42 @@ const MyOrderComponent = () => {
           .then( response => response.json() )
           .then( response => {
                if( response.status == "success" ){
-                    set_order(response.data)
+                    set_order(response.data.data)
+                    set_state({
+                         orders: response.data.data,
+                         activePage: response.data.current_page,
+                         itemsCountPerPage : response.data.per_page,
+                         totalItemsCount : response.data.total
+                    })
                }
           })
 
      },[])
+
+
+     const getOrderData = (pageNumber) => {
+
+          //get order data    
+          const get_order_data_url = `${window.url}/get-order`;
+          const token = localStorage.getItem('token')
+
+          fetch(`${get_order_data_url}/${token}?page=${pageNumber}`,{
+               method : "GET"
+          })
+          .then( response => response.json() )
+          .then( response => {
+               if( response.status == "success" ){
+                    set_order(response.data.data)
+                    set_state({
+                         orders: response.data.data,
+                         activePage: response.data.current_page,
+                         itemsCountPerPage : response.data.per_page,
+                         totalItemsCount : response.data.total
+                    })
+               }
+          })
+     }
+
 
      if( check_authorized && check_authorized == "authorized" ){
           return(
@@ -162,6 +202,22 @@ const MyOrderComponent = () => {
                                                        {/* order card end */}
 
 
+                                                  </div>
+
+                                                  <div className="row">
+                                                       {
+                                                            order &&
+                                                            <Pagination
+                                                            activePage={state.activePage}
+                                                            totalItemsCount={state.totalItemsCount}
+                                                            itemsCountPerPage={state.itemsCountPerPage}   
+                                                            onChange={(pageNumber)=>getOrderData(pageNumber)}  
+                                                            itemClass="page-item"
+                                                            linkClass="page-link"
+                                                            firstPageText="First"
+                                                            lastPageText="Last"
+                                                            />
+                                                       }
                                                   </div>
                                              </div>
                                              

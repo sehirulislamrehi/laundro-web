@@ -418,3 +418,7 @@ button.createbtn i {
 .profile-body .order-list:hover{
      color: unset!important;
 }
+.page-item.active .page-link {
+     background-color: #006bcc;
+     border-color: #006bcc;
+ }
